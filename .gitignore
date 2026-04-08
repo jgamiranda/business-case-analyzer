@@ -3,3 +3,5 @@ __pycache__/
 .claude/
 _extract_*.txt
 *_backup_*.py
+*.egg-info/
+.env
