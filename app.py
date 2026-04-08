@@ -1,4 +1,5 @@
 import datetime
+import math
 import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
@@ -8,14 +9,20 @@ from constants import (BENCHMARKS, INDEXADORES_CUSTO, INDEXADORES_DIVIDA, TIPOS_
                        UNIDADES, MULT, FMT, STEP, DEF, DEFAULTS)
 from translations import _OPT_TR_EN, _DF_ROW_EN, _DF_ROW_EN_INV, _METRIC_EN, _ROW_CSS, _L
 from backend import (tm, idx_custo, taxa_div_anual, fv, fp, calcular_operacional,
-                     calcular_da, run_sens_case, gerar_schedule,
+                     calcular_da, run_sens_case, run_sens_multi, gerar_schedule,
+                     agregar_schedules, saldo_total_por_mes,
+                     calcular_irr, calcular_mirr, calcular_profitability_index,
+                     calcular_wacc, calcular_custo_medio_divida,
+                     calcular_dscr, calcular_dscr_anual,
+                     calcular_icr_anual, calcular_divida_ebitda,
+                     monte_carlo, monte_carlo_stats,
                      _fetch_last, _fetch_hist, _fetch_focus)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURACAO
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="Analise de Viabilidade", layout="wide",
-                   initial_sidebar_state="collapsed")
+                   initial_sidebar_state="expanded")
 
 # BCB cache wrappers (decorator applied here so Streamlit is available)
 fetch_last  = st.cache_data(ttl=3600, show_spinner=False)(_fetch_last)
@@ -39,29 +46,54 @@ def get(k, d=0.0): return st.session_state.get(k, d)
 st.markdown("""
 <style>
 [data-testid="collapsedControl"]{display:none}
+/* ── Tabs ── */
 .stTabs [data-baseweb="tab-list"]{gap:5px}
-.stTabs [data-baseweb="tab"]{background:#dbeafe;border-radius:6px 6px 0 0;color:#1a56db;font-weight:600;padding:8px 18px;border:1px solid #bfdbfe;border-bottom:none}
-.stTabs [data-baseweb="tab"]:hover{background:#1a56db;color:white}
+.stTabs [data-baseweb="tab"]{background:#dbeafe;border-radius:6px 6px 0 0;color:#1a56db;font-weight:600;padding:8px 18px;border:1px solid #bfdbfe;border-bottom:none;transition:all .2s ease}
+.stTabs [data-baseweb="tab"]:hover{background:#1a56db;color:white;transform:translateY(-1px)}
 .stTabs [aria-selected="true"]{background:#1a56db !important;color:white !important;border-color:#1a56db !important}
-[data-testid="stExpander"] details summary{background:#1a56db !important;border-radius:6px !important;padding:10px 16px !important}
+/* ── Expanders ── */
+[data-testid="stExpander"] details summary{background:#1a56db !important;border-radius:6px !important;padding:10px 16px !important;transition:background .2s ease}
 [data-testid="stExpander"] details summary:hover{background:#1e429f !important}
 [data-testid="stExpander"] details summary p,[data-testid="stExpander"] details summary span{color:white !important;font-weight:600 !important}
 [data-testid="stExpander"] details summary svg{fill:white !important;stroke:white !important}
 [data-testid="stExpander"] details{border:1px solid #1a56db !important;border-radius:6px !important}
-.veredicto-verde{background:#d4edda;border-left:6px solid #28a745;padding:16px 20px;border-radius:8px}
-.veredicto-amarelo{background:#fff3cd;border-left:6px solid #ffc107;padding:16px 20px;border-radius:8px}
-.veredicto-vermelho{background:#f8d7da;border-left:6px solid #dc3545;padding:16px 20px;border-radius:8px}
+/* ── Verdict boxes ── */
+.veredicto-verde{background:linear-gradient(135deg,#d4edda 0%,#c3e6cb 100%);border-left:6px solid #28a745;padding:18px 22px;border-radius:10px;box-shadow:0 2px 8px rgba(40,167,69,.12)}
+.veredicto-amarelo{background:linear-gradient(135deg,#fff3cd 0%,#ffeeba 100%);border-left:6px solid #ffc107;padding:18px 22px;border-radius:10px;box-shadow:0 2px 8px rgba(255,193,7,.12)}
+.veredicto-vermelho{background:linear-gradient(135deg,#f8d7da 0%,#f5c6cb 100%);border-left:6px solid #dc3545;padding:18px 22px;border-radius:10px;box-shadow:0 2px 8px rgba(220,53,69,.12)}
 .veredicto-titulo{font-size:1.5rem;font-weight:700;margin-bottom:6px}
-.alerta-ok{color:#155724;background:#d4edda;padding:6px 12px;border-radius:4px;margin:4px 0;display:block}
-.alerta-warn{color:#856404;background:#fff3cd;padding:6px 12px;border-radius:4px;margin:4px 0;display:block}
-.alerta-bad{color:#721c24;background:#f8d7da;padding:6px 12px;border-radius:4px;margin:4px 0;display:block}
+/* ── Alert badges ── */
+.alerta-ok{color:#155724;background:#d4edda;padding:8px 14px;border-radius:6px;margin:4px 0;display:block;border-left:4px solid #28a745;transition:transform .15s ease}
+.alerta-ok:hover{transform:translateX(4px)}
+.alerta-warn{color:#856404;background:#fff3cd;padding:8px 14px;border-radius:6px;margin:4px 0;display:block;border-left:4px solid #ffc107;transition:transform .15s ease}
+.alerta-warn:hover{transform:translateX(4px)}
+.alerta-bad{color:#721c24;background:#f8d7da;padding:8px 14px;border-radius:6px;margin:4px 0;display:block;border-left:4px solid #dc3545;transition:transform .15s ease}
+.alerta-bad:hover{transform:translateX(4px)}
+/* ── Grid headers ── */
+.grid-hdr{display:flex;gap:0;padding:6px 0 4px 0;border-bottom:2px solid #1a56db;margin-bottom:6px}
+.grid-hdr span{font-size:.72rem;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
 .linha-hdr{font-weight:600;color:#374151;font-size:0.82rem;margin:10px 0 2px 0;border-left:3px solid #1a56db;padding-left:8px}
-.macro-card{background:#f0f7ff;border:1px solid #bfdbfe;border-radius:8px;padding:12px 16px;text-align:center}
-.macro-label{font-size:.75rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.05em}
+/* ── Macro cards ── */
+.macro-card{background:linear-gradient(135deg,#f0f7ff 0%,#e8f0fe 100%);border:1px solid #bfdbfe;border-radius:10px;padding:14px 16px;text-align:center;transition:all .2s ease;box-shadow:0 1px 4px rgba(26,86,219,.06)}
+.macro-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(26,86,219,.12)}
+.macro-label{font-size:.72rem;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
 .macro-value{font-size:1.6rem;font-weight:700;color:#1a56db;margin:4px 0}
-.macro-date{font-size:.72rem;color:#9ca3af}
-.unit-bar{background:#1a56db;border-radius:8px;padding:10px 20px;margin-bottom:6px}
+.macro-date{font-size:.7rem;color:#9ca3af}
+/* ── Unit bar ── */
+.unit-bar{background:linear-gradient(90deg,#1a56db 0%,#1e429f 100%);border-radius:8px;padding:10px 20px;margin-bottom:6px}
 .unit-label{color:white;font-weight:700;font-size:.95rem}
+/* ── Metric cards (custom) ── */
+.metric-card{background:linear-gradient(135deg,#f0f7ff 0%,#dbeafe 100%);border:1px solid #bfdbfe;border-radius:10px;padding:16px 18px;text-align:center;transition:all .2s ease}
+.metric-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(26,86,219,.14)}
+.metric-card .mc-label{font-size:.72rem;color:#6b7280;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.metric-card .mc-value{font-size:1.5rem;font-weight:800;color:#1a56db;margin:2px 0}
+.metric-card .mc-delta{font-size:.78rem;font-weight:600;margin-top:2px}
+.mc-pos{color:#16a34a}.mc-neg{color:#dc2626}
+.metric-card-green{background:linear-gradient(135deg,#d4edda 0%,#c3e6cb 100%);border-color:#a3d9a5}
+.metric-card-green .mc-value{color:#16a34a}
+.metric-card-red{background:linear-gradient(135deg,#f8d7da 0%,#f5c6cb 100%);border-color:#f1aeb5}
+.metric-card-red .mc-value{color:#dc2626}
+/* ── DF tables ── */
 .df-header{background:#1a56db;color:white;font-weight:700;padding:6px 10px;border-radius:4px;font-size:.85rem;margin:12px 0 4px 0}
 .df-subtotal{font-weight:700}
 /* ── Sensitivity heatmap table ── */
@@ -72,12 +104,19 @@ st.markdown("""
 .sens-tbl table tbody th{background:#dbeafe !important;color:#1e3a8a !important;font-weight:700;padding:7px 16px;text-align:right;border:1px solid #bfdbfe !important;white-space:nowrap}
 .sens-tbl table tbody td{padding:7px 14px;text-align:center;border:1px solid #e5e7eb !important;font-weight:600;font-size:.85rem}
 /* ── DF styled tables (DRE / DFC / BP) ── */
-.df-styled{overflow-x:auto;border-radius:8px;margin:4px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.df-styled{overflow-x:auto;border-radius:8px;margin:4px 0;box-shadow:0 2px 8px rgba(0,0,0,.06)}
 .df-styled table{width:100%;border-collapse:collapse;font-size:.86rem;font-family:inherit}
 .df-styled table thead th{background:#1a56db !important;color:#fff !important;padding:8px 14px;font-weight:700;text-align:right;border:1px solid #1e429f !important}
 .df-styled table thead th:first-child{background:#1e3a8a !important;text-align:left}
 .df-styled table tbody th{color:#374151;font-weight:500;padding:6px 14px;text-align:left;border:1px solid #e5e7eb !important;white-space:nowrap;background:#fafafa}
 .df-styled table tbody td{padding:6px 14px;text-align:right;border:1px solid #e5e7eb !important}
+.df-styled table tbody tr:hover td,.df-styled table tbody tr:hover th{background:#f0f7ff !important}
+/* ── Sidebar ── */
+.sb-metric{background:linear-gradient(135deg,#f0f7ff,#dbeafe);border-radius:8px;padding:10px 12px;margin:4px 0;text-align:center;border:1px solid #bfdbfe}
+.sb-metric .sb-val{font-size:1.1rem;font-weight:800;color:#1a56db}
+.sb-metric .sb-lbl{font-size:.68rem;color:#6b7280;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+/* ── Footer ── */
+.app-footer{text-align:center;padding:20px 0 10px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.75rem}
 </style>
 """, unsafe_allow_html=True)
 
@@ -130,6 +169,18 @@ hr{border-color:#334155 !important}
 .veredicto-vermelho{background:#7f1d1d !important;border-color:#ef4444 !important}
 .veredicto-titulo{color:#f9fafb !important}
 .sens-tbl table tbody td{border-color:#334155 !important}
+.metric-card{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important}
+.metric-card .mc-label{color:#94a3b8 !important}.metric-card .mc-value{color:#60a5fa !important}
+.metric-card-green{background:linear-gradient(135deg,#064e3b,#065f46) !important;border-color:#10b981 !important}
+.metric-card-green .mc-value{color:#6ee7b7 !important}
+.metric-card-red{background:linear-gradient(135deg,#7f1d1d,#991b1b) !important;border-color:#ef4444 !important}
+.metric-card-red .mc-value{color:#fca5a5 !important}
+.sb-metric{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important}
+.sb-metric .sb-val{color:#60a5fa !important}.sb-metric .sb-lbl{color:#94a3b8 !important}
+.df-styled table tbody tr:hover td,.df-styled table tbody tr:hover th{background:#1e3a5f !important}
+.df-styled table tbody th{background:#1e293b !important;color:#e2e8f0 !important;border-color:#334155 !important}
+.df-styled table tbody td{border-color:#334155 !important;color:#e2e8f0 !important}
+.app-footer{border-color:#334155 !important;color:#6b7280 !important}
 </style>""", unsafe_allow_html=True)
 
 st.markdown(f'<div class="unit-bar"><span class="unit-label">{T("unit_label")}</span></div>', unsafe_allow_html=True)
@@ -138,10 +189,12 @@ if not unit: unit = st.session_state.get("unit","R$ Mil")
 ufmt=FMT[unit]; ustep=STEP[unit]; umult=MULT[unit]
 st.divider()
 
-tab_prem,tab_macro,tab_div,tab_res,tab_df,tab_sens,tab_slides = st.tabs([
-    T("tab_premissas"), T("tab_macro"), T("tab_divida"),
-    T("tab_resultados"), T("tab_dfs"), T("tab_sens"), T("tab_slides"),
-])
+_tab_icons = ["\U0001f4cb", "\U0001f4c8", "\U0001f3e6", "\U0001f3af", "\U0001f4ca", "\U0001f50d", "\U0001f4fd"]
+_tab_names = [T("tab_premissas"), T("tab_macro"), T("tab_divida"),
+              T("tab_resultados"), T("tab_dfs"), T("tab_sens"), T("tab_slides")]
+tab_prem,tab_macro,tab_div,tab_res,tab_df,tab_sens,tab_slides = st.tabs(
+    [f"{ico}  {nm}" for ico, nm in zip(_tab_icons, _tab_names)]
+)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 1 — PREMISSAS
@@ -171,6 +224,9 @@ with tab_prem:
     with st.expander(T("sec_receita"), expanded=True):
         st.caption(T("cap_receita").format(unit=unit))
         n_rec = st.slider(T("n_rec_lbl"),1,8,int(get("n_rec_v",1)),key="n_rec_v")
+        _rh=st.columns([2,1.8,1.2,1.2,1.2])
+        _rh[0].caption(T("hdr_nome")); _rh[1].caption(T("hdr_valor").format(unit=unit))
+        _rh[2].caption(T("hdr_cresc")); _rh[3].caption(T("hdr_idx")); _rh[4].caption(T("hdr_taxa"))
         for i in range(n_rec):
             st.markdown(f'<div class="linha-hdr">{T("rec_prefix")} {i+1}</div>',unsafe_allow_html=True)
             c1,c2,c3,c4,c5=st.columns([2,1.8,1.2,1.2,1.2])
@@ -207,6 +263,9 @@ with tab_prem:
     with st.expander(T("sec_opex"), expanded=False):
         st.caption(T("cap_opex"))
         n_opex=st.slider(T("n_opex_lbl"),1,8,int(get("n_opex_v",1)),key="n_opex_v")
+        _oh=st.columns([2,1.2,1.8,1.2,1.2,1.2])
+        _oh[0].caption(T("hdr_nome")); _oh[1].caption(T("hdr_cat")); _oh[2].caption(T("hdr_valor").format(unit=unit))
+        _oh[3].caption(T("hdr_cresc")); _oh[4].caption(T("hdr_idx")); _oh[5].caption(T("hdr_taxa"))
         for i in range(n_opex):
             st.markdown(f'<div class="linha-hdr">{T("opex_prefix")} {i+1}</div>',unsafe_allow_html=True)
             c1,c2,c3,c4,c5,c6=st.columns([2,1.2,1.8,1.2,1.2,1.2])
@@ -221,6 +280,9 @@ with tab_prem:
     with st.expander(T("sec_capex"), expanded=True):
         st.caption(T("cap_capex"))
         n_capex=st.slider(T("n_capex_lbl"),1,8,int(get("n_capex_v",1)),key="n_capex_v")
+        _ch=st.columns([2,1.8,1.4,1.2,1.8])
+        _ch[0].caption(T("hdr_nome")); _ch[1].caption(T("hdr_valor").format(unit=unit))
+        _ch[2].caption(T("hdr_vida")); _ch[3].caption(T("hdr_residual")); _ch[4].caption(T("hdr_pct_res"))
         for i in range(n_capex):
             st.markdown(f'<div class="linha-hdr">{T("capex_prefix")} {i+1}</div>',unsafe_allow_html=True)
             c1,c2,c3,c4,c5=st.columns([2,1.8,1.4,1.2,1.8])
@@ -521,25 +583,36 @@ depr_m = calcular_da(capex_lines, horizonte)
 
 # Schedules de divida
 schedules={}
-interest_m  = pd.Series(0.0,index=range(1,horizonte+1))
-principal_m = pd.Series(0.0,index=range(1,horizonte+1))
 proceeds_m  = pd.Series(0.0,index=range(1,horizonte+1))
 total_debt  = 0.0
 
 for t in tranches:
     df_t = gerar_schedule(t, macro_rates, horizonte)
     schedules[t["nome"]] = df_t
-    if not df_t.empty:
-        for _,row in df_t.iterrows():
-            m=int(row["Mes"])
-            if 1<=m<=horizonte:
-                interest_m[m]  += row["Juros Pagos"]
-                principal_m[m] += row["Amortizacao"]
     sm=t["start_mes"]
     if 1<=sm<=horizonte: proceeds_m[sm]+=t["valor"]
     total_debt+=t["valor"]
 
+# Vectorized debt aggregation (replaces slow iterrows)
+interest_m, principal_m = agregar_schedules(schedules, horizonte)
+
 equity_required = max(total_capex-total_debt,0)
+
+# ─── New financial metrics ────────────────────────────────────────────────────
+# IRR (project-level): cash flows = [-CapEx, FCF_1, FCF_2, ...]
+_irr_flows = [-total_capex] + df_op["FCF"].tolist()
+irr_projeto = calcular_irr(_irr_flows)
+
+# Cost of debt & WACC
+custo_divida = calcular_custo_medio_divida(tranches, macro_rates)
+wacc = calcular_wacc(total_capex, total_debt, equity_required,
+                     taxa_desc, custo_divida, taxa_ir)
+
+# Profitability Index
+pi_projeto = calcular_profitability_index(npv, total_capex)
+
+# DSCR
+dscr_mensal = calcular_dscr(df_op, interest_m, principal_m, horizonte)
 
 # FCF Levered
 meses_ser = pd.Series(range(1,horizonte+1))
@@ -554,6 +627,13 @@ pb_lev_s = df_lev[df_lev["Acumulado Levered"]>=0]["Mes"]
 payback_lev = int(pb_lev_s.iloc[0]) if not pb_lev_s.empty else None
 t_desc_m = tm(taxa_desc)
 npv_levered = sum(df_lev["FCF Levered"].iloc[m]/(1+t_desc_m)**(m+1) for m in range(len(df_lev))) - equity_required
+
+# IRR levered (equity-level)
+_irr_lev_flows = [-equity_required] + df_lev["FCF Levered"].tolist()
+irr_equity = calcular_irr(_irr_lev_flows)
+
+# MIRR (project-level): finance at WACC, reinvest at WACC
+mirr_projeto = calcular_mirr(_irr_flows, wacc, wacc)
 
 # Demonstracoes anuais
 n_anos = math.ceil(horizonte/12)
@@ -652,6 +732,40 @@ for y in range(1,n_anos+1):
                  "Capital Social":equity_required,"Lucros Acumulados":ni_acc,
                  "Total PL":eq_total,"Total Passivo + PL":debt_bal+eq_total}
 
+# ─── Financial ratios (annual) ────────────────────────────────────────────────
+dscr_anual = calcular_dscr_anual(dscr_mensal, horizonte)
+icr_anual = calcular_icr_anual(annual)
+divida_ebitda_anual = calcular_divida_ebitda(balanco, annual)
+
+# ─── Sidebar — key metrics summary ────────────────────────────────────────────
+with st.sidebar:
+    st.markdown(f"### {T('sb_title')}")
+    st.divider()
+    st.markdown(f"**{T('sb_metricas')}**")
+    _sb_pb_txt = f"{payback} {T('sb_meses')}" if payback else T("sb_na")
+    _sb_irr = f"{irr_projeto:.1f}%" if irr_projeto is not None else "N/A"
+    _sb_items = [
+        (T("sb_roi"), f"{roi:.0f}%"),
+        (T("sb_npv"), fv(npv, unit)),
+        (T("sb_pb"), _sb_pb_txt),
+        (T("sb_mg"), f"{mg_med:.0f}%"),
+        ("IRR", _sb_irr),
+        ("WACC", f"{wacc:.1f}%"),
+    ]
+    for _lbl, _val in _sb_items:
+        st.markdown(f'<div class="sb-metric"><div class="sb-lbl">{_lbl}</div><div class="sb-val">{_val}</div></div>', unsafe_allow_html=True)
+    st.divider()
+    st.markdown(f"**{T('sb_config')}**")
+    _sb_info = [
+        (T("sb_horizonte"), f"{horizonte} {T('sb_meses')}"),
+        (T("sb_taxa"), f"{taxa_desc:.1f}%"),
+        (T("sb_setor"), fmt_opt(setor)),
+        (T("sb_divida"), fv(total_debt, unit)),
+        (T("sb_equity"), fv(equity_required, unit)),
+    ]
+    for _lbl, _val in _sb_info:
+        st.caption(f"**{_lbl}:** {_val}")
+
 # ─── Grafico consolidado divida (preenche placeholder) ────────────────────────
 with div_chart_placeholder.container():
     if any(not df_t.empty for df_t in schedules.values()):
@@ -663,20 +777,15 @@ with div_chart_placeholder.container():
             amort_s=pd.Series(0.0,index=meses_div)
             juros_s=pd.Series(0.0,index=meses_div)
             if not df_t.empty:
-                for _,row in df_t.iterrows():
-                    m=int(row["Mes"])
-                    if m in amort_s.index:
-                        amort_s[m]+=row["Amortizacao"]
-                        juros_s[m]+=row["Juros Pagos"]
+                valid = df_t[df_t["Mes"].between(1, horizonte)]
+                if not valid.empty:
+                    grp = valid.groupby("Mes").agg({"Amortizacao":"sum","Juros Pagos":"sum"})
+                    amort_s = amort_s.add(grp["Amortizacao"], fill_value=0)
+                    juros_s = juros_s.add(grp["Juros Pagos"], fill_value=0)
             fig_d.add_trace(go.Bar(x=meses_div,y=(amort_s/umult).tolist(),name=f"{nome_t} — {T('dv_chart_amort')}",marker_color=cor,opacity=0.9))
             fig_d.add_trace(go.Bar(x=meses_div,y=(juros_s/umult).tolist(),name=f"{nome_t} — {T('dv_chart_juros')}",marker_color=cor,opacity=0.5))
 
-        saldo_tot=pd.Series(0.0,index=meses_div)
-        for df_t in schedules.values():
-            if not df_t.empty:
-                for _,row in df_t.iterrows():
-                    m=int(row["Mes"])
-                    if m in saldo_tot.index: saldo_tot[m]+=row["Saldo Final"]
+        saldo_tot = saldo_total_por_mes(schedules, horizonte)
         fig_d.add_trace(go.Scatter(x=meses_div,y=(saldo_tot/umult).tolist(),mode="lines",
                                    name=T("dv_chart_saldo"),line=dict(color="#dc2626",width=2.5),yaxis="y2"))
         fig_d.update_layout(barmode="stack",height=400,hovermode="x unified",
@@ -718,20 +827,53 @@ with tab_res:
         st.divider()
 
     st.subheader(T("res_metricas"))
+
+    def _metric_card(label, value, positive=None):
+        cls = "metric-card"
+        if positive is True: cls += " metric-card-green"
+        elif positive is False: cls += " metric-card-red"
+        delta_html = ""
+        if positive is not None:
+            d_cls = "mc-pos" if positive else "mc-neg"
+            d_txt = T("res_positivo") if positive else T("res_negativo")
+            d_arrow = "\u2191" if positive else "\u2193"
+            delta_html = f'<div class="mc-delta {d_cls}">{d_arrow} {d_txt}</div>'
+        return f'<div class="{cls}"><div class="mc-label">{label}</div><div class="mc-value">{value}</div>{delta_html}</div>'
+
     r1,r2=st.tabs([T("res_tab_proj"), T("res_tab_eq")])
     with r1:
         m1,m2,m3,m4=st.columns(4)
-        m1.metric(T("res_roi_proj"),f"{roi:.0f}%",delta=T("res_positivo") if roi>0 else T("res_negativo"),delta_color="normal" if roi>0 else "inverse")
-        m2.metric(T("res_pb_proj"),f"{payback} {'meses' if lang=='PT' else 'months'}" if payback else T("res_nao_atingido"))
-        m3.metric(T("res_npv_proj"),fv(npv,unit),delta=T("res_positivo") if npv>0 else T("res_negativo"),delta_color="normal" if npv>0 else "inverse")
-        m4.metric(T("res_mg_proj"),f"{mg_med:.0f}%")
+        m1.markdown(_metric_card(T("res_roi_proj"), f"{roi:.0f}%", roi>0), unsafe_allow_html=True)
+        m2.markdown(_metric_card(T("res_pb_proj"), f"{payback} {'meses' if lang=='PT' else 'mo'}" if payback else T("res_nao_atingido"), payback is not None), unsafe_allow_html=True)
+        m3.markdown(_metric_card(T("res_npv_proj"), fv(npv,unit), npv>0), unsafe_allow_html=True)
+        m4.markdown(_metric_card(T("res_mg_proj"), f"{mg_med:.0f}%"), unsafe_allow_html=True)
+        # Row 2: IRR, MIRR, PI, WACC
+        m5,m6,m7,m8=st.columns(4)
+        _irr_str = f"{irr_projeto:.1f}%" if irr_projeto is not None else "N/A"
+        m5.markdown(_metric_card(T("res_irr_proj"), _irr_str, irr_projeto is not None and irr_projeto > taxa_desc), unsafe_allow_html=True)
+        _mirr_str = f"{mirr_projeto:.1f}%" if mirr_projeto is not None else "N/A"
+        m6.markdown(_metric_card(T("res_mirr"), _mirr_str, mirr_projeto is not None and mirr_projeto > wacc), unsafe_allow_html=True)
+        _pi_str = f"{pi_projeto:.2f}x" if pi_projeto is not None else "N/A"
+        m7.markdown(_metric_card(T("res_pi"), _pi_str, pi_projeto is not None and pi_projeto > 1), unsafe_allow_html=True)
+        m8.markdown(_metric_card(T("res_wacc"), f"{wacc:.2f}%"), unsafe_allow_html=True)
     with r2:
         e1,e2,e3,e4=st.columns(4)
         eq_roi=(df_lev["FCF Levered"].sum()/equity_required*100) if equity_required>0 else 0
-        e1.metric(T("res_roi_eq"),f"{eq_roi:.0f}%",delta=T("res_positivo") if eq_roi>0 else T("res_negativo"),delta_color="normal" if eq_roi>0 else "inverse")
-        e2.metric(T("res_pb_eq"),f"{payback_lev} {'meses' if lang=='PT' else 'months'}" if payback_lev else T("res_nao_atingido"))
-        e3.metric(T("res_npv_eq"),fv(npv_levered,unit),delta=T("res_positivo") if npv_levered>0 else T("res_negativo"),delta_color="normal" if npv_levered>0 else "inverse")
-        e4.metric(T("res_eq_req"),fv(equity_required,unit))
+        e1.markdown(_metric_card(T("res_roi_eq"), f"{eq_roi:.0f}%", eq_roi>0), unsafe_allow_html=True)
+        e2.markdown(_metric_card(T("res_pb_eq"), f"{payback_lev} {'meses' if lang=='PT' else 'mo'}" if payback_lev else T("res_nao_atingido"), payback_lev is not None), unsafe_allow_html=True)
+        e3.markdown(_metric_card(T("res_npv_eq"), fv(npv_levered,unit), npv_levered>0), unsafe_allow_html=True)
+        e4.markdown(_metric_card(T("res_eq_req"), fv(equity_required,unit)), unsafe_allow_html=True)
+        # Row 2: IRR equity, DSCR min
+        e5,e6,e7,e8=st.columns(4)
+        _irr_eq_str = f"{irr_equity:.1f}%" if irr_equity is not None else "N/A"
+        e5.markdown(_metric_card(T("res_irr_eq"), _irr_eq_str, irr_equity is not None and irr_equity > taxa_desc), unsafe_allow_html=True)
+        _dscr_vals = [v for v in dscr_anual.values() if v != float('inf')]
+        _dscr_min = min(_dscr_vals) if _dscr_vals else None
+        _dscr_str = f"{_dscr_min:.2f}x" if _dscr_min is not None else "N/A"
+        e6.markdown(_metric_card(T("res_dscr_min"), _dscr_str, _dscr_min is not None and _dscr_min >= 1.2), unsafe_allow_html=True)
+        _cd_str = f"{custo_divida:.2f}%" if total_debt > 0 else "N/A"
+        e7.markdown(_metric_card(T("res_custo_divida"), _cd_str), unsafe_allow_html=True)
+        e8.empty()
     st.divider()
 
     st.subheader(T("res_veredicto"))
@@ -921,6 +1063,25 @@ with tab_df:
             "Total Passivo + PL":            {yr: mn(balanco[yr]["Total Passivo + PL"])       for yr in anos},
         })
 
+    # Financial ratios table (DSCR, ICR, Debt/EBITDA)
+    if total_debt > 0:
+        with st.expander(T("df_ratios"), expanded=False):
+            st.caption(T("df_ratios_cap"))
+            _ratios_data = {}
+            _ratios_data["DSCR (x)"] = {yr: f"{v:.2f}" if v != float('inf') else "—"
+                                         for yr, v in dscr_anual.items()}
+            _ratios_data["ICR (x)"] = {yr: f"{v:.2f}" if v != float('inf') else "—"
+                                        for yr, v in icr_anual.items()}
+            _ratios_data[T("df_ratio_debt_ebitda")] = {
+                yr: f"{v:.2f}" if v != float('inf') else "—"
+                for yr, v in divida_ebitda_anual.items()}
+            if lang == "EN":
+                _ratio_cols = {yr: yr.replace("Ano", "Year") for yr in anos}
+            else:
+                _ratio_cols = {yr: yr for yr in anos}
+            df_ratios = pd.DataFrame(_ratios_data, index=[_ratio_cols[yr] for yr in anos]).T
+            st.dataframe(df_ratios, use_container_width=True)
+
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 6 — ANALISE DE SENSIBILIDADE
 # ─────────────────────────────────────────────────────────────────────────────
@@ -950,8 +1111,8 @@ def _sv_preview(vals, is_abs):
 with tab_sens:
     st.subheader(T("sv_title"))
 
-    # ── 4-view toggle ─────────────────────────────────────────────────────────
-    _SV_VIEWS = ["table", "scenario", "tornado", "football"]
+    # ── 5-view toggle ─────────────────────────────────────────────────────────
+    _SV_VIEWS = ["table", "scenario", "tornado", "football", "montecarlo"]
     sv_view = st.segmented_control(
         "sv_view_sel", _SV_VIEWS,
         format_func=lambda x: T(f"sv_view_{x}"),
@@ -1140,20 +1301,14 @@ text-transform:uppercase;letter-spacing:.04em">{T("sv_metrica_lbl").format(m=met
                 sc_results = []
                 for si in range(n_sc):
                     nome_sc = get(f"sc_nome_{si}", _sc_names_default[si]) or f"C{si+1}"
-                    # run with rec_var + cresc_rec in two passes (chain via noop trick)
-                    _r1 = run_sens_case(receitas,cpvs,opexs,capex_lines,horizonte,
-                                        taxa_desc,ipca_ref,igpm_ref,
-                                        "rec_var",   float(get(f"sc_rec_var_{si}", 0.0)),
-                                        "cresc_rec", float(get(f"sc_cresc_{si}", _base_cresc)))
-                    _r2 = run_sens_case(receitas,cpvs,opexs,capex_lines,horizonte,
-                                        taxa_desc,ipca_ref,igpm_ref,
-                                        "cpv_var",   float(get(f"sc_cpv_var_{si}",  0.0)),
-                                        "opex_var",  float(get(f"sc_opex_var_{si}", 0.0)))
-                    # combine: take NPV/ROI/payback from combined run
-                    _rfull = run_sens_case(receitas,cpvs,opexs,capex_lines,horizonte,
-                                           taxa_desc,ipca_ref,igpm_ref,
-                                           "rec_var",  float(get(f"sc_rec_var_{si}", 0.0)),
-                                           "cpv_var",  float(get(f"sc_cpv_var_{si}", 0.0)))
+                    # Apply all 4 variables simultaneously via run_sens_multi
+                    _rfull = run_sens_multi(
+                        receitas, cpvs, opexs, capex_lines, horizonte,
+                        taxa_desc, ipca_ref, igpm_ref,
+                        [("rec_var",   float(get(f"sc_rec_var_{si}",  0.0))),
+                         ("cresc_rec", float(get(f"sc_cresc_{si}",    _base_cresc))),
+                         ("cpv_var",   float(get(f"sc_cpv_var_{si}",  0.0))),
+                         ("opex_var",  float(get(f"sc_opex_var_{si}", 0.0)))])
                     sc_results.append({
                         "nome": nome_sc,
                         "npv":  _rfull[0], "roi": _rfull[1],
@@ -1283,7 +1438,7 @@ text-transform:uppercase;letter-spacing:.04em">{T("sv_metrica_lbl").format(m=met
     # ══════════════════════════════════════════════════════════════════════════
     # VIEW 4 — FOOTBALL FIELD CHART
     # ══════════════════════════════════════════════════════════════════════════
-    else:  # football
+    elif sv_view == "football":
         _fc1, _fc2, _fc3 = st.columns([3, 2, 2])
         ff_metric = _fc1.selectbox(T("sv_metrica"), sens_metrics,
                                    format_func=sens_metric_fmt, key="ff_metric")
@@ -1348,6 +1503,133 @@ text-transform:uppercase;letter-spacing:.04em">{T("sv_metrica_lbl").format(m=met
         else:
             st.info(T("sv_tn_empty"))
 
+    # ══════════════════════════════════════════════════════════════════════════
+    # VIEW 5 — MONTE CARLO SIMULATION
+    # ══════════════════════════════════════════════════════════════════════════
+    else:  # montecarlo
+        st.caption(T("sv_mc_cap"))
+        if "mc_data" not in st.session_state:
+            st.session_state["mc_data"] = None
+
+        _mc1, _mc2 = st.columns([3, 2])
+        mc_sims = _mc1.slider(T("sv_mc_nsims"), 100, 5000, 1000, step=100, key="mc_nsims")
+        mc_seed = _mc2.number_input("Seed", value=42, step=1, key="mc_seed")
+
+        st.markdown(f"**{T('sv_mc_std_title')}**")
+        _mca, _mcb, _mcc = st.columns(3)
+        mc_rec_std  = _mca.slider(T("sv_mc_rec_std"),  1.0, 50.0, 15.0, 1.0, key="mc_rec_std")
+        mc_cpv_std  = _mcb.slider(T("sv_mc_cpv_std"),  1.0, 50.0, 10.0, 1.0, key="mc_cpv_std")
+        mc_opex_std = _mcc.slider(T("sv_mc_opex_std"), 1.0, 50.0, 10.0, 1.0, key="mc_opex_std")
+        _mcd, _mce, _ = st.columns(3)
+        mc_cresc_std = _mcd.slider(T("sv_mc_cresc_std"), 0.5, 20.0, 5.0, 0.5, key="mc_cresc_std")
+        mc_td_std    = _mce.slider(T("sv_mc_td_std"),    0.5, 10.0, 2.0, 0.5, key="mc_td_std")
+
+        mc_btn = st.button(T("sv_mc_run"), type="primary")
+        st.divider()
+
+        if mc_btn:
+            with st.spinner(T("sv_calculando")):
+                mc_res = monte_carlo(
+                    receitas, cpvs, opexs, capex_lines, horizonte,
+                    taxa_desc, ipca_ref, igpm_ref,
+                    n_sims=mc_sims, seed=mc_seed,
+                    rec_std=mc_rec_std, cpv_std=mc_cpv_std, opex_std=mc_opex_std,
+                    cresc_std=mc_cresc_std, taxa_desc_std=mc_td_std)
+                mc_stats = monte_carlo_stats(mc_res)
+                st.session_state["mc_data"] = {"results": mc_res, "stats": mc_stats}
+
+        if st.session_state.get("mc_data"):
+            mc = st.session_state["mc_data"]
+            mc_res = mc["results"]
+            mc_stats = mc["stats"]
+
+            # Summary stats cards
+            _s1, _s2, _s3, _s4 = st.columns(4)
+            _npv_s = mc_stats["npv"]
+            _s1.markdown(_metric_card(
+                f"NPV {T('sv_mc_median')}",
+                f"{_npv_s['median']/umult:,.1f} ({unit})",
+                _npv_s["median"] > 0), unsafe_allow_html=True)
+            _s2.markdown(_metric_card(
+                f"NPV P5–P95",
+                f"{_npv_s['p5']/umult:,.0f} ~ {_npv_s['p95']/umult:,.0f}"),
+                unsafe_allow_html=True)
+            _roi_s = mc_stats["roi"]
+            _s3.markdown(_metric_card(
+                f"ROI {T('sv_mc_median')}",
+                f"{_roi_s['median']:.0f}%",
+                _roi_s["median"] > 0), unsafe_allow_html=True)
+            _pb_s = mc_stats["payback"]
+            _pb_med = _pb_s["median"]
+            _s4.markdown(_metric_card(
+                f"Payback {T('sv_mc_median')}",
+                f"{_pb_med:.0f} {'meses' if lang=='PT' else 'mo'}" if _pb_med <= horizonte else "N/A",
+                _pb_med <= horizonte), unsafe_allow_html=True)
+
+            # Probability of positive NPV
+            _npv_arr = mc_res["npv"]
+            _prob_pos = sum(1 for v in _npv_arr if v > 0) / len(_npv_arr) * 100
+            st.markdown(f"**{T('sv_mc_prob_npv')}: {_prob_pos:.1f}%**")
+            st.divider()
+
+            # Distribution charts
+            _mc_tab1, _mc_tab2, _mc_tab3 = st.tabs(["NPV", "ROI (%)", "Payback"])
+            with _mc_tab1:
+                fig_mc = go.Figure()
+                fig_mc.add_trace(go.Histogram(
+                    x=[v/umult for v in mc_res["npv"]], nbinsx=50,
+                    marker_color="#1a56db", opacity=0.8, name="NPV"))
+                fig_mc.add_vline(x=0, line_dash="dash", line_color="#dc2626", line_width=2,
+                                 annotation_text="NPV=0")
+                fig_mc.add_vline(x=_npv_s["median"]/umult, line_dash="dot",
+                                 line_color="#16a34a", line_width=2,
+                                 annotation_text=f"Median: {_npv_s['median']/umult:,.0f}")
+                fig_mc.update_layout(
+                    xaxis_title=f"NPV ({unit})", yaxis_title=T("sv_mc_freq"),
+                    height=400, showlegend=False)
+                st.plotly_chart(fig_mc, use_container_width=True)
+
+            with _mc_tab2:
+                fig_roi = go.Figure()
+                fig_roi.add_trace(go.Histogram(
+                    x=mc_res["roi"], nbinsx=50,
+                    marker_color="#16a34a", opacity=0.8, name="ROI"))
+                fig_roi.add_vline(x=0, line_dash="dash", line_color="#dc2626", line_width=2)
+                fig_roi.update_layout(
+                    xaxis_title="ROI (%)", yaxis_title=T("sv_mc_freq"),
+                    height=400, showlegend=False)
+                st.plotly_chart(fig_roi, use_container_width=True)
+
+            with _mc_tab3:
+                _pb_vals = [v for v in mc_res["payback"] if v <= horizonte]
+                fig_pb = go.Figure()
+                fig_pb.add_trace(go.Histogram(
+                    x=_pb_vals, nbinsx=30,
+                    marker_color="#f97316", opacity=0.8, name="Payback"))
+                fig_pb.update_layout(
+                    xaxis_title=f"Payback ({'meses' if lang=='PT' else 'months'})",
+                    yaxis_title=T("sv_mc_freq"),
+                    height=400, showlegend=False)
+                st.plotly_chart(fig_pb, use_container_width=True)
+
+            # Percentile table
+            st.markdown(f"**{T('sv_mc_percentiles')}**")
+            pct_data = {}
+            for key, label in [("npv", f"NPV ({unit})"), ("roi", "ROI (%)"),
+                                ("payback", f"Payback ({'meses' if lang=='PT' else 'mo'})"),
+                                ("margem", f"{'Margem Bruta' if lang=='PT' else 'Gross Margin'} (%)")]:
+                s = mc_stats[key]
+                pct_data[label] = {
+                    "P5": f"{s['p5']/umult:,.1f}" if key == "npv" else f"{s['p5']:.1f}",
+                    "P25": f"{s['p25']/umult:,.1f}" if key == "npv" else f"{s['p25']:.1f}",
+                    T("sv_mc_median"): f"{s['median']/umult:,.1f}" if key == "npv" else f"{s['median']:.1f}",
+                    "P75": f"{s['p75']/umult:,.1f}" if key == "npv" else f"{s['p75']:.1f}",
+                    "P95": f"{s['p95']/umult:,.1f}" if key == "npv" else f"{s['p95']:.1f}",
+                }
+            st.dataframe(pd.DataFrame(pct_data).T, use_container_width=True)
+        else:
+            st.info(T("sv_mc_empty"))
+
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 7 — SLIDES DECK
 # ─────────────────────────────────────────────────────────────────────────────
@@ -1410,3 +1692,8 @@ The deck will consist of professionally styled slides auto-generated from the mo
         disabled=True,
         help="Em breve — proxima etapa" if lang=="PT" else "Coming soon — next phase"
     )
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FOOTER
+# ─────────────────────────────────────────────────────────────────────────────
+st.markdown(f'<div class="app-footer">{T("footer_text")}<br>{T("footer_powered")}</div>', unsafe_allow_html=True)
