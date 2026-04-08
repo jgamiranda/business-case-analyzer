@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 
 from constants import (BENCHMARKS, INDEXADORES_CUSTO, INDEXADORES_DIVIDA, TIPOS_AMORT,
                        TIPOS_DIVIDA, FREQ_OPTS, SENS_VARS, SENS_VARS_EN, SENS_ABS,
-                       UNIDADES, MULT, FMT, STEP, DEF, DEFAULTS)
+                       UNIDADES, MULT, FMT, STEP, DEF, DEFAULTS, MODEL_TYPES)
 from translations import _OPT_TR_EN, _DF_ROW_EN, _DF_ROW_EN_INV, _METRIC_EN, _ROW_CSS, _L
 from backend import (tm, idx_custo, taxa_div_anual, fv, fp, calcular_operacional,
                      calcular_da, run_sens_case, run_sens_multi, gerar_schedule,
@@ -17,6 +17,7 @@ from backend import (tm, idx_custo, taxa_div_anual, fv, fp, calcular_operacional
                      calcular_icr_anual, calcular_divida_ebitda,
                      monte_carlo, monte_carlo_stats,
                      _fetch_last, _fetch_hist, _fetch_focus)
+from slides import gerar_deck, SLIDE_TRANSLATIONS
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIGURACAO
@@ -93,6 +94,15 @@ st.markdown("""
 .metric-card-green .mc-value{color:#16a34a}
 .metric-card-red{background:linear-gradient(135deg,#f8d7da 0%,#f5c6cb 100%);border-color:#f1aeb5}
 .metric-card-red .mc-value{color:#dc2626}
+/* ── Model type cards ── */
+.mt-grid{display:flex;gap:12px;flex-wrap:wrap;margin:8px 0 16px 0}
+.mt-card{flex:1;min-width:160px;border:2px solid #e5e7eb;border-radius:12px;padding:18px 16px;text-align:center;cursor:pointer;transition:all .25s ease;background:#fff;position:relative}
+.mt-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.mt-card.mt-active{border-width:3px;box-shadow:0 4px 16px rgba(26,86,219,.18)}
+.mt-card .mt-icon{font-size:2.2rem;margin-bottom:6px;display:block}
+.mt-card .mt-name{font-size:.9rem;font-weight:700;color:#1f2937;margin-bottom:4px}
+.mt-card .mt-desc{font-size:.7rem;color:#6b7280;line-height:1.4}
+.mt-card .mt-badge{position:absolute;top:-8px;right:-8px;background:#1a56db;color:white;font-size:.6rem;font-weight:700;padding:2px 8px;border-radius:10px;text-transform:uppercase;letter-spacing:.05em}
 /* ── DF tables ── */
 .df-header{background:#1a56db;color:white;font-weight:700;padding:6px 10px;border-radius:4px;font-size:.85rem;margin:12px 0 4px 0}
 .df-subtotal{font-weight:700}
@@ -169,6 +179,9 @@ hr{border-color:#334155 !important}
 .veredicto-vermelho{background:#7f1d1d !important;border-color:#ef4444 !important}
 .veredicto-titulo{color:#f9fafb !important}
 .sens-tbl table tbody td{border-color:#334155 !important}
+.mt-card{background:#1e293b !important;border-color:#334155 !important}
+.mt-card:hover{box-shadow:0 6px 20px rgba(0,0,0,.3) !important}
+.mt-card .mt-name{color:#e2e8f0 !important}.mt-card .mt-desc{color:#94a3b8 !important}
 .metric-card{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important}
 .metric-card .mc-label{color:#94a3b8 !important}.metric-card .mc-value{color:#60a5fa !important}
 .metric-card-green{background:linear-gradient(135deg,#064e3b,#065f46) !important;border-color:#10b981 !important}
@@ -182,6 +195,47 @@ hr{border-color:#334155 !important}
 .df-styled table tbody td{border-color:#334155 !important;color:#e2e8f0 !important}
 .app-footer{border-color:#334155 !important;color:#6b7280 !important}
 </style>""", unsafe_allow_html=True)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MODEL TYPE SELECTOR PANEL
+# ─────────────────────────────────────────────────────────────────────────────
+if "model_type" not in st.session_state:
+    st.session_state["model_type"] = "business_case"
+
+with st.expander(f"\U0001f3af  {T('mt_panel_title')}", expanded=False):
+    st.caption(T("mt_panel_cap"))
+    _mt_keys = list(MODEL_TYPES.keys())
+    _mt_cards_html = '<div class="mt-grid">'
+    for mk in _mt_keys:
+        mt = MODEL_TYPES[mk]
+        is_active = st.session_state.get("model_type") == mk
+        active_cls = "mt-active" if is_active else ""
+        border_color = mt["color"] if is_active else "#e5e7eb"
+        badge = f'<span class="mt-badge" style="background:{mt["color"]}">{T("mt_selected")}</span>' if is_active else ""
+        _mt_cards_html += (
+            f'<div class="mt-card {active_cls}" style="border-color:{border_color}">'
+            f'{badge}'
+            f'<span class="mt-icon">{mt["icon"]}</span>'
+            f'<div class="mt-name">{T(f"mt_{mk}_name")}</div>'
+            f'<div class="mt-desc">{T(f"mt_{mk}_desc")}</div>'
+            f'</div>'
+        )
+    _mt_cards_html += '</div>'
+    st.markdown(_mt_cards_html, unsafe_allow_html=True)
+
+    _mt_col1, _mt_col2 = st.columns([3, 2])
+    _mt_sel = _mt_col1.selectbox(
+        T("mt_panel_title"), _mt_keys,
+        format_func=lambda k: f'{MODEL_TYPES[k]["icon"]}  {T(f"mt_{k}_name")}',
+        index=_mt_keys.index(st.session_state.get("model_type", "business_case")),
+        key="mt_selector", label_visibility="collapsed")
+    with _mt_col2:
+        if st.button(T("mt_apply"), type="primary", use_container_width=True):
+            st.session_state["model_type"] = _mt_sel
+            for k, v in MODEL_TYPES[_mt_sel]["defaults"].items():
+                st.session_state[k] = v
+            st.success(T("mt_applied"))
+            st.rerun()
 
 st.markdown(f'<div class="unit-bar"><span class="unit-label">{T("unit_label")}</span></div>', unsafe_allow_html=True)
 unit = st.segmented_control("u", UNIDADES, key="unit", label_visibility="collapsed")
@@ -1634,6 +1688,7 @@ text-transform:uppercase;letter-spacing:.04em">{T("sv_metrica_lbl").format(m=met
 # ABA 7 — SLIDES DECK
 # ─────────────────────────────────────────────────────────────────────────────
 with tab_slides:
+    _SL = SLIDE_TRANSLATIONS[lang]
     st.subheader("Slides Deck")
     st.caption(
         "Generate a presentation deck from your model data." if lang == "EN" else
@@ -1654,44 +1709,123 @@ with tab_slides:
 
     st.markdown("---")
 
-    _msg_pt = """
-**Esta aba sera desenvolvida na proxima etapa.**
+    _sl_slide_names = [
+        _SL["slide_exec_title"], _SL["slide_assumptions_title"],
+        _SL["slide_cashflow_title"], _SL["slide_rev_cost_title"],
+        _SL["slide_dre_title"], _SL["slide_debt_title"],
+        _SL["slide_sens_title"], _SL["slide_appendix_title"],
+    ]
+    _sl_info_md = " · ".join(f"**{i+1}.** {s}" for i, s in enumerate(_sl_slide_names))
+    st.caption(f"Slides: Capa · {_sl_info_md}")
+    st.divider()
 
-O deck sera composto por slides profissionais gerados automaticamente a partir das premissas e resultados do modelo, incluindo:
+    if st.button(_SL["slide_download"], type="primary", use_container_width=True):
+        with st.spinner(_SL["slide_generating"]):
+            # Build Plotly figures for export
+            _fig_cf = go.Figure()
+            _fig_cf.add_trace(go.Scatter(
+                x=df_op["Mes"].tolist(), y=(df_op["Acumulado"]/umult).tolist(),
+                mode="lines", name=T("g_fcf_proj"), line=dict(color="#1a56db", width=2.5)))
+            if total_debt > 0:
+                _fig_cf.add_trace(go.Scatter(
+                    x=df_op["Mes"].tolist(), y=(df_lev["Acumulado Levered"]/umult).tolist(),
+                    mode="lines", name=T("g_fcf_eq"), line=dict(color="#16a34a", width=2, dash="dot")))
+            _fig_cf.add_hline(y=0, line_dash="dash", line_color="#9ca3af")
+            _fig_cf.update_layout(xaxis_title=T("g_xaxis_mes"), yaxis_title=unit,
+                                   hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1.02))
+            _fig_cf.update_yaxes(tickformat=",.1f")
 
-- **Capa** — nome do projeto, setor, autor e data de inicio
-- **Sumario executivo** — veredicto de viabilidade, metricas-chave (NPV, ROI, Payback, Margem)
-- **Premissas** — resumo das principais variaveis de entrada
-- **Projecao de resultados** — fluxo acumulado e receita vs. custos (graficos Plotly exportados como imagem)
-- **Demonstracoes financeiras** — DRE e DFC anuais resumidos em tabela
-- **Analise de sensibilidade** — Tornado chart ou tabela selecionada
-- **Estrutura de divida** — schedule consolidado (quando aplicavel)
-- **Apendice** — tabela mensal completa
+            _fig_rc = go.Figure()
+            for col, cor, nm in [("Receita","#1a56db",T("g_receita")),("CPV","#f97316",T("g_cpv"))]:
+                _fig_rc.add_trace(go.Scatter(x=df_op["Mes"].tolist(), y=(df_op[col]/umult).tolist(),
+                                              mode="lines", name=nm, line=dict(color=cor, width=2)))
+            _fig_rc.add_trace(go.Scatter(x=df_op["Mes"].tolist(),
+                                          y=((df_op["OpEx"]+df_op["G&A"])/umult).tolist(),
+                                          mode="lines", name=T("g_opex_ga"),
+                                          line=dict(color="#dc2626", width=2)))
+            _fig_rc.update_layout(xaxis_title=T("g_xaxis_mes"), yaxis_title=unit,
+                                   hovermode="x unified", legend=dict(orientation="h", yanchor="bottom", y=1.02))
+            _fig_rc.update_yaxes(tickformat=",.1f")
 
-**Formato:** `.pptx` editavel no PowerPoint / Google Slides, baseado em template pre-desenhado com layout pixel-perfect e identidade visual configuravel.
-"""
-    _msg_en = """
-**This tab will be built in the next phase.**
+            # Tornado figure (if available)
+            _fig_tn = None
+            if st.session_state.get("tn_data"):
+                tn_d = st.session_state["tn_data"]
+                tn_base = st.session_state.get("tn_base", 0)
+                _fig_tn = go.Figure()
+                for d in tn_d:
+                    lo_rel = d["lo"] - tn_base
+                    hi_rel = d["hi"] - tn_base
+                    _fig_tn.add_trace(go.Bar(x=[max(hi_rel, lo_rel)], y=[d["var"]],
+                                              orientation="h", base=[0], marker_color="#16a34a", opacity=0.85,
+                                              showlegend=False))
+                    _fig_tn.add_trace(go.Bar(x=[min(hi_rel, lo_rel)], y=[d["var"]],
+                                              orientation="h", base=[0], marker_color="#f97316", opacity=0.85,
+                                              showlegend=False))
+                _fig_tn.add_vline(x=0, line_dash="dash", line_color="#374151", line_width=2)
+                _fig_tn.update_layout(barmode="overlay", yaxis=dict(autorange=True))
 
-The deck will consist of professionally styled slides auto-generated from the model's assumptions and outputs, including:
+            # Debt figure
+            _fig_dbt = None
+            if total_debt > 0 and any(not df_t.empty for df_t in schedules.values()):
+                _meses_dv = list(range(1, horizonte+1))
+                _fig_dbt = go.Figure()
+                _cores = ["#1a56db","#16a34a","#f97316","#dc2626","#7c3aed","#0891b2"]
+                for ii, (nt, dt) in enumerate(schedules.items()):
+                    _cr = _cores[ii % len(_cores)]
+                    _as = pd.Series(0.0, index=_meses_dv)
+                    _js = pd.Series(0.0, index=_meses_dv)
+                    if not dt.empty:
+                        _vl = dt[dt["Mes"].between(1, horizonte)]
+                        if not _vl.empty:
+                            _gr = _vl.groupby("Mes").agg({"Amortizacao":"sum","Juros Pagos":"sum"})
+                            _as = _as.add(_gr["Amortizacao"], fill_value=0)
+                            _js = _js.add(_gr["Juros Pagos"], fill_value=0)
+                    _fig_dbt.add_trace(go.Bar(x=_meses_dv, y=(_as/umult).tolist(),
+                                               name=f"{nt} — Amort.", marker_color=_cr, opacity=0.9))
+                    _fig_dbt.add_trace(go.Bar(x=_meses_dv, y=(_js/umult).tolist(),
+                                               name=f"{nt} — Juros", marker_color=_cr, opacity=0.5))
+                _stot = saldo_total_por_mes(schedules, horizonte)
+                _fig_dbt.add_trace(go.Scatter(x=_meses_dv, y=(_stot/umult).tolist(),
+                                               mode="lines", name="Saldo", line=dict(color="#dc2626", width=2.5),
+                                               yaxis="y2"))
+                _fig_dbt.update_layout(barmode="stack",
+                                        yaxis=dict(title=f"Servico ({unit})"),
+                                        yaxis2=dict(title=f"Saldo ({unit})", overlaying="y", side="right"),
+                                        legend=dict(orientation="h", yanchor="bottom", y=1.02))
 
-- **Cover** — project name, sector, author and start date
-- **Executive summary** — viability verdict, key metrics (NPV, ROI, Payback, Margin)
-- **Assumptions** — summary of key input variables
-- **Results projection** — cumulative cash flow and revenue vs. cost charts (Plotly charts exported as images)
-- **Financial statements** — summarised annual Income Statement & Cash Flow
-- **Sensitivity analysis** — Tornado chart or selected table
-- **Debt structure** — consolidated schedule (when applicable)
-- **Appendix** — full monthly table
+            # Build context dict
+            _deck_ctx = {
+                "nome_proj": nome_proj, "setor": fmt_opt(setor),
+                "responsavel": responsavel, "data_inicio": _dt_disp,
+                "descricao": descricao, "receitas": receitas,
+                "horizonte": horizonte, "taxa_desc": taxa_desc,
+                "total_capex": total_capex, "total_debt": total_debt,
+                "equity_required": equity_required,
+                "npv": npv, "payback": payback, "roi": roi, "mg_med": mg_med,
+                "irr_projeto": irr_projeto, "mirr_projeto": mirr_projeto,
+                "wacc": wacc, "pi_projeto": pi_projeto,
+                "annual": annual, "df_op": df_op, "df_lev": df_lev,
+                "unit": unit, "umult": umult, "fv": fv, "lang": lang,
+                "regime_fiscal": get("regime_fiscal", "Lucro Real"),
+                "L": _SL,
+                "fig_cashflow": _fig_cf, "fig_revcost": _fig_rc,
+                "fig_debt": _fig_dbt, "fig_tornado": _fig_tn,
+            }
 
-**Format:** `.pptx` editable in PowerPoint / Google Slides, built on a pre-designed template with pixel-perfect layout and configurable visual identity.
-"""
-    st.info(_msg_en if lang == "EN" else _msg_pt)
-    st.button(
-        "Gerar deck (.pptx)" if lang=="PT" else "Generate deck (.pptx)",
-        disabled=True,
-        help="Em breve — proxima etapa" if lang=="PT" else "Coming soon — next phase"
-    )
+            try:
+                _deck_bytes = gerar_deck(_deck_ctx)
+                _fname = _SL["slide_filename"].format(
+                    nome=(nome_proj or "projeto").replace(" ", "_").lower()[:30])
+                st.success(_SL["slide_ready"])
+                st.download_button(
+                    label=_SL["slide_download"],
+                    data=_deck_bytes,
+                    file_name=_fname,
+                    mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
+                    type="primary")
+            except Exception as ex:
+                st.error(f"Erro ao gerar deck: {ex}")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER
