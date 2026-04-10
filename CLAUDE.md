@@ -70,10 +70,11 @@
 - **Lead with the answer**, not the reasoning.
 - **Max ~200 words** for status updates. If longer needed, say "want details?"
 
-## Streamlit-specific
+## Stack — current state (decided 2026-04-10)
 
-- **The current app is being migrated to Next.js + FastAPI.** Do NOT add new Streamlit features unless explicitly asked. Focus on backend extraction and React frontend going forward.
-- **No more polishing** of existing Streamlit pages.
+- **Streamlit is the MVP stack.** Build features in Streamlit. Migration to Next.js + FastAPI is a future option, not the current plan.
+- New features → add them to existing `pages/*.py` or create new pages.
+- Keep backend logic in pure Python modules (`backend.py`, `pf_models.py`, `minutes_generator.py`, etc.) so they're reusable if/when migration happens later.
 
 ## Project context (current state)
 
