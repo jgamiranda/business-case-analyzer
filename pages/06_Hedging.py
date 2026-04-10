@@ -32,6 +32,12 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+import sys, os as _os
+_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _root not in sys.path: sys.path.insert(0, _root)
+import _design_tokens as ds
+ds.inject()
+
 # =============================================================================
 # THEME / STYLING
 # =============================================================================

@@ -8,6 +8,12 @@ import plotly.graph_objects as go
 # ─────────────────────────────────────────────────────────────────────────────
 st.set_page_config(page_title="M&A", layout="wide")
 
+import sys, os as _os
+_root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+if _root not in sys.path: sys.path.insert(0, _root)
+import _design_tokens as ds
+ds.inject()
+
 # ─────────────────────────────────────────────────────────────────────────────
 # TRANSLATIONS
 # ─────────────────────────────────────────────────────────────────────────────
