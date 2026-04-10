@@ -128,6 +128,19 @@ MODELS = [
         "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
         "page": "pages/05_Startup.py",
     },
+    {
+        "key": "hedging", "icon": "🛡️",
+        "title": {"PT": "Hedging Strategies", "EN": "Hedging Strategies"},
+        "sub": {
+            "PT": "Forwards, futuros, IRS, cross-currency swaps, total return swaps. "
+                  "Pricing institucional baseado em ISDA, CME, e bancos de investimento.",
+            "EN": "Forwards, futures, IRS, cross-currency swaps, total return swaps. "
+                  "Institutional pricing based on ISDA, CME, and investment bank standards.",
+        },
+        "tags": ["FX Forward", "IRS", "CCS", "TRS", "Futures", "DV01"],
+        "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
+        "page": "pages/06_Hedging.py",
+    },
 ]
 
 # ─── Render cards ────────────────────────────────────────────────────────────
