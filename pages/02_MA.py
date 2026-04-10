@@ -185,6 +185,62 @@ _L = {
     "pf_wc_adj": "Ajuste de capital de giro (%)",
     "pf_combined_bs": "Balanco Patrimonial Combinado (Ano 1)",
     "pf_integration_costs": "Custos de Integracao por Ano",
+    # Pro-forma sub-tabs
+    "pf_sub_pl": "  \U0001f4c8 P&L Combinado  ",
+    "pf_sub_cf": "  \U0001f4b0 Fluxo de Caixa Combinado  ",
+    "pf_sub_bs": "  \U0001f4d8 Balanco Combinado  ",
+    # Three-statement inputs
+    "pf_inputs_title": "Premissas das Demonstracoes Combinadas",
+    "pf_inputs_cap": "Parametros usados no Cash Flow e no Balanco Patrimonial.",
+    "pf_acq_cash": "Caixa da adquirente (pre-deal)",
+    "pf_acq_ar_pct": "Contas a receber da adquirente (% receita)",
+    "pf_acq_inv_pct": "Estoque da adquirente (% receita)",
+    "pf_acq_ap_pct": "Contas a pagar da adquirente (% receita)",
+    "pf_acq_ppe": "PP&E da adquirente",
+    "pf_capex_pct": "CapEx (% receita combinada)",
+    "pf_nwc_pct": "NWC (% receita combinada)",
+    "pf_payout": "Payout de dividendos da adquirente (%)",
+    "pf_debt_amort_pct": "Amortizacao da divida (% ao ano da nova divida)",
+    # Cash flow statement
+    "cf_title": "Demonstracao de Fluxo de Caixa Combinada",
+    "cf_cap": "Fluxo de caixa pos-fusao com sinergias, amortizacao de intangiveis e servico da divida.",
+    "cf_net_income": "Lucro Liquido",
+    "cf_da": "(+) D&A",
+    "cf_nwc": "(-) Variacao de NWC",
+    "cf_cfo": "= Caixa Operacional (CFO)",
+    "cf_capex": "(-) CapEx",
+    "cf_cfi": "= Caixa de Investimento (CFI)",
+    "cf_debt_draw": "(+) Captacao de nova divida",
+    "cf_debt_repay": "(-) Amortizacao de divida",
+    "cf_dividends": "(-) Dividendos",
+    "cf_cff": "= Caixa de Financiamento (CFF)",
+    "cf_net_change": "= Variacao Liquida de Caixa",
+    "cf_cash_begin": "Caixa Inicial",
+    "cf_cash_end": "Caixa Final",
+    # Balance sheet
+    "bs_title": "Balanco Patrimonial Combinado (Dia 1 + Projetado)",
+    "bs_cap": "Balanco Pro-Forma Dia 1 e evolucao nos anos projetados.",
+    "bs_day1": "Dia 1 Pro-Forma",
+    "bs_cash": "Caixa e Equivalentes",
+    "bs_ar": "Contas a Receber",
+    "bs_inv": "Estoque",
+    "bs_ppe": "Imobilizado (PP&E) Liquido",
+    "bs_intang": "Intangiveis Identificaveis",
+    "bs_goodwill": "Goodwill",
+    "bs_other_assets": "Outros Ativos",
+    "bs_total_assets": "Ativo Total",
+    "bs_ap": "Contas a Pagar",
+    "bs_debt_existing": "Divida Existente",
+    "bs_debt_new": "Nova Divida de Aquisicao",
+    "bs_dtl": "Passivo Fiscal Diferido (DTL)",
+    "bs_other_liab": "Outros Passivos",
+    "bs_total_liab": "Passivo Total",
+    "bs_equity": "Patrimonio Liquido",
+    "bs_total_le": "Passivo + Patrimonio",
+    "bs_check": "Checagem de Balanco",
+    "bs_ok": "BALANCEADO",
+    "bs_ko": "DESBALANCEADO",
+    "bs_diff": "Diferenca",
     # Results
     "res_title": "Resultados e Metricas-Chave",
     "res_cap": "Visao consolidada da transacao.",
@@ -385,6 +441,62 @@ _L = {
     "pf_wc_adj": "Working capital adjustment (%)",
     "pf_combined_bs": "Combined Balance Sheet (Year 1)",
     "pf_integration_costs": "Integration Costs by Year",
+    # Pro-forma sub-tabs
+    "pf_sub_pl": "  \U0001f4c8 Combined P&L  ",
+    "pf_sub_cf": "  \U0001f4b0 Combined Cash Flow  ",
+    "pf_sub_bs": "  \U0001f4d8 Combined Balance Sheet  ",
+    # Three-statement inputs
+    "pf_inputs_title": "Combined Statements Assumptions",
+    "pf_inputs_cap": "Parameters used in the Cash Flow and Balance Sheet statements.",
+    "pf_acq_cash": "Acquirer cash (pre-deal)",
+    "pf_acq_ar_pct": "Acquirer receivables (% of revenue)",
+    "pf_acq_inv_pct": "Acquirer inventory (% of revenue)",
+    "pf_acq_ap_pct": "Acquirer payables (% of revenue)",
+    "pf_acq_ppe": "Acquirer PP&E",
+    "pf_capex_pct": "CapEx (% of combined revenue)",
+    "pf_nwc_pct": "NWC (% of combined revenue)",
+    "pf_payout": "Acquirer dividend payout ratio (%)",
+    "pf_debt_amort_pct": "Debt amortization (% per year of new debt)",
+    # Cash flow statement
+    "cf_title": "Combined Cash Flow Statement",
+    "cf_cap": "Post-merger cash flow with synergies, intangible amortization and debt service.",
+    "cf_net_income": "Net Income",
+    "cf_da": "(+) D&A",
+    "cf_nwc": "(-) Change in NWC",
+    "cf_cfo": "= Cash Flow from Operations (CFO)",
+    "cf_capex": "(-) CapEx",
+    "cf_cfi": "= Cash Flow from Investing (CFI)",
+    "cf_debt_draw": "(+) New debt drawdown",
+    "cf_debt_repay": "(-) Debt amortization",
+    "cf_dividends": "(-) Dividends",
+    "cf_cff": "= Cash Flow from Financing (CFF)",
+    "cf_net_change": "= Net Change in Cash",
+    "cf_cash_begin": "Beginning Cash",
+    "cf_cash_end": "Ending Cash",
+    # Balance sheet
+    "bs_title": "Combined Balance Sheet (Day 1 + Projected)",
+    "bs_cap": "Day 1 Pro-Forma Balance Sheet and evolution over projected years.",
+    "bs_day1": "Day 1 Pro-Forma",
+    "bs_cash": "Cash & Equivalents",
+    "bs_ar": "Accounts Receivable",
+    "bs_inv": "Inventory",
+    "bs_ppe": "PP&E (Net)",
+    "bs_intang": "Identifiable Intangibles",
+    "bs_goodwill": "Goodwill",
+    "bs_other_assets": "Other Assets",
+    "bs_total_assets": "Total Assets",
+    "bs_ap": "Accounts Payable",
+    "bs_debt_existing": "Existing Debt",
+    "bs_debt_new": "New Acquisition Debt",
+    "bs_dtl": "Deferred Tax Liability (DTL)",
+    "bs_other_liab": "Other Liabilities",
+    "bs_total_liab": "Total Liabilities",
+    "bs_equity": "Equity",
+    "bs_total_le": "Liabilities + Equity",
+    "bs_check": "Balance Check",
+    "bs_ok": "BALANCED",
+    "bs_ko": "UNBALANCED",
+    "bs_diff": "Difference",
     # Results
     "res_title": "Key Results & Metrics",
     "res_cap": "Consolidated transaction overview.",
@@ -627,6 +739,16 @@ _DEFAULTS = {
     "ma_pf_interest_new_debt": 8.0,
     "ma_pf_projection_years": 5,
     "ma_pf_wc_adj": 1.0,
+    # Three-statement integration inputs
+    "ma_pf_acq_cash": 300_000_000.0,
+    "ma_pf_acq_ar_pct": 12.0,
+    "ma_pf_acq_inv_pct": 8.0,
+    "ma_pf_acq_ap_pct": 10.0,
+    "ma_pf_acq_ppe": 800_000_000.0,
+    "ma_pf_capex_pct": 4.0,
+    "ma_pf_nwc_pct": 10.0,
+    "ma_pf_payout": 30.0,
+    "ma_pf_debt_amort_pct": 14.3,
     # Results
     "ma_res_exit_multiple": 10.0,
     "ma_res_hold_period": 5,
@@ -1346,6 +1468,33 @@ with tabs[5]:
             st.number_input(T("pf_wc_adj"), min_value=-10.0, max_value=10.0,
                             step=0.5, format="%.1f", key="ma_pf_wc_adj")
 
+    # -- Three-statement integration inputs -------------------------------------
+    with st.expander(f"7b.  {T('pf_inputs_title')}", expanded=False):
+        st.caption(T("pf_inputs_cap"))
+
+        c1, c2, c3 = st.columns(3)
+        with c1:
+            st.number_input(T("pf_acq_cash"), min_value=0.0, step=10_000_000.0,
+                            format="%.0f", key="ma_pf_acq_cash")
+            st.number_input(T("pf_acq_ppe"), min_value=0.0, step=10_000_000.0,
+                            format="%.0f", key="ma_pf_acq_ppe")
+            st.number_input(T("pf_capex_pct"), min_value=0.0, max_value=50.0,
+                            step=0.5, format="%.1f", key="ma_pf_capex_pct")
+        with c2:
+            st.number_input(T("pf_acq_ar_pct"), min_value=0.0, max_value=100.0,
+                            step=0.5, format="%.1f", key="ma_pf_acq_ar_pct")
+            st.number_input(T("pf_acq_inv_pct"), min_value=0.0, max_value=100.0,
+                            step=0.5, format="%.1f", key="ma_pf_acq_inv_pct")
+            st.number_input(T("pf_nwc_pct"), min_value=0.0, max_value=100.0,
+                            step=0.5, format="%.1f", key="ma_pf_nwc_pct")
+        with c3:
+            st.number_input(T("pf_acq_ap_pct"), min_value=0.0, max_value=100.0,
+                            step=0.5, format="%.1f", key="ma_pf_acq_ap_pct")
+            st.number_input(T("pf_payout"), min_value=0.0, max_value=100.0,
+                            step=5.0, format="%.1f", key="ma_pf_payout")
+            st.number_input(T("pf_debt_amort_pct"), min_value=0.0, max_value=100.0,
+                            step=1.0, format="%.1f", key="ma_pf_debt_amort_pct")
+
     # -- Pro-forma calculations --------------------------------------------------
     acq_rev = get("ma_acq_revenue")
     acq_ebitda = get("ma_acq_ebitda")
@@ -1441,233 +1590,604 @@ with tabs[5]:
             return ["background:#dbeafe;font-weight:700;color:#1e3a8a"] * len(row)
         return [""] * len(row)
 
-    st.markdown(f"#### {T('pf_title')} (Year 1)")
-    styled_html = pf_display.style.apply(style_pf, axis=1).to_html()
-    st.markdown(f'<div class="df-styled">{styled_html}</div>', unsafe_allow_html=True)
+    # ── SUB-TABS: P&L / Cash Flow / Balance Sheet ─────────────────────────────
+    pf_sub_tabs = st.tabs([T("pf_sub_pl"), T("pf_sub_cf"), T("pf_sub_bs")])
 
-    # EPS summary
-    st.markdown("---")
-    st.markdown(f"#### {T('pf_accretion')}")
-    mc1, mc2, mc3, mc4 = st.columns(4)
-    with mc1:
-        st.markdown(metric_card(
-            f"EPS ({T('pf_acquirer')})",
-            f"{acq_eps_before:,.2f}",
-        ), unsafe_allow_html=True)
-    with mc2:
-        st.markdown(metric_card(
-            f"EPS ({T('pf_combined')})",
-            f"{eps_combined:,.2f}",
-        ), unsafe_allow_html=True)
-    with mc3:
-        cls = "metric-card-green" if accretion_per_share >= 0 else "metric-card-red"
-        st.markdown(metric_card(
-            T("pf_accretion"),
-            f"{accretion_per_share:+,.4f}",
-            card_class=cls,
-        ), unsafe_allow_html=True)
-    with mc4:
-        cls = "metric-card-green" if accretion_pct >= 0 else "metric-card-red"
-        st.markdown(metric_card(
-            T("pf_accretion_pct"),
-            f"{accretion_pct:+,.2f}%",
-            card_class=cls,
-        ), unsafe_allow_html=True)
+    # ══════════════════════════════════════════════════════════════════════════
+    # SUB-TAB 1: COMBINED P&L (existing functionality)
+    # ══════════════════════════════════════════════════════════════════════════
+    with pf_sub_tabs[0]:
+        st.markdown(f"#### {T('pf_title')} (Year 1)")
+        styled_html = pf_display.style.apply(style_pf, axis=1).to_html()
+        st.markdown(f'<div class="df-styled">{styled_html}</div>', unsafe_allow_html=True)
 
-    # ── MULTI-YEAR PRO-FORMA ──────────────────────────────────────────────────
-    st.markdown("---")
-    st.markdown(f"#### {T('pf_multi_year')}")
+        # EPS summary
+        st.markdown("---")
+        st.markdown(f"#### {T('pf_accretion')}")
+        mc1, mc2, mc3, mc4 = st.columns(4)
+        with mc1:
+            st.markdown(metric_card(
+                f"EPS ({T('pf_acquirer')})",
+                f"{acq_eps_before:,.2f}",
+            ), unsafe_allow_html=True)
+        with mc2:
+            st.markdown(metric_card(
+                f"EPS ({T('pf_combined')})",
+                f"{eps_combined:,.2f}",
+            ), unsafe_allow_html=True)
+        with mc3:
+            cls = "metric-card-green" if accretion_per_share >= 0 else "metric-card-red"
+            st.markdown(metric_card(
+                T("pf_accretion"),
+                f"{accretion_per_share:+,.4f}",
+                card_class=cls,
+            ), unsafe_allow_html=True)
+        with mc4:
+            cls = "metric-card-green" if accretion_pct >= 0 else "metric-card-red"
+            st.markdown(metric_card(
+                T("pf_accretion_pct"),
+                f"{accretion_pct:+,.2f}%",
+                card_class=cls,
+            ), unsafe_allow_html=True)
 
-    # Debt amortization schedule
-    debt_balance = new_debt
-    annual_repayment = new_debt / debt_term if debt_term > 0 else 0
+        # ── MULTI-YEAR PRO-FORMA ──────────────────────────────────────────────
+        st.markdown("---")
+        st.markdown(f"#### {T('pf_multi_year')}")
 
-    multi_year_rows = []
-    debt_schedule_rows = []
-    integration_phases = [integ_yr1_pct, integ_yr2_pct, integ_yr3_pct]
+        # Debt amortization schedule
+        debt_balance = new_debt
+        debt_amort_pct_input = get("ma_pf_debt_amort_pct", 14.3) / 100
+        annual_repayment = (
+            new_debt * debt_amort_pct_input
+            if debt_amort_pct_input > 0
+            else (new_debt / debt_term if debt_term > 0 else 0)
+        )
 
-    for yr in range(1, proj_years + 1):
-        # Growth projections for target
-        tgt_rev_yr = tgt_rev * ((1 + tgt_rev_growth) ** yr)
-        tgt_ebitda_yr = tgt_ebitda * ((1 + tgt_ebitda_growth) ** yr)
+        multi_year_rows = []
+        debt_schedule_rows = []
+        integration_phases = [integ_yr1_pct, integ_yr2_pct, integ_yr3_pct]
 
-        # Acquirer assumed flat (could be enhanced)
-        acq_rev_yr = acq_rev
-        acq_ebitda_yr = acq_ebitda
+        for yr in range(1, proj_years + 1):
+            # Growth projections for target
+            tgt_rev_yr = tgt_rev * ((1 + tgt_rev_growth) ** yr)
+            tgt_ebitda_yr = tgt_ebitda * ((1 + tgt_ebitda_growth) ** yr)
 
-        # Synergy phase-in
-        month_mid = yr * 12 - 6
-        if use_scurve:
-            rev_real = s_curve(month_mid, syn_rev_phase)
-            cost_real = s_curve(month_mid, syn_cost_phase)
-        else:
-            rev_real = min(1.0, month_mid / syn_rev_phase) if syn_rev_phase > 0 else 1.0
-            cost_real = min(1.0, month_mid / syn_cost_phase) if syn_cost_phase > 0 else 1.0
+            # Acquirer assumed flat (could be enhanced)
+            acq_rev_yr = acq_rev
+            acq_ebitda_yr = acq_ebitda
 
-        comb_rev_base = acq_rev_yr + tgt_rev_yr
-        syn_rev_yr_val = comb_rev_base * syn_rev_pct * syn_rev_prob * rev_real
-        syn_cost_yr_val = syn_cost_abs * syn_cost_prob * cost_real
-        syn_ebitda_yr = syn_rev_yr_val + syn_cost_yr_val
+            # Synergy phase-in
+            month_mid = yr * 12 - 6
+            if use_scurve:
+                rev_real = s_curve(month_mid, syn_rev_phase)
+                cost_real = s_curve(month_mid, syn_cost_phase)
+            else:
+                rev_real = min(1.0, month_mid / syn_rev_phase) if syn_rev_phase > 0 else 1.0
+                cost_real = min(1.0, month_mid / syn_cost_phase) if syn_cost_phase > 0 else 1.0
 
-        # Integration costs (phased)
-        integ_cost_yr = 0.0
-        if yr <= 3 and (yr - 1) < len(integration_phases):
-            integ_cost_yr = integration_cost * integration_phases[yr - 1]
+            comb_rev_base = acq_rev_yr + tgt_rev_yr
+            syn_rev_yr_val = comb_rev_base * syn_rev_pct * syn_rev_prob * rev_real
+            syn_cost_yr_val = syn_cost_abs * syn_cost_prob * cost_real
+            syn_ebitda_yr = syn_rev_yr_val + syn_cost_yr_val
 
-        # Earnout
-        earnout_yr = expected_earnout if yr == earnout_year else 0.0
+            # Integration costs (phased)
+            integ_cost_yr = 0.0
+            if yr <= 3 and (yr - 1) < len(integration_phases):
+                integ_cost_yr = integration_cost * integration_phases[yr - 1]
 
-        # Debt schedule
-        opening_debt = debt_balance
-        repayment_yr = min(annual_repayment, debt_balance) if yr <= debt_term else 0
-        interest_yr = debt_balance * interest_rate_new
-        debt_balance = max(0, debt_balance - repayment_yr)
+            # Earnout
+            earnout_yr = expected_earnout if yr == earnout_year else 0.0
 
-        debt_schedule_rows.append({
-            T("pf_year"): yr,
-            T("pf_debt_opening"): opening_debt,
-            T("pf_debt_repayment"): repayment_yr,
-            T("pf_debt_interest"): interest_yr,
-            T("pf_debt_closing"): debt_balance,
+            # Debt schedule
+            opening_debt = debt_balance
+            repayment_yr = min(annual_repayment, debt_balance)
+            interest_yr = debt_balance * interest_rate_new
+            debt_balance = max(0, debt_balance - repayment_yr)
+
+            debt_schedule_rows.append({
+                T("pf_year"): yr,
+                T("pf_debt_opening"): opening_debt,
+                T("pf_debt_repayment"): repayment_yr,
+                T("pf_debt_interest"): interest_yr,
+                T("pf_debt_closing"): debt_balance,
+            })
+
+            # Combined P&L
+            total_rev = comb_rev_base + syn_rev_yr_val
+            total_ebitda = acq_ebitda_yr + tgt_ebitda_yr + syn_ebitda_yr
+            total_da = total_rev * da_pct + annual_intangible_amort
+            total_ebit = total_ebitda - total_da
+            total_interest = acq_interest + tgt_interest + interest_yr
+            total_ebt = total_ebit - total_interest - integ_cost_yr - earnout_yr
+            total_taxes_yr = max(0, total_ebt * tax_rate)
+
+            # Tax benefit on deductible fees (year 1 only)
+            fee_tax_benefit = 0.0
+            if yr == 1 and get("ma_deal_fees_tax_deductible", True):
+                fee_tax_benefit = all_fees * tax_rate
+
+            total_ni_yr = total_ebt - total_taxes_yr + fee_tax_benefit
+
+            # Working capital adjustment
+            wc_adj_val = total_rev * wc_adj_pct
+
+            eps_yr = total_ni_yr / pro_forma_shares if pro_forma_shares > 0 else 0
+            accretion_yr = ((eps_yr - acq_eps_before) / acq_eps_before * 100) if acq_eps_before != 0 else 0
+
+            multi_year_rows.append({
+                T("pf_year"): yr,
+                T("pf_revenue"): total_rev,
+                T("pf_ebitda"): total_ebitda,
+                T("pf_dep_amort"): -total_da,
+                T("pf_ebit"): total_ebit,
+                T("pf_interest"): -total_interest,
+                T("pf_integration_costs"): -integ_cost_yr,
+                T("pf_ebt"): total_ebt,
+                T("pf_taxes"): -total_taxes_yr,
+                T("pf_net_income"): total_ni_yr,
+                "EPS": eps_yr,
+                T("pf_accretion_pct"): accretion_yr,
+                "WC Adj.": -wc_adj_val,
+                # ── internal keys for 3-statement build ──
+                "_rev": total_rev,
+                "_ebitda": total_ebitda,
+                "_da": total_da,
+                "_ni": total_ni_yr,
+                "_repay": repayment_yr,
+                "_interest": interest_yr,
+                "_debt_close": debt_balance,
+                "_integ": integ_cost_yr,
+            })
+
+        # Display multi-year table (exclude internal "_" keys used by CF/BS builds)
+        my_df = pd.DataFrame(multi_year_rows)
+        my_df = my_df.set_index(T("pf_year"))
+        _internal_cols = [c for c in my_df.columns if isinstance(c, str) and c.startswith("_")]
+        my_display = my_df.drop(columns=_internal_cols).copy()
+        for col in my_display.columns:
+            if col in ["EPS"]:
+                my_display[col] = my_display[col].apply(lambda v: f"{v:,.2f}")
+            elif col == T("pf_accretion_pct"):
+                my_display[col] = my_display[col].apply(lambda v: f"{v:+,.1f}%")
+            else:
+                my_display[col] = my_display[col].apply(lambda v: f"{v:,.0f}")
+
+        def style_my(row):
+            return ["background:#dbeafe;font-weight:600;color:#1e3a8a"] * len(row)
+
+        styled_my = my_display.T.style.apply(lambda x: [""] * len(x), axis=1).to_html()
+        st.markdown(f'<div class="df-styled">{styled_my}</div>', unsafe_allow_html=True)
+
+        # Multi-year EPS chart
+        fig_eps = go.Figure()
+        years_list = [r[T("pf_year")] for r in multi_year_rows]
+        eps_list = [r["EPS"] for r in multi_year_rows]
+        accretion_list = [r[T("pf_accretion_pct")] for r in multi_year_rows]
+
+        fig_eps.add_trace(go.Bar(
+            name="EPS", x=years_list, y=eps_list,
+            marker_color=["#16a34a" if a >= 0 else "#dc2626" for a in accretion_list],
+            text=[f"{e:,.2f}" for e in eps_list],
+            textposition="outside",
+        ))
+        fig_eps.add_hline(y=acq_eps_before, line_dash="dash", line_color="#1a56db",
+                          annotation_text=f"Standalone EPS: {acq_eps_before:,.2f}")
+        fig_eps.update_layout(
+            title=f"EPS {T('pf_multi_year')}", height=380,
+            plot_bgcolor="white", paper_bgcolor="white",
+            font=dict(family="Inter, sans-serif"),
+            margin=dict(t=60, b=40),
+        )
+        st.plotly_chart(fig_eps, use_container_width=True)
+
+        # ── DEBT AMORTIZATION SCHEDULE ────────────────────────────────────────
+        st.markdown(f"#### {T('pf_debt_schedule')}")
+        ds_df = pd.DataFrame(debt_schedule_rows)
+        ds_df = ds_df.set_index(T("pf_year"))
+        ds_display = ds_df.copy()
+        for col in ds_display.columns:
+            ds_display[col] = ds_display[col].apply(lambda v: f"{v:,.0f}")
+        styled_ds = ds_display.style.to_html()
+        st.markdown(f'<div class="df-styled">{styled_ds}</div>', unsafe_allow_html=True)
+
+        # ── INTEGRATION COSTS PHASING ─────────────────────────────────────────
+        st.markdown(f"#### {T('pf_integration_costs')}")
+        integ_data = []
+        for yr in range(1, 4):
+            phase = integration_phases[yr - 1] if yr <= len(integration_phases) else 0
+            integ_data.append({
+                T("pf_year"): yr,
+                "% Total": f"{phase*100:.0f}%",
+                ("Valor" if lang == "PT" else "Amount"): integration_cost * phase,
+            })
+        integ_df = pd.DataFrame(integ_data).set_index(T("pf_year"))
+        integ_df[("Valor" if lang == "PT" else "Amount")] = integ_df[("Valor" if lang == "PT" else "Amount")].apply(lambda v: f"{v:,.0f}")
+        st.markdown(f'<div class="df-styled">{integ_df.style.to_html()}</div>', unsafe_allow_html=True)
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # SUB-TAB 2: COMBINED CASH FLOW STATEMENT
+    # ══════════════════════════════════════════════════════════════════════════
+    with pf_sub_tabs[1]:
+        st.markdown(f"#### {T('cf_title')}")
+        st.caption(T("cf_cap"))
+
+        capex_pct = get("ma_pf_capex_pct", 4.0) / 100
+        nwc_pct = get("ma_pf_nwc_pct", 10.0) / 100
+        payout_pct = get("ma_pf_payout", 30.0) / 100
+        acq_cash_pre = get("ma_pf_acq_cash", 0.0)
+
+        # Day 0 cash: acquirer cash + target cash - cash used in deal + new debt
+        cash_used_in_deal = cash_component + all_fees + refi_debt + integration_cost * integ_yr1_pct
+        day0_cash = acq_cash_pre + tgt_cash - cash_used_in_deal + new_debt
+        # However, new debt drawdown is shown as a Year 1 CFF inflow in the statement,
+        # so we start from a "before-drawdown" cash for the CF begin balance.
+        begin_cash_yr1 = acq_cash_pre + tgt_cash - cash_used_in_deal
+
+        prior_rev = acq_rev + tgt_rev  # base revenue before year 1
+        beg_cash = begin_cash_yr1
+
+        cf_rows = []
+        for i, row in enumerate(multi_year_rows):
+            yr = row[T("pf_year")]
+            rev = row["_rev"]
+            ni = row["_ni"]
+            da = row["_da"]
+            repay = row["_repay"]
+
+            # NWC change: NWC(t) - NWC(t-1), where NWC = nwc_pct * revenue
+            delta_nwc = (rev - prior_rev) * nwc_pct
+            prior_rev = rev
+
+            cfo = ni + da - delta_nwc
+            capex = rev * capex_pct
+            cfi = -capex
+
+            debt_draw = new_debt if yr == 1 else 0.0
+            dividends = max(0.0, ni) * payout_pct
+            cff = debt_draw - repay - dividends
+
+            net_change = cfo + cfi + cff
+            end_cash = beg_cash + net_change
+
+            cf_rows.append({
+                T("pf_year"): yr,
+                T("cf_net_income"): ni,
+                T("cf_da"): da,
+                T("cf_nwc"): -delta_nwc,
+                T("cf_cfo"): cfo,
+                T("cf_capex"): -capex,
+                T("cf_cfi"): cfi,
+                T("cf_debt_draw"): debt_draw,
+                T("cf_debt_repay"): -repay,
+                T("cf_dividends"): -dividends,
+                T("cf_cff"): cff,
+                T("cf_net_change"): net_change,
+                T("cf_cash_begin"): beg_cash,
+                T("cf_cash_end"): end_cash,
+            })
+
+            beg_cash = end_cash
+
+        cf_df = pd.DataFrame(cf_rows).set_index(T("pf_year"))
+        cf_display = cf_df.copy()
+        for col in cf_display.columns:
+            cf_display[col] = cf_display[col].apply(lambda v: f"{v:,.0f}")
+
+        cf_subtotal_rows = {
+            T("cf_cfo"), T("cf_cfi"), T("cf_cff"),
+            T("cf_net_change"), T("cf_cash_end"),
+        }
+
+        def style_cf(row):
+            if row.name in cf_subtotal_rows:
+                return ["background:#dbeafe;font-weight:700;color:#1e3a8a"] * len(row)
+            return [""] * len(row)
+
+        styled_cf = cf_display.T.style.apply(style_cf, axis=1).to_html()
+        st.markdown(f'<div class="df-styled">{styled_cf}</div>', unsafe_allow_html=True)
+
+        # Summary KPIs
+        st.markdown("---")
+        total_cfo = sum(r[T("cf_cfo")] for r in cf_rows)
+        total_capex = sum(-r[T("cf_capex")] for r in cf_rows)
+        total_fcf = total_cfo - total_capex
+        final_cash = cf_rows[-1][T("cf_cash_end")] if cf_rows else 0.0
+
+        mc1, mc2, mc3, mc4 = st.columns(4)
+        with mc1:
+            st.markdown(metric_card(T("cf_cfo") + " (cum.)", fmt(total_cfo)), unsafe_allow_html=True)
+        with mc2:
+            st.markdown(metric_card(T("cf_capex") + " (cum.)", fmt(total_capex)), unsafe_allow_html=True)
+        with mc3:
+            st.markdown(metric_card("FCF (cum.)", fmt(total_fcf)), unsafe_allow_html=True)
+        with mc4:
+            cls = "metric-card-green" if final_cash >= 0 else "metric-card-red"
+            st.markdown(metric_card(T("cf_cash_end"), fmt(final_cash), card_class=cls), unsafe_allow_html=True)
+
+        # Cash waterfall chart
+        fig_cf = go.Figure()
+        cf_years = [r[T("pf_year")] for r in cf_rows]
+        fig_cf.add_trace(go.Bar(
+            name=T("cf_cfo"),
+            x=cf_years, y=[r[T("cf_cfo")] for r in cf_rows],
+            marker_color="#16a34a",
+        ))
+        fig_cf.add_trace(go.Bar(
+            name=T("cf_cfi"),
+            x=cf_years, y=[r[T("cf_cfi")] for r in cf_rows],
+            marker_color="#f59e0b",
+        ))
+        fig_cf.add_trace(go.Bar(
+            name=T("cf_cff"),
+            x=cf_years, y=[r[T("cf_cff")] for r in cf_rows],
+            marker_color="#1a56db",
+        ))
+        fig_cf.add_trace(go.Scatter(
+            name=T("cf_cash_end"),
+            x=cf_years, y=[r[T("cf_cash_end")] for r in cf_rows],
+            mode="lines+markers+text",
+            text=[fmt(r[T("cf_cash_end")]) for r in cf_rows],
+            textposition="top center",
+            line=dict(color="#1e3a8a", width=3),
+            marker=dict(size=9),
+        ))
+        fig_cf.update_layout(
+            title=T("cf_title"),
+            barmode="relative",
+            height=400, plot_bgcolor="white", paper_bgcolor="white",
+            font=dict(family="Inter, sans-serif"),
+            margin=dict(t=60, b=40),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        )
+        st.plotly_chart(fig_cf, use_container_width=True)
+
+    # ══════════════════════════════════════════════════════════════════════════
+    # SUB-TAB 3: COMBINED BALANCE SHEET (Day 1 + Projected)
+    # ══════════════════════════════════════════════════════════════════════════
+    with pf_sub_tabs[2]:
+        st.markdown(f"#### {T('bs_title')}")
+        st.caption(T("bs_cap"))
+
+        # Inputs
+        acq_cash_pre_bs = get("ma_pf_acq_cash", 0.0)
+        acq_ar_pct = get("ma_pf_acq_ar_pct", 12.0) / 100
+        acq_inv_pct = get("ma_pf_acq_inv_pct", 8.0) / 100
+        acq_ap_pct = get("ma_pf_acq_ap_pct", 10.0) / 100
+        acq_ppe_bs = get("ma_pf_acq_ppe", 0.0)
+        capex_pct_bs = get("ma_pf_capex_pct", 4.0) / 100
+        nwc_pct_bs = get("ma_pf_nwc_pct", 10.0) / 100
+        payout_pct_bs = get("ma_pf_payout", 30.0) / 100
+
+        # Target BS-derived items (total assets minus known buckets = "other assets"
+        # bucket which includes target AR, prepaids, etc. — we keep this aggregated
+        # to avoid double-counting AR separately for the target).
+        tgt_other_assets = max(0.0, tgt_total_assets - get("ma_tgt_ppe") - get("ma_tgt_inventory") - tgt_cash)
+        tgt_ap_est = get("ma_tgt_revenue") * acq_ap_pct  # proxy using same ratio
+        tgt_other_liab = max(0.0, tgt_total_liab - tgt_debt - tgt_ap_est)
+
+        # ── DAY 1 BALANCE SHEET ───────────────────────────────────────────────
+        # Cash: acquirer cash + target cash - cash used in deal + new debt proceeds
+        day1_cash = acq_cash_pre_bs + tgt_cash - cash_used_in_deal + new_debt
+        # Receivables: only acquirer AR is surfaced; target AR sits inside tgt_other_assets
+        day1_ar_total = acq_rev * acq_ar_pct
+        # Inventory (acquirer proxy + target inventory + FV step-up)
+        day1_inv = acq_rev * acq_inv_pct + get("ma_tgt_inventory") + fv_inventory
+        # PP&E
+        day1_ppe = acq_ppe_bs + get("ma_tgt_ppe") + fv_ppe
+        # Intangibles & goodwill from PPA
+        day1_intang = total_intangibles
+        day1_goodwill = goodwill
+        day1_other_assets = tgt_other_assets  # residual target other assets
+
+        day1_total_assets = (
+            day1_cash + day1_ar_total + day1_inv + day1_ppe
+            + day1_intang + day1_goodwill + day1_other_assets
+        )
+
+        # Liabilities
+        day1_ap = acq_rev * acq_ap_pct + tgt_ap_est
+        day1_debt_existing = get("ma_acq_existing_debt") + max(0.0, tgt_debt - refi_debt)
+        day1_debt_new = new_debt
+        day1_dtl = dtl
+        day1_other_liab = tgt_other_liab
+        day1_total_liab = day1_ap + day1_debt_existing + day1_debt_new + day1_dtl + day1_other_liab
+
+        # Acquirer book equity proxy: total assets - debts - ap - other liab  pre-deal
+        # Simpler: use NI / ROE fallback, but we have no BV. Approximate by balancing:
+        # Equity_day1 = Total Assets - Total Liabilities (plug), but we need a proper
+        # build: Acquirer equity pre-deal + stock component - transaction fees (after tax)
+        # For proper balance, the plug equals: TA - TL.
+        # We compute acquirer pre-deal equity such that the BS balances at Day 1:
+        # Acquirer pre-deal assets build = acq_cash + acq_ar + acq_inv + acq_ppe
+        # Acquirer pre-deal liab = acq_ap + acq_existing_debt
+        # Acquirer pre-deal equity = assets - liab
+        acq_pre_assets = acq_cash_pre_bs + (acq_rev * acq_ar_pct) + (acq_rev * acq_inv_pct) + acq_ppe_bs
+        acq_pre_liab = (acq_rev * acq_ap_pct) + get("ma_acq_existing_debt")
+        acq_pre_equity = acq_pre_assets - acq_pre_liab
+
+        # Equity after transaction:
+        # + stock component (equity issued)
+        # - after-tax transaction fees (charged to equity if expensed)
+        # - integration cost already expensed (year 1 onwards in P&L, no Day-1 hit)
+        after_tax_fees = all_fees * (1 - tax_rate) if get("ma_deal_fees_tax_deductible", True) else all_fees
+        day1_equity = acq_pre_equity + stock_component - after_tax_fees
+        day1_total_le = day1_total_liab + day1_equity
+
+        day1_diff = day1_total_assets - day1_total_le
+        day1_balanced = abs(day1_diff) < max(1.0, day1_total_assets * 0.005)
+
+        # ── PROJECTED BALANCE SHEETS ─────────────────────────────────────────
+        bs_years_data = []
+        # Day 1 snapshot
+        bs_years_data.append({
+            "Year": 0,
+            "label": T("bs_day1"),
+            T("bs_cash"): day1_cash,
+            T("bs_ar"): day1_ar_total,
+            T("bs_inv"): day1_inv,
+            T("bs_ppe"): day1_ppe,
+            T("bs_intang"): day1_intang,
+            T("bs_goodwill"): day1_goodwill,
+            T("bs_other_assets"): day1_other_assets,
+            T("bs_total_assets"): day1_total_assets,
+            T("bs_ap"): day1_ap,
+            T("bs_debt_existing"): day1_debt_existing,
+            T("bs_debt_new"): day1_debt_new,
+            T("bs_dtl"): day1_dtl,
+            T("bs_other_liab"): day1_other_liab,
+            T("bs_total_liab"): day1_total_liab,
+            T("bs_equity"): day1_equity,
+            T("bs_total_le"): day1_total_le,
+            T("bs_diff"): day1_diff,
         })
 
-        # Combined P&L
-        total_rev = comb_rev_base + syn_rev_yr_val
-        total_ebitda = acq_ebitda_yr + tgt_ebitda_yr + syn_ebitda_yr
-        total_da = total_rev * da_pct + annual_intangible_amort
-        total_ebit = total_ebitda - total_da
-        total_interest = acq_interest + tgt_interest + interest_yr
-        total_ebt = total_ebit - total_interest - integ_cost_yr - earnout_yr
-        total_taxes_yr = max(0, total_ebt * tax_rate)
+        prev = bs_years_data[0]
+        # Intangibles amortize each year; Goodwill stays flat
+        running_intang = day1_intang
+        running_debt_new = new_debt
+        running_debt_existing = day1_debt_existing
+        for row in multi_year_rows:
+            yr = row[T("pf_year")]
+            rev = row["_rev"]
+            ni = row["_ni"]
+            da = row["_da"]
+            repay = row["_repay"]
 
-        # Tax benefit on deductible fees (year 1 only)
-        fee_tax_benefit = 0.0
-        if yr == 1 and get("ma_deal_fees_tax_deductible", True):
-            fee_tax_benefit = all_fees * tax_rate
+            # Intangibles schedule
+            running_intang = max(0.0, running_intang - annual_intangible_amort)
+            # Goodwill stays flat (no impairment modeled)
+            gw_yr = day1_goodwill
+            # PP&E roll-forward: prev PP&E + CapEx - (D&A minus intangible amort)
+            ppe_da = max(0.0, da - annual_intangible_amort)
+            capex_val = rev * capex_pct_bs
+            ppe_yr = prev[T("bs_ppe")] + capex_val - ppe_da
 
-        total_ni_yr = total_ebt - total_taxes_yr + fee_tax_benefit
+            # New debt amortization
+            running_debt_new = max(0.0, running_debt_new - repay)
 
-        # Working capital adjustment
-        wc_adj_val = total_rev * wc_adj_pct
+            # Working capital evolution (AR / Inventory / AP scale with revenue)
+            ar_yr = rev * acq_ar_pct
+            inv_yr = rev * acq_inv_pct
+            ap_yr = rev * acq_ap_pct
 
-        eps_yr = total_ni_yr / pro_forma_shares if pro_forma_shares > 0 else 0
-        accretion_yr = ((eps_yr - acq_eps_before) / acq_eps_before * 100) if acq_eps_before != 0 else 0
+            # Dividends reduce retained earnings
+            dividends = max(0.0, ni) * payout_pct_bs
 
-        multi_year_rows.append({
-            T("pf_year"): yr,
-            T("pf_revenue"): total_rev,
-            T("pf_ebitda"): total_ebitda,
-            T("pf_dep_amort"): -total_da,
-            T("pf_ebit"): total_ebit,
-            T("pf_interest"): -total_interest,
-            T("pf_integration_costs"): -integ_cost_yr,
-            T("pf_ebt"): total_ebt,
-            T("pf_taxes"): -total_taxes_yr,
-            T("pf_net_income"): total_ni_yr,
-            "EPS": eps_yr,
-            T("pf_accretion_pct"): accretion_yr,
-            "WC Adj.": -wc_adj_val,
-        })
+            # Cash roll-forward using CFO - CapEx - Debt Repay - Dividends + New draw
+            # (new draw is 0 after year 1)
+            delta_nwc = ((ar_yr + inv_yr) - (prev[T("bs_ar")] + prev[T("bs_inv")])) - (ap_yr - prev[T("bs_ap")])
+            cfo = ni + da - delta_nwc
+            cfi = -capex_val
+            cff = -repay - dividends  # no new draw after year 1
+            cash_yr = prev[T("bs_cash")] + cfo + cfi + cff
 
-    # Display multi-year table
-    my_df = pd.DataFrame(multi_year_rows)
-    my_df = my_df.set_index(T("pf_year"))
-    my_display = my_df.copy()
-    for col in my_display.columns:
-        if col in ["EPS"]:
-            my_display[col] = my_display[col].apply(lambda v: f"{v:,.2f}")
-        elif col == T("pf_accretion_pct"):
-            my_display[col] = my_display[col].apply(lambda v: f"{v:+,.1f}%")
-        else:
-            my_display[col] = my_display[col].apply(lambda v: f"{v:,.0f}")
+            # Other assets & liab assumed flat
+            other_a = prev[T("bs_other_assets")]
+            other_l = prev[T("bs_other_liab")]
+            dtl_yr = prev[T("bs_dtl")]
+            debt_ex = running_debt_existing  # assumed flat
 
-    def style_my(row):
-        return ["background:#dbeafe;font-weight:600;color:#1e3a8a"] * len(row)
+            total_a = cash_yr + ar_yr + inv_yr + ppe_yr + running_intang + gw_yr + other_a
+            total_l = ap_yr + debt_ex + running_debt_new + dtl_yr + other_l
 
-    styled_my = my_display.T.style.apply(lambda x: [""] * len(x), axis=1).to_html()
-    st.markdown(f'<div class="df-styled">{styled_my}</div>', unsafe_allow_html=True)
+            # Equity roll-forward
+            equity_yr = prev[T("bs_equity")] + ni - dividends
+            total_le = total_l + equity_yr
 
-    # Multi-year EPS chart
-    fig_eps = go.Figure()
-    years_list = [r[T("pf_year")] for r in multi_year_rows]
-    eps_list = [r["EPS"] for r in multi_year_rows]
-    accretion_list = [r[T("pf_accretion_pct")] for r in multi_year_rows]
+            diff = total_a - total_le
 
-    fig_eps.add_trace(go.Bar(
-        name="EPS", x=years_list, y=eps_list,
-        marker_color=["#16a34a" if a >= 0 else "#dc2626" for a in accretion_list],
-        text=[f"{e:,.2f}" for e in eps_list],
-        textposition="outside",
-    ))
-    fig_eps.add_hline(y=acq_eps_before, line_dash="dash", line_color="#1a56db",
-                      annotation_text=f"Standalone EPS: {acq_eps_before:,.2f}")
-    fig_eps.update_layout(
-        title=f"EPS {T('pf_multi_year')}", height=380,
-        plot_bgcolor="white", paper_bgcolor="white",
-        font=dict(family="Inter, sans-serif"),
-        margin=dict(t=60, b=40),
-    )
-    st.plotly_chart(fig_eps, use_container_width=True)
+            bs_years_data.append({
+                "Year": yr,
+                "label": f"{T('pf_year')} {yr}",
+                T("bs_cash"): cash_yr,
+                T("bs_ar"): ar_yr,
+                T("bs_inv"): inv_yr,
+                T("bs_ppe"): ppe_yr,
+                T("bs_intang"): running_intang,
+                T("bs_goodwill"): gw_yr,
+                T("bs_other_assets"): other_a,
+                T("bs_total_assets"): total_a,
+                T("bs_ap"): ap_yr,
+                T("bs_debt_existing"): debt_ex,
+                T("bs_debt_new"): running_debt_new,
+                T("bs_dtl"): dtl_yr,
+                T("bs_other_liab"): other_l,
+                T("bs_total_liab"): total_l,
+                T("bs_equity"): equity_yr,
+                T("bs_total_le"): total_le,
+                T("bs_diff"): diff,
+            })
+            prev = bs_years_data[-1]
 
-    # ── DEBT AMORTIZATION SCHEDULE ────────────────────────────────────────────
-    st.markdown(f"#### {T('pf_debt_schedule')}")
-    ds_df = pd.DataFrame(debt_schedule_rows)
-    ds_df = ds_df.set_index(T("pf_year"))
-    ds_display = ds_df.copy()
-    for col in ds_display.columns:
-        ds_display[col] = ds_display[col].apply(lambda v: f"{v:,.0f}")
-    styled_ds = ds_display.style.to_html()
-    st.markdown(f'<div class="df-styled">{styled_ds}</div>', unsafe_allow_html=True)
+        # Build display DataFrame (rows = line items, cols = years)
+        line_items = [
+            T("bs_cash"), T("bs_ar"), T("bs_inv"), T("bs_ppe"),
+            T("bs_intang"), T("bs_goodwill"), T("bs_other_assets"),
+            T("bs_total_assets"),
+            T("bs_ap"), T("bs_debt_existing"), T("bs_debt_new"),
+            T("bs_dtl"), T("bs_other_liab"),
+            T("bs_total_liab"),
+            T("bs_equity"), T("bs_total_le"),
+        ]
+        bs_display_dict = {}
+        for snap in bs_years_data:
+            col = snap["label"]
+            bs_display_dict[col] = [f"{snap[li]:,.0f}" for li in line_items]
+        bs_display_df = pd.DataFrame(bs_display_dict, index=line_items)
 
-    # ── COMBINED BALANCE SHEET (Year 1) ───────────────────────────────────────
-    st.markdown(f"#### {T('pf_combined_bs')}")
-    bs_rows = [
-        ("Cash & Equivalents" if lang == "EN" else "Caixa e Equivalentes",
-         tgt_cash + max(0, acq_mkt_cap * 0.05) - cash_component + new_debt - refi_debt),
-        (T("tgt_inventory"), get("ma_tgt_inventory") + fv_inventory),
-        (T("tgt_ppe"), get("ma_tgt_ppe") + fv_ppe),
-        (T("ppa_total_intangibles"), total_intangibles),
-        (T("ppa_goodwill"), goodwill),
-        ("Other Assets" if lang == "EN" else "Outros Ativos",
-         tgt_total_assets - get("ma_tgt_ppe") - get("ma_tgt_inventory") - tgt_cash),
-        ("**Total Assets**" if lang == "EN" else "**Ativo Total**", None),
-        ("---", None),
-        (T("tgt_total_debt"), tgt_debt - refi_debt),
-        ("New Acquisition Debt" if lang == "EN" else "Nova Divida de Aquisicao", new_debt),
-        (T("ppa_dtl"), dtl),
-        ("Other Liabilities" if lang == "EN" else "Outros Passivos",
-         tgt_total_liab - tgt_debt),
-        ("**Total Liabilities**" if lang == "EN" else "**Passivo Total**", None),
-        ("---", None),
-        ("Equity" if lang == "EN" else "Patrimonio Liquido",
-         book_equity + goodwill + total_intangibles + total_fv_stepup - dtl + stock_component),
-    ]
+        bs_subtotal_rows = {
+            T("bs_total_assets"), T("bs_total_liab"), T("bs_total_le"),
+        }
 
-    # Calculate totals
-    assets_total = sum(v for _, v in bs_rows[:6] if v is not None)
-    liab_total = sum(v for _, v in bs_rows[8:12] if v is not None)
-    bs_rows[6] = (bs_rows[6][0], assets_total)
-    bs_rows[12] = (bs_rows[12][0], liab_total)
+        def style_bs(row):
+            if row.name in bs_subtotal_rows:
+                return ["background:#dbeafe;font-weight:700;color:#1e3a8a"] * len(row)
+            return [""] * len(row)
 
-    bs_data = [(lbl, fmt(val) if val is not None else "") for lbl, val in bs_rows if lbl != "---"]
-    bs_df = pd.DataFrame(bs_data, columns=["Item", "Value"])
-    bs_df = bs_df.set_index("Item")
-    styled_bs = bs_df.style.to_html()
-    st.markdown(f'<div class="df-styled">{styled_bs}</div>', unsafe_allow_html=True)
+        styled_bs_full = bs_display_df.style.apply(style_bs, axis=1).to_html()
+        st.markdown(f'<div class="df-styled">{styled_bs_full}</div>', unsafe_allow_html=True)
 
-    # ── INTEGRATION COSTS PHASING ─────────────────────────────────────────────
-    st.markdown(f"#### {T('pf_integration_costs')}")
-    integ_data = []
-    for yr in range(1, 4):
-        phase = integration_phases[yr - 1] if yr <= len(integration_phases) else 0
-        integ_data.append({
-            T("pf_year"): yr,
-            "% Total": f"{phase*100:.0f}%",
-            ("Valor" if lang == "PT" else "Amount"): integration_cost * phase,
-        })
-    integ_df = pd.DataFrame(integ_data).set_index(T("pf_year"))
-    integ_df[("Valor" if lang == "PT" else "Amount")] = integ_df[("Valor" if lang == "PT" else "Amount")].apply(lambda v: f"{v:,.0f}")
-    st.markdown(f'<div class="df-styled">{integ_df.style.to_html()}</div>', unsafe_allow_html=True)
+        # ── BALANCE CHECK ─────────────────────────────────────────────────────
+        st.markdown("---")
+        st.markdown(f"#### {T('bs_check')}")
+        check_cols = st.columns(len(bs_years_data))
+        for i, snap in enumerate(bs_years_data):
+            diff = snap[T("bs_diff")]
+            total_a = snap[T("bs_total_assets")]
+            balanced = abs(diff) < max(1.0, abs(total_a) * 0.005)
+            cls = "metric-card-green" if balanced else "metric-card-red"
+            status = T("bs_ok") if balanced else T("bs_ko")
+            with check_cols[i]:
+                st.markdown(metric_card(
+                    snap["label"],
+                    status,
+                    card_class=cls,
+                ), unsafe_allow_html=True)
+                st.caption(f"{T('bs_diff')}: {fmt(diff)}")
+
+        # ── SUMMARY KPIs ──────────────────────────────────────────────────────
+        st.markdown("---")
+        mc1, mc2, mc3, mc4 = st.columns(4)
+        with mc1:
+            st.markdown(metric_card(
+                T("ppa_goodwill"),
+                fmt(day1_goodwill),
+            ), unsafe_allow_html=True)
+        with mc2:
+            st.markdown(metric_card(
+                T("bs_intang"),
+                fmt(day1_intang),
+            ), unsafe_allow_html=True)
+        with mc3:
+            st.markdown(metric_card(
+                T("bs_debt_new"),
+                fmt(day1_debt_new),
+            ), unsafe_allow_html=True)
+        with mc4:
+            st.markdown(metric_card(
+                T("bs_total_assets") + " (Day 1)",
+                fmt(day1_total_assets),
+            ), unsafe_allow_html=True)
 
 
 # ═══════════════════════════════════════════════════════════════════════════════

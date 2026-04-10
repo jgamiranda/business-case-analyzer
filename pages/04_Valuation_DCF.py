@@ -28,6 +28,7 @@ _L = {
     "tab_wacc": "  WACC  ",
     "tab_tv": "  Valor Terminal  ",
     "tab_val": "  Valuation  ",
+    "tab_fs": "  Demonstracoes Financeiras  ",
     "tab_sens": "  Sensibilidade  ",
     "tab_comps": "  Comparaveis  ",
     # Company
@@ -174,6 +175,73 @@ _L = {
     "wacc_adj": "Ajuste no WACC (p.p.)",
     "expected_value": "Valor Esperado (ponderado)",
     "scenario_price": "Preco por Acao",
+    # Financial Statements (3-Statement Integration)
+    "fs_info": "Modelo integrado de 3 demonstracoes: DRE, Fluxo de Caixa e Balanco Patrimonial.",
+    "fs_assumptions": "Premissas de Demonstracoes Financeiras",
+    "fs_cogs_pct": "CMV como % da receita",
+    "fs_sga_pct": "SG&A como % da receita",
+    "fs_dso": "DSO (dias de contas a receber)",
+    "fs_dio": "DIO (dias de estoque)",
+    "fs_dpo": "DPO (dias de contas a pagar)",
+    "fs_oca_pct": "Outros ativos circulantes (% receita)",
+    "fs_goodwill": "Goodwill inicial (MM)",
+    "fs_lt_debt": "Divida de longo prazo inicial (MM)",
+    "fs_st_debt": "Divida de curto prazo inicial (MM)",
+    "fs_payout": "Payout de dividendos (%)",
+    "fs_int_rate": "Taxa de juros sobre divida (%)",
+    "fs_init_cash": "Caixa inicial (MM)",
+    "fs_common_stock": "Capital social inicial (MM)",
+    "fs_other_lta": "Outros ativos nao-circulantes (MM)",
+    "fs_is_title": "Demonstracao do Resultado (DRE)",
+    "fs_cf_title": "Demonstracao do Fluxo de Caixa (DFC)",
+    "fs_bs_title": "Balanco Patrimonial (BP)",
+    "fs_revenue": "Receita",
+    "fs_cogs": "(-) CMV",
+    "fs_gross": "Lucro Bruto",
+    "fs_sga": "(-) SG&A",
+    "fs_ebitda": "EBITDA",
+    "fs_da": "(-) D&A",
+    "fs_ebit": "EBIT",
+    "fs_interest": "(-) Juros",
+    "fs_pretax": "Lucro Antes do Imposto",
+    "fs_tax": "(-) Imposto",
+    "fs_ni": "Lucro Liquido",
+    "fs_plus_da": "(+) D&A",
+    "fs_min_nwc": "(-) Variacao do NWC",
+    "fs_cfo": "= Caixa Operacional (CFO)",
+    "fs_min_capex": "(-) CapEx",
+    "fs_cfi": "= Caixa de Investimento (CFI)",
+    "fs_net_borr": "(+) Captacao Liquida",
+    "fs_min_div": "(-) Dividendos",
+    "fs_cff": "= Caixa de Financiamento (CFF)",
+    "fs_net_change": "Variacao Liquida de Caixa",
+    "fs_beg_cash": "Caixa Inicial",
+    "fs_end_cash": "Caixa Final",
+    "fs_assets": "ATIVO",
+    "fs_cash": "Caixa e Equivalentes",
+    "fs_ar": "Contas a Receber",
+    "fs_inv": "Estoques",
+    "fs_oca": "Outros Ativos Circulantes",
+    "fs_tca": "Total Ativo Circulante",
+    "fs_ppe": "Imobilizado Liquido (PP&E)",
+    "fs_gw": "Goodwill",
+    "fs_olta": "Outros Ativos Nao-Circulantes",
+    "fs_ta": "TOTAL DO ATIVO",
+    "fs_liab": "PASSIVO",
+    "fs_ap": "Fornecedores",
+    "fs_std": "Divida de Curto Prazo",
+    "fs_tcl": "Total Passivo Circulante",
+    "fs_ltd": "Divida de Longo Prazo",
+    "fs_tl": "TOTAL DO PASSIVO",
+    "fs_eq": "PATRIMONIO LIQUIDO",
+    "fs_cs": "Capital Social",
+    "fs_re": "Lucros Acumulados",
+    "fs_te": "Total Patrimonio Liquido",
+    "fs_tle": "TOTAL PASSIVO + PL",
+    "fs_balance_check": "Verificacao do Balanco",
+    "fs_balanced": "BALANCO FECHADO",
+    "fs_unbalanced": "BALANCO NAO FECHA",
+    "fs_diff": "Diferenca",
     # Comps
     "comps_title": "Analise de Empresas Comparaveis",
     "comps_info": "Adicione empresas comparaveis para calcular multiplos de mercado.",
@@ -203,6 +271,7 @@ _L = {
     "tab_wacc": "  WACC  ",
     "tab_tv": "  Terminal Value  ",
     "tab_val": "  Valuation  ",
+    "tab_fs": "  Financial Statements  ",
     "tab_sens": "  Sensitivity  ",
     "tab_comps": "  Comparables  ",
     "company_name": "Company name",
@@ -342,6 +411,72 @@ _L = {
     "wacc_adj": "WACC adj (pp)",
     "expected_value": "Expected Value (weighted)",
     "scenario_price": "Price per Share",
+    "fs_info": "Integrated 3-statement model: Income Statement, Cash Flow, and Balance Sheet.",
+    "fs_assumptions": "Financial Statement Assumptions",
+    "fs_cogs_pct": "COGS as % of revenue",
+    "fs_sga_pct": "SG&A as % of revenue",
+    "fs_dso": "DSO (days sales outstanding)",
+    "fs_dio": "DIO (days inventory outstanding)",
+    "fs_dpo": "DPO (days payable outstanding)",
+    "fs_oca_pct": "Other current assets (% revenue)",
+    "fs_goodwill": "Initial Goodwill (MM)",
+    "fs_lt_debt": "Initial Long-term Debt (MM)",
+    "fs_st_debt": "Initial Short-term Debt (MM)",
+    "fs_payout": "Dividend Payout Ratio (%)",
+    "fs_int_rate": "Interest Rate on Debt (%)",
+    "fs_init_cash": "Initial Cash (MM)",
+    "fs_common_stock": "Initial Common Stock (MM)",
+    "fs_other_lta": "Other Long-term Assets (MM)",
+    "fs_is_title": "Income Statement",
+    "fs_cf_title": "Cash Flow Statement",
+    "fs_bs_title": "Balance Sheet",
+    "fs_revenue": "Revenue",
+    "fs_cogs": "(-) COGS",
+    "fs_gross": "Gross Profit",
+    "fs_sga": "(-) SG&A",
+    "fs_ebitda": "EBITDA",
+    "fs_da": "(-) D&A",
+    "fs_ebit": "EBIT",
+    "fs_interest": "(-) Interest Expense",
+    "fs_pretax": "Pre-tax Income",
+    "fs_tax": "(-) Tax",
+    "fs_ni": "Net Income",
+    "fs_plus_da": "(+) D&A",
+    "fs_min_nwc": "(-) Change in NWC",
+    "fs_cfo": "= Cash from Operations (CFO)",
+    "fs_min_capex": "(-) CapEx",
+    "fs_cfi": "= Cash from Investing (CFI)",
+    "fs_net_borr": "(+) Net Borrowings",
+    "fs_min_div": "(-) Dividends",
+    "fs_cff": "= Cash from Financing (CFF)",
+    "fs_net_change": "Net Change in Cash",
+    "fs_beg_cash": "Beginning Cash",
+    "fs_end_cash": "Ending Cash",
+    "fs_assets": "ASSETS",
+    "fs_cash": "Cash & Equivalents",
+    "fs_ar": "Accounts Receivable",
+    "fs_inv": "Inventory",
+    "fs_oca": "Other Current Assets",
+    "fs_tca": "Total Current Assets",
+    "fs_ppe": "PP&E Net",
+    "fs_gw": "Goodwill",
+    "fs_olta": "Other Long-term Assets",
+    "fs_ta": "TOTAL ASSETS",
+    "fs_liab": "LIABILITIES",
+    "fs_ap": "Accounts Payable",
+    "fs_std": "Short-term Debt",
+    "fs_tcl": "Total Current Liabilities",
+    "fs_ltd": "Long-term Debt",
+    "fs_tl": "TOTAL LIABILITIES",
+    "fs_eq": "EQUITY",
+    "fs_cs": "Common Stock",
+    "fs_re": "Retained Earnings",
+    "fs_te": "Total Equity",
+    "fs_tle": "TOTAL LIABILITIES + EQUITY",
+    "fs_balance_check": "Balance Sheet Check",
+    "fs_balanced": "BALANCE SHEET BALANCED",
+    "fs_unbalanced": "BALANCE SHEET DOES NOT BALANCE",
+    "fs_diff": "Difference",
     "comps_title": "Comparable Company Analysis",
     "comps_info": "Add comparable companies to compute market multiples.",
     "comp_name": "Name",
@@ -437,6 +572,19 @@ p,h1,h2,h3,h4,label,li{color:#e2e8f0 !important}
 [data-testid="stMarkdownContainer"] p,[data-testid="stMarkdownContainer"] li{color:#e2e8f0 !important}
 [data-testid="stCaption"] p,.stCaption p{color:#94a3b8 !important}
 [data-testid="stExpander"] details{background:#1e293b !important;border-color:#334155 !important}
+.stTabs [data-baseweb="tab"]{background:#1e293b !important;color:#93c5fd !important;border-color:#334155 !important}
+.stTabs [aria-selected="true"]{background:#1a56db !important;color:#fff !important}
+[data-testid="stAlert"]{background:#1e293b !important;border-color:#334155 !important}
+[data-testid="stAlert"] p{color:#e2e8f0 !important}
+[data-testid="stMetricValue"],[data-testid="stMetricLabel"]{color:#e2e8f0 !important}
+[data-baseweb="input"] input,[data-baseweb="textarea"] textarea,[data-baseweb="select"] div{background:#1e293b !important;color:#e2e8f0 !important}
+.metric-card{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important}
+.metric-card .mc-label{color:#94a3b8 !important}.metric-card .mc-value{color:#60a5fa !important}
+.metric-card-green{background:linear-gradient(135deg,#064e3b,#065f46) !important;border-color:#10b981 !important}
+.metric-card-green .mc-value{color:#6ee7b7 !important}
+.metric-card-red{background:linear-gradient(135deg,#7f1d1d,#991b1b) !important;border-color:#ef4444 !important}
+.metric-card-red .mc-value{color:#fca5a5 !important}
+hr{border-color:#334155 !important}
 </style>""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -497,6 +645,21 @@ _DCF_DEFAULTS = {
     "dcf_bear_rev_adj": -3.0,
     "dcf_bear_margin_adj": -2.0,
     "dcf_bear_wacc_adj": 1.0,
+    # Financial Statements (3-statement integration)
+    "dcf_fs_cogs_pct": 60.0,
+    "dcf_fs_sga_pct": 20.0,
+    "dcf_fs_dso": 45.0,
+    "dcf_fs_dio": 60.0,
+    "dcf_fs_dpo": 30.0,
+    "dcf_fs_oca_pct": 2.0,
+    "dcf_fs_goodwill": 0.0,
+    "dcf_fs_lt_debt": 300.0,
+    "dcf_fs_st_debt": 50.0,
+    "dcf_fs_payout": 30.0,
+    "dcf_fs_int_rate": 7.0,
+    "dcf_fs_init_cash": 100.0,
+    "dcf_fs_common_stock": 500.0,
+    "dcf_fs_other_lta": 50.0,
 }
 
 for k, v in _DCF_DEFAULTS.items():
@@ -561,9 +724,9 @@ def fmt_mm(v):
 # TABS
 # ─────────────────────────────────────────────────────────────────────────────
 _dcf_icons = ["\U0001f3e2", "\U0001f4c8", "\U0001f4b1", "\U0001f3af",
-              "\U0001f4b0", "\U0001f50d", "\U0001f4ca"]
+              "\U0001f4b0", "\U0001f4d1", "\U0001f50d", "\U0001f4ca"]
 _dcf_names = [T("tab_company"), T("tab_proj"), T("tab_wacc"),
-              T("tab_tv"), T("tab_val"), T("tab_sens"), T("tab_comps")]
+              T("tab_tv"), T("tab_val"), T("tab_fs"), T("tab_sens"), T("tab_comps")]
 tabs = st.tabs([f"{i}  {n}" for i, n in zip(_dcf_icons, _dcf_names)])
 
 # ═════════════════════════════════════════════════════════════════════════════
@@ -1266,9 +1429,299 @@ with tabs[4]:
     st.plotly_chart(fig_w, use_container_width=True)
 
 # ═════════════════════════════════════════════════════════════════════════════
-# TAB 6 — SENSITIVITY (Enhanced)
+# TAB 6 — FINANCIAL STATEMENTS (3-Statement Integration)
 # ═════════════════════════════════════════════════════════════════════════════
 with tabs[5]:
+    st.info(T("fs_info"))
+
+    # ── Assumptions ──
+    with st.expander(T("fs_assumptions"), expanded=True):
+        fa1, fa2, fa3, fa4 = st.columns(4)
+        with fa1:
+            st.number_input(T("fs_cogs_pct"), 0.0, 100.0, step=0.5,
+                            format="%.1f", key="dcf_fs_cogs_pct")
+            st.number_input(T("fs_sga_pct"), 0.0, 100.0, step=0.5,
+                            format="%.1f", key="dcf_fs_sga_pct")
+            st.number_input(T("fs_oca_pct"), 0.0, 50.0, step=0.5,
+                            format="%.1f", key="dcf_fs_oca_pct")
+        with fa2:
+            st.number_input(T("fs_dso"), 0.0, 365.0, step=1.0,
+                            format="%.0f", key="dcf_fs_dso")
+            st.number_input(T("fs_dio"), 0.0, 365.0, step=1.0,
+                            format="%.0f", key="dcf_fs_dio")
+            st.number_input(T("fs_dpo"), 0.0, 365.0, step=1.0,
+                            format="%.0f", key="dcf_fs_dpo")
+        with fa3:
+            st.number_input(T("fs_init_cash"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_init_cash")
+            st.number_input(T("fs_st_debt"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_st_debt")
+            st.number_input(T("fs_lt_debt"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_lt_debt")
+        with fa4:
+            st.number_input(T("fs_goodwill"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_goodwill")
+            st.number_input(T("fs_other_lta"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_other_lta")
+            st.number_input(T("fs_common_stock"), 0.0, step=10.0, format="%.1f",
+                            key="dcf_fs_common_stock")
+
+        fb1, fb2 = st.columns(2)
+        with fb1:
+            st.number_input(T("fs_int_rate"), 0.0, 30.0, step=0.25,
+                            format="%.2f", key="dcf_fs_int_rate")
+        with fb2:
+            st.number_input(T("fs_payout"), 0.0, 100.0, step=1.0,
+                            format="%.1f", key="dcf_fs_payout")
+
+    # ── Build 3 statements using shared DCF projections ──
+    _fs_res = _run_dcf()
+    n_fs = _fs_res["n"]
+    _rev = _fs_res["rows"]["revenue"]
+    _ebitda = _fs_res["rows"]["ebitda"]
+    _da = _fs_res["rows"]["da"]
+    _capex = _fs_res["rows"]["capex"]
+    _nwc_proj = _fs_res["rows"]["nwc"]
+
+    # Assumption values
+    cogs_pct = st.session_state["dcf_fs_cogs_pct"] / 100
+    sga_pct = st.session_state["dcf_fs_sga_pct"] / 100
+    dso = st.session_state["dcf_fs_dso"]
+    dio = st.session_state["dcf_fs_dio"]
+    dpo = st.session_state["dcf_fs_dpo"]
+    oca_pct = st.session_state["dcf_fs_oca_pct"] / 100
+    gw_val = st.session_state["dcf_fs_goodwill"]
+    olta_val = st.session_state["dcf_fs_other_lta"]
+    ltd_0 = st.session_state["dcf_fs_lt_debt"]
+    std_0 = st.session_state["dcf_fs_st_debt"]
+    payout = st.session_state["dcf_fs_payout"] / 100
+    int_rate = st.session_state["dcf_fs_int_rate"] / 100
+    cash_0 = st.session_state["dcf_fs_init_cash"]
+    cs_val = st.session_state["dcf_fs_common_stock"]
+    tax_rate_fs = st.session_state["dcf_tax_rate"] / 100
+    net_borr_pct_fs = st.session_state.get("dcf_net_borrowings_pct", 1.0) / 100
+
+    # Compute Income Statement
+    is_cogs = [r * cogs_pct for r in _rev]
+    is_gross = [r - c for r, c in zip(_rev, is_cogs)]
+    is_sga = [r * sga_pct for r in _rev]
+    # EBITDA from projections (already revenue * margin). Keep consistent.
+    is_ebitda = _ebitda
+    is_da = _da
+    is_ebit = [e - d for e, d in zip(is_ebitda, is_da)]
+
+    # Debt schedule: opening LTD + STD, change in LTD from net borrowings %
+    ltd_schedule = []
+    std_schedule = []
+    ltd_prev = ltd_0
+    std_prev = std_0
+    net_borr_list = []
+    int_exp_list = []
+    for i in range(n_fs):
+        nb = _rev[i] * net_borr_pct_fs
+        net_borr_list.append(nb)
+        # Apply all net borrowings to long-term debt
+        ltd_new = ltd_prev + nb
+        std_new = std_prev  # keep ST debt flat
+        # Interest on average of beginning and ending total debt
+        avg_debt = ((ltd_prev + std_prev) + (ltd_new + std_new)) / 2
+        int_exp = avg_debt * int_rate
+        int_exp_list.append(int_exp)
+        ltd_schedule.append(ltd_new)
+        std_schedule.append(std_new)
+        ltd_prev = ltd_new
+        std_prev = std_new
+
+    is_pretax = [ebit - ie for ebit, ie in zip(is_ebit, int_exp_list)]
+    is_tax = [max(pt * tax_rate_fs, 0) for pt in is_pretax]
+    is_ni = [pt - tx for pt, tx in zip(is_pretax, is_tax)]
+
+    # Cash Flow Statement
+    cf_ni = is_ni
+    cf_da = is_da
+    cf_nwc = _nwc_proj  # change in NWC from projections
+    cf_cfo = [ni + da - nwc for ni, da, nwc in zip(cf_ni, cf_da, cf_nwc)]
+    cf_capex = _capex
+    cf_cfi = [-cp for cp in cf_capex]
+    cf_net_borr = net_borr_list
+    cf_div = [max(ni, 0) * payout for ni in cf_ni]
+    cf_cff = [nb - dv for nb, dv in zip(cf_net_borr, cf_div)]
+    cf_net_change = [o + i + f for o, i, f in zip(cf_cfo, cf_cfi, cf_cff)]
+
+    # Beginning/ending cash walk
+    cf_beg_cash = []
+    cf_end_cash = []
+    _cash_prev = cash_0
+    for nc in cf_net_change:
+        cf_beg_cash.append(_cash_prev)
+        _cash_prev = _cash_prev + nc
+        cf_end_cash.append(_cash_prev)
+
+    # Balance Sheet
+    bs_cash = cf_end_cash
+    bs_ar = [r * dso / 365 for r in _rev]
+    bs_inv = [c * dio / 365 for c in is_cogs]
+    bs_oca = [r * oca_pct for r in _rev]
+    bs_tca = [c + a + i + o for c, a, i, o in zip(bs_cash, bs_ar, bs_inv, bs_oca)]
+
+    # PP&E walk: opening PP&E = initial guess. Use revenue*capex_pct seed? Set opening = sum approach:
+    # Simpler: initial PP&E such that first-year opening is reasonable. Use revenue * da_pct / (capex_pct - da_pct) may be negative.
+    # Use practical initial PP&E = 3x last year DA as a placeholder seed; but better: start with initial = first year revenue * capex_pct * 3.
+    ppe_0 = _rev[0] * st.session_state["dcf_capex_pct"] / 100 * 3.0 if n_fs > 0 else 0.0
+    bs_ppe = []
+    _ppe_prev = ppe_0
+    for i in range(n_fs):
+        _ppe_new = _ppe_prev + cf_capex[i] - is_da[i]
+        bs_ppe.append(_ppe_new)
+        _ppe_prev = _ppe_new
+
+    bs_gw = [gw_val] * n_fs
+    bs_olta = [olta_val] * n_fs
+    bs_ta = [ca + pp + g + o for ca, pp, g, o in zip(bs_tca, bs_ppe, bs_gw, bs_olta)]
+
+    bs_ap = [c * dpo / 365 for c in is_cogs]
+    bs_std = std_schedule
+    bs_tcl = [a + s for a, s in zip(bs_ap, bs_std)]
+    bs_ltd = ltd_schedule
+    bs_tl = [tcl + ltd for tcl, ltd in zip(bs_tcl, bs_ltd)]
+
+    bs_cs = [cs_val] * n_fs
+    # Retained earnings walk - seed initial RE so balance sheet balances in year 0 (opening)
+    # Opening balance requirement: Assets_0 = Liab_0 + Equity_0
+    # Use an initial RE computed from opening balance sheet (t=0):
+    open_ar = st.session_state["dcf_revenue"] * dso / 365
+    open_cogs = st.session_state["dcf_revenue"] * cogs_pct
+    open_inv = open_cogs * dio / 365
+    open_oca = st.session_state["dcf_revenue"] * oca_pct
+    open_ap = open_cogs * dpo / 365
+    open_ta = cash_0 + open_ar + open_inv + open_oca + ppe_0 + gw_val + olta_val
+    open_tl = open_ap + std_0 + ltd_0
+    re_0 = open_ta - open_tl - cs_val  # plug to balance opening
+
+    bs_re = []
+    _re_prev = re_0
+    for i in range(n_fs):
+        _re_new = _re_prev + cf_ni[i] - cf_div[i]
+        bs_re.append(_re_new)
+        _re_prev = _re_new
+
+    bs_te = [cs + re for cs, re in zip(bs_cs, bs_re)]
+    bs_tle = [tl + te for tl, te in zip(bs_tl, bs_te)]
+
+    # Balance check
+    bs_diff = [ta - tle for ta, tle in zip(bs_ta, bs_tle)]
+    max_abs_diff = max([abs(d) for d in bs_diff]) if bs_diff else 0
+    is_balanced = max_abs_diff < 0.5  # threshold in MM
+
+    year_labels_fs = [f"{T('year')} {y}" for y in range(1, n_fs + 1)]
+
+    # ── Balance Check Indicator ──
+    st.markdown("---")
+    bc1, bc2, bc3 = st.columns([2, 2, 2])
+    bc_color = "green" if is_balanced else "red"
+    bc_label = T("fs_balanced") if is_balanced else T("fs_unbalanced")
+    bc1.markdown(_mc(T("fs_balance_check"), bc_label, color=bc_color),
+                 unsafe_allow_html=True)
+    bc2.markdown(_mc(T("fs_diff") + " (Max)", fmt_mm(max_abs_diff),
+                     color=("green" if is_balanced else "red")),
+                 unsafe_allow_html=True)
+    bc3.markdown(_mc(T("fs_ta") + f" ({T('year')} {n_fs})", fmt_mm(bs_ta[-1] if bs_ta else 0)),
+                 unsafe_allow_html=True)
+
+    # ── Income Statement ──
+    st.markdown("---")
+    st.subheader(T("fs_is_title"))
+    is_df = pd.DataFrame({
+        "": [T("fs_revenue"), T("fs_cogs"), T("fs_gross"), T("fs_sga"),
+             T("fs_ebitda"), T("fs_da"), T("fs_ebit"), T("fs_interest"),
+             T("fs_pretax"), T("fs_tax"), T("fs_ni")],
+        **{year_labels_fs[i]: [
+            fmt_mm(_rev[i]), fmt_mm(is_cogs[i]), fmt_mm(is_gross[i]),
+            fmt_mm(is_sga[i]), fmt_mm(is_ebitda[i]), fmt_mm(is_da[i]),
+            fmt_mm(is_ebit[i]), fmt_mm(int_exp_list[i]), fmt_mm(is_pretax[i]),
+            fmt_mm(is_tax[i]), fmt_mm(is_ni[i]),
+        ] for i in range(n_fs)}
+    })
+
+    def _style_fs(row):
+        bold_rows = {T("fs_revenue"), T("fs_gross"), T("fs_ebitda"),
+                     T("fs_ebit"), T("fs_pretax"), T("fs_ni"),
+                     T("fs_cfo"), T("fs_cfi"), T("fs_cff"),
+                     T("fs_net_change"), T("fs_end_cash"),
+                     T("fs_tca"), T("fs_ta"), T("fs_tcl"), T("fs_tl"),
+                     T("fs_te"), T("fs_tle"), T("fs_assets"),
+                     T("fs_liab"), T("fs_eq")}
+        header_rows = {T("fs_assets"), T("fs_liab"), T("fs_eq")}
+        label = row.iloc[0]
+        if label in header_rows:
+            return ["background-color: #1a56db; color: white; font-weight: 800"] * len(row)
+        if label in bold_rows:
+            return ["background-color: #dbeafe; font-weight: 700"] * len(row)
+        return [""] * len(row)
+
+    st.dataframe(is_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
+
+    # ── Cash Flow Statement ──
+    st.markdown("---")
+    st.subheader(T("fs_cf_title"))
+    cf_df = pd.DataFrame({
+        "": [T("fs_ni"), T("fs_plus_da"), T("fs_min_nwc"), T("fs_cfo"),
+             T("fs_min_capex"), T("fs_cfi"), T("fs_net_borr"), T("fs_min_div"),
+             T("fs_cff"), T("fs_net_change"), T("fs_beg_cash"), T("fs_end_cash")],
+        **{year_labels_fs[i]: [
+            fmt_mm(cf_ni[i]), fmt_mm(cf_da[i]), fmt_mm(cf_nwc[i]),
+            fmt_mm(cf_cfo[i]), fmt_mm(cf_capex[i]), fmt_mm(cf_cfi[i]),
+            fmt_mm(cf_net_borr[i]), fmt_mm(cf_div[i]), fmt_mm(cf_cff[i]),
+            fmt_mm(cf_net_change[i]), fmt_mm(cf_beg_cash[i]),
+            fmt_mm(cf_end_cash[i]),
+        ] for i in range(n_fs)}
+    })
+    st.dataframe(cf_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
+
+    # ── Balance Sheet ──
+    st.markdown("---")
+    st.subheader(T("fs_bs_title"))
+    bs_df = pd.DataFrame({
+        "": [
+            T("fs_assets"),
+            T("fs_cash"), T("fs_ar"), T("fs_inv"), T("fs_oca"), T("fs_tca"),
+            T("fs_ppe"), T("fs_gw"), T("fs_olta"), T("fs_ta"),
+            T("fs_liab"),
+            T("fs_ap"), T("fs_std"), T("fs_tcl"), T("fs_ltd"), T("fs_tl"),
+            T("fs_eq"),
+            T("fs_cs"), T("fs_re"), T("fs_te"),
+            T("fs_tle"),
+            T("fs_diff"),
+        ],
+        **{year_labels_fs[i]: [
+            "",
+            fmt_mm(bs_cash[i]), fmt_mm(bs_ar[i]), fmt_mm(bs_inv[i]),
+            fmt_mm(bs_oca[i]), fmt_mm(bs_tca[i]), fmt_mm(bs_ppe[i]),
+            fmt_mm(bs_gw[i]), fmt_mm(bs_olta[i]), fmt_mm(bs_ta[i]),
+            "",
+            fmt_mm(bs_ap[i]), fmt_mm(bs_std[i]), fmt_mm(bs_tcl[i]),
+            fmt_mm(bs_ltd[i]), fmt_mm(bs_tl[i]),
+            "",
+            fmt_mm(bs_cs[i]), fmt_mm(bs_re[i]), fmt_mm(bs_te[i]),
+            fmt_mm(bs_tle[i]),
+            fmt_mm(bs_diff[i]),
+        ] for i in range(n_fs)}
+    })
+    st.dataframe(bs_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
+
+    if not is_balanced:
+        st.warning(
+            f"{T('fs_unbalanced')}: {T('fs_diff')} = {fmt_mm(max_abs_diff)} "
+            f"({'MM' if lang == 'EN' else 'MM'}). "
+            + ("Adjust initial Cash, Debt, Common Stock or working capital assumptions."
+               if lang == "EN"
+               else "Ajuste Caixa inicial, Divida, Capital Social ou premissas de capital de giro.")
+        )
+
+# ═════════════════════════════════════════════════════════════════════════════
+# TAB 7 — SENSITIVITY (Enhanced)
+# ═════════════════════════════════════════════════════════════════════════════
+with tabs[6]:
     st.info(T("sens_info"))
 
     # Determine if Gordon or Exit method
@@ -1735,9 +2188,9 @@ with tabs[5]:
         )
 
 # ═════════════════════════════════════════════════════════════════════════════
-# TAB 7 — COMPARABLE COMPANY ANALYSIS
+# TAB 8 — COMPARABLE COMPANY ANALYSIS
 # ═════════════════════════════════════════════════════════════════════════════
-with tabs[6]:
+with tabs[7]:
     st.info(T("comps_info"))
 
     num_comps = st.slider(T("num_comps"), 3, 8, value=st.session_state.get("dcf_num_comps", 3),

@@ -43,6 +43,52 @@ def fp(v):
     return f"{v:.1f}%"
 
 
+# ─── Financial number formatting (Macabacus / banker convention) ─────────────
+
+def fmt_fin(v, decimals=0, suffix=""):
+    """Format number with thousand separators and parentheses for negatives.
+    Examples: 1234 -> '1,234'   -1234 -> '(1,234)'   12.3 -> '12.3' (decimals=1)
+    """
+    if v is None:
+        return "—"
+    try:
+        if v < 0:
+            return f"({abs(v):,.{decimals}f}){suffix}"
+        return f"{v:,.{decimals}f}{suffix}"
+    except (TypeError, ValueError):
+        return "—"
+
+
+def fmt_pct(v, decimals=1):
+    """Format as percentage with parentheses for negatives. 12.3 -> '12.3%' / -5.0 -> '(5.0%)'"""
+    if v is None:
+        return "—"
+    return fmt_fin(v, decimals=decimals, suffix="%")
+
+
+def fmt_mult(v, decimals=1):
+    """Format as multiple. 1.5 -> '1.5x' / -0.3 -> '(0.3x)'"""
+    if v is None:
+        return "—"
+    return fmt_fin(v, decimals=decimals, suffix="x")
+
+
+def fmt_money_fin(v, unit, decimals=None):
+    """Format money with parentheses for negatives, scaled to unit.
+    1500000 / R$ MM -> '1.50'   -1500000 / R$ MM -> '(1.50)'
+    """
+    if v is None:
+        return "—"
+    try:
+        s = v / MULT[unit]
+        d = decimals if decimals is not None else (2 if unit == "R$ MM" else 0)
+        if s < 0:
+            return f"({abs(s):,.{d}f})"
+        return f"{s:,.{d}f}"
+    except (TypeError, ValueError):
+        return "—"
+
+
 # ─── Operational cash flow ───────────────────────────────────────────────────
 
 def calcular_operacional(receitas, cpvs, opexs, capex_lines, horizonte,

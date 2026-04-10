@@ -52,6 +52,35 @@ DEF      = {
     "divida":  {"R$ Mil": 300.0, "R$ MM": 0.30},
 }
 
+# ─── Model Types (used by Business Case page model selector) ─────────────────
+MODEL_TYPES = {
+    "business_case": {
+        "icon": "\U0001f4cb", "color": "#1a56db",
+        "defaults": {"horizonte": 36, "taxa_desc": 13.75, "n_rec_v": 1, "n_cpv_v": 1,
+                      "n_opex_v": 1, "n_capex_v": 1, "n_div_v": 1, "regime_fiscal": "Lucro Real"},
+    },
+    "ma": {
+        "icon": "\U0001f91d", "color": "#7c3aed",
+        "defaults": {"horizonte": 60, "taxa_desc": 15.0, "n_rec_v": 2, "n_cpv_v": 2,
+                      "n_opex_v": 2, "n_capex_v": 1, "n_div_v": 2, "regime_fiscal": "Lucro Real"},
+    },
+    "project_finance": {
+        "icon": "\U0001f3d7", "color": "#0891b2",
+        "defaults": {"horizonte": 60, "taxa_desc": 12.0, "n_rec_v": 1, "n_cpv_v": 1,
+                      "n_opex_v": 2, "n_capex_v": 2, "n_div_v": 3, "regime_fiscal": "Lucro Real"},
+    },
+    "valuation_dcf": {
+        "icon": "\U0001f4b0", "color": "#16a34a",
+        "defaults": {"horizonte": 60, "taxa_desc": 14.0, "n_rec_v": 3, "n_cpv_v": 2,
+                      "n_opex_v": 2, "n_capex_v": 1, "n_div_v": 1, "regime_fiscal": "Lucro Real"},
+    },
+    "startup": {
+        "icon": "\U0001f680", "color": "#f97316",
+        "defaults": {"horizonte": 48, "taxa_desc": 20.0, "n_rec_v": 2, "n_cpv_v": 1,
+                      "n_opex_v": 3, "n_capex_v": 1, "n_div_v": 1, "regime_fiscal": "Simples Nacional"},
+    },
+}
+
 # Session-state defaults (data_inicio resolved at runtime in app.py)
 DEFAULTS = {
     "unit": "R$ Mil",
@@ -68,4 +97,7 @@ DEFAULTS = {
     # Working capital
     "tem_ncg": False, "ncg_method": "pct", "ncg_pct": 10.0,
     "dso": 30, "dio": 15, "dpo": 30,
+    # Revolver
+    "use_revolver": True, "rev_min_cash_pct": 5.0,
+    "rev_rate_spread": 3.0, "rev_max_cap_pct": 30.0,
 }

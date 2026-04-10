@@ -15,6 +15,7 @@ from backend import (tm, idx_custo, taxa_div_anual, fv, fp, calcular_operacional
                      calcular_wacc, calcular_custo_medio_divida,
                      calcular_dscr, calcular_dscr_anual,
                      calcular_icr_anual, calcular_divida_ebitda,
+                     verificar_covenants,
                      monte_carlo, monte_carlo_stats,
                      _fetch_last, _fetch_hist, _fetch_focus)
 from slides import gerar_deck, SLIDE_TRANSLATIONS
@@ -403,6 +404,38 @@ with tab_prem:
                 _nc3.slider(T("dpo_lbl"), 0, 180, int(get("dpo", 30)), key="dpo")
                 _ccc = int(get("dso", 30)) + int(get("dio", 15)) - int(get("dpo", 30))
                 st.caption(T("ncg_ccc_preview").format(ccc=_ccc))
+
+        # ── Rolling Working Capital detail (only when dias method) ──────────
+        st.markdown("---")
+        with st.expander(T("ncg_detail_title"), expanded=False):
+            st.caption(T("ncg_detail_cap"))
+            if tem_ncg and get("ncg_method", "pct") == "dias":
+                st.caption(T("ncg_detail_note"))
+                st.info("ℹ  " + T("ncg_row_delta_nwc") +
+                        " → " + T("dfc_delta_ncg"))
+            else:
+                st.info(T("ncg_detail_only_dias"))
+
+    with st.expander(T("sec_revolver"), expanded=False):
+        _rv1, _rv2 = st.columns([1, 3])
+        _rv1.checkbox(T("rev_use_lbl"), value=bool(get("use_revolver", True)),
+                      key="use_revolver", help=T("rev_use_help"))
+        _rv2.write("")
+        if bool(get("use_revolver", True)):
+            _rvc1, _rvc2, _rvc3 = st.columns(3)
+            _rvc1.number_input(T("rev_min_cash_lbl"), 0.0, 50.0,
+                               float(get("rev_min_cash_pct", 5.0)), 0.5,
+                               format="%.1f", key="rev_min_cash_pct")
+            _rvc2.number_input(T("rev_rate_lbl"), 0.0, 30.0,
+                               float(get("rev_rate_spread", 3.0)), 0.25,
+                               format="%.2f", key="rev_rate_spread")
+            _rvc3.number_input(T("rev_max_cap_lbl"), 0.0, 200.0,
+                               float(get("rev_max_cap_pct", 30.0)), 1.0,
+                               format="%.0f", key="rev_max_cap_pct")
+            _cdi_cur = float(get("cdi_ref", 13.65))
+            _sp_cur  = float(get("rev_rate_spread", 3.0))
+            st.info(T("rev_effective_rate").format(cdi=_cdi_cur, sp=_sp_cur,
+                                                   tot=_cdi_cur + _sp_cur))
     # ── Comparables (Valuation DCF) ─────────────────────────────────────────
     if st.session_state.get("model_type") == "valuation_dcf":
         with st.expander(T("comp_sec"), expanded=True):
@@ -735,6 +768,13 @@ _dso        = int(get("dso", 30))
 _dio        = int(get("dio", 15))
 _dpo        = int(get("dpo", 30))
 _prev_nwc   = 0.0   # NWC balance at end of prior year
+# ── Revolver parameters ─────────────────────────────────────────────────────
+_use_rev         = bool(get("use_revolver", True))
+_rev_min_cash_r  = float(get("rev_min_cash_pct", 5.0)) / 100
+_rev_rate_r      = (float(get("cdi_ref", 13.65)) + float(get("rev_rate_spread", 3.0))) / 100
+_rev_max_cap     = total_capex * float(get("rev_max_cap_pct", 30.0)) / 100
+_rev_bal         = 0.0   # outstanding revolver balance
+_cash_pre_rev    = 0.0   # cumulative cash before revolver adjustments
 annual={}
 for y in range(1,n_anos+1):
     idx=list(range((y-1)*12+1, min(y*12,horizonte)+1))
@@ -748,6 +788,9 @@ for y in range(1,n_anos+1):
     da_y=float(sum(depr_m.get(m,0) for m in idx))
     ebit_y=ebitda_y-da_y
     juros_y=float(sum(interest_m.get(m,0) for m in idx))
+    # Revolver interest charged on opening balance (this year, before new draws)
+    rev_int_y = _rev_bal * _rev_rate_r if _use_rev else 0.0
+    juros_y += rev_int_y
     res_y=s("Rec. Residual")
     lair_y=ebit_y-juros_y+res_y
     # Regime-specific tax
@@ -769,18 +812,40 @@ for y in range(1,n_anos+1):
     ni_y=lair_y-tax_y
     proc_y=float(sum(proceeds_m.get(m,0) for m in idx))
     prin_y=float(sum(principal_m.get(m,0) for m in idx))
-    # NWC / NCG
+    # NWC / NCG — rolling schedule (AR, INV, AP computed regardless for display)
+    ar_y  = receita_y * _dso / 365
+    inv_y = cpv_y * _dio / 365
+    ap_y  = cpv_y * _dpo / 365
     if _tem_ncg:
         if _ncg_method == "pct":
             nwc_y = receita_y * _ncg_pct_r
         else:
-            nwc_y = (receita_y * _dso / 365) + (cpv_y * _dio / 365) - (cpv_y * _dpo / 365)
+            nwc_y = ar_y + inv_y - ap_y
     else:
         nwc_y = 0.0
     delta_nwc_y = nwc_y - _prev_nwc
     _prev_nwc   = nwc_y
-    fco_y=ni_y+da_y-delta_nwc_y
+    # Indirect method: start with NI, add back non-cash (D&A) and reclassify interest
+    # (juros) to financing activities → add back to FCO, subtract again in FCF_fin
+    fco_y=ni_y+da_y+juros_y-delta_nwc_y
     fcf_fin_y=proc_y-prin_y-juros_y
+    # ── Revolver mechanics ──────────────────────────────────────────────────
+    # Cash before revolver draw/repay adjustments (rev_int already in juros → NI)
+    var_cash_pre = fco_y + fcf_fin_y
+    _cash_pre_rev += var_cash_pre
+    min_cash_y   = receita_y * _rev_min_cash_r
+    rev_draw_y   = 0.0
+    rev_repay_y  = 0.0
+    if _use_rev:
+        shortfall = min_cash_y - _cash_pre_rev
+        if shortfall > 0:
+            rev_draw_y = min(shortfall, max(0.0, _rev_max_cap - _rev_bal))
+        else:
+            excess = _cash_pre_rev - min_cash_y
+            rev_repay_y = min(excess, _rev_bal)
+        _rev_bal += rev_draw_y - rev_repay_y
+        _cash_pre_rev += rev_draw_y - rev_repay_y
+    variacao_caixa_y = var_cash_pre + rev_draw_y - rev_repay_y
     annual[f"Ano {y}"]={"receita":receita_y,"pis_cofins":pis_cofins_y,"rec_liq":rec_liq_y,
         "cpv":cpv_y,"lb":lb_y,
         "mb_pct":lb_y/rec_liq_y*100 if rec_liq_y else 0,
@@ -790,28 +855,42 @@ for y in range(1,n_anos+1):
         "juros":juros_y,"lair":lair_y,"tax":tax_y,"ni":ni_y,
         "ni_pct":ni_y/rec_liq_y*100 if rec_liq_y else 0,
         "fco":fco_y,"fcf_fin":fcf_fin_y,
-        "variacao_caixa":fco_y+fcf_fin_y,
+        "variacao_caixa":variacao_caixa_y,
         "proc":proc_y,"prin":prin_y,
-        "nwc":nwc_y,"delta_nwc":delta_nwc_y}
+        "nwc":nwc_y,"delta_nwc":delta_nwc_y,
+        "ar":ar_y,"inv":inv_y,"ap":ap_y,
+        "rev_draw":rev_draw_y,"rev_repay":rev_repay_y,"rev_interest":rev_int_y,
+        "rev_balance":_rev_bal,"cash_min":min_cash_y}
 
 # Balanco
-depr_acc=ni_acc=cash_bs=0.0
+depr_acc=ni_acc=0.0
+# Initial cash after equity injection & CapEx purchase (t=0).
+# Debt proceeds flow through fcf_fin during the horizon as they are disbursed.
+cash_bs = equity_required - total_capex
 balanco={}
 for y in range(1,n_anos+1):
     yr=f"Ano {y}"; d=annual[yr]
     depr_acc+=d["da"]; ni_acc+=d["ni"]
-    cash_bs+=d["fco"]-d["prin"]
+    # Cash on BS = cumulative change in cash (which already includes revolver effects)
+    cash_bs+=d["variacao_caixa"]
     m_end=min(y*12,horizonte)
     debt_bal=0.0
     for df_t in schedules.values():
         rows_until=df_t[df_t["Mes"]<=m_end]
         if not rows_until.empty: debt_bal+=rows_until.iloc[-1]["Saldo Final"]
     fa_net=max(total_capex-depr_acc,0)
+    # Include working capital assets net (AR + Inventory on assets, AP on liabilities)
+    nwc_y = d.get("nwc", 0.0)
+    rev_bal_y = d.get("rev_balance", 0.0)
     eq_total=equity_required+ni_acc
+    total_ativo = cash_bs + fa_net + nwc_y
+    total_pas_pl = debt_bal + rev_bal_y + eq_total
     balanco[yr]={"Caixa":cash_bs,"Ativo Imobilizado Liquido":fa_net,
-                 "Total Ativo":cash_bs+fa_net,"Divida Total":debt_bal,
+                 "NWC":nwc_y,
+                 "Total Ativo":total_ativo,"Divida Total":debt_bal,
+                 "Revolver":rev_bal_y,
                  "Capital Social":equity_required,"Lucros Acumulados":ni_acc,
-                 "Total PL":eq_total,"Total Passivo + PL":debt_bal+eq_total}
+                 "Total PL":eq_total,"Total Passivo + PL":total_pas_pl}
 
 # ─── Financial ratios (annual) ────────────────────────────────────────────────
 dscr_anual = calcular_dscr_anual(dscr_mensal, horizonte)
@@ -877,6 +956,50 @@ with div_chart_placeholder.container():
         st.plotly_chart(fig_d,use_container_width=True)
     else:
         st.info(T("dv_schedule_empty"))
+
+    # ── Covenant compliance dashboard ────────────────────────────────────────
+    _any_cov = any(bool(get(f"div_tem_cov_{i}", False)) and int(get(f"div_n_cov_{i}", 0)) > 0
+                   for i in range(n_div_g))
+    if _any_cov and total_debt > 0:
+        st.divider()
+        st.subheader(T("dv_cov_dashboard") if T("dv_cov_dashboard") != "dv_cov_dashboard" else "Covenant Compliance")
+
+        # Build covenant data from session state
+        _cov_tranches = []
+        for i in range(n_div_g):
+            if not bool(get(f"div_tem_cov_{i}", False)):
+                continue
+            nc = int(get(f"div_n_cov_{i}", 0))
+            if nc == 0:
+                continue
+            t_nome = get(f"div_nome_{i}", "").strip() or f"Tranche {i+1}"
+            for j in range(nc):
+                cov_type = get(f"div_cov_type_{i}_{j}", "")
+                cov_val = float(get(f"div_cov_val_{i}_{j}", 1.5))
+                _cov_tranches.append({"nome": t_nome, f"cov_type_0": cov_type,
+                                       f"cov_val_0": cov_val, "n_cov": 1})
+
+        _violations = verificar_covenants(_cov_tranches, dscr_anual, icr_anual, divida_ebitda_anual)
+        if _violations:
+            _viol_rows = []
+            for v in _violations:
+                _status = "\u2705" if v["compliant"] else "\u274c"
+                _val_str = f"{v['value']:.2f}" if v["value"] != float('inf') else "\u221e"
+                _viol_rows.append({
+                    "Tranche": v["tranche"],
+                    "Covenant": v["covenant"],
+                    ("Limite" if lang == "PT" else "Limit"): f"{v['limit']:.2f}",
+                    ("Valor" if lang == "PT" else "Value"): _val_str,
+                    ("Ano" if lang == "PT" else "Year"): v["year"],
+                    "Status": _status,
+                })
+            df_cov = pd.DataFrame(_viol_rows)
+            _n_fail = sum(1 for v in _violations if not v["compliant"])
+            if _n_fail > 0:
+                st.warning(f"{'Atenção' if lang=='PT' else 'Warning'}: {_n_fail} {'violações de covenant detectadas' if lang=='PT' else 'covenant violations detected'}.")
+            else:
+                st.success(f"{'Todos os covenants atendidos' if lang=='PT' else 'All covenants met'}.")
+            st.dataframe(df_cov, use_container_width=True, hide_index=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 4 — RESULTADOS
@@ -1118,9 +1241,34 @@ with tab_res:
             st.divider()
 
     st.subheader(T("res_visualizacoes"))
-    g1,g2,g3,g4=st.tabs([T("g1_title"),T("g2_title"),T("g3_title"),T("g4_title")])
+    _g_titles = [T("g1_title"), T("g2_title"), T("g3_title"), T("g4_title"), T("g5_waterfall")]
+    g1, g2, g3, g4, g5 = st.tabs(_g_titles)
     meses=df_op["Mes"].tolist()
     def yu(s): return (s/umult).tolist()
+
+    # ── Helper: CAGR annotation for time-series ─────────────────────────────
+    def _cagr_annotation(fig, series, meses_list, unit_str, color="#1e3a8a"):
+        """Add CAGR annotation between first and last positive value."""
+        if len(series) < 13:
+            return
+        v0 = next((v for v in series if v > 0), None)
+        v1 = series[-1]
+        if v0 is None or v0 <= 0 or v1 <= 0:
+            return
+        n_years = len(series) / 12
+        try:
+            cagr = ((v1 / v0) ** (1 / n_years) - 1) * 100
+        except (ZeroDivisionError, ValueError):
+            return
+        m_last = meses_list[-1]
+        fig.add_annotation(
+            x=m_last, y=v1, ax=-60, ay=-30,
+            text=f"<b>CAGR: {cagr:+.1f}%</b>",
+            showarrow=True, arrowhead=2, arrowsize=1.2, arrowwidth=2,
+            arrowcolor=color, bgcolor="rgba(255,255,255,0.85)",
+            bordercolor=color, borderwidth=1, borderpad=4,
+            font=dict(color=color, size=11, family="Arial Black"),
+        )
 
     with g1:
         fig=go.Figure()
@@ -1141,6 +1289,8 @@ with tab_res:
         for col,cor,nm in [("Receita","#1a56db",T("g_receita")),("CPV","#f97316",T("g_cpv"))]:
             fig2.add_trace(go.Scatter(x=meses,y=yu(df_op[col]),mode="lines",name=nm,line=dict(color=cor,width=2)))
         fig2.add_trace(go.Scatter(x=meses,y=yu(df_op["OpEx"]+df_op["G&A"]),mode="lines",name=T("g_opex_ga"),line=dict(color="#dc2626",width=2)))
+        # CAGR annotation on Receita
+        _cagr_annotation(fig2, yu(df_op["Receita"]), meses, unit, color="#1e3a8a")
         fig2.update_layout(xaxis_title=T("g_xaxis_mes"),yaxis_title=unit,hovermode="x unified",height=420,legend=dict(orientation="h",yanchor="bottom",y=1.02))
         fig2.update_yaxes(tickformat=",.1f"); st.plotly_chart(fig2,use_container_width=True)
 
@@ -1159,6 +1309,88 @@ with tab_res:
         fig4.add_trace(go.Scatter(x=meses,y=yu(df_op["EBIT"]),mode="lines",name=T("g_ebit"),line=dict(color="#1a56db",width=2)))
         fig4.update_layout(xaxis_title=T("g_xaxis_mes"),yaxis_title=unit,hovermode="x unified",height=420,legend=dict(orientation="h",yanchor="bottom",y=1.02))
         fig4.update_yaxes(tickformat=",.1f"); st.plotly_chart(fig4,use_container_width=True)
+
+    with g5:
+        # Waterfall chart: Receita Bruta → ... → Lucro Liquido (Year 1 totals)
+        st.caption(T("g5_waterfall_cap"))
+        _y1 = annual.get("Ano 1", {})
+        if _y1 and _y1.get("receita", 0) > 0:
+            _wf_labels = [
+                T("dre_rec_bruta") if T("dre_rec_bruta") != "dre_rec_bruta" else ("Receita Bruta" if lang=="PT" else "Gross Revenue"),
+            ]
+            _wf_vals = [_y1["receita"] / umult]
+            _wf_meas = ["absolute"]
+
+            if _y1.get("pis_cofins", 0) > 0:
+                _wf_labels.append("(–) PIS/COFINS")
+                _wf_vals.append(-_y1["pis_cofins"] / umult)
+                _wf_meas.append("relative")
+                _wf_labels.append(T("dre_rec_liq"))
+                _wf_vals.append(0)
+                _wf_meas.append("total")
+
+            _wf_labels.append("(–) " + ("CPV" if lang=="PT" else "COGS"))
+            _wf_vals.append(-_y1["cpv"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("Lucro Bruto" if lang=="PT" else "Gross Profit")
+            _wf_vals.append(0)
+            _wf_meas.append("total")
+
+            _wf_labels.append("(–) OpEx")
+            _wf_vals.append(-_y1["opex"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("(–) G&A")
+            _wf_vals.append(-_y1["ga"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("EBITDA")
+            _wf_vals.append(0)
+            _wf_meas.append("total")
+
+            _wf_labels.append("(–) D&A")
+            _wf_vals.append(-_y1["da"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("EBIT")
+            _wf_vals.append(0)
+            _wf_meas.append("total")
+
+            _wf_labels.append("(–) " + ("Juros" if lang=="PT" else "Interest"))
+            _wf_vals.append(-_y1["juros"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("(–) " + ("Imposto" if lang=="PT" else "Tax"))
+            _wf_vals.append(-_y1["tax"] / umult)
+            _wf_meas.append("relative")
+
+            _wf_labels.append("Lucro Liquido" if lang=="PT" else "Net Income")
+            _wf_vals.append(0)
+            _wf_meas.append("total")
+
+            fig_wf = go.Figure(go.Waterfall(
+                orientation="v",
+                measure=_wf_meas,
+                x=_wf_labels,
+                y=_wf_vals,
+                text=[f"{v:+,.1f}" if m == "relative" else "" for v, m in zip(_wf_vals, _wf_meas)],
+                textposition="outside",
+                connector={"line": {"color": "#94a3b8", "width": 1}},
+                increasing={"marker": {"color": "#16a34a"}},
+                decreasing={"marker": {"color": "#dc2626"}},
+                totals={"marker": {"color": "#1a56db"}},
+            ))
+            fig_wf.update_layout(
+                title=f"{T('g5_waterfall_title')} — {'Ano 1' if lang=='PT' else 'Year 1'} ({unit})",
+                height=480, showlegend=False,
+                yaxis=dict(tickformat=",.1f"),
+                xaxis=dict(tickangle=-30),
+                margin=dict(t=60, b=80, l=20, r=20),
+            )
+            st.plotly_chart(fig_wf, use_container_width=True)
+        else:
+            st.info(T("g5_waterfall_empty"))
 
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 5 — DFs
@@ -1257,6 +1489,7 @@ with tab_df:
         _dfc_data = {
             "Lucro Liquido":                     {yr: mn(d["ni"])  for yr,d in annual.items()},
             "(+) Depreciacao e Amortizacao":     {yr: mn(d["da"])  for yr,d in annual.items()},
+            "(+) Juros (reclassificados)":       {yr: mn(d["juros"]) for yr,d in annual.items()},
         }
         if _tem_ncg:
             _dfc_data[T("dfc_delta_ncg")] = {yr: mn(d["delta_nwc"]) for yr,d in annual.items()}
@@ -1267,25 +1500,134 @@ with tab_df:
             "(–) Amortizacao de Principal":      {yr: mn(d["prin"])           for yr,d in annual.items()},
             "(–) Despesas Financeiras":          {yr: mn(d["juros"])          for yr,d in annual.items()},
             "FCF — Atividades de Financiamento": {yr: mn(d["fcf_fin"])        for yr,d in annual.items()},
-            "Variacao Liquida de Caixa":         {yr: mn(d["variacao_caixa"]) for yr,d in annual.items()},
         })
+        _any_rev = any(d.get("rev_draw", 0) > 0 or d.get("rev_repay", 0) > 0
+                       for d in annual.values())
+        if _any_rev or bool(get("use_revolver", True)):
+            _dfc_data["(+) Saque do Revolver"]       = {yr: mn(d.get("rev_draw",0))  for yr,d in annual.items()}
+            _dfc_data["(–) Amortizacao do Revolver"] = {yr: mn(d.get("rev_repay",0)) for yr,d in annual.items()}
+        _dfc_data["Variacao Liquida de Caixa"] = {yr: mn(d["variacao_caixa"]) for yr,d in annual.items()}
         _render_df(_dfc_data)
         notes = [T("df_dfc_note").format(cx=fv(total_capex,unit))]
         if _tem_ncg: notes.append(T("ncg_note"))
         for n in notes: st.caption(n)
 
+        # ── Rolling Working Capital schedule (when dias method) ─────────────
+        if _tem_ncg and _ncg_method == "dias":
+            with st.expander(T("ncg_detail_title"), expanded=False):
+                st.caption(T("ncg_detail_cap") + "  ·  " + unit_note)
+                _nwc_data = {
+                    T("ncg_row_ar"):         {yr: mn(d["ar"])        for yr,d in annual.items()},
+                    T("ncg_row_inv"):        {yr: mn(d["inv"])       for yr,d in annual.items()},
+                    T("ncg_row_ap"):         {yr: mn(d["ap"])        for yr,d in annual.items()},
+                    T("ncg_row_nwc"):        {yr: mn(d["nwc"])       for yr,d in annual.items()},
+                    T("ncg_row_delta_nwc"):  {yr: mn(d["delta_nwc"]) for yr,d in annual.items()},
+                }
+                _fmt_nwc = {}
+                for key, vals in _nwc_data.items():
+                    _fmt_nwc[key] = {ano_lbl[yr]: f"{v:,.2f}" for yr, v in vals.items()}
+                _df_nwc = pd.DataFrame(_fmt_nwc, index=[ano_lbl[yr] for yr in anos]).T
+                _html_nwc = _df_nwc.style.to_html()
+                st.markdown(f'<div class="df-styled">{_html_nwc}</div>', unsafe_allow_html=True)
+                st.caption(T("ncg_detail_note"))
+
     with st.expander(T("df_bp"), expanded=False):
         st.caption(unit_note)
-        _render_df({
+        _bp_data = {
             "Caixa e Equivalentes de Caixa": {yr: mn(balanco[yr]["Caixa"])                     for yr in anos},
             "Ativo Imobilizado Liquido":      {yr: mn(balanco[yr]["Ativo Imobilizado Liquido"]) for yr in anos},
-            "Total Ativo":                   {yr: mn(balanco[yr]["Total Ativo"])               for yr in anos},
-            "Divida Total":                  {yr: mn(balanco[yr]["Divida Total"])              for yr in anos},
+        }
+        _any_nwc_bal = any(abs(balanco[yr].get("NWC", 0)) > 1e-6 for yr in anos)
+        if _any_nwc_bal:
+            _bp_data["Capital de Giro Liquido (NWC)" if lang=="PT" else "Net Working Capital (NWC)"] = {
+                yr: mn(balanco[yr].get("NWC", 0)) for yr in anos}
+        _bp_data["Total Ativo"] = {yr: mn(balanco[yr]["Total Ativo"]) for yr in anos}
+        _bp_data["Divida Total"] = {yr: mn(balanco[yr]["Divida Total"]) for yr in anos}
+        _any_rev_bal = any(abs(balanco[yr].get("Revolver", 0)) > 1e-6 for yr in anos)
+        if _any_rev_bal:
+            _bp_data["Saldo do Revolver"] = {yr: mn(balanco[yr].get("Revolver", 0)) for yr in anos}
+        _bp_data.update({
             "Capital Social":                {yr: mn(balanco[yr]["Capital Social"])            for yr in anos},
             "Lucros / Prejuizos Acumulados": {yr: mn(balanco[yr]["Lucros Acumulados"])         for yr in anos},
             "Total Patrimonio Liquido":      {yr: mn(balanco[yr]["Total PL"])                 for yr in anos},
             "Total Passivo + PL":            {yr: mn(balanco[yr]["Total Passivo + PL"])       for yr in anos},
         })
+        _render_df(_bp_data)
+
+    # ── Balance Sheet Check (assets vs liabilities + equity) ────────────────
+    st.markdown(f"#### {T('bp_check_title')}")
+    _bs_check_cols = st.columns(len(anos))
+    for _ci, yr in enumerate(anos):
+        ta_v  = balanco[yr]["Total Ativo"]
+        tle_v = balanco[yr]["Total Passivo + PL"]
+        diff  = ta_v - tle_v
+        pct   = abs(diff) / ta_v * 100 if abs(ta_v) > 1e-9 else 0
+        ok    = abs(diff) < max(abs(ta_v), 1.0) * 0.0001  # 0.01% tolerance
+        _cls  = "metric-card metric-card-green" if ok else "metric-card metric-card-red"
+        _icon = "✓" if ok else "✗"
+        _html = (
+            f'<div class="{_cls}">'
+            f'<div class="mc-label">{ano_lbl[yr]}</div>'
+            f'<div class="mc-value">{_icon} {mn(diff):,.2f}</div>'
+            f'<div class="mc-delta">{pct:.4f}% {T("bp_check_assets")}</div>'
+            f'</div>'
+        )
+        _bs_check_cols[_ci].markdown(_html, unsafe_allow_html=True)
+    _all_ok = all(
+        abs(balanco[yr]["Total Ativo"] - balanco[yr]["Total Passivo + PL"])
+        < max(abs(balanco[yr]["Total Ativo"]), 1.0) * 0.0001
+        for yr in anos
+    )
+    if _all_ok:
+        st.success(f"✓  {T('bp_check_ok')}")
+    else:
+        st.error(f"✗  {T('bp_check_fail')}")
+
+    # ── Three-statement Model Integrity Check ──────────────────────────────
+    with st.expander(T("bp_integrity_title"), expanded=False):
+        st.caption(T("bp_integrity_cap"))
+        # (1) Cash on BP vs. cumulative CF (variacao_caixa + initial cash)
+        _cf_cum = cash_bs  # already = initial + Σ variacao_caixa for last year
+        _bp_cash_last = balanco[anos[-1]]["Caixa"]
+        _chk1_ok = abs(_bp_cash_last - _cf_cum) < max(abs(_bp_cash_last), 1.0) * 0.0001
+
+        # (2) Retained Earnings on BP = Σ NI from DRE
+        _ni_sum = sum(annual[yr]["ni"] for yr in anos)
+        _bp_re_last = balanco[anos[-1]]["Lucros Acumulados"]
+        _chk2_ok = abs(_bp_re_last - _ni_sum) < max(abs(_bp_re_last), 1.0) * 0.0001
+
+        # (3) Debt on BP = debt schedule balance
+        _m_end_last = min(n_anos * 12, horizonte)
+        _sched_debt_last = 0.0
+        for _df_t in schedules.values():
+            _rows_until = _df_t[_df_t["Mes"] <= _m_end_last]
+            if not _rows_until.empty:
+                _sched_debt_last += _rows_until.iloc[-1]["Saldo Final"]
+        _bp_debt_last = balanco[anos[-1]]["Divida Total"]
+        _chk3_ok = abs(_bp_debt_last - _sched_debt_last) < max(abs(_sched_debt_last), 1.0) * 0.0001
+
+        def _chk_row(label, bs_val, src_val, ok):
+            _cls = "metric-card metric-card-green" if ok else "metric-card metric-card-red"
+            _icon = "✓" if ok else "✗"
+            _status = T("bp_integrity_ok") if ok else T("bp_integrity_fail")
+            return (
+                f'<div class="{_cls}" style="text-align:left">'
+                f'<div class="mc-label">{_icon} {label}</div>'
+                f'<div class="mc-value" style="font-size:1.0rem">'
+                f'BP: {mn(bs_val):,.2f} &nbsp;·&nbsp; '
+                f'{"CF" if lang=="EN" else "DFC"}/{"IS" if lang=="EN" else "DRE"}: {mn(src_val):,.2f}'
+                f'</div>'
+                f'<div class="mc-delta">{_status} — Δ {mn(bs_val - src_val):+,.4f}</div>'
+                f'</div>'
+            )
+
+        _ic1, _ic2, _ic3 = st.columns(3)
+        _ic1.markdown(_chk_row(T("bp_integrity_cash"), _bp_cash_last, _cf_cum, _chk1_ok),
+                      unsafe_allow_html=True)
+        _ic2.markdown(_chk_row(T("bp_integrity_re"),   _bp_re_last,  _ni_sum, _chk2_ok),
+                      unsafe_allow_html=True)
+        _ic3.markdown(_chk_row(T("bp_integrity_debt"), _bp_debt_last, _sched_debt_last, _chk3_ok),
+                      unsafe_allow_html=True)
 
     # Financial ratios table (DSCR, ICR, Debt/EBITDA)
     if total_debt > 0:

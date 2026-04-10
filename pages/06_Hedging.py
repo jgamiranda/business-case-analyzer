@@ -482,7 +482,7 @@ def formula_box(text: str):
 # =============================================================================
 # HEADER
 # =============================================================================
-col_title, col_lang = st.columns([5, 1])
+col_title, col_lang, col_dark = st.columns([5, 1, 1])
 with col_title:
     st.markdown(f'<div class="main-title">{T("title")}</div>', unsafe_allow_html=True)
     st.markdown(
@@ -499,21 +499,47 @@ with col_lang:
     if lang_choice != st.session_state["hg_lang"]:
         st.session_state["hg_lang"] = lang_choice
         st.rerun()
+with col_dark:
+    st.write("")
+    dark_mode = st.toggle("\U0001f319", key="hg_dark_mode", help="Dark Mode")
+
+# ── Dark mode CSS override ──────────────────────────────────────────────────
+if dark_mode:
+    st.markdown("""<style>
+.stApp,[data-testid="stAppViewContainer"],[data-testid="stHeader"]{background:#0f172a !important}
+p,h1,h2,h3,h4,label,li{color:#e2e8f0 !important}
+[data-testid="stMarkdownContainer"] p,[data-testid="stMarkdownContainer"] li{color:#e2e8f0 !important}
+[data-testid="stCaption"] p{color:#94a3b8 !important}
+[data-testid="stExpander"] details{background:#1e293b !important;border-color:#334155 !important}
+.stTabs [data-baseweb="tab"]{background:#1e293b !important;color:#93c5fd !important;border-color:#334155 !important}
+.stTabs [aria-selected="true"]{background:#1a56db !important;color:#fff !important}
+[data-testid="stAlert"]{background:#1e293b !important;border-color:#334155 !important}
+[data-testid="stAlert"] p{color:#e2e8f0 !important}
+[data-testid="stMetricValue"],[data-testid="stMetricLabel"]{color:#e2e8f0 !important}
+[data-baseweb="input"] input,[data-baseweb="textarea"] textarea,[data-baseweb="select"] div{background:#1e293b !important;color:#e2e8f0 !important}
+.main-title{color:#60a5fa !important}
+.subtitle{color:#94a3b8 !important}
+.section-header{color:#93c5fd !important;border-color:#60a5fa !important}
+.metric-card{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important;border-left-color:#1a56db !important}
+.metric-label{color:#94a3b8 !important}
+.metric-value{color:#e2e8f0 !important}
+.info-box{background:#1e3a5f !important;color:#e2e8f0 !important;border-left-color:#60a5fa !important}
+.warning-box{background:#78350f !important;color:#fcd34d !important;border-left-color:#f59e0b !important}
+.success-box{background:#064e3b !important;color:#6ee7b7 !important;border-left-color:#10b981 !important}
+.formula-box{background:#1e293b !important;color:#cbd5e1 !important;border-color:#475569 !important}
+hr{border-color:#334155 !important}
+</style>""", unsafe_allow_html=True)
 
 st.markdown("---")
 
 # =============================================================================
 # TABS
 # =============================================================================
+_hg_icons = ["\U0001f4b1", "\U0001f4c8", "\U0001f4ca", "\U0001f30d", "\U0001f504", "\U0001f6e1"]
+_hg_names = [T("tab_fwd"), T("tab_fut"), T("tab_irs"),
+             T("tab_ccs"), T("tab_trs"), T("tab_eff")]
 tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs(
-    [
-        T("tab_fwd"),
-        T("tab_fut"),
-        T("tab_irs"),
-        T("tab_ccs"),
-        T("tab_trs"),
-        T("tab_eff"),
-    ]
+    [f"{i}  {n}" for i, n in zip(_hg_icons, _hg_names)]
 )
 
 # =============================================================================

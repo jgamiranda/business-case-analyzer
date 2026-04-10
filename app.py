@@ -141,6 +141,19 @@ MODELS = [
         "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
         "page": "pages/06_Hedging.py",
     },
+    {
+        "key": "lbo", "icon": "💼",
+        "title": {"PT": "LBO — Leveraged Buyout", "EN": "LBO — Leveraged Buyout"},
+        "sub": {
+            "PT": "Modelagem de aquisicoes alavancadas: Sources & Uses, debt schedule "
+                  "multi-tranche, IRR/MOIC, value creation bridge e exit waterfall.",
+            "EN": "Leveraged buyout modeling: Sources & Uses, multi-tranche debt schedule, "
+                  "IRR/MOIC, value creation bridge and exit waterfall.",
+        },
+        "tags": ["Sources & Uses", "TLA/TLB", "MOIC", "IRR", "Exit Multiple", "PIK"],
+        "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
+        "page": "pages/07_LBO.py",
+    },
 ]
 
 # ─── Render cards ────────────────────────────────────────────────────────────
@@ -174,7 +187,7 @@ for i, (col, m) in enumerate(zip(cols, MODELS)):
 # ─── Footer ──────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="platform-footer">
-    Financial Modeling Platform v3.0 — Powered by Streamlit + Plotly<br>
-    Business Case · M&A · Project Finance · Valuation DCF · Startup
+    Financial Modeling Platform v3.2 — Powered by Streamlit + Plotly<br>
+    Business Case · M&A · Project Finance · Valuation DCF · Startup · Hedging · LBO
 </div>
 """, unsafe_allow_html=True)
