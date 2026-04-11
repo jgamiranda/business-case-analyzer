@@ -2517,12 +2517,30 @@ with tabs[6]:
             T("diff"): total_assets - total_le,
         })
 
-    bs_df = pd.DataFrame(bs_rows)
-    num_cols = [c for c in bs_df.columns if c != T("year")]
-    st.dataframe(
-        bs_df.style.format({c: "{:,.1f}" for c in num_cols}),
-        hide_index=True, use_container_width=True,
-    )
+    # ── Standardized 3-statement renderer ────────────────────────────────────
+    from backend import render_3stmt_table, DF_TABLE_CSS as _LBO_DF_CSS
+    _lbo_cols = [r[T("year")] for r in bs_rows]
+    def _lv(key):
+        return [fmt_num(r[key]) for r in bs_rows]
+    _is_pt = (st.session_state.get("lbo_lang", "en") == "pt")
+    _lbo_bs_rows = [
+        ("ATIVO" if _is_pt else "ASSETS", [], "header"),
+        (T("cash"),       _lv(T("cash")),       "line"),
+        ("Other Assets" if not _is_pt else "Outros Ativos",       _lv("Other Assets"),       "line"),
+        ("PP&E Write-Up" if not _is_pt else "PP&E (Write-Up)",    _lv("PP&E Write-Up"),      "line"),
+        (T("goodwill"),   _lv(T("goodwill")),   "line"),
+        (T("assets"),     _lv(T("assets")),     "total"),
+        ("", [], "spacer"),
+        ("PASSIVO" if _is_pt else "LIABILITIES", [], "header"),
+        ("Total Debt" if not _is_pt else "Dívida Total",          _lv("Total Debt"),         "line"),
+        ("Other Liab" if not _is_pt else "Outras Obrigações",     _lv("Other Liab"),         "line"),
+        ("", [], "spacer"),
+        ("PATRIMONIO LIQUIDO" if _is_pt else "EQUITY", [], "header"),
+        ("Equity" if not _is_pt else "Patrimônio Líquido",        _lv("Equity"),             "line"),
+        (T("liab_eq"),    _lv(T("liab_eq")),    "total"),
+    ]
+    st.markdown(_LBO_DF_CSS + render_3stmt_table(_lbo_bs_rows, _lbo_cols),
+                unsafe_allow_html=True)
 
     # Balance check
     section_header(T("bs_check"))

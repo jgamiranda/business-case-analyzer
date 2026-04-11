@@ -1537,43 +1537,58 @@ with tab_df:
     with st.expander(T("df_bp"), expanded=True):
         st.caption(unit_note)
 
-        # ── ATIVO ────────────────────────────────────────────────────────────
-        _hdr_ativo = "ATIVO" if lang == "PT" else "ASSETS"
-        st.markdown(f'<div class="df-header">{_hdr_ativo}</div>', unsafe_allow_html=True)
-        _ativo_data = {
-            "Caixa e Equivalentes de Caixa": {yr: mn(balanco[yr]["Caixa"])                     for yr in anos},
-            "Ativo Imobilizado Liquido":      {yr: mn(balanco[yr]["Ativo Imobilizado Liquido"]) for yr in anos},
-        }
-        _any_nwc_bal = any(abs(balanco[yr].get("NWC", 0)) > 1e-6 for yr in anos)
-        if _any_nwc_bal:
-            _ativo_data["Capital de Giro Liquido (NWC)" if lang=="PT" else "Net Working Capital (NWC)"] = {
-                yr: mn(balanco[yr].get("NWC", 0)) for yr in anos}
-        _ativo_data["Total Ativo"] = {yr: mn(balanco[yr]["Total Ativo"]) for yr in anos}
-        _render_df(_ativo_data)
-
-        # ── PASSIVO ──────────────────────────────────────────────────────────
-        _hdr_passivo = "PASSIVO" if lang == "PT" else "LIABILITIES"
-        st.markdown(f'<div class="df-header">{_hdr_passivo}</div>', unsafe_allow_html=True)
-        _passivo_data = {
-            "Divida Total": {yr: mn(balanco[yr]["Divida Total"]) for yr in anos},
-        }
-        _any_rev_bal = any(abs(balanco[yr].get("Revolver", 0)) > 1e-6 for yr in anos)
-        if _any_rev_bal:
-            _passivo_data["Saldo do Revolver"] = {yr: mn(balanco[yr].get("Revolver", 0)) for yr in anos}
-        _passivo_data["Total Passivo" if lang=="PT" else "Total Liabilities"] = {
-            yr: mn(balanco[yr]["Divida Total"] + balanco[yr].get("Revolver", 0)) for yr in anos}
-        _render_df(_passivo_data)
-
-        # ── PATRIMÔNIO LÍQUIDO ───────────────────────────────────────────────
-        _hdr_pl = "PATRIMONIO LIQUIDO" if lang == "PT" else "EQUITY"
-        st.markdown(f'<div class="df-header">{_hdr_pl}</div>', unsafe_allow_html=True)
-        _pl_data = {
-            "Capital Social":                {yr: mn(balanco[yr]["Capital Social"])      for yr in anos},
-            "Lucros / Prejuizos Acumulados": {yr: mn(balanco[yr]["Lucros Acumulados"])  for yr in anos},
-            "Total Patrimonio Liquido":      {yr: mn(balanco[yr]["Total PL"])           for yr in anos},
-            "Total Passivo + PL":            {yr: mn(balanco[yr]["Total Passivo + PL"]) for yr in anos},
-        }
-        _render_df(_pl_data)
+        # ── Standardized 3-statement renderer ────────────────────────────────
+        from backend import render_3stmt_table, DF_TABLE_CSS as _BC_DF_CSS
+        def _bcv(field):
+            return [f"{mn(balanco[yr][field]):,.2f}" for yr in anos]
+        def _bcvg(field):
+            return [f"{mn(balanco[yr].get(field, 0)):,.2f}" for yr in anos]
+        _has_nwc = any(abs(balanco[yr].get("NWC", 0)) > 1e-6 for yr in anos)
+        _has_rev = any(abs(balanco[yr].get("Revolver", 0)) > 1e-6 for yr in anos)
+        _bc_cols = [ano_lbl[yr] for yr in anos]
+        _is_pt = (lang == "PT")
+        _bc_bs_rows = [
+            ("ATIVO" if _is_pt else "ASSETS", [], "header"),
+            ("Caixa e Equivalentes" if _is_pt else "Cash & Equivalents",
+             _bcv("Caixa"), "line"),
+            ("Ativo Imobilizado Líquido" if _is_pt else "Net Fixed Assets",
+             _bcv("Ativo Imobilizado Liquido"), "line"),
+        ]
+        if _has_nwc:
+            _bc_bs_rows.append(
+                ("Capital de Giro Líquido (NWC)" if _is_pt else "Net Working Capital (NWC)",
+                 _bcvg("NWC"), "line"))
+        _bc_bs_rows.append((
+            "Total Ativo" if _is_pt else "Total Assets",
+            _bcv("Total Ativo"), "total"))
+        _bc_bs_rows.append(("", [], "spacer"))
+        _bc_bs_rows.append(("PASSIVO" if _is_pt else "LIABILITIES", [], "header"))
+        _bc_bs_rows.append((
+            "Dívida Total" if _is_pt else "Total Debt",
+            _bcv("Divida Total"), "line"))
+        if _has_rev:
+            _bc_bs_rows.append(("Saldo do Revolver" if _is_pt else "Revolver Balance",
+                                _bcvg("Revolver"), "line"))
+        _bc_bs_rows.append((
+            "Total Passivo" if _is_pt else "Total Liabilities",
+            [f"{mn(balanco[yr]['Divida Total'] + balanco[yr].get('Revolver', 0)):,.2f}"
+             for yr in anos], "subtotal"))
+        _bc_bs_rows.append(("", [], "spacer"))
+        _bc_bs_rows.append(("PATRIMONIO LIQUIDO" if _is_pt else "EQUITY", [], "header"))
+        _bc_bs_rows.append((
+            "Capital Social" if _is_pt else "Paid-in Capital",
+            _bcv("Capital Social"), "line"))
+        _bc_bs_rows.append((
+            "Lucros / Prejuízos Acumulados" if _is_pt else "Retained Earnings",
+            _bcv("Lucros Acumulados"), "line"))
+        _bc_bs_rows.append((
+            "Total Patrimônio Líquido" if _is_pt else "Total Equity",
+            _bcv("Total PL"), "subtotal"))
+        _bc_bs_rows.append((
+            "Total Passivo + PL" if _is_pt else "Total Liabilities + Equity",
+            _bcv("Total Passivo + PL"), "total"))
+        st.markdown(_BC_DF_CSS + render_3stmt_table(_bc_bs_rows, _bc_cols),
+                    unsafe_allow_html=True)
 
     # Financial ratios table (DSCR, ICR, Debt/EBITDA)
     if total_debt > 0:

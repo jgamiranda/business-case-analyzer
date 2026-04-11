@@ -2140,33 +2140,36 @@ with tabs[5]:
             })
             prev = bs_years_data[-1]
 
-        # Build display DataFrame (rows = line items, cols = years)
-        line_items = [
-            T("bs_cash"), T("bs_ar"), T("bs_inv"), T("bs_ppe"),
-            T("bs_intang"), T("bs_goodwill"), T("bs_other_assets"),
-            T("bs_total_assets"),
-            T("bs_ap"), T("bs_debt_existing"), T("bs_debt_new"),
-            T("bs_dtl"), T("bs_other_liab"),
-            T("bs_total_liab"),
-            T("bs_equity"), T("bs_total_le"),
+        # ── Standardized 3-statement renderer ────────────────────────────────
+        from backend import render_3stmt_table, DF_TABLE_CSS as _DF_CSS
+        _columns = [snap["label"] for snap in bs_years_data]
+        def _vals(key):
+            return [fmt(snap[T(key)]) for snap in bs_years_data]
+        _ma_bs_rows = [
+            ("ATIVO" if lang == "PT" else "ASSETS", [], "header"),
+            (T("bs_cash"),         _vals("bs_cash"),         "line"),
+            (T("bs_ar"),           _vals("bs_ar"),           "line"),
+            (T("bs_inv"),          _vals("bs_inv"),          "line"),
+            (T("bs_ppe"),          _vals("bs_ppe"),          "line"),
+            (T("bs_intang"),       _vals("bs_intang"),       "line"),
+            (T("bs_goodwill"),     _vals("bs_goodwill"),     "line"),
+            (T("bs_other_assets"), _vals("bs_other_assets"), "line"),
+            (T("bs_total_assets"), _vals("bs_total_assets"), "total"),
+            ("", [], "spacer"),
+            ("PASSIVO" if lang == "PT" else "LIABILITIES", [], "header"),
+            (T("bs_ap"),            _vals("bs_ap"),            "line"),
+            (T("bs_debt_existing"), _vals("bs_debt_existing"), "line"),
+            (T("bs_debt_new"),      _vals("bs_debt_new"),      "line"),
+            (T("bs_dtl"),           _vals("bs_dtl"),           "line"),
+            (T("bs_other_liab"),    _vals("bs_other_liab"),    "line"),
+            (T("bs_total_liab"),    _vals("bs_total_liab"),    "subtotal"),
+            ("", [], "spacer"),
+            ("PATRIMONIO LIQUIDO" if lang == "PT" else "EQUITY", [], "header"),
+            (T("bs_equity"),   _vals("bs_equity"),   "line"),
+            (T("bs_total_le"), _vals("bs_total_le"), "total"),
         ]
-        bs_display_dict = {}
-        for snap in bs_years_data:
-            col = snap["label"]
-            bs_display_dict[col] = [f"{snap[li]:,.0f}" for li in line_items]
-        bs_display_df = pd.DataFrame(bs_display_dict, index=line_items)
-
-        bs_subtotal_rows = {
-            T("bs_total_assets"), T("bs_total_liab"), T("bs_total_le"),
-        }
-
-        def style_bs(row):
-            if row.name in bs_subtotal_rows:
-                return ["background:#dbeafe;font-weight:700;color:#1e3a8a"] * len(row)
-            return [""] * len(row)
-
-        styled_bs_full = bs_display_df.style.apply(style_bs, axis=1).to_html()
-        st.markdown(f'<div class="df-styled">{styled_bs_full}</div>', unsafe_allow_html=True)
+        st.markdown(_DF_CSS + render_3stmt_table(_ma_bs_rows, _columns),
+                    unsafe_allow_html=True)
 
         # ── BALANCE CHECK ─────────────────────────────────────────────────────
         st.markdown("---")
