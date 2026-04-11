@@ -726,10 +726,13 @@ def _mc(label, value, delta=None, color=None):
 {delta_html}</div>"""
 
 def fmt_mm(v):
-    """Format value in MM with 1 decimal."""
-    if abs(v) >= 1_000:
-        return f"{v:,.0f}"
-    return f"{v:,.1f}"
+    """Format value with Macabacus convention (parentheses for negatives)."""
+    if v is None:
+        return "—"
+    decimals = 0 if abs(v) >= 1_000 else 1
+    if v < 0:
+        return f"({abs(v):,.{decimals}f})"
+    return f"{v:,.{decimals}f}"
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TABS

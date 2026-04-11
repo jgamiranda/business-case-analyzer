@@ -655,16 +655,20 @@ def metric_card(label, value, delta=None, card_class="metric-card"):
     </div>"""
 
 def fmt(v, decimals=1, prefix="", suffix=""):
-    """Format number with thousands separators."""
+    """Format with Macabacus convention (parentheses for negatives)."""
     if v is None or (isinstance(v, float) and np.isnan(v)):
         return "—"
-    if abs(v) >= 1e9:
-        return f"{prefix}{v/1e9:,.{decimals}f}B{suffix}"
-    if abs(v) >= 1e6:
-        return f"{prefix}{v/1e6:,.{decimals}f}M{suffix}"
-    if abs(v) >= 1e3:
-        return f"{prefix}{v/1e3:,.{decimals}f}K{suffix}"
-    return f"{prefix}{v:,.{decimals}f}{suffix}"
+    neg = v < 0
+    av = abs(v)
+    if av >= 1e9:
+        body = f"{prefix}{av/1e9:,.{decimals}f}B{suffix}"
+    elif av >= 1e6:
+        body = f"{prefix}{av/1e6:,.{decimals}f}M{suffix}"
+    elif av >= 1e3:
+        body = f"{prefix}{av/1e3:,.{decimals}f}K{suffix}"
+    else:
+        body = f"{prefix}{av:,.{decimals}f}{suffix}"
+    return f"({body})" if neg else body
 
 def s_curve(t, phase_months):
     """S-curve phase-in: 0 at t=0, ~1 at t=phase_months. t in months."""

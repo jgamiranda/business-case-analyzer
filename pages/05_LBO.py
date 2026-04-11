@@ -508,18 +508,21 @@ def T(key: str) -> str:
 # UTILITIES
 # =============================================================================
 def fmt_money(x: float, ccy: str = "$", decimals: int = 1) -> str:
+    """Macabacus convention: parentheses for negatives."""
     try:
         if x is None or (isinstance(x, float) and math.isnan(x)):
             return f"{ccy}0.0"
-        sign = "-" if x < 0 else ""
-        x = abs(x)
-        return f"{sign}{ccy}{x:,.{decimals}f}M"
+        if x < 0:
+            return f"({ccy}{abs(x):,.{decimals}f}M)"
+        return f"{ccy}{x:,.{decimals}f}M"
     except Exception:
         return f"{ccy}0.0M"
 
 
 def fmt_mult(x: float, decimals: int = 2) -> str:
     try:
+        if x < 0:
+            return f"({abs(x):,.{decimals}f}x)"
         return f"{x:,.{decimals}f}x"
     except Exception:
         return "0.00x"
@@ -527,13 +530,18 @@ def fmt_mult(x: float, decimals: int = 2) -> str:
 
 def fmt_pct(x: float, decimals: int = 1) -> str:
     try:
-        return f"{x * 100:,.{decimals}f}%"
+        v = x * 100
+        if v < 0:
+            return f"({abs(v):,.{decimals}f}%)"
+        return f"{v:,.{decimals}f}%"
     except Exception:
         return "0.0%"
 
 
 def fmt_num(x: float, decimals: int = 2) -> str:
     try:
+        if x < 0:
+            return f"({abs(x):,.{decimals}f})"
         return f"{x:,.{decimals}f}"
     except Exception:
         return "0.00"

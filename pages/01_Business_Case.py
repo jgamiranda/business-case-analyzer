@@ -1439,7 +1439,11 @@ with tab_df:
         fmt = {}
         for key, vals in data_dict.items():
             is_pct = "(%)" in key
-            fmt[key] = {ano_lbl[yr]: (f"{v:.1f}%" if is_pct else f"{v:,.2f}") for yr, v in vals.items()}
+            def _macabacus(v, pct=is_pct):
+                if pct:
+                    return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
+                return f"({abs(v):,.2f})" if v < 0 else f"{v:,.2f}"
+            fmt[key] = {ano_lbl[yr]: _macabacus(v) for yr, v in vals.items()}
         df_str = pd.DataFrame(fmt, index=[ano_lbl[yr] for yr in anos]).T
         # Rename rows to EN if needed
         if lang == "EN":
