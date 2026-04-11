@@ -878,7 +878,7 @@ with tabs[2]:
 
     # Additional risk premiums
     st.markdown("---")
-    st.subheader("Risk Premiums" if lang == "EN" else "Premios de Risco Adicionais")
+    st.subheader("Risk Premiums" if lang == "EN" else "Prêmios de Risco Adicionais")
     rp1, rp2, rp3 = st.columns(3)
     with rp1:
         st.number_input(T("crp"), 0.0, 20.0, step=0.1, format="%.2f",
