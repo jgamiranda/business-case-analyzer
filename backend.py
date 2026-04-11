@@ -89,6 +89,84 @@ def fmt_money_fin(v, unit, decimals=None):
         return "—"
 
 
+# ─── Standardized 3-statement renderer (used by BC, MA, DCF, LBO) ────────────
+
+# Row types for the standardized 3-statement format:
+#   "header"   — section divider (e.g. "ATIVO", "ASSETS"), bold blue background
+#   "line"     — normal data row
+#   "subtotal" — partial subtotal (Gross Profit, EBITDA, etc.), bold + light bg
+#   "total"    — final total (Net Income, Total Assets, etc.), bold + dark bg
+#   "pct"      — percentage row, italic, lighter color
+#   "spacer"   — empty row for visual breathing space
+
+DF_TABLE_CSS = """
+<style>
+.df-uni{overflow-x:auto;border-radius:8px;margin:6px 0 14px 0;
+    box-shadow:0 1px 4px rgba(0,0,0,.06);border:1px solid #e5e7eb}
+.df-uni table{width:100%;border-collapse:collapse;font-size:.85rem;
+    font-family:'Inter',sans-serif}
+.df-uni table th, .df-uni table td{padding:7px 14px;border:1px solid #e5e7eb}
+.df-uni table thead th{background:#1a56db !important;color:#fff;font-weight:700;
+    text-align:right;font-size:.78rem;text-transform:uppercase;letter-spacing:.04em}
+.df-uni table thead th:first-child{background:#1e3a8a !important;text-align:left}
+.df-uni table tbody td{text-align:right;background:#fff;color:#374151}
+.df-uni table tbody td.label{text-align:left;font-weight:500;background:#fafafa;color:#374151}
+.df-uni tr.df-header td{background:#1e3a8a !important;color:#fff !important;
+    font-weight:700;text-transform:uppercase;letter-spacing:.05em;font-size:.78rem}
+.df-uni tr.df-subtotal td{background:#dbeafe !important;color:#1e3a8a !important;
+    font-weight:700;border-top:2px solid #93c5fd}
+.df-uni tr.df-subtotal td.label{background:#dbeafe !important;color:#1e3a8a !important}
+.df-uni tr.df-total td{background:#1d4ed8 !important;color:#fff !important;
+    font-weight:800;border-top:3px solid #1e40af;font-size:.9rem}
+.df-uni tr.df-total td.label{background:#1d4ed8 !important;color:#fff !important}
+.df-uni tr.df-pct td{font-style:italic;color:#6b7280;background:#f9fafb}
+.df-uni tr.df-pct td.label{background:#f9fafb;color:#6b7280}
+.df-uni tr.df-spacer td{background:#fff;border:none;height:6px;padding:0}
+</style>
+"""
+
+
+def render_3stmt_table(rows, columns, title=None):
+    """Render a standardized 3-statement table.
+
+    rows: list of (label, [values...], row_type) where row_type ∈
+          {"header", "line", "subtotal", "total", "pct", "spacer"}
+    columns: list of column labels (e.g. ["Year 1", "Year 2", ...])
+    title: optional <h4> title above the table
+
+    Returns HTML string. Caller should use:
+        st.markdown(DF_TABLE_CSS + render_3stmt_table(...), unsafe_allow_html=True)
+    """
+    parts = []
+    if title:
+        parts.append(f'<h4 style="color:#1e3a8a;margin:14px 0 4px 0;'
+                     f'font-size:1rem">{title}</h4>')
+    parts.append('<div class="df-uni"><table>')
+    parts.append('<thead><tr>')
+    parts.append('<th></th>')
+    for c in columns:
+        parts.append(f'<th>{c}</th>')
+    parts.append('</tr></thead>')
+    parts.append('<tbody>')
+    for label, values, row_type in rows:
+        cls = f'df-{row_type}' if row_type != "line" else ''
+        parts.append(f'<tr class="{cls}">')
+        if row_type == "header":
+            parts.append(f'<td class="label" colspan="{len(columns) + 1}">{label}</td>')
+        elif row_type == "spacer":
+            parts.append(f'<td colspan="{len(columns) + 1}"></td>')
+        else:
+            parts.append(f'<td class="label">{label}</td>')
+            for v in values:
+                if v is None:
+                    parts.append('<td>—</td>')
+                else:
+                    parts.append(f'<td>{v}</td>')
+        parts.append('</tr>')
+    parts.append('</tbody></table></div>')
+    return "".join(parts)
+
+
 # ─── Operational cash flow ───────────────────────────────────────────────────
 
 def calcular_operacional(receitas, cpvs, opexs, capex_lines, horizonte,

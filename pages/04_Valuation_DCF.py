@@ -1719,36 +1719,38 @@ with tabs[5]:
     })
     st.dataframe(cf_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
 
-    # ── Balance Sheet ──
+    # ── Balance Sheet (standardized renderer) ──
     st.markdown("---")
     st.subheader(T("fs_bs_title"))
-    bs_df = pd.DataFrame({
-        "": [
-            T("fs_assets"),
-            T("fs_cash"), T("fs_ar"), T("fs_inv"), T("fs_oca"), T("fs_tca"),
-            T("fs_ppe"), T("fs_gw"), T("fs_olta"), T("fs_ta"),
-            T("fs_liab"),
-            T("fs_ap"), T("fs_std"), T("fs_tcl"), T("fs_ltd"), T("fs_tl"),
-            T("fs_eq"),
-            T("fs_cs"), T("fs_re"), T("fs_te"),
-            T("fs_tle"),
-            T("fs_diff"),
-        ],
-        **{year_labels_fs[i]: [
-            "",
-            fmt_mm(bs_cash[i]), fmt_mm(bs_ar[i]), fmt_mm(bs_inv[i]),
-            fmt_mm(bs_oca[i]), fmt_mm(bs_tca[i]), fmt_mm(bs_ppe[i]),
-            fmt_mm(bs_gw[i]), fmt_mm(bs_olta[i]), fmt_mm(bs_ta[i]),
-            "",
-            fmt_mm(bs_ap[i]), fmt_mm(bs_std[i]), fmt_mm(bs_tcl[i]),
-            fmt_mm(bs_ltd[i]), fmt_mm(bs_tl[i]),
-            "",
-            fmt_mm(bs_cs[i]), fmt_mm(bs_re[i]), fmt_mm(bs_te[i]),
-            fmt_mm(bs_tle[i]),
-            fmt_mm(bs_diff[i]),
-        ] for i in range(n_fs)}
-    })
-    st.dataframe(bs_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
+    from backend import render_3stmt_table, DF_TABLE_CSS
+    _bs_rows = [
+        (T("fs_assets"), [], "header"),
+        (T("fs_cash"),   [fmt_mm(bs_cash[i])  for i in range(n_fs)], "line"),
+        (T("fs_ar"),     [fmt_mm(bs_ar[i])    for i in range(n_fs)], "line"),
+        (T("fs_inv"),    [fmt_mm(bs_inv[i])   for i in range(n_fs)], "line"),
+        (T("fs_oca"),    [fmt_mm(bs_oca[i])   for i in range(n_fs)], "line"),
+        (T("fs_tca"),    [fmt_mm(bs_tca[i])   for i in range(n_fs)], "subtotal"),
+        (T("fs_ppe"),    [fmt_mm(bs_ppe[i])   for i in range(n_fs)], "line"),
+        (T("fs_gw"),     [fmt_mm(bs_gw[i])    for i in range(n_fs)], "line"),
+        (T("fs_olta"),   [fmt_mm(bs_olta[i])  for i in range(n_fs)], "line"),
+        (T("fs_ta"),     [fmt_mm(bs_ta[i])    for i in range(n_fs)], "total"),
+        ("", [], "spacer"),
+        (T("fs_liab"),   [], "header"),
+        (T("fs_ap"),     [fmt_mm(bs_ap[i])    for i in range(n_fs)], "line"),
+        (T("fs_std"),    [fmt_mm(bs_std[i])   for i in range(n_fs)], "line"),
+        (T("fs_tcl"),    [fmt_mm(bs_tcl[i])   for i in range(n_fs)], "subtotal"),
+        (T("fs_ltd"),    [fmt_mm(bs_ltd[i])   for i in range(n_fs)], "line"),
+        (T("fs_tl"),     [fmt_mm(bs_tl[i])    for i in range(n_fs)], "subtotal"),
+        ("", [], "spacer"),
+        (T("fs_eq"),     [], "header"),
+        (T("fs_cs"),     [fmt_mm(bs_cs[i])    for i in range(n_fs)], "line"),
+        (T("fs_re"),     [fmt_mm(bs_re[i])    for i in range(n_fs)], "line"),
+        (T("fs_te"),     [fmt_mm(bs_te[i])    for i in range(n_fs)], "subtotal"),
+        (T("fs_tle"),    [fmt_mm(bs_tle[i])   for i in range(n_fs)], "total"),
+    ]
+    st.markdown(
+        DF_TABLE_CSS + render_3stmt_table(_bs_rows, year_labels_fs),
+        unsafe_allow_html=True)
 
     if not is_balanced:
         st.warning(
