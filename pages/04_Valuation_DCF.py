@@ -1555,10 +1555,32 @@ with tabs[5]:
     is_tax = [max(pt * tax_rate_fs, 0) for pt in is_pretax]
     is_ni = [pt - tx for pt, tx in zip(is_pretax, is_tax)]
 
+    # ── Compute BS working capital line items first (needed for ΔNWC) ───────
+    bs_ar_pre = [r * dso / 365 for r in _rev]
+    bs_inv_pre = [c * dio / 365 for c in is_cogs]
+    bs_oca_pre = [r * oca_pct for r in _rev]
+    bs_ap_pre = [c * dpo / 365 for c in is_cogs]
+
+    # Opening NWC (t=0) using base-year revenue
+    _open_ar = st.session_state["dcf_revenue"] * dso / 365
+    _open_cogs_now = st.session_state["dcf_revenue"] * cogs_pct
+    _open_inv = _open_cogs_now * dio / 365
+    _open_oca = st.session_state["dcf_revenue"] * oca_pct
+    _open_ap = _open_cogs_now * dpo / 365
+    _opening_nwc = _open_ar + _open_inv + _open_oca - _open_ap
+
+    # Year-by-year NWC and ΔNWC (consistent with BS line items)
+    nwc_series = [bs_ar_pre[i] + bs_inv_pre[i] + bs_oca_pre[i] - bs_ap_pre[i]
+                  for i in range(n_fs)]
+    cf_nwc = []
+    _prev_nwc = _opening_nwc
+    for n in nwc_series:
+        cf_nwc.append(n - _prev_nwc)
+        _prev_nwc = n
+
     # Cash Flow Statement
     cf_ni = is_ni
     cf_da = is_da
-    cf_nwc = _nwc_proj  # change in NWC from projections
     cf_cfo = [ni + da - nwc for ni, da, nwc in zip(cf_ni, cf_da, cf_nwc)]
     cf_capex = _capex
     cf_cfi = [-cp for cp in cf_capex]
