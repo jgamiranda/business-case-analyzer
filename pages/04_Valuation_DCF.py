@@ -569,11 +569,16 @@ with _hc_dark:
     st.write("")
     dark_mode = st.toggle("\U0001f319", key="dark_mode_dcf", help=T("dark_mode"))
 
+_dcf_subtitle = ("Avaliação de empresas por fluxo de caixa descontado: CAPM, WACC, "
+                 "Gordon Growth e múltiplos comparáveis." if lang == "PT" else
+                 "Company valuation via discounted cash flow: CAPM, WACC, "
+                 "Gordon Growth and trading comparables.")
 _hc_title.markdown(
     "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
     "margin-bottom:0.2rem;letter-spacing:-0.5px}"
     ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
-    f'<div class="main-title">{T("title")}</div>',
+    f'<div class="main-title">{T("title")}</div>'
+    f'<div class="subtitle">{_dcf_subtitle}</div>',
     unsafe_allow_html=True)
 
 if dark_mode:

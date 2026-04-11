@@ -552,7 +552,8 @@ with _hc_title:
         "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
         "margin-bottom:0.2rem;letter-spacing:-0.5px}"
         ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
-        '<div class="main-title">Startup Modeling</div>',
+        '<div class="main-title">Startup Modeling</div>'
+        '<div class="subtitle">Cap Table · MRR/ARR · Unit Economics · Runway · Cohort Analysis</div>',
         unsafe_allow_html=True)
 with _hc_dark:
     dark_mode = st.toggle("🌙", value=st.session_state.get("su_dark_mode", False), key="su_dark_mode")

@@ -159,11 +159,16 @@ with _hc_dark:
 def T(k): return _L.get(lang, _L["PT"]).get(k, _L["PT"].get(k, k))
 def fmt_opt(x): return _OPT_TR_EN.get(x, x) if lang == "EN" else x
 
+_bc_subtitle = ("Análise de viabilidade financeira: fluxo de caixa, financiamento, "
+                "DRE/DFC/BP, sensibilidade e Monte Carlo." if lang == "PT" else
+                "Financial viability analysis: cash flow, financing, "
+                "Income/Cash Flow/Balance statements, sensitivity and Monte Carlo.")
 _hc_title.markdown(
     "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
     "margin-bottom:0.2rem;letter-spacing:-0.5px}"
     ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
-    f'<div class="main-title">{T("app_title")}</div>',
+    f'<div class="main-title">{T("app_title")}</div>'
+    f'<div class="subtitle">{_bc_subtitle}</div>',
     unsafe_allow_html=True)
 
 if dark_mode:
