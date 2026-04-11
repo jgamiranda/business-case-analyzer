@@ -31,7 +31,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # BCB cache wrappers (decorator applied here so Streamlit is available)
 fetch_last  = st.cache_data(ttl=3600, show_spinner=False)(_fetch_last)
@@ -153,13 +153,18 @@ lang = lang_sel or "PT"
 
 with _hc_dark:
     st.write("")
-    dark_mode = st.toggle(_L[lang]["dark_mode"], key="dark_mode")
+    dark_mode = st.toggle("\U0001f319", key="dark_mode", help=_L[lang]["dark_mode"])
 
 # Translation helpers — available after lang is resolved
 def T(k): return _L.get(lang, _L["PT"]).get(k, _L["PT"].get(k, k))
 def fmt_opt(x): return _OPT_TR_EN.get(x, x) if lang == "EN" else x
 
-_hc_title.title(T("app_title"))
+_hc_title.markdown(
+    "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
+    "margin-bottom:0.2rem;letter-spacing:-0.5px}"
+    ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
+    f'<div class="main-title">{T("app_title")}</div>',
+    unsafe_allow_html=True)
 
 if dark_mode:
     st.markdown("""<style>
@@ -203,47 +208,6 @@ hr{border-color:#334155 !important}
 .df-styled table tbody td{border-color:#334155 !important;color:#e2e8f0 !important}
 .app-footer{border-color:#334155 !important;color:#6b7280 !important}
 </style>""", unsafe_allow_html=True)
-
-# ─────────────────────────────────────────────────────────────────────────────
-# MODEL TYPE SELECTOR PANEL
-# ─────────────────────────────────────────────────────────────────────────────
-if "model_type" not in st.session_state:
-    st.session_state["model_type"] = "business_case"
-
-with st.expander(f"\U0001f3af  {T('mt_panel_title')}", expanded=False):
-    st.caption(T("mt_panel_cap"))
-    _mt_keys = list(MODEL_TYPES.keys())
-    _mt_cards_html = '<div class="mt-grid">'
-    for mk in _mt_keys:
-        mt = MODEL_TYPES[mk]
-        is_active = st.session_state.get("model_type") == mk
-        active_cls = "mt-active" if is_active else ""
-        border_color = mt["color"] if is_active else "#e5e7eb"
-        badge = f'<span class="mt-badge" style="background:{mt["color"]}">{T("mt_selected")}</span>' if is_active else ""
-        _mt_cards_html += (
-            f'<div class="mt-card {active_cls}" style="border-color:{border_color}">'
-            f'{badge}'
-            f'<span class="mt-icon">{mt["icon"]}</span>'
-            f'<div class="mt-name">{T(f"mt_{mk}_name")}</div>'
-            f'<div class="mt-desc">{T(f"mt_{mk}_desc")}</div>'
-            f'</div>'
-        )
-    _mt_cards_html += '</div>'
-    st.markdown(_mt_cards_html, unsafe_allow_html=True)
-
-    _mt_col1, _mt_col2 = st.columns([3, 2])
-    _mt_sel = _mt_col1.selectbox(
-        T("mt_panel_title"), _mt_keys,
-        format_func=lambda k: f'{MODEL_TYPES[k]["icon"]}  {T(f"mt_{k}_name")}',
-        index=_mt_keys.index(st.session_state.get("model_type", "business_case")),
-        key="mt_selector", label_visibility="collapsed")
-    with _mt_col2:
-        if st.button(T("mt_apply"), type="primary", use_container_width=True):
-            st.session_state["model_type"] = _mt_sel
-            for k, v in MODEL_TYPES[_mt_sel]["defaults"].items():
-                st.session_state[k] = v
-            st.success(T("mt_applied"))
-            st.rerun()
 
 st.markdown(f'<div class="unit-bar"><span class="unit-label">{T("unit_label")}</span></div>', unsafe_allow_html=True)
 unit = st.segmented_control("u", UNIDADES, key="unit", label_visibility="collapsed")
@@ -1561,103 +1525,46 @@ with tab_df:
                 st.markdown(f'<div class="df-styled">{_html_nwc}</div>', unsafe_allow_html=True)
                 st.caption(T("ncg_detail_note"))
 
-    with st.expander(T("df_bp"), expanded=False):
+    with st.expander(T("df_bp"), expanded=True):
         st.caption(unit_note)
-        _bp_data = {
+
+        # ── ATIVO ────────────────────────────────────────────────────────────
+        _hdr_ativo = "ATIVO" if lang == "PT" else "ASSETS"
+        st.markdown(f'<div class="df-header">{_hdr_ativo}</div>', unsafe_allow_html=True)
+        _ativo_data = {
             "Caixa e Equivalentes de Caixa": {yr: mn(balanco[yr]["Caixa"])                     for yr in anos},
             "Ativo Imobilizado Liquido":      {yr: mn(balanco[yr]["Ativo Imobilizado Liquido"]) for yr in anos},
         }
         _any_nwc_bal = any(abs(balanco[yr].get("NWC", 0)) > 1e-6 for yr in anos)
         if _any_nwc_bal:
-            _bp_data["Capital de Giro Liquido (NWC)" if lang=="PT" else "Net Working Capital (NWC)"] = {
+            _ativo_data["Capital de Giro Liquido (NWC)" if lang=="PT" else "Net Working Capital (NWC)"] = {
                 yr: mn(balanco[yr].get("NWC", 0)) for yr in anos}
-        _bp_data["Total Ativo"] = {yr: mn(balanco[yr]["Total Ativo"]) for yr in anos}
-        _bp_data["Divida Total"] = {yr: mn(balanco[yr]["Divida Total"]) for yr in anos}
+        _ativo_data["Total Ativo"] = {yr: mn(balanco[yr]["Total Ativo"]) for yr in anos}
+        _render_df(_ativo_data)
+
+        # ── PASSIVO ──────────────────────────────────────────────────────────
+        _hdr_passivo = "PASSIVO" if lang == "PT" else "LIABILITIES"
+        st.markdown(f'<div class="df-header">{_hdr_passivo}</div>', unsafe_allow_html=True)
+        _passivo_data = {
+            "Divida Total": {yr: mn(balanco[yr]["Divida Total"]) for yr in anos},
+        }
         _any_rev_bal = any(abs(balanco[yr].get("Revolver", 0)) > 1e-6 for yr in anos)
         if _any_rev_bal:
-            _bp_data["Saldo do Revolver"] = {yr: mn(balanco[yr].get("Revolver", 0)) for yr in anos}
-        _bp_data.update({
-            "Capital Social":                {yr: mn(balanco[yr]["Capital Social"])            for yr in anos},
-            "Lucros / Prejuizos Acumulados": {yr: mn(balanco[yr]["Lucros Acumulados"])         for yr in anos},
-            "Total Patrimonio Liquido":      {yr: mn(balanco[yr]["Total PL"])                 for yr in anos},
-            "Total Passivo + PL":            {yr: mn(balanco[yr]["Total Passivo + PL"])       for yr in anos},
-        })
-        _render_df(_bp_data)
+            _passivo_data["Saldo do Revolver"] = {yr: mn(balanco[yr].get("Revolver", 0)) for yr in anos}
+        _passivo_data["Total Passivo" if lang=="PT" else "Total Liabilities"] = {
+            yr: mn(balanco[yr]["Divida Total"] + balanco[yr].get("Revolver", 0)) for yr in anos}
+        _render_df(_passivo_data)
 
-    # ── Balance Sheet Check (assets vs liabilities + equity) ────────────────
-    st.markdown(f"#### {T('bp_check_title')}")
-    _bs_check_cols = st.columns(len(anos))
-    for _ci, yr in enumerate(anos):
-        ta_v  = balanco[yr]["Total Ativo"]
-        tle_v = balanco[yr]["Total Passivo + PL"]
-        diff  = ta_v - tle_v
-        pct   = abs(diff) / ta_v * 100 if abs(ta_v) > 1e-9 else 0
-        ok    = abs(diff) < max(abs(ta_v), 1.0) * 0.0001  # 0.01% tolerance
-        _cls  = "metric-card metric-card-green" if ok else "metric-card metric-card-red"
-        _icon = "✓" if ok else "✗"
-        _html = (
-            f'<div class="{_cls}">'
-            f'<div class="mc-label">{ano_lbl[yr]}</div>'
-            f'<div class="mc-value">{_icon} {mn(diff):,.2f}</div>'
-            f'<div class="mc-delta">{pct:.4f}% {T("bp_check_assets")}</div>'
-            f'</div>'
-        )
-        _bs_check_cols[_ci].markdown(_html, unsafe_allow_html=True)
-    _all_ok = all(
-        abs(balanco[yr]["Total Ativo"] - balanco[yr]["Total Passivo + PL"])
-        < max(abs(balanco[yr]["Total Ativo"]), 1.0) * 0.0001
-        for yr in anos
-    )
-    if _all_ok:
-        st.success(f"✓  {T('bp_check_ok')}")
-    else:
-        st.error(f"✗  {T('bp_check_fail')}")
-
-    # ── Three-statement Model Integrity Check ──────────────────────────────
-    with st.expander(T("bp_integrity_title"), expanded=False):
-        st.caption(T("bp_integrity_cap"))
-        # (1) Cash on BP vs. cumulative CF (variacao_caixa + initial cash)
-        _cf_cum = cash_bs  # already = initial + Σ variacao_caixa for last year
-        _bp_cash_last = balanco[anos[-1]]["Caixa"]
-        _chk1_ok = abs(_bp_cash_last - _cf_cum) < max(abs(_bp_cash_last), 1.0) * 0.0001
-
-        # (2) Retained Earnings on BP = Σ NI from DRE
-        _ni_sum = sum(annual[yr]["ni"] for yr in anos)
-        _bp_re_last = balanco[anos[-1]]["Lucros Acumulados"]
-        _chk2_ok = abs(_bp_re_last - _ni_sum) < max(abs(_bp_re_last), 1.0) * 0.0001
-
-        # (3) Debt on BP = debt schedule balance
-        _m_end_last = min(n_anos * 12, horizonte)
-        _sched_debt_last = 0.0
-        for _df_t in schedules.values():
-            _rows_until = _df_t[_df_t["Mes"] <= _m_end_last]
-            if not _rows_until.empty:
-                _sched_debt_last += _rows_until.iloc[-1]["Saldo Final"]
-        _bp_debt_last = balanco[anos[-1]]["Divida Total"]
-        _chk3_ok = abs(_bp_debt_last - _sched_debt_last) < max(abs(_sched_debt_last), 1.0) * 0.0001
-
-        def _chk_row(label, bs_val, src_val, ok):
-            _cls = "metric-card metric-card-green" if ok else "metric-card metric-card-red"
-            _icon = "✓" if ok else "✗"
-            _status = T("bp_integrity_ok") if ok else T("bp_integrity_fail")
-            return (
-                f'<div class="{_cls}" style="text-align:left">'
-                f'<div class="mc-label">{_icon} {label}</div>'
-                f'<div class="mc-value" style="font-size:1.0rem">'
-                f'BP: {mn(bs_val):,.2f} &nbsp;·&nbsp; '
-                f'{"CF" if lang=="EN" else "DFC"}/{"IS" if lang=="EN" else "DRE"}: {mn(src_val):,.2f}'
-                f'</div>'
-                f'<div class="mc-delta">{_status} — Δ {mn(bs_val - src_val):+,.4f}</div>'
-                f'</div>'
-            )
-
-        _ic1, _ic2, _ic3 = st.columns(3)
-        _ic1.markdown(_chk_row(T("bp_integrity_cash"), _bp_cash_last, _cf_cum, _chk1_ok),
-                      unsafe_allow_html=True)
-        _ic2.markdown(_chk_row(T("bp_integrity_re"),   _bp_re_last,  _ni_sum, _chk2_ok),
-                      unsafe_allow_html=True)
-        _ic3.markdown(_chk_row(T("bp_integrity_debt"), _bp_debt_last, _sched_debt_last, _chk3_ok),
-                      unsafe_allow_html=True)
+        # ── PATRIMÔNIO LÍQUIDO ───────────────────────────────────────────────
+        _hdr_pl = "PATRIMONIO LIQUIDO" if lang == "PT" else "EQUITY"
+        st.markdown(f'<div class="df-header">{_hdr_pl}</div>', unsafe_allow_html=True)
+        _pl_data = {
+            "Capital Social":                {yr: mn(balanco[yr]["Capital Social"])      for yr in anos},
+            "Lucros / Prejuizos Acumulados": {yr: mn(balanco[yr]["Lucros Acumulados"])  for yr in anos},
+            "Total Patrimonio Liquido":      {yr: mn(balanco[yr]["Total PL"])           for yr in anos},
+            "Total Passivo + PL":            {yr: mn(balanco[yr]["Total Passivo + PL"]) for yr in anos},
+        }
+        _render_df(_pl_data)
 
     # Financial ratios table (DSCR, ICR, Debt/EBITDA)
     if total_debt > 0:
@@ -2372,4 +2279,4 @@ with tab_slides:
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown(f'<div class="app-footer">{T("footer_text")}<br>{T("footer_powered")}</div>', unsafe_allow_html=True)
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

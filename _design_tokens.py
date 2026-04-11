@@ -76,8 +76,8 @@ def status_color(status: str) -> str:
 
 # ─── CSS — Single block to inject in every page ──────────────────────────────
 DESIGN_CSS = """
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap');
 :root {
   --bg: #0d0f14;
   --surface: #141720;

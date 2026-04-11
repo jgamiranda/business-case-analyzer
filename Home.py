@@ -8,7 +8,9 @@ st.set_page_config(
 )
 
 # Inject global design system (Section 4 of AGENT_BRIEF.md)
-ds.inject()
+# DISABLED 2026-04-10: dark theme conflicts with light-theme model pages —
+# breaks buttons / widgets. Re-enable after frontend migrates all pages.
+# ds.inject()
 
 # ─── Page-specific CSS (landing-only components) ─────────────────────────────
 st.markdown("""
@@ -214,6 +216,19 @@ MODELS = [
         "page": "pages/04_Valuation_DCF.py",
     },
     {
+        "key": "lbo", "icon": "💼",
+        "title": {"PT": "LBO — Leveraged Buyout", "EN": "LBO — Leveraged Buyout"},
+        "sub": {
+            "PT": "Modelagem de aquisicoes alavancadas: Sources & Uses, debt schedule "
+                  "multi-tranche, IRR/MOIC, value creation bridge e exit waterfall.",
+            "EN": "Leveraged buyout modeling: Sources & Uses, multi-tranche debt schedule, "
+                  "IRR/MOIC, value creation bridge and exit waterfall.",
+        },
+        "tags": ["Sources & Uses", "TLA/TLB", "MOIC", "IRR", "Exit Multiple", "PIK"],
+        "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
+        "page": "pages/05_LBO.py",
+    },
+    {
         "key": "startup", "icon": "🚀",
         "title": {"PT": "Startup — Cap Table", "EN": "Startup — Cap Table"},
         "sub": {
@@ -224,7 +239,7 @@ MODELS = [
         },
         "tags": ["Cap Table", "MRR/ARR", "CAC/LTV", "Runway"],
         "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
-        "page": "pages/05_Startup.py",
+        "page": "pages/06_Startup.py",
     },
     {
         "key": "hedging", "icon": "🛡️",
@@ -237,50 +252,41 @@ MODELS = [
         },
         "tags": ["FX Forward", "IRS", "CCS", "TRS", "Futures", "DV01"],
         "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
-        "page": "pages/06_Hedging.py",
-    },
-    {
-        "key": "lbo", "icon": "💼",
-        "title": {"PT": "LBO — Leveraged Buyout", "EN": "LBO — Leveraged Buyout"},
-        "sub": {
-            "PT": "Modelagem de aquisicoes alavancadas: Sources & Uses, debt schedule "
-                  "multi-tranche, IRR/MOIC, value creation bridge e exit waterfall.",
-            "EN": "Leveraged buyout modeling: Sources & Uses, multi-tranche debt schedule, "
-                  "IRR/MOIC, value creation bridge and exit waterfall.",
-        },
-        "tags": ["Sources & Uses", "TLA/TLB", "MOIC", "IRR", "Exit Multiple", "PIK"],
-        "badge": {"PT": "Novo", "EN": "New"}, "ready": True,
-        "page": "pages/07_LBO.py",
+        "page": "pages/07_Hedging_Strategies.py",
     },
 ]
 
-# ─── Render cards ────────────────────────────────────────────────────────────
+# ─── Render cards (clickable via Streamlit page URLs) ───────────────────────
 st.markdown(f"### {_select_label}")
+
+# Map each model to its Streamlit-served URL (numeric prefix stripped by Streamlit)
+_PAGE_URLS = {
+    "business_case":   "/Business_Case",
+    "ma":              "/MA",
+    "project_finance": "/Project_Finance",
+    "valuation_dcf":   "/Valuation_DCF",
+    "lbo":             "/LBO",
+    "startup":         "/Startup",
+    "hedging":         "/Hedging_Strategies",
+}
 
 _cards_html = '<div class="model-grid">'
 for m in MODELS:
     tags_html = "".join(f'<span class="mc-tag">{t}</span>' for t in m["tags"])
     badge_cls = "mc-badge" if m["key"] == "business_case" else "mc-badge mc-badge-soon"
+    href = _PAGE_URLS.get(m["key"], "#")
     _cards_html += f"""
-    <div class="model-card">
-        <span class="{badge_cls}">{m['badge'][lang]}</span>
-        <div class="mc-icon">{m['icon']}</div>
-        <div class="mc-title">{m['title'][lang]}</div>
-        <div class="mc-sub">{m['sub'][lang]}</div>
-        <div class="mc-tags">{tags_html}</div>
-    </div>"""
+    <a href="{href}" target="_self" style="text-decoration:none;color:inherit;display:block">
+      <div class="model-card">
+          <span class="{badge_cls}">{m['badge'][lang]}</span>
+          <div class="mc-icon">{m['icon']}</div>
+          <div class="mc-title">{m['title'][lang]}</div>
+          <div class="mc-sub">{m['sub'][lang]}</div>
+          <div class="mc-tags">{tags_html}</div>
+      </div>
+    </a>"""
 _cards_html += '</div>'
 st.markdown(_cards_html, unsafe_allow_html=True)
-
-# Navigation buttons
-st.markdown("---")
-cols = st.columns(len(MODELS))
-for i, (col, m) in enumerate(zip(cols, MODELS)):
-    with col:
-        _btn_label = f"{m['icon']}  {m['title'][lang]}"
-        if st.button(_btn_label, use_container_width=True,
-                     type="primary" if m["key"] == "business_case" else "secondary"):
-            st.switch_page(m["page"])
 
 # ─── Footer ──────────────────────────────────────────────────────────────────
 st.markdown("""

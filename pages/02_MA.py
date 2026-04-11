@@ -12,7 +12,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TRANSLATIONS
@@ -590,21 +590,26 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────────────────────
 # LANGUAGE TOGGLE + HEADER
 # ─────────────────────────────────────────────────────────────────────────────
-_hc1, _hc2 = st.columns([8, 1])
-with _hc2:
+_hc_title, _hc_lang, _hc_dark = st.columns([6, 1, 1])
+with _hc_lang:
+    st.write("")
     _lang_sel = st.segmented_control("lang_ma", ["PT", "EN"], default="PT",
                                       key="ma_lang", label_visibility="collapsed")
+with _hc_dark:
+    st.write("")
+    dark_mode = st.toggle("\U0001f319", key="dark_mode_ma",
+                          help="Dark Mode")
 lang = _lang_sel or "PT"
 def T(k): return _L.get(lang, _L["PT"]).get(k, _L["PT"].get(k, k))
 
-st.markdown(f"""
-<div class="hero-bar">
-    <h1>{T("page_title")}</h1>
-    <p>{T("page_sub")}</p>
-</div>
-""", unsafe_allow_html=True)
-
-dark_mode = st.toggle(T("dark_mode"), key="dark_mode_ma")
+with _hc_title:
+    st.markdown(
+        "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
+        "margin-bottom:0.2rem;letter-spacing:-0.5px}"
+        ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
+        f'<div class="main-title">{T("page_title")}</div>'
+        f'<div class="subtitle">{T("page_sub")}</div>',
+        unsafe_allow_html=True)
 
 if dark_mode:
     st.markdown("""<style>
@@ -619,6 +624,12 @@ p,h1,h2,h3,h4,label,li{color:#e2e8f0 !important}
 [data-testid="stAlert"] p{color:#e2e8f0 !important}
 [data-testid="stMetricValue"],[data-testid="stMetricLabel"]{color:#e2e8f0 !important}
 [data-baseweb="input"] input,[data-baseweb="textarea"] textarea,[data-baseweb="select"] div{background:#1e293b !important;color:#e2e8f0 !important}
+[data-testid="stSidebar"]{background:#1e293b !important;border-right:1px solid #334155 !important}
+[data-testid="stSidebar"] *{color:#e2e8f0 !important}
+[data-testid="stSidebar"] a{color:#93c5fd !important}
+[data-testid="stSidebarNav"] a{color:#93c5fd !important}
+[data-testid="stDataFrame"],[data-testid="stTable"]{background:#1e293b !important}
+.main-title{color:#60a5fa !important}.subtitle{color:#94a3b8 !important}
 .metric-card{background:linear-gradient(135deg,#1e293b,#1e3a5f) !important;border-color:#334155 !important}
 .metric-card .mc-label{color:#94a3b8 !important}.metric-card .mc-value{color:#60a5fa !important}
 .metric-card-green{background:linear-gradient(135deg,#064e3b,#065f46) !important;border-color:#10b981 !important}
@@ -2648,8 +2659,4 @@ with tabs[6]:
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="app-footer">
-    M&A Financial Model &middot; Built with Streamlit
-</div>
-""", unsafe_allow_html=True)
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

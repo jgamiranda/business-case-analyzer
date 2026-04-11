@@ -17,7 +17,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # ─────────────────────────────────────────────────────────────────────────────
 # BLUE THEME CSS (#1a56db)
@@ -335,10 +335,13 @@ L = _L[lang]
 def T(k): return L.get(k, _L["PT"].get(k, k))
 
 with _hdr_col:
-    st.markdown(f"""<div class="pf-header">
-        <h1>{T("page_title")}</h1>
-        <p>{T("page_sub")}</p>
-    </div>""", unsafe_allow_html=True)
+    st.markdown(
+        "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
+        "margin-bottom:0.2rem;letter-spacing:-0.5px}"
+        ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
+        f'<div class="main-title">{T("page_title")}</div>'
+        f'<div class="subtitle">{T("page_sub")}</div>',
+        unsafe_allow_html=True)
 
 if dark_mode:
     st.markdown("""<style>
@@ -935,8 +938,11 @@ def build_model(override=None):
 tabs = st.tabs([
     T("tab_project"), T("tab_construction"), T("tab_operations"),
     T("tab_debt"), T("tab_waterfall"), T("tab_results"), T("tab_sensitivity"),
-    "\U0001f578  SPE Diagram", "\U0001f4dc  Contract Minutes",
+    "\U0001f512  SPE Diagram", "\U0001f512  Contract Minutes",
 ])
+
+# Locked tabs — show "coming soon" notice and skip the heavy implementations
+_PF_LOCKED_TABS = True
 
 # =====================  TAB 1: PROJECT  =====================================
 with tabs[0]:
@@ -1233,7 +1239,7 @@ with tabs[3]:
             font=dict(family="Inter, sans-serif"),
         )
         st.plotly_chart(fig_cmp, use_container_width=True)
-        if amort_type == "Sculpted":
+        if st.session_state.get("pf_amort_type") == "Sculpted":
             st.info(T("debt_sculpted_label"))
 
 # =====================  TAB 5: WATERFALL  ===================================
@@ -1866,9 +1872,12 @@ if "pf_diagram" not in st.session_state:
     }
 
 with tabs[7]:
-    st.markdown("### \U0001f578 SPE Diagram Builder")
-    st.caption("Build the project finance legal/flow structure visually. Choose a template or build from scratch. Feeds the Contract Minutes generator.")
-    st.divider()
+    st.markdown("### \U0001f512  SPE Diagram Builder")
+    st.info("\U0001f6a7  **Em breve / Coming soon** — esta funcionalidade está em desenvolvimento e será liberada em uma próxima versão.")
+    st.caption("\u2014 Implementação preservada no histórico do git (commit 9b1d816 e seguintes). Será reativada após o MVP.")
+    if False:  # ── Original implementation preserved; disabled for MVP ──────
+        st.caption("Build the project finance legal/flow structure visually. Choose a template or build from scratch. Feeds the Contract Minutes generator.")
+        st.divider()
 
     diag = st.session_state["pf_diagram"]
 
@@ -2359,7 +2368,4 @@ The Contracting Authority acknowledges the security granted under the Concession
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER
 # ─────────────────────────────────────────────────────────────────────────────
-st.markdown("""<div style="text-align:center;padding:20px 0 10px 0;margin-top:40px;
-border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.75rem">
-Project Finance Model &mdash; Built with Streamlit
-</div>""", unsafe_allow_html=True)
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

@@ -36,7 +36,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # =============================================================================
 # THEME / STYLING
@@ -495,15 +495,14 @@ with col_title:
         f'<div class="subtitle">{T("subtitle")}</div>', unsafe_allow_html=True
     )
 with col_lang:
-    lang_choice = st.selectbox(
-        T("language"),
-        options=["en", "pt"],
-        index=0 if st.session_state["hg_lang"] == "en" else 1,
-        format_func=lambda x: "English" if x == "en" else "Português",
-        key="hg_lang_select",
-    )
-    if lang_choice != st.session_state["hg_lang"]:
-        st.session_state["hg_lang"] = lang_choice
+    st.write("")
+    _hg_lang_ui = "EN" if st.session_state.get("hg_lang", "en") == "en" else "PT"
+    _hg_lang_sel = st.segmented_control(
+        "hg_lang_seg", ["PT", "EN"], default=_hg_lang_ui,
+        key="hg_lang_seg", label_visibility="collapsed")
+    _new_hg_lang = ("en" if (_hg_lang_sel or "EN") == "EN" else "pt")
+    if _new_hg_lang != st.session_state.get("hg_lang", "en"):
+        st.session_state["hg_lang"] = _new_hg_lang
         st.rerun()
 with col_dark:
     st.write("")

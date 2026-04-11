@@ -13,7 +13,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TRANSLATIONS
@@ -548,7 +548,12 @@ def get(k, d=0.0):
 # ─────────────────────────────────────────────────────────────────────────────
 _hc_title, _hc_dark, _hc_lang = st.columns([8, 1, 1])
 with _hc_title:
-    st.markdown('<div class="startup-header"><h1>Startup Modeling</h1></div>', unsafe_allow_html=True)
+    st.markdown(
+        "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
+        "margin-bottom:0.2rem;letter-spacing:-0.5px}"
+        ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
+        '<div class="main-title">Startup Modeling</div>',
+        unsafe_allow_html=True)
 with _hc_dark:
     dark_mode = st.toggle("🌙", value=st.session_state.get("su_dark_mode", False), key="su_dark_mode")
 with _hc_lang:
@@ -2327,3 +2332,5 @@ with tabs[9]:
 
     else:
         st.info("Ative ao menos uma rodada no Cap Table." if lang == "PT" else "Enable at least one round in the Cap Table.")
+
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

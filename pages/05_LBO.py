@@ -723,21 +723,39 @@ _init_state()
 # =============================================================================
 # HEADER
 # =============================================================================
-col_title, col_lang = st.columns([6, 1])
+col_title, col_lang, col_dark = st.columns([6, 1, 1])
 with col_title:
     st.markdown(f'<div class="main-title">{T("title")}</div>', unsafe_allow_html=True)
     st.markdown(f'<div class="subtitle">{T("subtitle")}</div>', unsafe_allow_html=True)
 with col_lang:
-    lang_choice = st.selectbox(
-        T("language"),
-        options=["en", "pt"],
-        index=0 if st.session_state["lbo_lang"] == "en" else 1,
-        format_func=lambda x: "English" if x == "en" else "Português",
-        key="lbo_lang_select",
-    )
-    if lang_choice != st.session_state["lbo_lang"]:
-        st.session_state["lbo_lang"] = lang_choice
+    st.write("")
+    _lbo_lang_ui = "EN" if st.session_state.get("lbo_lang", "en") == "en" else "PT"
+    _lbo_lang_sel = st.segmented_control(
+        "lbo_lang_seg", ["PT", "EN"], default=_lbo_lang_ui,
+        key="lbo_lang_seg", label_visibility="collapsed")
+    _new_lang = ("en" if (_lbo_lang_sel or "EN") == "EN" else "pt")
+    if _new_lang != st.session_state.get("lbo_lang", "en"):
+        st.session_state["lbo_lang"] = _new_lang
         st.rerun()
+with col_dark:
+    st.write("")
+    dark_mode = st.toggle("\U0001f319", key="lbo_dark_mode", help="Dark Mode")
+
+if dark_mode:
+    st.markdown("""<style>
+.stApp,[data-testid="stAppViewContainer"],[data-testid="stHeader"]{background:#0f172a !important}
+p,h1,h2,h3,h4,label,li,span,div{color:#e2e8f0 !important}
+[data-testid="stMarkdownContainer"] p,[data-testid="stMarkdownContainer"] li{color:#e2e8f0 !important}
+[data-testid="stCaption"] p,.stCaption p{color:#94a3b8 !important}
+[data-testid="stExpander"] details{background:#1e293b !important;border-color:#334155 !important}
+.stTabs [data-baseweb="tab"]{background:#1e293b !important;color:#93c5fd !important;border-color:#334155 !important}
+.stTabs [aria-selected="true"]{background:#1a56db !important;color:#fff !important}
+[data-testid="stAlert"]{background:#1e293b !important;border-color:#334155 !important}
+[data-testid="stMetricValue"],[data-testid="stMetricLabel"]{color:#e2e8f0 !important}
+[data-baseweb="input"] input,[data-baseweb="textarea"] textarea,[data-baseweb="select"] div{background:#1e293b !important;color:#e2e8f0 !important}
+hr{border-color:#334155 !important}
+.main-title,.subtitle{color:#e2e8f0 !important}
+</style>""", unsafe_allow_html=True)
 
 
 # =============================================================================
@@ -2567,8 +2585,4 @@ Ao fechar um LBO, o comprador aloca o preço de compra entre os ativos identific
 # =============================================================================
 # FOOTER
 # =============================================================================
-st.markdown("---")
-st.caption(
-    f"LBO Model — {datetime.now().strftime('%Y-%m-%d')} | "
-    "Institutional-grade toolkit based on CFI / Wall Street Prep / Rosenbaum & Pearl methodology."
-)
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

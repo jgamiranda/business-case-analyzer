@@ -19,7 +19,7 @@ import sys, os as _os
 _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
 if _root not in sys.path: sys.path.insert(0, _root)
 import _design_tokens as ds
-ds.inject()
+# ds.inject()  # disabled — conflicts with page-local CSS
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TRANSLATIONS
@@ -567,9 +567,14 @@ def T(k):
 
 with _hc_dark:
     st.write("")
-    dark_mode = st.toggle(T("dark_mode"), key="dark_mode_dcf")
+    dark_mode = st.toggle("\U0001f319", key="dark_mode_dcf", help=T("dark_mode"))
 
-_hc_title.title(T("title"))
+_hc_title.markdown(
+    "<style>.main-title{font-size:2.1rem;font-weight:800;color:#1a56db;"
+    "margin-bottom:0.2rem;letter-spacing:-0.5px}"
+    ".subtitle{font-size:1rem;color:#6b7280;margin-bottom:1.4rem}</style>"
+    f'<div class="main-title">{T("title")}</div>',
+    unsafe_allow_html=True)
 
 if dark_mode:
     st.markdown("""<style>
@@ -2439,3 +2444,5 @@ with tabs[7]:
         st.warning("Enter comparable company data above to see multiples analysis."
                    if lang == "EN" else
                    "Preencha os dados das empresas comparaveis acima para ver a analise de multiplos.")
+
+st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)
