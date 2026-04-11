@@ -2391,12 +2391,26 @@ with tabs[6]:
             T("tax"): row["Tax"],
             T("ni"): row["NI"],
         })
-    is_df = pd.DataFrame(is_rows)
-    num_cols = [c for c in is_df.columns if c != T("year")]
-    st.dataframe(
-        is_df.style.format({c: "{:,.1f}" for c in num_cols}),
-        hide_index=True, use_container_width=True,
-    )
+    # ── Standardized 3-statement renderer ────────────────────────────────────
+    from backend import render_3stmt_table, DF_TABLE_CSS as _LBO_IS_CSS
+    _is_pt_lbo = (st.session_state.get("lbo_lang", "en") == "pt")
+    _lbo_yr_cols = [f"Y{r[T('year')]}" for r in is_rows]
+    def _isv(key):
+        return [fmt_num(r[key]) for r in is_rows]
+    _lbo_is_rows = [
+        (T("revenue"),                 _isv(T("revenue")),         "line"),
+        (T("ebitda"),                  _isv(T("ebitda")),          "subtotal"),
+        ("D&A",                        _isv("D&A"),                "line"),
+        (T("ebit"),                    _isv(T("ebit")),            "subtotal"),
+        ("Interest Expense (Cash)",    _isv("Interest Expense (Cash)"),  "line"),
+        ("Interest Income",            _isv("Interest Income"),    "line"),
+        ("PIK Interest",               _isv("PIK Interest"),       "line"),
+        (T("ebt"),                     _isv(T("ebt")),             "subtotal"),
+        (T("tax"),                     _isv(T("tax")),             "line"),
+        (T("ni"),                      _isv(T("ni")),              "total"),
+    ]
+    st.markdown(_LBO_IS_CSS + render_3stmt_table(_lbo_is_rows, _lbo_yr_cols),
+                unsafe_allow_html=True)
 
     # ---- CASH FLOW STATEMENT ----
     sub_header(T("cf_stmt"))
@@ -2430,12 +2444,24 @@ with tabs[6]:
             "Ending Cash": ending_cash,
         })
         prior_cash = ending_cash
-    cf_df = pd.DataFrame(cf_rows)
-    num_cols = [c for c in cf_df.columns if c != T("year")]
-    st.dataframe(
-        cf_df.style.format({c: "{:,.1f}" for c in num_cols}),
-        hide_index=True, use_container_width=True,
-    )
+    _lbo_cf_yr = [f"Y{r[T('year')]}" for r in cf_rows]
+    def _cfv(key):
+        return [fmt_num(r[key]) for r in cf_rows]
+    _lbo_cf_rows = [
+        (T("ni"),              _cfv(T("ni")),              "line"),
+        ("+ D&A",              _cfv("+ D&A"),              "line"),
+        ("+ PIK (non-cash)",   _cfv("+ PIK (non-cash)"),   "line"),
+        ("- ΔWC",              _cfv("- ΔWC"),              "line"),
+        ("CFO",                _cfv("CFO"),                "subtotal"),
+        ("- CapEx",            _cfv("- CapEx"),            "line"),
+        ("CFI",                _cfv("CFI"),                "subtotal"),
+        ("Debt Repayments",    _cfv("Debt Repayments"),    "line"),
+        ("CFF",                _cfv("CFF"),                "subtotal"),
+        ("Δ Cash",             _cfv("Δ Cash"),             "subtotal"),
+        ("Ending Cash",        _cfv("Ending Cash"),        "total"),
+    ]
+    st.markdown(_LBO_IS_CSS + render_3stmt_table(_lbo_cf_rows, _lbo_cf_yr),
+                unsafe_allow_html=True)
 
     # ---- BALANCE SHEET ----
     sub_header(T("bs_stmt"))

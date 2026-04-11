@@ -1889,23 +1889,28 @@ with tabs[5]:
 
             beg_cash = end_cash
 
-        cf_df = pd.DataFrame(cf_rows).set_index(T("pf_year"))
-        cf_display = cf_df.copy()
-        for col in cf_display.columns:
-            cf_display[col] = cf_display[col].apply(lambda v: f"{v:,.0f}")
-
-        cf_subtotal_rows = {
-            T("cf_cfo"), T("cf_cfi"), T("cf_cff"),
-            T("cf_net_change"), T("cf_cash_end"),
-        }
-
-        def style_cf(row):
-            if row.name in cf_subtotal_rows:
-                return ["background:#dbeafe;font-weight:700;color:#1e3a8a"] * len(row)
-            return [""] * len(row)
-
-        styled_cf = cf_display.T.style.apply(style_cf, axis=1).to_html()
-        st.markdown(f'<div class="df-styled">{styled_cf}</div>', unsafe_allow_html=True)
+        # ── Standardized 3-statement renderer ────────────────────────────────
+        from backend import render_3stmt_table, DF_TABLE_CSS as _MA_CF_CSS
+        _ma_cf_cols = [f"{T('pf_year')} {r[T('pf_year')]}" for r in cf_rows]
+        def _cv(key):
+            return [fmt(r[key]) for r in cf_rows]
+        _ma_cf_rows = [
+            (T("cf_net_income"), _cv(T("cf_net_income")), "line"),
+            (T("cf_da"),         _cv(T("cf_da")),         "line"),
+            (T("cf_nwc"),        _cv(T("cf_nwc")),        "line"),
+            (T("cf_cfo"),        _cv(T("cf_cfo")),        "subtotal"),
+            (T("cf_capex"),      _cv(T("cf_capex")),      "line"),
+            (T("cf_cfi"),        _cv(T("cf_cfi")),        "subtotal"),
+            (T("cf_debt_draw"),  _cv(T("cf_debt_draw")),  "line"),
+            (T("cf_debt_repay"), _cv(T("cf_debt_repay")), "line"),
+            (T("cf_dividends"),  _cv(T("cf_dividends")),  "line"),
+            (T("cf_cff"),        _cv(T("cf_cff")),        "subtotal"),
+            (T("cf_net_change"), _cv(T("cf_net_change")), "subtotal"),
+            (T("cf_cash_begin"), _cv(T("cf_cash_begin")), "line"),
+            (T("cf_cash_end"),   _cv(T("cf_cash_end")),   "total"),
+        ]
+        st.markdown(_MA_CF_CSS + render_3stmt_table(_ma_cf_rows, _ma_cf_cols),
+                    unsafe_allow_html=True)
 
         # Summary KPIs
         st.markdown("---")

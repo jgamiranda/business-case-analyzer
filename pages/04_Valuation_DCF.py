@@ -1669,55 +1669,47 @@ with tabs[5]:
     bc3.markdown(_mc(T("fs_ta") + f" ({T('year')} {n_fs})", fmt_mm(bs_ta[-1] if bs_ta else 0)),
                  unsafe_allow_html=True)
 
-    # ── Income Statement ──
+    # ── Income Statement (unified renderer) ──
     st.markdown("---")
     st.subheader(T("fs_is_title"))
-    is_df = pd.DataFrame({
-        "": [T("fs_revenue"), T("fs_cogs"), T("fs_gross"), T("fs_sga"),
-             T("fs_ebitda"), T("fs_da"), T("fs_ebit"), T("fs_interest"),
-             T("fs_pretax"), T("fs_tax"), T("fs_ni")],
-        **{year_labels_fs[i]: [
-            fmt_mm(_rev[i]), fmt_mm(is_cogs[i]), fmt_mm(is_gross[i]),
-            fmt_mm(is_sga[i]), fmt_mm(is_ebitda[i]), fmt_mm(is_da[i]),
-            fmt_mm(is_ebit[i]), fmt_mm(int_exp_list[i]), fmt_mm(is_pretax[i]),
-            fmt_mm(is_tax[i]), fmt_mm(is_ni[i]),
-        ] for i in range(n_fs)}
-    })
+    from backend import render_3stmt_table, DF_TABLE_CSS as _DCF_DF_CSS
+    def _fmt_list(arr):
+        return [fmt_mm(x) for x in arr]
+    _is_rows = [
+        (T("fs_revenue"),  _fmt_list(_rev),         "line"),
+        (T("fs_cogs"),     _fmt_list(is_cogs),      "line"),
+        (T("fs_gross"),    _fmt_list(is_gross),     "subtotal"),
+        (T("fs_sga"),      _fmt_list(is_sga),       "line"),
+        (T("fs_ebitda"),   _fmt_list(is_ebitda),    "subtotal"),
+        (T("fs_da"),       _fmt_list(is_da),        "line"),
+        (T("fs_ebit"),     _fmt_list(is_ebit),      "subtotal"),
+        (T("fs_interest"), _fmt_list(int_exp_list), "line"),
+        (T("fs_pretax"),   _fmt_list(is_pretax),    "subtotal"),
+        (T("fs_tax"),      _fmt_list(is_tax),       "line"),
+        (T("fs_ni"),       _fmt_list(is_ni),        "total"),
+    ]
+    st.markdown(_DCF_DF_CSS + render_3stmt_table(_is_rows, year_labels_fs),
+                unsafe_allow_html=True)
 
-    def _style_fs(row):
-        bold_rows = {T("fs_revenue"), T("fs_gross"), T("fs_ebitda"),
-                     T("fs_ebit"), T("fs_pretax"), T("fs_ni"),
-                     T("fs_cfo"), T("fs_cfi"), T("fs_cff"),
-                     T("fs_net_change"), T("fs_end_cash"),
-                     T("fs_tca"), T("fs_ta"), T("fs_tcl"), T("fs_tl"),
-                     T("fs_te"), T("fs_tle"), T("fs_assets"),
-                     T("fs_liab"), T("fs_eq")}
-        header_rows = {T("fs_assets"), T("fs_liab"), T("fs_eq")}
-        label = row.iloc[0]
-        if label in header_rows:
-            return ["background-color: #1a56db; color: white; font-weight: 800"] * len(row)
-        if label in bold_rows:
-            return ["background-color: #dbeafe; font-weight: 700"] * len(row)
-        return [""] * len(row)
-
-    st.dataframe(is_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
-
-    # ── Cash Flow Statement ──
+    # ── Cash Flow Statement (unified renderer) ──
     st.markdown("---")
     st.subheader(T("fs_cf_title"))
-    cf_df = pd.DataFrame({
-        "": [T("fs_ni"), T("fs_plus_da"), T("fs_min_nwc"), T("fs_cfo"),
-             T("fs_min_capex"), T("fs_cfi"), T("fs_net_borr"), T("fs_min_div"),
-             T("fs_cff"), T("fs_net_change"), T("fs_beg_cash"), T("fs_end_cash")],
-        **{year_labels_fs[i]: [
-            fmt_mm(cf_ni[i]), fmt_mm(cf_da[i]), fmt_mm(cf_nwc[i]),
-            fmt_mm(cf_cfo[i]), fmt_mm(cf_capex[i]), fmt_mm(cf_cfi[i]),
-            fmt_mm(cf_net_borr[i]), fmt_mm(cf_div[i]), fmt_mm(cf_cff[i]),
-            fmt_mm(cf_net_change[i]), fmt_mm(cf_beg_cash[i]),
-            fmt_mm(cf_end_cash[i]),
-        ] for i in range(n_fs)}
-    })
-    st.dataframe(cf_df.style.apply(_style_fs, axis=1), use_container_width=True, hide_index=True)
+    _cf_rows = [
+        (T("fs_ni"),         _fmt_list(cf_ni),         "line"),
+        (T("fs_plus_da"),    _fmt_list(cf_da),         "line"),
+        (T("fs_min_nwc"),    _fmt_list(cf_nwc),        "line"),
+        (T("fs_cfo"),        _fmt_list(cf_cfo),        "subtotal"),
+        (T("fs_min_capex"),  _fmt_list(cf_capex),      "line"),
+        (T("fs_cfi"),        _fmt_list(cf_cfi),        "subtotal"),
+        (T("fs_net_borr"),   _fmt_list(cf_net_borr),   "line"),
+        (T("fs_min_div"),    _fmt_list(cf_div),        "line"),
+        (T("fs_cff"),        _fmt_list(cf_cff),        "subtotal"),
+        (T("fs_net_change"), _fmt_list(cf_net_change), "subtotal"),
+        (T("fs_beg_cash"),   _fmt_list(cf_beg_cash),   "line"),
+        (T("fs_end_cash"),   _fmt_list(cf_end_cash),   "total"),
+    ]
+    st.markdown(_DCF_DF_CSS + render_3stmt_table(_cf_rows, year_labels_fs),
+                unsafe_allow_html=True)
 
     # ── Balance Sheet (standardized renderer) ──
     st.markdown("---")

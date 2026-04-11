@@ -1459,58 +1459,79 @@ with tab_df:
     # Dynamic IR row label (already in target language)
     ir_row_key = T("df_ir_row").format(r=taxa_ir)
 
+    from backend import render_3stmt_table, DF_TABLE_CSS as _BC_DRE_CSS
+    _bc_cols2 = [ano_lbl[yr] for yr in anos]
+    def _bcv2(field, decimals=2):
+        return [f"({abs(mn(annual[yr][field])):,.{decimals}f})" if annual[yr][field] < 0
+                else f"{mn(annual[yr][field]):,.{decimals}f}" for yr in anos]
+    def _bcvp(field):
+        return [f"{annual[yr][field]:.1f}%" for yr in anos]
+
     with st.expander(T("df_dre"), expanded=True):
         st.caption(unit_note)
         _pis_any = any(d["pis_cofins"] != 0 for d in annual.values())
-        _dre_data = {"Receita Bruta": {yr: mn(d["receita"]) for yr,d in annual.items()}}
+        _dre_rows = [
+            ("Receita Bruta" if lang=="PT" else "Gross Revenue", _bcv2("receita"), "line"),
+        ]
         if _pis_any:
-            _dre_data[T("dre_pis_cofins")] = {yr: mn(d["pis_cofins"]) for yr,d in annual.items()}
-            _dre_data[T("dre_rec_liq")]    = {yr: mn(d["rec_liq"])    for yr,d in annual.items()}
-        _dre_data.update({
-            "(–) CPV":                        {yr: mn(d["cpv"])        for yr,d in annual.items()},
-            "Lucro Bruto":                    {yr: mn(d["lb"])         for yr,d in annual.items()},
-            "Margem Bruta (%)":               {yr: pn(d["mb_pct"])    for yr,d in annual.items()},
-            "(–) OpEx":                       {yr: mn(d["opex"])       for yr,d in annual.items()},
-            "(–) G&A":                        {yr: mn(d["ga"])         for yr,d in annual.items()},
-            "EBITDA":                         {yr: mn(d["ebitda"])     for yr,d in annual.items()},
-            "Margem EBITDA (%)":              {yr: pn(d["ebitda_pct"])for yr,d in annual.items()},
-            "(–) Depreciacao e Amortizacao":  {yr: mn(d["da"])         for yr,d in annual.items()},
-            "EBIT":                           {yr: mn(d["ebit"])       for yr,d in annual.items()},
-            "Margem EBIT (%)":                {yr: pn(d["ebit_pct"])  for yr,d in annual.items()},
-            "(–) Despesas Financeiras":       {yr: mn(d["juros"])      for yr,d in annual.items()},
-            "LAIR":                           {yr: mn(d["lair"])       for yr,d in annual.items()},
-            ir_row_key:                       {yr: mn(d["tax"])        for yr,d in annual.items()},
-            "Lucro Liquido":                  {yr: mn(d["ni"])         for yr,d in annual.items()},
-            "Margem Liquida (%)":             {yr: pn(d["ni_pct"])    for yr,d in annual.items()},
-        })
-        _render_df(_dre_data)
+            _dre_rows.append(("(–) PIS/COFINS", _bcv2("pis_cofins"), "line"))
+            _dre_rows.append((T("dre_rec_liq"), _bcv2("rec_liq"), "subtotal"))
+        _dre_rows += [
+            ("(–) CPV" if lang=="PT" else "(–) COGS", _bcv2("cpv"), "line"),
+            ("Lucro Bruto" if lang=="PT" else "Gross Profit", _bcv2("lb"), "subtotal"),
+            ("Margem Bruta (%)" if lang=="PT" else "Gross Margin (%)", _bcvp("mb_pct"), "pct"),
+            ("(–) OpEx", _bcv2("opex"), "line"),
+            ("(–) G&A", _bcv2("ga"), "line"),
+            ("EBITDA", _bcv2("ebitda"), "subtotal"),
+            ("Margem EBITDA (%)" if lang=="PT" else "EBITDA Margin (%)", _bcvp("ebitda_pct"), "pct"),
+            ("(–) D&A", _bcv2("da"), "line"),
+            ("EBIT", _bcv2("ebit"), "subtotal"),
+            ("Margem EBIT (%)" if lang=="PT" else "EBIT Margin (%)", _bcvp("ebit_pct"), "pct"),
+            ("(–) Despesas Financeiras" if lang=="PT" else "(–) Interest Expense", _bcv2("juros"), "line"),
+            ("LAIR" if lang=="PT" else "EBT", _bcv2("lair"), "subtotal"),
+            (ir_row_key, _bcv2("tax"), "line"),
+            ("Lucro Líquido" if lang=="PT" else "Net Income", _bcv2("ni"), "total"),
+            ("Margem Líquida (%)" if lang=="PT" else "Net Margin (%)", _bcvp("ni_pct"), "pct"),
+        ]
+        st.markdown(_BC_DRE_CSS + render_3stmt_table(_dre_rows, _bc_cols2),
+                    unsafe_allow_html=True)
         if _pis_any:
             st.caption(T("dre_pis_note"))
 
     with st.expander(T("df_dfc"), expanded=False):
         st.caption(unit_note)
-        _dfc_data = {
-            "Lucro Liquido":                     {yr: mn(d["ni"])  for yr,d in annual.items()},
-            "(+) Depreciacao e Amortizacao":     {yr: mn(d["da"])  for yr,d in annual.items()},
-            "(+) Juros (reclassificados)":       {yr: mn(d["juros"]) for yr,d in annual.items()},
-        }
+        _dfc_rows = [
+            ("Lucro Líquido" if lang=="PT" else "Net Income", _bcv2("ni"), "line"),
+            ("(+) D&A", _bcv2("da"), "line"),
+            ("(+) Juros (reclass.)" if lang=="PT" else "(+) Interest (reclass.)", _bcv2("juros"), "line"),
+        ]
         if _tem_ncg:
-            _dfc_data[T("dfc_delta_ncg")] = {yr: mn(d["delta_nwc"]) for yr,d in annual.items()}
-        _dfc_data.update({
-            "FCO — Atividades Operacionais":     {yr: mn(d["fco"])            for yr,d in annual.items()},
-            "FCI — Atividades de Investimento":  {yr: 0.0                     for yr  in annual.keys()  },
-            "(+) Captacao de Divida":            {yr: mn(d["proc"])           for yr,d in annual.items()},
-            "(–) Amortizacao de Principal":      {yr: mn(d["prin"])           for yr,d in annual.items()},
-            "(–) Despesas Financeiras":          {yr: mn(d["juros"])          for yr,d in annual.items()},
-            "FCF — Atividades de Financiamento": {yr: mn(d["fcf_fin"])        for yr,d in annual.items()},
-        })
+            _dfc_rows.append((T("dfc_delta_ncg"), _bcv2("delta_nwc"), "line"))
+        _dfc_rows += [
+            ("FCO — Atividades Operacionais" if lang=="PT" else "OCF — Operating Activities",
+             _bcv2("fco"), "subtotal"),
+            ("FCI — Atividades de Investimento" if lang=="PT" else "ICF — Investing Activities",
+             ["0.00"] * len(anos), "subtotal"),
+            ("(+) Captação de Dívida" if lang=="PT" else "(+) Debt Proceeds",
+             _bcv2("proc"), "line"),
+            ("(–) Amortização de Principal" if lang=="PT" else "(–) Principal Repayment",
+             _bcv2("prin"), "line"),
+            ("(–) Despesas Financeiras" if lang=="PT" else "(–) Interest Expense",
+             _bcv2("juros"), "line"),
+            ("FCF — Atividades de Financiamento" if lang=="PT" else "FCF — Financing Activities",
+             _bcv2("fcf_fin"), "subtotal"),
+        ]
         _any_rev = any(d.get("rev_draw", 0) > 0 or d.get("rev_repay", 0) > 0
                        for d in annual.values())
         if _any_rev or bool(get("use_revolver", True)):
-            _dfc_data["(+) Saque do Revolver"]       = {yr: mn(d.get("rev_draw",0))  for yr,d in annual.items()}
-            _dfc_data["(–) Amortizacao do Revolver"] = {yr: mn(d.get("rev_repay",0)) for yr,d in annual.items()}
-        _dfc_data["Variacao Liquida de Caixa"] = {yr: mn(d["variacao_caixa"]) for yr,d in annual.items()}
-        _render_df(_dfc_data)
+            _dfc_rows.append(("(+) Saque do Revolver" if lang=="PT" else "(+) Revolver Draw",
+                              [f"{mn(annual[yr].get('rev_draw',0)):,.2f}" for yr in anos], "line"))
+            _dfc_rows.append(("(–) Amortização do Revolver" if lang=="PT" else "(–) Revolver Repayment",
+                              [f"{mn(annual[yr].get('rev_repay',0)):,.2f}" for yr in anos], "line"))
+        _dfc_rows.append(("Variação Líquida de Caixa" if lang=="PT" else "Net Change in Cash",
+                          _bcv2("variacao_caixa"), "total"))
+        st.markdown(_BC_DRE_CSS + render_3stmt_table(_dfc_rows, _bc_cols2),
+                    unsafe_allow_html=True)
         notes = [T("df_dfc_note").format(cx=fv(total_capex,unit))]
         if _tem_ncg: notes.append(T("ncg_note"))
         for n in notes: st.caption(n)
