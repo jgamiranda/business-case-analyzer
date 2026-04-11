@@ -806,7 +806,7 @@ tabs = st.tabs([
 with tabs[0]:
 
     # -- Target Company -------------------------------------------------------
-    with st.expander(f"1.  {T('tgt_title')}", expanded=True):
+    with st.expander(f"A.  {T('tgt_title')}", expanded=True):
         st.caption(T("tgt_cap"))
 
         c1, c2, c3 = st.columns([2, 1, 1])
@@ -887,7 +887,7 @@ with tabs[0]:
             st.markdown(metric_card(T("tgt_equity_simple"), fmt(eq_simple)), unsafe_allow_html=True)
 
     # -- Acquirer ---------------------------------------------------------------
-    with st.expander(f"2.  {T('acq_title')}", expanded=True):
+    with st.expander(f"B.  {T('acq_title')}", expanded=True):
         st.caption(T("acq_cap"))
 
         c1, c2 = st.columns(2)
@@ -919,7 +919,7 @@ with tabs[0]:
 # TAB 2: VALUATION
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[1]:
-    with st.expander(f"3.  {T('val_title')}", expanded=True):
+    with st.expander(f"C.  {T('val_title')}", expanded=True):
         st.caption(T("val_cap"))
 
         methods = [T("val_method_evebitda"), T("val_method_evrev"), T("val_method_pe")]
@@ -1025,7 +1025,7 @@ with tabs[1]:
 # TAB 3: SYNERGIES
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[2]:
-    with st.expander(f"4.  {T('syn_title')}", expanded=True):
+    with st.expander(f"D.  {T('syn_title')}", expanded=True):
         st.caption(T("syn_cap"))
 
         c1, c2 = st.columns(2)
@@ -1148,7 +1148,7 @@ with tabs[2]:
 # TAB 4: DEAL STRUCTURE
 # ═══════════════════════════════════════════════════════════════════════════════
 with tabs[3]:
-    with st.expander(f"5.  {T('deal_title')}", expanded=True):
+    with st.expander(f"E.  {T('deal_title')}", expanded=True):
         st.caption(T("deal_cap"))
 
         # Purchase price derived from valuation + premium
@@ -1196,7 +1196,7 @@ with tabs[3]:
             pass
 
     # -- Transaction Adjustments ------------------------------------------------
-    with st.expander(f"5b.  {T('deal_adj_title')}", expanded=False):
+    with st.expander(f"F.  {T('deal_adj_title')}", expanded=False):
         c1, c2, c3 = st.columns(3)
         with c1:
             st.number_input(T("deal_refi_debt"), min_value=0.0, step=5_000_000.0,
