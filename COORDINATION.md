@@ -13,18 +13,34 @@
 
 ## 🔧 Backend status (`/zedobackend`)
 
-**Last update:** 2026-04-10 (v3.3 published)
+**Last update:** 2026-04-11 (v3.4 published — MVP polish session)
 
-### Recent changes
-- ✅ **LBO model** (`pages/07_LBO.py`, ~2574 lines) — Sources & Uses, multi-tranche debt, MOIC/IRR, value creation bridge, 3-statement integration tab
-- ✅ **Business Case** — added revolver modeling, balance sheet check, three-statement integrity check, rolling working capital schedule, fixed CFS articulation bug
-- ✅ **DCF Valuation** — new "Financial Statements" tab (full IS/CF/BS with debt schedule and balance check)
-- ✅ **M&A** — pro-forma combined three-statement model (P&L + CF + BS sub-tabs with PPA flow-through)
-- ✅ **PF Backend modules** (NEW): `pf_models.py`, `minutes_generator.py`, `pf_export.py`
-  - 16-clause Facility Agreement library verbatim from `agent_reference.md` Section 18e
-  - Auto-generates 9 contract document types from SPE diagram + assumptions
-  - DOCX export via `python-docx` with placeholder highlighting
-- ✅ **Macabacus formatting helpers** in `backend.py`: `fmt_fin`, `fmt_pct`, `fmt_mult`, `fmt_money_fin` (parentheses for negatives)
+### v3.4 changes (this session)
+- ✅ **Renamed `app.py` → `Home.py`** — sidebar shows "Home" instead of "app"
+- ✅ **Renamed `06_Hedging.py` → `07_Hedging_Strategies.py`** — sidebar full name
+- ✅ **Reordered models**: BC → MA → PF → DCF → **LBO** → Startup → Hedging Strategies (LBO moved up)
+- ✅ **Removed `ds.inject()` from all 6 model pages** — was causing CSS conflicts with page-local inline styles. `_design_tokens.py` is currently UNUSED in pages.
+- ✅ **Standardized footer "Corpet · MVP"** across 6 model pages (Hedging keeps technical custom)
+- ✅ **Cards on Home are now clickable HTML anchors** — removed bottom button row
+- ✅ **BC Balance Sheet** segmented into ATIVO/PASSIVO/PL sections; removed balance check + integrity check clutter
+- ✅ **BC**: removed Model Type Selector panel
+- ✅ **Macabacus formatting** applied in BC, MA, DCF, LBO — negatives display as `(1,234)`
+- ✅ **MA section indexing** standardized to letters A-F (was 1-5, 5b)
+- ✅ **LBO dark mode toggle** added with full CSS handler
+- ✅ **All pages**: standardized header with `.main-title` CSS class (matches LBO style)
+- ✅ **Hedging language picker** changed to segmented_control PT/EN
+- ✅ **PF**: Fixed `amort_type` undefined NameError that broke Waterfall/Results/Sens tabs
+- ✅ **PF SPE Diagram + Contract Minutes tabs LOCKED** for MVP — show "Em breve" message; original 487 lines preserved in git (commit 4b46109^). Recoverable via `git show 4b46109^:pages/03_Project_Finance.py`
+- ✅ **MVP name**: "Corpet" (oracle/wizard for finance theme; logo TBD: pug in suit)
+- ✅ **CLAUDE.md updated**: token economy rules + coordination protocol; reverted Next.js migration rule (Streamlit IS the MVP stack)
+
+### v3.3 changes (previous session)
+- ✅ **LBO model** (`pages/07_LBO.py` → now `05_LBO.py`, ~2574 lines)
+- ✅ **Business Case** — revolver, balance check, working capital schedule
+- ✅ **DCF Valuation** — Financial Statements tab
+- ✅ **M&A** — pro-forma combined three-statement model
+- ✅ **PF Backend modules**: `pf_models.py`, `minutes_generator.py`, `pf_export.py` (16-clause library)
+- ✅ **Macabacus formatting helpers** in `backend.py`
 
 ### Files owned by backend (don't refactor without checking with me)
 - `backend.py` — calculation engine for Business Case
@@ -73,9 +89,9 @@ See "❓ Open Questions" below.
 - ✅ **Three-statement integration** is mandatory in all financial models (IS + CF + BS with balance check)
 
 ### Pending
-- ⏳ Whether all model pages should migrate to `_design_tokens.py` (currently only `app.py` uses it)
-- ⏳ Whether to consolidate the duplicated minutes-generation code in `pages/03_Project_Finance.py` (inline) vs `minutes_generator.py` (canonical module)
-- ⏳ State key naming convention for SPE diagram (`pf_spe_nodes` vs `pf_diagram`)
+- ⏳ **`_design_tokens.py` future**: backend disabled `ds.inject()` everywhere because it broke buttons/widgets. Frontend needs to either (a) revise the design tokens to be additive instead of overriding, or (b) commit to a full migration of all pages.
+- ⏳ State key naming convention for SPE diagram (`pf_spe_nodes` vs `pf_diagram`) — moot for MVP since both tabs are locked
+- ⏳ Letter indexing (A/B/C) is in BC + MA only; PF/DCF/LBO/Startup don't have multi-section tabs that warrant it
 
 ---
 
