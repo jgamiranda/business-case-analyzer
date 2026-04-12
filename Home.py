@@ -131,26 +131,44 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# ─── Language toggle ─────────────────────────────────────────────────────────
-_lc1, _lc2 = st.columns([8, 1])
+# ─── Language + Dark mode toggles ────────────────────────────────────────────
+_lc1, _lc2, _lc3 = st.columns([7, 1, 1])
 with _lc2:
     _lang_sel = st.segmented_control("lang_home", ["PT", "EN"], default="PT",
                                       key="home_lang", label_visibility="collapsed")
+with _lc3:
+    st.write("")
+    _dark_home = st.toggle("\U0001f319", key="home_dark_mode", help="Dark Mode")
 lang = _lang_sel or "PT"
+
+if _dark_home:
+    st.markdown("""<style>
+.stApp,[data-testid="stAppViewContainer"],[data-testid="stHeader"]{background:#0f172a !important}
+p,h1,h2,h3,h4,label,li,span,div{color:#e2e8f0 !important}
+[data-testid="stSidebar"]{background:#1e293b !important;border-right:1px solid #334155 !important}
+[data-testid="stSidebar"] *{color:#e2e8f0 !important}
+[data-testid="stSidebar"] a,[data-testid="stSidebarNav"] a{color:#93c5fd !important}
+.hero-bar{background:linear-gradient(135deg,#1e293b 0%,#0f172a 100%) !important;border-color:#334155 !important}
+.hero-bar h1{color:#e2e8f0 !important}
+.hero-bar p{color:#94a3b8 !important}
+.model-card{background:#1e293b !important;border-color:#334155 !important}
+.model-card:hover{border-color:#475569 !important}
+.model-card .mc-title{color:#e2e8f0 !important}
+.model-card .mc-sub{color:#94a3b8 !important}
+.model-card .mc-tag{background:#0f172a !important;color:#93c5fd !important;border-color:#334155 !important}
+.platform-footer{border-color:#334155 !important;color:#6b7280 !important}
+hr{border-color:#334155 !important}
+</style>""", unsafe_allow_html=True)
 
 # ─── Hero ────────────────────────────────────────────────────────────────────
 if lang == "PT":
-    _hero_title = "Plataforma de Modelagem Financeira"
-    _hero_sub = ("Selecione o tipo de modelo que deseja construir. "
-                 "Cada modelo possui premissas, calculos e demonstracoes especificas "
-                 "para o seu caso de uso.")
-    _select_label = "Selecione um modelo para comecar"
+    _hero_title = "Corpet MVP"
+    _hero_sub = "Selecione o modulo para uso. Cada modelo possui premissas e calculos especificos prontos para analise."
+    _select_label = "Modulos disponiveis"
 else:
-    _hero_title = "Financial Modeling Platform"
-    _hero_sub = ("Select the type of model you want to build. "
-                 "Each model has specific assumptions, calculations and statements "
-                 "tailored to your use case.")
-    _select_label = "Select a model to get started"
+    _hero_title = "Corpet MVP"
+    _hero_sub = "Select a module to get started. Each model has specific assumptions and calculations ready for analysis."
+    _select_label = "Available modules"
 
 st.markdown(f"""
 <div class="hero-bar">
@@ -291,7 +309,7 @@ st.markdown(_cards_html, unsafe_allow_html=True)
 # ─── Footer ──────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="platform-footer">
-    Financial Modeling Platform v3.2 — Powered by Streamlit + Plotly<br>
+    Corpet MVP (v3.2) — Powered by Streamlit + Plotly<br>
     Business Case · M&A · Project Finance · Valuation DCF · Startup · Hedging · LBO
 </div>
 """, unsafe_allow_html=True)
