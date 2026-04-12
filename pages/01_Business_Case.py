@@ -457,7 +457,7 @@ with tab_prem:
 # ABA 2 — MACROECONOMIA
 # ─────────────────────────────────────────────────────────────────────────────
 with tab_macro:
-    st.subheader(T("mc_title"))
+  with st.expander(f"H.   {T('mc_title')}", expanded=True):
     st.caption(T("mc_cap"))
     if st.button(T("mc_btn_refresh")): st.cache_data.clear(); st.rerun()
     st.divider()
@@ -520,8 +520,7 @@ with tab_macro:
         if cdi_v:    st.session_state["cdi_ref"]  =round(cdi_v,2)
         st.success(T("mc_aplicado"))
 
-    st.divider()
-    st.subheader(T("mc_focus_title"))
+  with st.expander(f"I.   {T('mc_focus_title')}", expanded=True):
     st.caption(T("mc_focus_cap"))
 
     focus_map = {
