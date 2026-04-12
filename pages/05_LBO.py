@@ -770,6 +770,26 @@ hr{border-color:#334155 !important}
 [data-testid="stSidebar"] *{color:#e2e8f0 !important}
 [data-testid="stSidebar"] a,[data-testid="stSidebarNav"] a{color:#93c5fd !important}
 [data-testid="stSidebarNavItems"] span{color:#e2e8f0 !important}
+[data-testid="stSidebarNav"] li span{color:#e2e8f0 !important}
+[data-testid="stSidebarNav"] li a{color:#93c5fd !important}
+[data-testid="stSidebarNav"] [aria-current="page"] span{color:#fff !important;font-weight:700}
+nav[data-testid="stSidebarNav"]{background:#1e293b !important}
+section[data-testid="stSidebar"] > div{background:#1e293b !important}
+.stPageLink,.stPageLink span,.stPageLink a{color:#93c5fd !important}
+[data-testid="stSidebarContent"]{background:#1e293b !important}
+.stSelectbox div[data-baseweb="select"]{background:#1e293b !important;color:#e2e8f0 !important}
+.stSlider label{color:#e2e8f0 !important}
+.stNumberInput label{color:#e2e8f0 !important}
+.stTextInput label{color:#e2e8f0 !important}
+[data-testid="stDataFrame"]{background:#1e293b !important;color:#e2e8f0 !important}
+.df-uni{border-color:#334155 !important}
+.df-uni table tbody td{background:#1e293b !important;color:#e2e8f0 !important;border-color:#334155 !important}
+.df-uni table tbody td.label{background:#0f172a !important;color:#e2e8f0 !important}
+.df-uni tr.df-subtotal td{background:#1e3a5f !important;color:#93c5fd !important}
+.df-uni tr.df-subtotal td.label{background:#1e3a5f !important;color:#93c5fd !important}
+.df-uni tr.df-total td{background:#1a56db !important;color:#fff !important}
+.df-uni tr.df-total td.label{background:#1a56db !important;color:#fff !important}
+.df-uni tr.df-header td{background:#0f172a !important;color:#93c5fd !important}
 </style>""", unsafe_allow_html=True)
 
 
