@@ -1012,7 +1012,7 @@ with tab_res:
 
     bench=BENCHMARKS.get(setor)
     if bench:
-        st.subheader(T("res_val_prem"))
+       with st.expander(f"K.   {T('res_val_prem')}", expanded=False):
         cresc_m=((1+sum(r["crescimento"] for r in receitas)/len(receitas)/100)**(1/12)-1)*100
         alertas=[]
         if cresc_m>bench["crescimento_max"]:   alertas.append(("warn",T("al_cresc_above").format(c=cresc_m,mn=bench["crescimento_min"],mx=bench["crescimento_max"])))
@@ -1029,7 +1029,7 @@ with tab_res:
         for tipo,msg in alertas: st.markdown(f'<div class="{css[tipo]}">{icn[tipo]}  {msg}</div>',unsafe_allow_html=True)
         st.divider()
 
-    st.subheader(T("res_metricas"))
+    st.markdown('<div style="font-size:1.1rem;font-weight:700;color:#1e3a8a;border-left:4px solid #1a56db;padding-left:10px;margin:14px 0 10px 0">Scorecard</div>', unsafe_allow_html=True)
 
     def _metric_card(label, value, positive=None):
         cls = "metric-card"
@@ -1102,7 +1102,6 @@ with tab_res:
         e8.empty()
     st.divider()
 
-    st.subheader(T("res_veredicto"))
     lim=horizonte*(2/3)
     if payback and payback<=lim and npv>0:
         cls,ttl="veredicto-verde",T("res_viavel")
@@ -1262,7 +1261,7 @@ with tab_res:
                     st.plotly_chart(fig_comp, use_container_width=True)
             st.divider()
 
-    st.subheader(T("res_visualizacoes"))
+    st.markdown(f'<div style="font-size:1rem;font-weight:700;color:#1e3a8a;border-left:4px solid #1a56db;padding-left:10px;margin:14px 0 8px 0">M.   {T("res_visualizacoes")}</div>', unsafe_allow_html=True)
     _g_titles = [T("g1_title"), T("g2_title"), T("g3_title"), T("g4_title"), T("g5_waterfall")]
     g1, g2, g3, g4, g5 = st.tabs(_g_titles)
     meses=df_op["Mes"].tolist()
