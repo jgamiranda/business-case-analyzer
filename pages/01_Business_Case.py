@@ -665,7 +665,7 @@ with tab_div:
         unsafe_allow_html=True)
     with st.container():
         st.markdown('<div class="dv-schedule-exp">', unsafe_allow_html=True)
-        with st.expander(f"\U0001f4ca  {T('dv_schedule_title')}", expanded=True):
+        with st.expander(f"J.   {T('dv_schedule_title')}", expanded=True):
             div_chart_placeholder = st.empty()
         st.markdown('</div>', unsafe_allow_html=True)
 
