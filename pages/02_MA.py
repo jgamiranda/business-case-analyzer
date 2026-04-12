@@ -2669,6 +2669,20 @@ with tabs[6]:
     st.plotly_chart(fig_be, use_container_width=True)
 
 
+# ─── Sidebar — Key Metrics ────────────────────────────────────────────────────
+with st.sidebar:
+    st.markdown(f"### {'Métricas-chave' if lang=='PT' else 'Key Metrics'}")
+    st.divider()
+    try:
+        st.metric("EV", fmt(ev_primary))
+        st.metric("Equity Value", fmt(equity_value_primary))
+        _acc_lbl = "Acreção" if lang == "PT" else "Accretion"
+        st.metric(f"EPS {_acc_lbl}", f"{accretion_pct:+.2f}%")
+        st.metric("Synergy NPV", fmt(total_synergy_npv))
+    except Exception:
+        st.caption("Configure inputs to see metrics." if lang == "EN"
+                   else "Preencha os inputs para ver as métricas.")
+
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER
 # ─────────────────────────────────────────────────────────────────────────────

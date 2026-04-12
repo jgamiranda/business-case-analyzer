@@ -2640,4 +2640,20 @@ Ao fechar um LBO, o comprador aloca o preço de compra entre os ativos identific
 # =============================================================================
 # FOOTER
 # =============================================================================
+# ─── Sidebar — Key Metrics ────────────────────────────────────────────────────
+_is_pt_sb = (st.session_state.get("lbo_lang", "en") == "pt")
+with st.sidebar:
+    st.markdown(f"### {'Métricas-chave' if _is_pt_sb else 'Key Metrics'}")
+    st.divider()
+    try:
+        st.metric("MOIC", fmt_mult(returns["moic"]))
+        st.metric("IRR", fmt_pct(returns["irr"]))
+        st.metric("Entry Multiple", fmt_mult(target["entry_mult"]))
+        st.metric("Exit Multiple", fmt_mult(st.session_state.get("lbo_exit_mult", 0)))
+        st.metric("Total Leverage", fmt_mult(tx["total_leverage"]))
+        st.metric("Sponsor Equity", fmt_money(tx["sponsor_eq"]))
+    except Exception:
+        st.caption("Configure inputs to see metrics." if not _is_pt_sb
+                   else "Preencha os inputs para ver as métricas.")
+
 st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

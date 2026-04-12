@@ -2499,4 +2499,20 @@ with tabs[7]:
                    if lang == "EN" else
                    "Preencha os dados das empresas comparaveis acima para ver a analise de multiplos.")
 
+# ─── Sidebar — Key Metrics ────────────────────────────────────────────────────
+with st.sidebar:
+    st.markdown(f"### {'Métricas-chave' if lang=='PT' else 'Key Metrics'}")
+    st.divider()
+    try:
+        _dcf_res = _run_dcf()
+        st.metric("Enterprise Value", fmt_mm(_dcf_res["ev"]))
+        st.metric("Equity Value", fmt_mm(_dcf_res["equity_value"]))
+        st.metric(T("per_share_value"), fmt_mm(_dcf_res["per_share"]))
+        _up = _dcf_res.get("upside_pct", 0)
+        st.metric(T("upside"), f"{_up:+.1f}%".replace(".",","))
+        st.metric("WACC", f"{_dcf_res['wacc']*100:.2f}%".replace(".",","))
+    except Exception:
+        st.caption("Configure inputs to see metrics." if lang == "EN"
+                   else "Preencha os inputs para ver as métricas.")
+
 st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)
