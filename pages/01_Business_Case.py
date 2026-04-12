@@ -1214,7 +1214,7 @@ with tab_res:
                     st.plotly_chart(fig_comp, use_container_width=True)
             st.divider()
 
-    with st.expander(f"M.   {T('res_visualizacoes')}", expanded=True):
+    with st.expander(f"M.   {'Graficos' if lang=='PT' else 'Charts'}", expanded=True):
      _g_titles = [T("g5_waterfall"), T("g1_title"), T("g2_title"), T("g3_title"), T("g4_title")]
      g5, g1, g2, g3, g4 = st.tabs(_g_titles)
     meses=df_op["Mes"].tolist()
@@ -1347,9 +1347,20 @@ with tab_res:
             _wf_vals.append(0)
             _wf_meas.append("total")
 
-            # Compute NI to set total color
+            # Per-bar colors: relative bars green/red, intermediate totals blue, final NI green/red
             _ni_val = _y1["ni"]
-            _total_color = "#16a34a" if _ni_val >= 0 else "#dc2626"
+            _bar_colors = []
+            for _v, _m in zip(_wf_vals, _wf_meas):
+                if _m == "absolute":
+                    _bar_colors.append("#1a56db")  # blue for starting absolute
+                elif _m == "relative":
+                    _bar_colors.append("#dc2626" if _v < 0 else "#16a34a")
+                else:  # total
+                    _bar_colors.append("#1a56db")  # blue for intermediate totals
+            # Override last total (NI) with green/red
+            if _wf_meas[-1] == "total":
+                _bar_colors[-1] = "#16a34a" if _ni_val >= 0 else "#dc2626"
+
             fig_wf = go.Figure(go.Waterfall(
                 orientation="v",
                 measure=_wf_meas,
@@ -1360,8 +1371,10 @@ with tab_res:
                 connector={"line": {"color": "#94a3b8", "width": 1}},
                 increasing={"marker": {"color": "#16a34a"}},
                 decreasing={"marker": {"color": "#dc2626"}},
-                totals={"marker": {"color": _total_color}},
+                totals={"marker": {"color": "#1a56db"}},
             ))
+            # Apply per-bar colors
+            fig_wf.data[0].marker.color = _bar_colors
             fig_wf.update_layout(
                 title=f"{T('g5_waterfall_title')} — {_wf_sel} ({unit})",
                 height=480, showlegend=False,
