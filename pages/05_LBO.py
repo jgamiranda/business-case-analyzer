@@ -766,6 +766,10 @@ p,h1,h2,h3,h4,label,li,span,div{color:#e2e8f0 !important}
 [data-baseweb="input"] input,[data-baseweb="textarea"] textarea,[data-baseweb="select"] div{background:#1e293b !important;color:#e2e8f0 !important}
 hr{border-color:#334155 !important}
 .main-title,.subtitle{color:#e2e8f0 !important}
+[data-testid="stSidebar"]{background:#1e293b !important;border-right:1px solid #334155 !important}
+[data-testid="stSidebar"] *{color:#e2e8f0 !important}
+[data-testid="stSidebar"] a,[data-testid="stSidebarNav"] a{color:#93c5fd !important}
+[data-testid="stSidebarNavItems"] span{color:#e2e8f0 !important}
 </style>""", unsafe_allow_html=True)
 
 

@@ -212,6 +212,10 @@ hr{border-color:#334155 !important}
 .df-styled table tbody th{background:#1e293b !important;color:#e2e8f0 !important;border-color:#334155 !important}
 .df-styled table tbody td{border-color:#334155 !important;color:#e2e8f0 !important}
 .app-footer{border-color:#334155 !important;color:#6b7280 !important}
+[data-testid="stSidebar"]{background:#1e293b !important;border-right:1px solid #334155 !important}
+[data-testid="stSidebar"] *{color:#e2e8f0 !important}
+[data-testid="stSidebar"] a,[data-testid="stSidebarNav"] a{color:#93c5fd !important}
+[data-testid="stSidebarNavItems"] span{color:#e2e8f0 !important}
 </style>""", unsafe_allow_html=True)
 
 st.markdown(f'<div class="unit-bar"><span class="unit-label">{T("unit_label")}</span></div>', unsafe_allow_html=True)

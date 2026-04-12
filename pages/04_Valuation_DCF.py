@@ -601,6 +601,10 @@ p,h1,h2,h3,h4,label,li{color:#e2e8f0 !important}
 .metric-card-red{background:linear-gradient(135deg,#7f1d1d,#991b1b) !important;border-color:#ef4444 !important}
 .metric-card-red .mc-value{color:#fca5a5 !important}
 hr{border-color:#334155 !important}
+[data-testid="stSidebar"]{background:#1e293b !important;border-right:1px solid #334155 !important}
+[data-testid="stSidebar"] *{color:#e2e8f0 !important}
+[data-testid="stSidebar"] a,[data-testid="stSidebarNav"] a{color:#93c5fd !important}
+[data-testid="stSidebarNavItems"] span{color:#e2e8f0 !important}
 </style>""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
