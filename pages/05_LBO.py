@@ -2573,7 +2573,7 @@ with tabs[6]:
 
     # Balance check
     section_header(T("bs_check"))
-    max_diff = bs_df[T("diff")].abs().max()
+    max_diff = max(abs(r[T("diff")]) for r in bs_rows)
     if max_diff < 1.0:
         success_box(f"{T('bs_pass')} (max diff: {max_diff:.2f})")
     else:

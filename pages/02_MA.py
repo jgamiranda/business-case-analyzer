@@ -2674,14 +2674,13 @@ with st.sidebar:
     st.markdown(f"### {'Métricas-chave' if lang=='PT' else 'Key Metrics'}")
     st.divider()
     try:
-        st.metric("EV", fmt(ev_primary))
-        st.metric("Equity Value", fmt(equity_value_primary))
-        _acc_lbl = "Acreção" if lang == "PT" else "Accretion"
-        st.metric(f"EPS {_acc_lbl}", f"{accretion_pct:+.2f}%")
-        st.metric("Synergy NPV", fmt(total_synergy_npv))
+        _ev_sb = tgt_ebitda * get("ma_val_ev_ebitda", 10.0)
+        _eq_sb = _ev_sb - tgt_debt + tgt_cash
+        st.metric("EV (EV/EBITDA)", fmt(_ev_sb))
+        st.metric("Equity Value", fmt(_eq_sb))
+        st.metric(f"EPS {'Acreção' if lang=='PT' else 'Accretion'}", f"{accretion_pct:+.2f}%")
     except Exception:
-        st.caption("Configure inputs to see metrics." if lang == "EN"
-                   else "Preencha os inputs para ver as métricas.")
+        st.caption("Preencha os inputs." if lang == "PT" else "Fill inputs.")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # FOOTER

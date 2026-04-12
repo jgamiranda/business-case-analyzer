@@ -2504,15 +2504,13 @@ with st.sidebar:
     st.markdown(f"### {'Métricas-chave' if lang=='PT' else 'Key Metrics'}")
     st.divider()
     try:
-        _dcf_res = _run_dcf()
-        st.metric("Enterprise Value", fmt_mm(_dcf_res["ev"]))
-        st.metric("Equity Value", fmt_mm(_dcf_res["equity_value"]))
-        st.metric(T("per_share_value"), fmt_mm(_dcf_res["per_share"]))
-        _up = _dcf_res.get("upside_pct", 0)
-        st.metric(T("upside"), f"{_up:+.1f}%".replace(".",","))
-        st.metric("WACC", f"{_dcf_res['wacc']*100:.2f}%".replace(".",","))
+        _sb_res = _run_dcf()
+        st.metric("Enterprise Value", fmt_mm(_sb_res["ev"]))
+        st.metric("Equity Value", fmt_mm(_sb_res["equity"]))
+        st.metric(T("per_share_value"), fmt_mm(_sb_res["price"]))
+        st.metric(T("upside"), f"{_sb_res['upside']:+.1f}%".replace(".",","))
+        st.metric("WACC", f"{_sb_res['wacc_used']*100:.2f}%".replace(".",","))
     except Exception:
-        st.caption("Configure inputs to see metrics." if lang == "EN"
-                   else "Preencha os inputs para ver as métricas.")
+        st.caption("Preencha os inputs." if lang == "PT" else "Fill inputs.")
 
 st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)
