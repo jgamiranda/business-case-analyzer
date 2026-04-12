@@ -213,7 +213,7 @@ _L = {
         "tab_debt": "4. Debt Schedule",
         "tab_returns": "5. Returns",
         "tab_sens": "6. Sensitivity & Scenarios",
-        "tab_3s": "7. Three-Statement",
+        "tab_3s": "7. DFs",
         # Target
         "target_inputs": "Target Company Inputs",
         "company_name": "Company Name",
@@ -357,7 +357,7 @@ _L = {
         "tab_debt": "4. Cronograma de Dívida",
         "tab_returns": "5. Retornos",
         "tab_sens": "6. Sensibilidade & Cenários",
-        "tab_3s": "7. Três Demonstrações",
+        "tab_3s": "7. DFs",
         # Target
         "target_inputs": "Dados da Empresa Alvo",
         "company_name": "Nome da Empresa",

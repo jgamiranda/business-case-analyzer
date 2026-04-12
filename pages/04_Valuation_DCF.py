@@ -34,7 +34,7 @@ _L = {
     "tab_wacc": "  WACC  ",
     "tab_tv": "  Valor Terminal  ",
     "tab_val": "  Valuation  ",
-    "tab_fs": "  Demonstracoes Financeiras  ",
+    "tab_fs": "  DFs  ",
     "tab_sens": "  Sensibilidade  ",
     "tab_comps": "  Comparaveis  ",
     # Company
@@ -277,7 +277,7 @@ _L = {
     "tab_wacc": "  WACC  ",
     "tab_tv": "  Terminal Value  ",
     "tab_val": "  Valuation  ",
-    "tab_fs": "  Financial Statements  ",
+    "tab_fs": "  DFs  ",
     "tab_sens": "  Sensitivity  ",
     "tab_comps": "  Comparables  ",
     "company_name": "Company name",
