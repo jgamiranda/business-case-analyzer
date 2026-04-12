@@ -1445,9 +1445,10 @@ with tab_df:
         for key, vals in data_dict.items():
             is_pct = "(%)" in key
             def _macabacus(v, pct=is_pct):
+                def _br(s): return s.replace(",","X").replace(".",",").replace("X",".")
                 if pct:
                     return f"({abs(v):.1f}%)" if v < 0 else f"{v:.1f}%"
-                return f"({abs(v):,.2f})" if v < 0 else f"{v:,.2f}"
+                return f"({_br(f'{abs(v):,.2f}')})" if v < 0 else _br(f"{v:,.2f}")
             fmt[key] = {ano_lbl[yr]: _macabacus(v) for yr, v in vals.items()}
         df_str = pd.DataFrame(fmt, index=[ano_lbl[yr] for yr in anos]).T
         # Rename rows to EN if needed
@@ -1462,10 +1463,11 @@ with tab_df:
     from backend import render_3stmt_table, DF_TABLE_CSS as _BC_DRE_CSS
     _bc_cols2 = [ano_lbl[yr] for yr in anos]
     def _bcv2(field, decimals=2):
-        return [f"({abs(mn(annual[yr][field])):,.{decimals}f})" if annual[yr][field] < 0
-                else f"{mn(annual[yr][field]):,.{decimals}f}" for yr in anos]
+        def _br(s): return s.replace(",","X").replace(".",",").replace("X",".")
+        return [f"({_br(f'{abs(mn(annual[yr][field])):,.{decimals}f}')})" if annual[yr][field] < 0
+                else _br(f"{mn(annual[yr][field]):,.{decimals}f}") for yr in anos]
     def _bcvp(field):
-        return [f"{annual[yr][field]:.1f}%" for yr in anos]
+        return [f"{annual[yr][field]:.1f}%".replace(".",",") for yr in anos]
 
     with st.expander(T("df_dre"), expanded=True):
         st.caption(unit_note)
@@ -1561,9 +1563,11 @@ with tab_df:
         # ── Standardized 3-statement renderer ────────────────────────────────
         from backend import render_3stmt_table, DF_TABLE_CSS as _BC_DF_CSS
         def _bcv(field):
-            return [f"{mn(balanco[yr][field]):,.2f}" for yr in anos]
+            def _br(s): return s.replace(",","X").replace(".",",").replace("X",".")
+            return [_br(f"{mn(balanco[yr][field]):,.2f}") for yr in anos]
         def _bcvg(field):
-            return [f"{mn(balanco[yr].get(field, 0)):,.2f}" for yr in anos]
+            def _br(s): return s.replace(",","X").replace(".",",").replace("X",".")
+            return [_br(f"{mn(balanco[yr].get(field, 0)):,.2f}") for yr in anos]
         _has_nwc = any(abs(balanco[yr].get("NWC", 0)) > 1e-6 for yr in anos)
         _has_rev = any(abs(balanco[yr].get("Revolver", 0)) > 1e-6 for yr in anos)
         _bc_cols = [ano_lbl[yr] for yr in anos]

@@ -731,13 +731,14 @@ def _mc(label, value, delta=None, color=None):
 {delta_html}</div>"""
 
 def fmt_mm(v):
-    """Format value with Macabacus convention (parentheses for negatives)."""
+    """Format value: BR convention (1.234,5) + Macabacus parentheses."""
     if v is None:
         return "—"
     decimals = 0 if abs(v) >= 1_000 else 1
+    def _br(s): return s.replace(",", "X").replace(".", ",").replace("X", ".")
     if v < 0:
-        return f"({abs(v):,.{decimals}f})"
-    return f"{v:,.{decimals}f}"
+        return f"({_br(f'{abs(v):,.{decimals}f}')})"
+    return _br(f"{v:,.{decimals}f}")
 
 # ─────────────────────────────────────────────────────────────────────────────
 # TABS

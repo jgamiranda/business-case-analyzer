@@ -507,44 +507,47 @@ def T(key: str) -> str:
 # =============================================================================
 # UTILITIES
 # =============================================================================
+def _br(s):
+    return s.replace(",","X").replace(".",",").replace("X",".")
+
 def fmt_money(x: float, ccy: str = "$", decimals: int = 1) -> str:
-    """Macabacus convention: parentheses for negatives."""
+    """BR convention + Macabacus parentheses."""
     try:
         if x is None or (isinstance(x, float) and math.isnan(x)):
-            return f"{ccy}0.0"
+            return f"{ccy}0,0"
         if x < 0:
-            return f"({ccy}{abs(x):,.{decimals}f}M)"
-        return f"{ccy}{x:,.{decimals}f}M"
+            return f"({ccy}{_br(f'{abs(x):,.{decimals}f}')}M)"
+        return f"{ccy}{_br(f'{x:,.{decimals}f}')}M"
     except Exception:
-        return f"{ccy}0.0M"
+        return f"{ccy}0,0M"
 
 
 def fmt_mult(x: float, decimals: int = 2) -> str:
     try:
         if x < 0:
-            return f"({abs(x):,.{decimals}f}x)"
-        return f"{x:,.{decimals}f}x"
+            return f"({_br(f'{abs(x):,.{decimals}f}')}x)"
+        return f"{_br(f'{x:,.{decimals}f}')}x"
     except Exception:
-        return "0.00x"
+        return "0,00x"
 
 
 def fmt_pct(x: float, decimals: int = 1) -> str:
     try:
         v = x * 100
         if v < 0:
-            return f"({abs(v):,.{decimals}f}%)"
-        return f"{v:,.{decimals}f}%"
+            return f"({_br(f'{abs(v):,.{decimals}f}')}%)"
+        return f"{_br(f'{v:,.{decimals}f}')}%"
     except Exception:
-        return "0.0%"
+        return "0,0%"
 
 
 def fmt_num(x: float, decimals: int = 2) -> str:
     try:
         if x < 0:
-            return f"({abs(x):,.{decimals}f})"
-        return f"{x:,.{decimals}f}"
+            return f"({_br(f'{abs(x):,.{decimals}f}')})"
+        return _br(f"{x:,.{decimals}f}")
     except Exception:
-        return "0.00"
+        return "0,00"
 
 
 def metric_card(label: str, value: str, delta: str = "", delta_pos: bool = True, color: str = ""):
