@@ -1,0 +1,452 @@
+ 
+1 of 13  https://breakingintowallstreet.com  
+Advanced Financial Modelling, Module 2: 3-Statement Model ling Case Study from a Blank 
+Excel Sheet , Debt vs. Equity, and IFRS Valuation (EasyJet) (1 Week)  
+In this module, you’ll build a combined half -year and annual 3 -statement model for EasyJet 
+starting from a blank Excel sheet, and you’ll use it to make a debt vs. equity financing 
+recommendation for the company.  
+Among other topics, you’ll learn how to find and enter data efficiently, how to simplify and 
+consolidate the financial statemen ts and the key drivers, and how to build a debt and equity 
+schedule with limited information.  
+You’ll use the model's output  to analyse the company’s credit stats and ratios in different 
+scenarios and answer the case study questions.  
+ 
+AFM -02-01: 1-Week Case Study from Blank Excel Sheet (EasyJet): Intro and Data Gathering  
+(29:23 ) 
+In this introductory lesson, you’ll learn how to gather data for EasyJet and set up a simple set of 
+revenue drivers for the company’s half -year periods based on their earn ings results.  
+Table of Contents:  
+• 4:56:  Case Background & Data Sources  
+• 10:50:  Quick Conclusions and Drivers  
+• 16:43:  Finding and Entering the Revenue Drivers  
+• 25:55:  Time Skip – Formatted Version  
+• 27:42:  Recap and Summary  
+ 
+Quiz Questions:  
+16:42 Why is it not a  good idea to use numbers such as Passengers, Seats Flown, or Sector 
+Length in the Revenue Drivers for EasyJet?  
+a) It’s too difficult to link all these together to create a formula for Revenue.  
+b) The case document strongly hints that ASK should be the key top-line driver.  
+c) We only have one week to complete this case study, so the Revenue and Expense 
+Drivers must be fairly simple.  
+d) All of the above.  
+Explanation:  Everything above is true. It’s best to focus on simplicity in any time -limited case 
+study, which me ans, at most , 3-4 main revenue drivers. For airlines, ASK or ASM always acts as 
+the key top -line driver, and the case document makes it obvious that it’s important. Going from 
+ 
+2 of 13  https://breakingintowallstreet.com  
+ASK to Passengers, Seats Flown, Sectors Flown, etc. , is not worth the time and e ffort, especially 
+given the extra data retrieval required.  
+ 
+AFM -02-02: Inputting and Simplifying the Historical Income Statement  (23:25 ) 
+You’ll input EasyJet’s historical half -year Income Statements in this lesson, simplifying some 
+categories and adding more detail to others.  
+Table of Contents:  
+• 2:15:  Revenue and EBITDAR  
+• 8:43:  Depreciation and Amortisation  
+• 17:31:  Financing Costs, Pre -Tax Income, and Net Income  
+• 20:48:  Formatting and Older Numbers (Time Skip)  
+• 21:57:  Recap and Summary  
+ 
+Quiz Questions:  
+17:30 In which of the following cases is it NOT worth separating Lease Depreciation from 
+normal Depreciation on PP&E?  
+a) If one of them is very small next to the other.  
+b) If the company’s Lease Liabilities are small and combined with its Debt, and its ROU 
+Assets are also small and combined with normal PP&E.  
+c) If the company follows U.S. GAAP and has no or very low Finance Leases.  
+d) All of the above.  
+Explanation:  Everything above is true. Lease Depreciation is worth splitting out when it’s 
+significant vs . normal Depreciation, which usually means that the company’s ROU Assets are 
+significant vs. their Net PP&E and that Lease Liabilities are a decent percentage of the 
+company’s Debt. These conditions are more likely to be true for IFRS -based companies; it i s rare 
+to split out Lease Depreciation for companies that follow U.S. GAAP because they do not record 
+Depreciation for Operating Leases (only for Finance Leases, which are usually small).  
+ 
+AFM -02-03: Inputting and Simplifying the Historical Balance Sheet  (23:50 ) 
+In this lesson, you’ll learn how to input EasyJet’s historical Balance Sheets  by consolidating and 
+simplifying some line items  and listing others in more detail.  
+Table of Contents:  
+ 
+3 of 13  https://breakingintowallstreet.com  
+• 1:54:  Older Balance Sheets  
+• 11:37:  Additional Tweaks  
+• 14:35:  Most Recent Balance Sheet  
+• 20:59:  Older Numbers and Formatting  (Time Skip)  
+• 22:39:  Recap and Summary  
+ 
+Quiz Questions:  
+14:35 What is a reasonable goal when simplifying and consolidating a company’s Balance 
+Sheet?  
+a) Always show the most common line items, such as Cash, AR, Inventory, PP&E, etc., 
+separately, and combine everything else into these lines.  
+b) Aim for, at most, 10 items on each side, and ideally, closer to 5.  
+c) Ensure that each line item on the Balance Sheet links to *only one * line item on the 
+Cash Flow Statement.  
+d) All of the above.  
+Explanation:  The second answer choice is the best one. Ideally, you should aim for ~5 line items 
+on each side of the Balance Sheet and perhaps up to ~10 for more complex companies in 
+industries with  more complicated capital structures and operations. The first answer choice is 
+not the best because not every company has these line items; for example, software companies 
+do not have Inventory. The third answer choice is wrong because standard line items  such as 
+PP&E often link to multiple items on the Cash Flow Statement, such as Capital Expenditures and 
+Depreciation.  
+ 
+AFM -02-04: Inputting the Historical Cash Flow Statement and Making It Start with Net Income  
+(27:13 ) 
+You’ll learn how to modify EasyJet’s historical Cash Flow Statements so that they start with Net 
+Income and make adjustments based on that in this lesson; you’ll also learn which line items 
+can be consolidated and simplified.  
+Table of Contents:  
+• 1:33:  Cash Flow from Operations  
+• 13:46:  Cash Flow from Investing  
+• 15:36:  Cash Flow from Financing  
+• 20:34:  Checks and Other Changes  
+• 24:46:  Older Cash Flow Statements  (Time Skip)  
+ 
+4 of 13  https://breakingintowallstreet.com  
+• 25:22:  Recap and Summary  
+ 
+Quiz Questions:  
+13:45 Which of the following is a common adjustment when “converting” a company’s Cash 
+Flow Statement to make it start with Net Income rather than Operating Income?  
+a) Change “Cash Taxes” to “Deferred Taxes” so that it represents the difference between 
+Book Taxes and Cash Taxes.  
+b) Simplify the Change in Working Capital so that it’s only a single line item.  
+c) Group together smaller line items into an “Other” category.  
+d) All of the above.  
+Explanation:  The first answer is the best choice because it is required for any company with a 
+significant difference betwee n Book and Cash Taxes. Starting with Operating Income vs. Net 
+Income is the difference between showing “Cash Taxes” as a lump -sum total vs. showing 
+Deferred Taxes, representing an adjustment to Book Taxes. The other two answer choices are 
+common adjustment s and changes when inputting the historical Cash Flow Statement, but they 
+are done regardless of what the CFS starts with, so this Operating Income vs. Net Income 
+distinction doesn’t matter.  
+ 
+AFM -02-05: Revenue and Expense Drivers and Income Statement Proj ections  (29:30 ) 
+In this lesson, you’ll analyse EasyJet’s expense trends, project its revenue and expenses, and 
+create an Income Statement forecast for the company based on a mix of half -year and full -year 
+periods.  
+NOTE TO LESSON:  In the 23:39 – 22:46 segment here, we make a mistake with the 25% tax 
+rate. It should take effect starting in 1H 24 based on the start date in the press release (1 April 
+2023) , so the current 19% tax rate should apply until then. We fix this problem in a later lesson.  
+Table of Contents:  
+• 3:19:  Expense Trends  
+• 7:00:  Revenue Drivers  
+• 17:36:  Expense Drivers  
+• 22:47:  Income Statement Projections  
+• 27:52:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+5 of 13  https://breakingintowallstreet.com  
+17:3 6 What’s the best way to determine if our ASK projections for EasyJet are reasonable?  
+a) Check the company’s guidance for its return to pre -pandemic capacity.  
+b) Review the historical growth rates in the last few “normal” years.  
+c) Examine the link between CapEx spending and ASK growth (later in the model).  
+d) All of the above.  
+Explanation:  Everything above is true. To foot the ASK projections, you should compare them 
+to the company’s “capacity” guidance, review the historical growth rates from before the 
+pandemic, and look at how much ASK has grown in previous years relat ive to the company’s 
+CapEx spending in those years. We can’t check this last point at this stage because we need the 
+CFS projections first.  
+ 
+AFM -02-06: Balance Sheet and Cash Flow Statement Drivers and Projections  (35:50 ) 
+You’ll create drivers and projections for EasyJet’s Balance Sheet and Cash Flow Statement in 
+this lesson, you’ll link the financial statements, and you’ll learn how to tweak the numbers 
+afterward to get more reasonable output . 
+Table of Contents:  
+• 2:32:  Bala nce Sheet Drivers  
+• 9:55:  Cash Flow Statement Drivers  
+• 27:02:  Linking and Tweaking the Numbers  
+• 34:00:  Recap and Summary  
+ 
+Quiz Questions:  
+34:00 Even if our CapEx estimates in the projected years match the company’s estimates, why 
+might our financial model still have problems?  
+a) The cash flow might still be off if we’re assuming higher or lower revenue growth based 
+on that CapEx.  
+b) The Depreciation figures could be off, which means the cash flows will be distorted due 
+to the CapEx – Depreciation net figure.  
+c) In a non-annual model, the timing of the CapEx spending might not match the 
+company’s (e.g., differences between Q1 -Q2 and Q3 -Q4). 
+d) All of the above.  
+Explanation:  Everything above is true. Even if the CapEx numbers match the company’s 
+estimates in absolute currency terms, the cash flows might still be off because the revenue 
+ 
+6 of 13  https://breakingintowallstreet.com  
+assumptions or the Depreciation figures may not match up. Specifically, the company might be  
+assuming more or less revenue growth from the CapEx spending than we are, and the gap 
+between Depreciation and CapEx might also be different . The timing issue is also possible, but 
+it’s less of a problem in most models; timing differences within a specifi c year matter more if 
+lenders evaluate the company’s credit stats and ratios frequently.  
+ 
+AFM -02-07: Debt & Equity Schedule, Part 1: Required Funding  (21:55 ) 
+In this lesson, you’ll calculate EasyJet’s required funding or excess liquidity to determine how 
+much Debt or Equity it must issue or how much Debt it can repay in each period; you’ll also 
+learn how to find and enter information on the existing Debt tranches, maturities, and 
+amortisation from the filings and case document.  
+NOTE TO LESSON:  In the 15:03  – 15:08  segment here, we forget to include Dividends in the 
+calculation . We fix this problem later in the lesson, in the 21:02  – 21:10 segment . 
+Table of Contents:  
+• 1:39:  Part 1: Current Debt Tranches  
+• 9:18:  Part 2: Mandatory Repayments and Maturities  
+• 15:41:  Part 3: Minimum Cash and Funding Required  
+• 20:24:  Recap and Summary  
+ 
+Quiz Questions:  
+20:24 What is the biggest drawback of linking EasyJet’s Minimum Cash balance to its Deferred 
+Revenue?  
+a) Deferred Revenue won’t necessarily trend with the company’s capacity (ASK) or 
+Revenue.  
+b) Historically, Deferred Revenue as a % of Revenue has spanned a huge range of values.  
+c) Deferred Revenue represents what the company has collected upfront in cash from 
+customers without delivery – not what it owes.  
+d) Most likely, the company will put in place another Revolver for additional liquidity 
+beyond its Cash balance.  
+Explanation:  The second answer choice is the biggest issue here.  Since Deferred Revenue as a 
+percentage of Revenue has fluctuated so much historic ally, it’s not necessarily clear what it 
+should be going forward. Deferred Revenue trends with Revenue and ASK, so the first answer is 
+incorrect. The third answer is a correct statement, but it doesn’t answer the question because 
+this is not a real drawbac k of defining the Minimum Cash this way (as Deferred Revenue also 
+ 
+7 of 13  https://breakingintowallstreet.com  
+represents a certain amount of future costs required for product/service delivery). The last 
+answer is not the best choice because the presence of a Revolver changes the Minimum Cash 
+formula  a bit, but it doesn’t alter the main components.  
+ 
+AFM -02-08: Debt & Equity Schedule, Part 2: Issuances and Repayments  (20:04 ) 
+You’ll learn how to estimate EasyJet’s additional Debt and Equity issuances and Debt 
+Repayments in this lesson, including the “or der of operations” for its different capital sources.  
+NOTE TO LESSON:  In the 7:50 – 8:05 segment, we suggest drawing on the Eurobonds first 
+because their current weighted average interest rate is lower than the rate on the Term Loans. 
+We change  this assumption later due to rising rates, and by the end of the entire model, we  
+also change the “draw order.”  
+Table of Contents:  
+• 1:42:  Part 1: Term Loan Repayments  
+• 4:47:  Part 2: Debt vs. Equity Split  
+• 7:36:  Part 3: Debt and Equity Draws  
+• 12:47:  Part 4: Links and Tests  
+• 17:48:  Recap and Summary  
+ 
+Quiz Questions:  
+12:47 When determining the available capacity on EasyJet’s Term Loans and Eurobonds, why 
+do we add the maturities and principal amortisation?  
+a) Because these represent cash outflows, which always increase the capacity o f these 
+facilities.  
+b) Because the maximum capacity for each tranche of Debt keeps increasing with the 
+maturities and amortisation.  
+c) Because these items reduce the amount of drawn Debt, which means the company 
+can now draw on more Debt in the future.  
+d) All of the above.  
+Explanation:  The third answer c hoice is the correct one. Any type of Debt principal repayment, 
+whether in the form of scheduled amortisation or fixed maturities, reduces the amount of 
+drawn Debt in a specific facility, which means the company can now draw on more Debt. The 
+first answer makes no sense because cash outflows alone  do not increase the capacity o f these 
+facilities, and the second answer is wrong because the maximum capacity for each tranche 
+stays the same; all that changes is how much is currently drawn on the facility.  
+ 
+8 of 13  https://breakingintowallstreet.com  
+ 
+AFM -02-09: Debt & Equity Schedule, Part 3: Net Interest Expense and Links  (22:25 ) 
+In this lesson, you’ll finish the Debt & Equity Schedule by researching the interest rates on the 
+different Debt tranches, calculating the Net Interest Expense, and linking these calculations to 
+the rest of the model.  
+Table of Contents:  
+• 2:23:  Part 1: Estimating the Interest Rates  
+• 14:07:  Part 2: Calculating the Net Interest Expense  
+• 17:13:  Part 3: Linking the Schedule to the Statements  
+• 20:29:  Recap and Summary  
+ 
+Quiz Questions:  
+14:06 Which of the following interest rates is LEAST likely to change over time as central 
+banks increase or reduce rates?  
+a) The Discount Rate used to calculate Lease Interest.  
+b) The floating interest rate on a Term Loan facility.  
+c) The coupon rate on  a Eurobond facility that allows for issuances at different times and 
+terms.  
+d) The coupon rate on a Eurobond facility that is already drawn at maximum capacity.  
+Explanation:  The last answer choice is the best one. “Bonds” tend to have fixed coupon rates 
+that do not change over time, even as overall interest rates do, so if a Eurobond facility is 
+already drawn to its maximum level, its interest rate is unlikely to change anytime soon (unless 
+there is a maturity). The floating interest rate on a Term Loan will always change over time, and 
+the Discount Rate used in the Lease calculations will also change, but usually to a lesser extent 
+than the rates on actual Debt.  
+ 
+AFM -02-10: Key Metrics and Ratios (ROCE, Leverage Ratio, and Coverage Ratio)  (21:03 ) 
+You’ll calculate the key metrics and ratios for EasyJet in this lesson, including the Return on 
+Capital Employed (ROCE), the Leverage and Coverage Ratios, the Debt / Total Capital Ratio, and 
+variations on these, and you’ll draw some quick conclusions about the co mpany’s future 
+financing.  
+Table of Contents:  
+ 
+9 of 13  https://breakingintowallstreet.com  
+• 2:38:  Which Metrics to Include  
+• 8:08:  ROCE Calculation  
+• 12:13:  Other Calculations  
+• 16:27:  Interpretation  
+• 19:18:  Recap and Summary  
+ 
+Quiz Questions:  
+12:13 What is the main PROBLEM with defining Return on Capital Employed as EasyJet has 
+done (Operating Income / Average Capital Employed)?  
+a) We should use the LTM Operating Income, not the number in just one half -year period.  
+b) Average Capital Employed should be based on annual averages rather than the average 
+over a half -year period.  
+c) Operating Income deducts part of the Lease Expense, but the Lease Liabilities in 
+Capital Employed correspond to the entire future expense.  
+d) All of the above.  
+Explanation:  The third answer choice is the correct answer. If the  denominator of a metric such 
+as ROCE adds an entire Liability, the numerator should exclude or add back the full expense 
+associated with that Liability. But Operating Income under IFRS deducts only the Lease 
+Depreciation, not the Lease Interest, so part o f the Lease Expense here is excluded or added 
+back, and the other part is deducted, which is inconsistent. The first two answers are wrong 
+because it’s not necessary to use the LTM number since we’re looking at the ROCE in one 
+specific period, and annual a verages make sense only if we’re also using annual rather than 
+half-year NOPAT figures.  
+ 
+AFM -02-11: Annual Summaries  (27:43 ) 
+In this lesson, you’ll add annual summaries to the EasyJet model and use them to find and fix 
+several problems with the Dividend calculations and the Tax Rate; you’ll also learn how these 
+summaries can highlight assumptions that might need to be tweaked.  
+Table of Contents:  
+• 2:17:  Setup for Revenue Drivers  
+• 7:57:  Expense, BS, and CFS Drivers  
+• 9:14:  Income Statement  
+• 10:44:  Cash Flow Statement  
+• 13:19:  Balance Sheet  
+ 
+10 of 13  https://breakingintowallstreet.com  
+• 16:20:  Drivers  and Fixes  
+• 22:34:  Key Metrics and Ratios  
+• 25:39:  Recap and Summary  
+ 
+Quiz Questions:  
+22:3 4 Which of the following is an ADVANTAGE of creating annual summaries in a quarterly 
+or half -year model?  
+a) It’s easier to see high -level trends at a glance.  
+b) It’s easier to compare the model to the company’s internal guidance.  
+c) It’s easier to find errors and oversights in the non -annual assumptions.  
+d) All of the above.  
+Explanation:  Everything above is true. These all represent the advantages or benefits of the 
+annual summaries in a non -annual model, as it’s often difficult to interpret quarterly and half -
+year models without some type of summary.  
+ 
+AFM -02-12: Operating Scenarios and Gr owth and CapEx Adjustments  (25:39 ) 
+You’ll tweak the baseline revenue, capacity growth, and CapEx assumptions to get more 
+reasonable numbers in this lesson, and you’ll extend this approach to build Downside and 
+Extreme Downside cases to assess the company’s  credit stats and ratios with a much slower 
+recovery to normal.  
+Table of Contents:  
+• 1:19:  Baseline Revenue and CapEx  
+• 7:41:  Scenario Setup  
+• 14:49:  Downside and Extreme Downside Scenarios  
+• 23:50:  Recap and Summary  
+ 
+Quiz Questions:  
+23:49 How should the Downside and Extreme Downside cases in a model differ from the Base 
+case?  
+a) Revenue growth and “capacity” should be lower.  
+b) Operating margins should be lower.  
+c) The company should require more outside financing to continue operating.  
+ 
+11 of 13  https://breakingintowallstreet.com  
+d) All of the above.  
+Explanation:  Everything above is true. In pessimistic scenarios, the growth rates and margins 
+should both be lower, which means the company’s cash flow will be worse, and it will be more 
+dependent on external sources of capital.  
+ 
+AFM -02-13: Net Operating L osses  (NOLs) , Deferred Taxes, and Model Tweaks  (24:40 ) 
+In this final Excel -based lesson, you’ll build Net Operating Losses into the model, tweak the 
+Debt & Equity Schedule to use more reasonable draw and interest rate assumptions, and add 
+some labels and titles/headers.  
+Table of Contents:  
+• 2:32:  NOLs and Deferred Taxes  
+• 9:55:  Debt & Equity Schedule Adjustments  
+• 20:23:  Other Model Tweaks  
+• 22:57:  Recap and Summary  
+ 
+Quiz Questions:  
+9:54 When is it useful to include Net Operating Losses in a 3-statement financial model?  
+a) When the company has a high NOL balance due to losses in previous years.  
+b) When the company provides detailed information on the components of its Deferred 
+Tax Asset (DTA).  
+c) When the company’s NOL balance is such that it will significantly affect its Cash Taxes 
+over the entire projected period.  
+d) All of the above.  
+Explanation:  The third answer choice is correct. NOLs are worth including if they’re expected to 
+impact a company’s Cash Taxes significantly for many years into the future. Even if the NOL 
+balance is “high,” as in the first answer choice, it doesn’t mean much if the company also uses 
+up the entire balance quickly, resulting in minimal Cash -Tax impact over the projected period. 
+Detailed information about the DTA components, as in answer choice #2, also makes little 
+difference if the NOLs expire or get used up quickly without significantly impacting  the Cash 
+Taxes.  
+ 
+AFM -02-14: Case Study Answers , Grading Criteria, and the Time Limit (29:05 ) 
+ 
+12 of 13  https://breakingintowallstreet.com  
+You’ll use the final Excel model to answer the case study questions in this lesson, and you’ll 
+learn about what makes answers to this type of open -ended case study “correct” or “not 
+correct” and how to interpret your performance and completion time vs. the 1 -week time 
+allowance.  
+Table of Contents:  
+• 0:55:  ROCE and EBITDAR Margins  
+• 11:03:  Debt vs. Equity  
+• 20:01:  Other Compliance Methods  
+• 24:56:  Grading Criteria  
+• 27:24:  Time Limit and Performance  
+ 
+Quiz Questions:  
+20:01 Suppose that a company can comply with its maximum Leverage Ratio and minimum 
+Interest Coverage Ratio with 60% Debt and 40% Equity funding. Should you recommend th ese 
+exact numbers?  
+a) It depends on how much of a “cushion” there is with these numbers.  
+b) Yes, be cause the company can adjust its financing as needed if its business results 
+change.  
+c) No, because there needs to be at least a 20 -30% “cushion” with these targets – simple 
+compliance is not enough.  
+Explanation:  The first answer choice is the best one. Gener ally, you want at least a bit of a 
+“cushion” when recommending a Debt and Equity funding mix . For example, if the company’s 
+Debt / EBITDA is 5.9x against a maximum of 6.0x, that’s not much of a cushion, and you should 
+probably recommend a slightly lower Debt percentage. Numbers in the 5.0 – 5.5x range would 
+be more acceptable. The second answer is not the best choice because , although this is true to 
+some extent, the company cannot “undo” financing decisions it made in previous periods; once 
+the cap ital is raised, it is raised. This answer choice is more applicable in cases where the 
+company’s performance varies primarily in 1 -2 periods near the end of the projections. The 
+third answer is not the best choice because it doesn’t have to be a 20 -30% cus hion, specifically; 
+just something more than “right at or below the maximum level” for a given credit stat.  
+ 
+AFM -02-15: BONUS: IFRS -Based Valuation and DCF for EasyJet and Debt vs. Equity 
+Presentation [OPTIONAL]  (29:06 ) 
+ 
+13 of 13  https://breakingintowallstreet.com  
+In this bonus, optional lesson, you’ ll get a full valuation and DCF for EasyJet and a debt vs. 
+equity recommendation in slide format. These additional materials give you more templates 
+and examples to draw on, especially if you are valuing IFRS -based companies instead of ones 
+that follow U.S . GAAP.  
+NOTE TO LESSON:  The audio at 11:52 should be “the CapEx per ASK here,” not “the ASK here.”  
+Table of Contents:  
+• 2:17:  Part 1: Public Comps  
+• 6:41:  Part 2: Precedent Transactions  
+• 8:18:  Part 3: Discount Rate (WACC)  
+• 10:03:  Part 4: DCF Setup and Issues with Leases and NOLs  
+• 17:24:  Part 5: Valuation Summary  
+• 19:38:  Part 6: Debt vs. Equity and Valuation Presentation  
+• 27:42:  Recap and Summary  
+ 
+Quiz Questions:  
+17:23 What is the BIGGEST difference in a DCF when you are valuing a company that follows 
+IFRS rather than U.S. GAAP?  
+a) You must account for NOLs differently by building them into the cash flow projections.  
+b) It’s more important to use a different TEV bridge in the DCF than in the Public Comps.  
+c) Leases are much more significant, and you must either deduct or add back/exclude 
+the entire Lease Expense.  
+d) All of the above.  
+Explanation:  The third answer is the best choice. NOLs do not work differently under IFRS: you 
+still either factor them into the cash flow projections or include them in the  TEV bridge, so the 
+first answer is wrong. The second answer is wrong because it’s not “more important” to use a 
+different TEV bridge in different parts of the valuation; it’s just that you may have to do this 
+depending on how you treat Lease Liabilities i n the analysis. The third answer is the best choice: 
+since both the Operating Lease and Finance Lease Expenses are split into Interest and 
+Depreciation under IFRS, the impact of Leases is far more significant, and you have to be careful 
+to deduct or exclud e/add back the entire expense.  

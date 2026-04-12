@@ -71,11 +71,17 @@ See "❓ Open Questions" below.
 
 ## 📚 Knowledge updates (`/boobinho`)
 
-**Last update:** _(pending — boobinho: please fill on next session)_
+**Last update:** 2026-04-12
+
+### KB status
+- `boobinho_knowledge_base.json` v13.1 — 162 topics, 18 sections
+- New sections added: `core_financial_modeling`, `advanced_financial_modeling`
+- Covers: PF, LBO, M&A (accretion/dilution, PPA, spinoffs), Valuation DCF (UFCF, WACC, EV bridge, comps), Bonds, Hedging/ISDA, ESG, Benchmarks 2025
+- Summary .md files: `boobinho/01_core_fm_summary.md`, `boobinho/02_advanced_fm_summary.md`
 
 ### Files owned by boobinho
-- `boobinho_knowledge_base.json` — research dump
-- Any future research documents under `/research/` or similar
+- `boobinho_knowledge_base.json` — research KB (v13.1)
+- `boobinho/` — extracted PDFs, summaries, scripts
 
 ---
 
@@ -113,8 +119,37 @@ See "❓ Open Questions" below.
 
 1. **Reference docs availability** — I used `C:\Users\jgrac\Downloads\agent_reference.md` to extract the 16-clause Facility Agreement library. That file was a one-shot dump from the user. **Can you maintain a permanent copy in the repo** (e.g., `/research/agent_reference.md`) so future sessions can re-read it without depending on `~/Downloads/`? Same for `AGENT_BRIEF.md`.
 
-### → backend
-_(none currently)_
+### → backend (features from boobinho KB analysis, posted 2026-04-12)
+
+**Tier 1 — MVP must-have (KB has full specs ready):**
+
+1. **M&A: Accretion/Dilution engine** — 5-step: financing mix (cash/debt/stock) → combined NI → combined EPS → accretion %. Formulas in `core_financial_modeling.ma.accretion_dilution`. Quick rule: Weighted Cost < Seller Yield → accretive.
+
+2. **M&A: PPA calculator** — Input write-ups → auto-calc Goodwill + DTL. Formula: `Goodwill = Purchase Eq Value - Seller CSE - Write-Ups + New DTL(Write-Ups*t)`. See `core_financial_modeling.ma.ppa`.
+
+3. **Valuation DCF: EV→Equity bridge completo** — Add: NCI, Preferred, Unfunded Pensions*(1-t), NOLs, Equity Investments. Anti-double-count rule. See `core_financial_modeling.valuation_dcf.ev_equity_bridge`.
+
+4. **LBO: Cash sweep with step-down** — `ECF = EBITDA - Interest - Taxes - CapEx - ΔNWC - Mandatory Amort`. Sweep% step-down by leverage tier (>4x=75%, <3x=25%). See `advanced_financial_modeling.lbo_advanced_biws.cash_sweep`.
+
+5. **Business Case: NOL carryforward schedule** — User-configurable % limit (default 80%, slider). Track NOL balance, annual usage, DTA. See `advanced_financial_modeling.business_case_advanced.sbc_asc718`.
+
+**Tier 2 — nice-to-have:**
+
+6. **Valuation DCF: Trading comps table** — Input 5-10 comps, calc median EV/EBITDA, EV/Revenue, P/E. See `core_financial_modeling.valuation_dcf.multiples`.
+
+7. **Valuation DCF: Mid-year convention toggle** — Discount factor `1/(1+WACC)^(t-0.5)`. See `advanced_financial_modeling.valuation_dcf_advanced.mid_year_convention`.
+
+8. **LBO: Paper LBO quick calculator** — Input EBITDA/multiple/leverage → IRR in 5 seconds. Quick math table in `core_financial_modeling.lbo.quick_irr`.
+
+9. **LBO: Covenant compliance dashboard** — Headroom per period, traffic light. See `advanced_financial_modeling.lbo_advanced_biws.covenants`.
+
+10. **M&A: Break-even synergies calculator** — `(Lost Cash Earnings + New Interest - Target NI) / (1-t) / Acquirer Shares`. See `core_financial_modeling.ma.break_even_synergies`.
+
+**Cross-tab (Tier 2):**
+
+11. **Scenario toggle global** — Base/Upside/Downside visible in all tabs
+12. **Model checks page** — Consolidated: Sources=Uses, BS balanced, cash≥0, covenants OK
+13. **Football field chart** — Ranges de DCF, comps, precedent transactions side by side
 
 ---
 

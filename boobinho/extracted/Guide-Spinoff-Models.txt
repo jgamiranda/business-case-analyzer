@@ -1,0 +1,682 @@
+ Advanced Financial Modeling Course  
+ 
+1 of 27 https://breakingintowallstreet.com  
+Spinoff Model Guide  
+Table of Contents:  
+Overview of Spinoff Models  ............................................................................................... 1 
+Spinoff Motivations  ......................................................................................................... 2 
+Spinoff Transaction Assumptions  ................................................................................... 3 
+Balance Sheet Adjustments  ..................................................................................................... 5 
+Transaction -Adjusted Equity Value and Enterprise Value  ....................................................... 7 
+Income Statement and Cash Flow Statement Adjustments  ........................................... 8 
+Supplemental Schedules  ............................................................................................... 11 
+Debt & Equity Schedule  ......................................................................................................... 12 
+Tax Schedules  ......................................................................................................................... 13 
+Balance Sheet Forecasts  ............................................................................................... 14 
+Valuation  ....................................................................................................................... 16 
+Sum- of-the-Parts Analysis  ............................................................................................. 19 
+Interview Questions  .......................................................................................................... 21 
+Motivations and Transaction Assumptions  .................................................................. 21 
+Financial Statement Adjustments  ................................................................................. 23 
+Spinoff Valuation ........................................................................................................... 25 
+ 
+Overview of Spinoff Models  
+This guide covers spinoff models  as they are presented in the SunPower / Maxeon case study in 
+this course. The model in that case study is complex and required several weeks to build , so we 
+will not walk through every single detail here.  
+Instead, this guide will summarize the key points, explain the motivations for spinoffs, and 
+describe how a spinoff financial model can indicate the potential upside and risk factors in such 
+a transaction.  
+ 
+  
+ 
+ 
+ 
+ Advanced Financial Modeling Course  
+ 
+2 of 27 https://breakingintowallstreet.com  
+Spinoff Motivations  
+While standard M&A deals are typically about EPS accretion/dilution and the expected IRR, 
+spinoffs are motivated primarily by valuation. 
+In a spinoff, the Parent Company creates a new public entity 
+for one of its divisions (the “Spun -Off Company”) and 
+distributes shares in the entity to its existing shareholders.  
+There are other variations, such as split -offs (shareholders  
+must choose between shares in the new company and 
+retaining shares in the Parent) and carve -outs  (the Parent 
+sells the shares in the subsidiary via an IPO).  
+There are  also divestitures , whereby a P arent Company sells a specific division to another 
+company or a financial sponsor.  
+Spinoffs  differ from these transactions in a few ways:  
+1. They are tax -free if the Parent Company structures the deal so  that it gives up ~80% of 
+its voting and non- voting shares in the subsidiary  (this is the requirement in the U.S., but 
+the numbers vary by country).  
+ 
+2. They allow the existing shareholders to “double dip”  by retaining their shares in the 
+Parent while also getting shares in the new Spun -Off Company . 
+Most Parent Companies pursue spinoffs  because they believe they are undervalued and would 
+be worth a higher total value  as separate firms.  
+For example, the logic in this SunPower / Maxeon deal was as follows:  
+• Current Valuation:  The company, a combined solar installer and manufacturer, traded 
+at ~1x R evenue for an Enterprise Value of ~$1.7 billion.  
+ 
+• Comparable Companies:  Pure -play solar service companies traded at 5 –  6x revenue, 
+while pure -play solar manufacturing companies traded at ~1x revenue.  
+ 
+• Separate Valuation:  Therefore, the company’s manufacturing arm, responsible for ~2/3 
+of its revenue, might trade at 1x R evenue for a TEV of $1.2 billion, while its 
+service/installation business might trade at 5 – 6x revenue for a TEV of $3.3 –  $4.0 
+billion.  As separate entities, the company might now be worth ~3x its old value.  
+
+ Advanced Financial Modeling Course  
+ 
+3 of 27 https://breakingintowallstreet.com  
+The results would probably not  be this favorable in real life because there’s no guarantee that 
+each division would trade at these multiples , especially given the limited sets of comparable 
+companies . 
+Also, we must adjust each company’s financials for additional corporate overhead  and “dis-
+synergies,” and these factors will reduce the total value.  
+If the Parent Company continually raises capital to fund this subsidiary, that complicates the 
+analysis because we must factor in capital structure differences and post -transaction funding 
+requirements.  
+Return to Top . 
+ 
+Spinoff Transaction Assumptions  
+Before building any spinoff model, you need separate projections  for the Parent and S ubsidiary 
+Company.  These should ideally be 3 -statement projections, but “cash flow only” projections 
+also work if you’re in a time crunch.  
+The SunPower / Maxeon case study has a 3 -statement model for each company , but we are not 
+covering them here because there’s nothing specific  to spinoffs in these models.  
+Once you have these projections, the next step is to make assumptions for the Distribution 
+Ratio and the Proposed Share Price for the Spun -Off Company.  
+The Distribution Ratio  is the number of Spun- Off Company shares  created for each  Parent Co. 
+share.  
+For example, if the Parent has 100 shares  and the Distribution Ratio is 5, the Spun- Off Company 
+will have 500 shares. Shareholders will get 5 Spun -Off Co. shares per Parent share.  
+In this deal, each SunPower shareholder will receive 1 Maxeon share for every 8 SunPower 
+shares, which is a 0.1250x Distribution Ratio. 
+SunPower has set Maxeon’s initial share price to $32.40, which implies the following share 
+count, Distribution Value, and Equity Value:  
+ Advanced Financial Modeling Course  
+ 
+4 of 27 https://breakingintowallstreet.com  
+ 
+This deal is unusual because another company, TZS, is also investing $298 million , giving it ~29% 
+ownership and increasing  the share count  and Equity Value.  
+It’s most likely doing this because it needs additional funding  as an independent entity, as it’s 
+currently cash -flow -negative . Maxeon also raises a $100 million Revolver with a $10 million 
+draw and a $200 million Convertible Bond.  
+Other borrowing facilities and expenses must be repaid when the deal closes, so we can use 
+this information to calculate Maxeon’s Cash balance : 
+ 
+If Maxeon has Excess Cash after all these adjustments, it must pay this amount to SunPower. If 
+it’s negative, SunPower must instead pay this amount to Maxeon to bring its Cash up to the $50 
+million minimum level.  
+This setup is uncommon but may happen when the Parent explicitly funds the Subsidiary.  
+Return to Top . 
+
+ Advanced Financial Modeling Course  
+ 
+5 of 27 https://breakingintowallstreet.com  
+Balance Sheet Adjustments  
+In the next step, you adjust each company’s  Balance Sheet based on the changes in Cash, Debt, 
+and Equity in the deal and the Assets and Liabilities that go to each entity.  
+Unfortunately, there’s no 
+universal “rule” for doing this 
+because the transferred Assets 
+and Liabilities vary in each 
+deal; you need to find the 
+filings that disclose all the 
+transfers and inter -company 
+adjustments.  
+Maxeon’s Balance Sheet is 
+easier to adjust because we can 
+follow the Cash and Debt 
+calculations in the previous 
+section and the transferred 
+Assets and Liabilities from the 
+filings.  
+The Equity Adjustment equals 
+the Total Asset Adjustments 
+minus the Total Liability 
+Adjustments,  plus the $298 
+million TZS Investment , plus the 
+$52 million Equity component 
+of the Convertible Bond raised 
+in the deal.  
+Note that under U.S. GAAP, 
+Convertible Bonds are rarely split into separate Debt and Equity components anymore, so this 
+last adjustment is unlikely to apply to most deals (and even the TZS investment is unusual and 
+not a standard spinoff feature).  
+
+ Advanced Financial Modeling Course  
+ 
+6 of 27 https://breakingintowallstreet.com  
+On SunPower’s Balance 
+Sheet, we remove Maxeon’s 
+Assets and Liabilities  and 
+reflect several additional 
+adjustments the company 
+disclose d in the filings.  
+For example, if Maxeon has 
+$20 million in AR,  we credit  
+SunPower’s AR  for this $20 
+million , i.e., we subtract it.  
+The Equity Adjustments  
+differ  slightly for the P arent . 
+The net amount of all the 
+“smaller” Asset and Liability 
+adjustments still factors in, 
+but we also debit (subtract) 
+Maxeon’s Common 
+Shareholders’ Equity . 
+However, we do NOT factor 
+in the Assets and Liabilities 
+that go to Maxeon! The 
+“Credit” adjustments on the 
+Assets side and the “Debit” 
+adjustments on the L&E 
+side do not factor in.  
+This may seem counterintuitive, but the reasoning is simple: Maxeon’s Balance Sheet should 
+already  be in balance, so removing all its Assets, Liabilities, and Equity from SunPower’s Balance 
+Sheet should not cause the SPWR Balance Sheet to go out of balance.  
+Therefore, we care only  about the additional adjustments beyond these , as these are the ones 
+that might cause SunPower’s Balance Sheet to go out of balance.  
+Beyond the smaller  items listed in the filings, the Cash that SunPower pays to Maxeon, the 
+financing proceeds, and the reimbursed transaction expenses also factor in.  
+Return to Top . 
+
+ Advanced Financial Modeling Course  
+ 
+7 of 27 https://breakingintowallstreet.com  
+Transaction -Adjusted Equity Value and Enterprise Value  
+Next, you calculate each company's Transaction -Adjusted Equity Value and Enterprise Value  
+because these are required inputs for the valuation and other schedules.  
+It’s best to start with the Spun -Off Company’s numbers  because you should already have its 
+Equity Value from the first step in this process with the D istribution Ratio. 
+In the bridge, you factor in all the normal items on its most recent Balance Sheet , but you also 
+include  the transaction adjustments from the previous section . 
+Some of these items, such as the NOLs, are more complex to adjust and may require 
+recalculation s based on the Valuation Allowances and the new Tax Rate (if applicable) . 
+The Debt might not come from the Balance Sheet at all, depending on the new issuances and 
+the repayment/refinancing of existing issuances  in the deal:  
+SunPower’s adjustments have one major difference: Its Transaction -Adjusted Equity Value 
+equals its Current Equity Value  minus Maxeon’s assumed ~$720 million Distribution Value.  
+In other words, we assume  that SunPower’s Equity Value will fall  by Maxeon’s “Distribution 
+Value” before the TZS investment.  
+Obviously, this assumption contradicts the basic rationale of this deal: SunPower should trade 
+at higher multiples  as a separate, pure -play entity focused on solar services.  
+However, this assumption is in place strictly for accounting purposes . We’re saying that its 
+Equity should be worth less “on paper” after the deal closes, but in the market , its share price 
+will rise significantly once it starts to trade at a higher multiple.  
+The approach with the bridge items is similar; it’s still based on the most recent Balance Sheet 
+before  the deal plus the transaction adjustments for each item:  
+
+ Advanced Financial Modeling Course  
+ 
+8 of 27 https://breakingintowallstreet.com  
+ 
+Return to Top . 
+ 
+Income Statement and Cash Flow Statement Adjustments  
+We’ll start with adjustments to the P arent’s financial statements  because some will flow 
+through to the Spun- Off Company (Maxeon) statements . Here’s a summary:  
+• Revenue and Expenses:  Remove and reallocate all the Spun -Off Company’s line items, 
+including interest income and expense, D&A, NCI and Equity Investment lines, etc.  
+ 
+• Funding Sources:  If the P arent has been funding the Spun-Off Company, reverse the 
+additional interest expense and shares from this funding.  
+ 
+• Taxes:  Recalculate the P arent Company’s taxes based on its standalone effective tax 
+rate.  
+ 
+• Cash Flow  Statement:  Remove all the line items related to the S pun- Off Company’s 
+financials (the Change in Working Capital lines, CapEx, etc.). Also, remove all Debt and 
+Equity issuances made specifically to fund  the Spun-Off Company.  
+ 
+• EPS Accretion / Dilution:  You calculate this in a spinoff based on the Net Income and 
+Share Count after these changes, but it’s not particularly insightful because there’s no 
+“price paid” or “proceeds received. ” So, it mostly just tells you whether the Spun-Off 
+Company ha s higher or lower margins than the Parent.  
+Here are the highlights from these adjustments , with the more  noteworthy items circled in red:  
+
+ Advanced Financial Modeling Course  
+ 
+9 of 27 https://breakingintowallstreet.com  
+ 
+ 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+10 of 27 https://breakingintowallstreet.com  
+Many adjustments , such as the reallocated D&A and corporate overhead, flow through to 
+Maxeon’s statements.  
+Also, the $50 – $175 million in annual funding that Maxeon was projected to receive from 
+SunPower now goes away since they become separate entities.  
+There may also be dis-synergies  after the deal closes because the companies may have to 
+spend more on functions such as IT, HR, and accounting.  
+These dis -synergies are the opposite  of normal synergies in a merger model. They appear after 
+spinoffs because it generally costs more for two smaller companies to operate separately  than 
+to operate together as one larger entity:  
+ 
+Many of these lines are blank because we have not yet completed  the required supplemental 
+schedules ( see the next section).  It’s impossible  to calculate the Interest Expense on the New 
+Debt until we know how much Maxeon draws on in each period, for example.  
+The Tax Rate  is slightly lower because Maxeon is relocating its headquarters to Singapore in this 
+deal, so it falls to ~20%.  
+
+ Advanced Financial Modeling Course  
+ 
+11 of 27 https://breakingintowallstreet.com  
+We do NOT calculate EPS accretion/dilution for the S pun- Off Company because it doesn’t 
+make sense –  as it never had a separate share count or EPS pre -transaction.  
+As a direct  result of this deal and the loss in funding from SunPower , Maxeon’s Cash balance 
+turns negative, so it will need additional funding post- transaction : 
+ 
+Return to Top . 
+ 
+Supplemental Schedules  
+After a spinoff, adjusting the financial statements and reallocating line items may not be 
+enough.  
+One big issue  is that the companies’ financing plans and capital structures might change , 
+which creates the need for new/revised Debt & Equity schedules.  
+Also, each company’s tax situation might change because the Deferred Tax Assets and 
+Liabilities and Valuation Allowances might change, and items such as Stock -Based 
+Compensation and the Amortization of Intangible Assets could be shifted around . 
+We’ll walk through the supplemental schedules for the capital structure and tax differences in 
+this section.  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+12 of 27 https://breakingintowallstreet.com  
+Debt & Equity Schedule  
+Post -deal financing is mostly an issue for the S pun- Off Company  because it might not receive 
+funding from the Parent anymore.  The basic mechanics are simple : 
+1. Determine if the company needs additional funding in the period based on its pre -
+financing cash flows, Beginning Cash, and Minimum Cash.  
+ 
+2. If it does not , assume it uses its excess cash flow to repay its existing Debt, such as the 
+Revolver. 
+ 
+3. If it does , draw on the Debt  first because it tends to be the cheapest financing source.  
+ 
+4. Once the Debt Draw is maxed out, switch to Equity funding for any additional needs.  
+ 
+5. Calculate the Interest Expense , Fees , and A mortization (if applicable) on the additional 
+Debt issuances ; increase the Share Count  by the additional shares issued.  
+Here’s the schedule for Maxeon in the baseline scenario, with a few notes below:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+13 of 27 https://breakingintowallstreet.com  
+The Amortization of the Convertible Bond Discount  is unrelated to the company’s ongoing 
+funding needs; it’s there because of the Convertible Bond Maxeon raised in the spinoff. It’s also 
+more common under IFRS now (the accounting rules changed after this deal , and most U.S. 
+companies no longer split Convertibles into Debt and Equity components ). 
+The Revolver has a Maximum Draw of $100 million, so Equity must fund anything beyond that. 
+This assumption is a bit questionable because the company could easily afford more Debt 
+funding via a Term Loan or another Convertible Bond, both of which would be cheaper than 
+traditional Equity (see the case presentation).  
+Return to Top . 
+ 
+Tax Schedules  
+There are no real mechanical differences in the Tax Schedules.  
+The differences all relate to the “starting assumptions”: Most of the NOL  balance gets 
+reallocated from SunPower to Maxeon, and some of the Amortization of Intangibles and Stock -
+Based Compensation are also reallocated.  
+As a result, SunPower uses up its now- smaller NOL balance as it becomes profitable  early on , 
+while Maxeon’s NOL balance builds up until it finally turns a profit in the final year:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+14 of 27 https://breakingintowallstreet.com  
+The same types of items are still not cash -tax-deductible (Amortization, SBC, Asset 
+Impairments, etc.); other than that, the changes in the Interest Expense and the reallocation of 
+Maxeon’s revenue and expenses make the biggest difference.  
+Once you have finished these supplemental schedules, you can link all the line items on the 
+separate financial statement projections. After these changes , Maxeon maintains its $50 million 
+Minimum Cash since it raises enough Debt and Equity to keep its Cash at that level:  
+ 
+Return to Top . 
+ 
+Balance Sheet Forecast s 
+Even with these supplemental schedules, additional links, and Income Statement and Cash Flow 
+Statement adjustments, one problem remains : We do not yet have Balance Sheet projections  
+for the companies – only the immediate post -transaction Balance Sheets. 
+In theory, we could skip this process of forecasting the companies’ separate Balance Sheets 
+because it doesn’t factor into the valuations directly; we just need cash -flow forecasts and sets 
+of comparable companies.  
+However, lenders and investors might request the Balance Sheet forecasts, and they do factor 
+into certain credit stats and ratios, such as Debt / Total Capital and Debt / Equity.  
+
+ Advanced Financial Modeling Course  
+ 
+15 of 27 https://breakingintowallstreet.com  
+The most important point is to approach the Balance Sheet projections as you would in a 
+traditional 3 -statement model, linking to the previous version of each item plus/minus its 
+corresponding changes on the Cash Flow Statement –  but to also do that for the short- term 
+operational items , such as Accounts Receivable and Inventory!  
+In a normal 3-statement model,  you forecast these line items directly on the Balance Sheet by 
+making them percentages of Income Statement lines , such as Revenue, COGS, and Operating 
+Expenses. Then, you reflect the changes  in these items on the Cash Flow Statement.  
+In a spinoff analysis , however, you should have already  subtracted the Spun-Off Company’s 
+contributions within the Change in Working Capital section on the Parent’s CFS.  
+Since you already have the “change” in each line item, it’s easier to make the number in the 
+current period equal the previous number plus/minus this corresponding change on the CFS . 
+Here’s an example from SunPower’s projections:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+16 of 27 https://breakingintowallstreet.com  
+One final point here is that you must reflect all new items  and new adjustments  appropriately 
+as well.  
+For example, with Common Shareholders’ Equity, yes, Net Income, SBC, Stock Issuances, and FX 
+Rate Effects all flow in from the Cash Flow Statement…  
+…but so does the R emoval of the Stock Issuances  to fund Maxeon since Maxeon is now a 
+separate entity. Therefore, CSE increases by much less over time . 
+Maxeon follows the same patterns , and the same types of new items and adjustments must be 
+reflected on its statements: T he “canceled  out” Parent funding, the new Convertible Bond  
+amortization , the Revolver Draws, the additional Equity issuances , etc.  
+Return to Top . 
+ 
+Valuation  
+Once you have the separate financial statement projections for the P arent (SunPower) and the 
+Spun-Off Company (Maxeon), you can value  each entity.  
+This is the whole point of a spinoff: To increase the Parent’s per- share value because the 
+companies are worth more as separate entities than they are together.  
+Little in this process is specific to spinoffs ; you still pick comparable public companies (Public 
+Comps) based on financial /industry /geographic criteria, and you still build DCF analyses based 
+on Unlevered FCF . 
+In many cases, you skip  the Precedent Transactions because they’re less relevant when valuing 
+new standalone public companies.  
+A few other points worth noting are as follows:  
+1. Spun- Off Company  – All the financials in the Public Comps and DCF should be based on 
+Spun -Off Co’s separate numbers after dis -synergies and all the other adjustments . You 
+should use the Transaction -Adjusted Equity Value and Enterprise Value and all the 
+bridge items from this calculation. There is no “historical Beta” for the Cost of Equity 
+and WACC calculations, so use the re -levered Beta from the Public Comps.  
+ 
+2. Parent Company  – Use the Parent’s Transaction -Adjusted Equity Value and Enterprise 
+Value and its financials after  removing Spun -Off Co’s numbers, reallocating  corporate 
+overhead, etc. You can use the historical Beta here because this Parent Company has a 
+ Advanced Financial Modeling Course  
+ 
+17 of 27 https://breakingintowallstreet.com  
+stock -price history, but you normally use a Cost of Equity average that includes the peer 
+companies’ performance as well.  
+Avoid obsessing over minutiae with the valuation, such as which specific adjustment to use in 
+which spot, and focus  on the big picture:  
+ 
+If the spinoff is a great idea because the companies are dramatically undervalued, it should 
+be obvious to a 5 -year -old child, as shown above. The deal is a bad idea if someone needs a 
+Ph.D. to understand the math.  
+The DCF analyses are also very standard: Use the separate companies’ financials, make sure 
+your share counts are correct (the Spun- Off Company’s should be based on the Distribution 
+Ratio and any additional equity investments in the deal, while the Parent’s should remain the 
+same), and make reasonable long -term forecasts for Unlevered FCF.  
+The specific DCFs used here are a bit different due to the nature of these companies  – heavy 
+operating losses in the early years before reaching profitability –  but that’s an issue with the 
+solar manufacturing industry and not something specific to spinoffs.  
+Because of these heavy losses, we forecast the Cash Taxes directly based on the NOL creation 
+and usage, as shown below:  
+
+ Advanced Financial Modeling Course  
+ 
+18 of 27 https://breakingintowallstreet.com  
+ 
+As a result of this NOL treatment, we also needed to include them in the Implied Enterprise 
+Value calculation s if an NOL balance remain ed at the end of this 15 -year DCF:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+19 of 27 https://breakingintowallstreet.com  
+The results are unsurprising: Maxeon is valued appropriately according to the Public Comps and 
+DCF, while SunPower seems wildly undervalued.  
+Return to Top . 
+ 
+Sum -of-the-Parts Analysis  
+If you already have the separate projections and valuations for the Parent Company and Spun -
+Off Company, the Sum -of-the-Parts Analysis should be simple… in theory.  
+In reality, it’s tricky because you must make judgment calls about which multiples  to use, which 
+ranges  of the DCF valuations to use, and so on.  
+In this analysis, we focus on the revenue multiples  and use the DCF output  to “sanity check” 
+the multiples. The first step is to link in the Implied Enterprise Value s: 
+ 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+20 of 27 https://breakingintowallstreet.com  
+Then, we add both “Blended Average” TEVs and adjust for corporate overhead to get the 
+Combined Enterprise Value . Then, we factor in the original company’s  bridge items to get the 
+Combined Equity Value.  
+Finally, we divide by the combined share count  to get the range of Implied Share Prices.  
+The annotated screenshot below lays out the process more clearly:  
+ 
+If you get one of these adjustments wrong, it’s not the end of the world because the se 
+companies are dramatically undervalued no matter what you do.  
+As part of this exercise, we also value Total SE’s ~52% stake in SunPower and ~35% Stake in 
+Maxeon based on their Implied Equity Values and determine that these stakes would be worth 
+far more after the spinoff.  
+Return to Top . 
+
+ Advanced Financial Modeling Course  
+ 
+21 of 27 https://breakingintowallstreet.com  
+Interview Questions  
+You stand a better chance of being struck by lightning than getting detailed questions about 
+spinoff deals in interviews, so we present this section mostly so you can test your knowledge 
+and review the key concepts.  
+If you’ve worked on a spinoff or similar M&A deal, these topics are more likely to come up. If 
+they do, the interviewer will likely focus on the conceptual questions rather than the math and 
+financial statement adjustments.  
+ 
+Motivations and Transaction Assumptions  
+These questions are  the most likely ones because they do not depend on specialized analyses or 
+obscure knowledge about financial statement adjustments . 
+ 
+1. Why would a company spin off a division or business unit?  
+In most cases, valuation  is the primary motivation. For example, the company believes that the 
+market currently undervalues it  and that its total value would be higher as separate, pure -play 
+businesses in specific industries.  
+The company might also believe that the spun- off division  could achieve its performance goals 
+more effectively as an independent entity.  
+ 
+2. How are spinoffs different from carve -outs, divestiture s, and split- offs?  
+In a spinoff, the Parent Company creates a new public entity for one of its subsidiaries and 
+distributes shares in this new subsidiary for free  to its existing shareholders . Not only is it tax -
+free in most cases, but it also lets shareholders “double dip” because they retain their shares in 
+the parent while also getting shares in the Spun- Off Co . 
+A split -off is similar, but the shareholders must choose  between getting shares in the Spun -Off 
+Co. or retaining their shares in the P arent.  
+In a carve -out, the Parent sells shares in the subsidiary by taking it public via a traditional IPO 
+process, so the new company raises additional capital in the deal, and the existing shareholders 
+do not get any shares for free (though they can buy shares in the IPO).  
+ Advanced Financial Modeling Course  
+ 
+22 of 27 https://breakingintowallstreet.com  
+A divestiture  refers to the sale of a division to another company or financial sponsor, so it is not 
+turned into a separate publicly traded entity.  It is more like a traditional M&A deal but with 
+tweaks to the division’s financials to reflect its new profile as an independent entity.  
+ 
+3. Why might a spinoff look more favorable on paper than in reality?  
+First, there’s no guarantee that the total value of the Parent Company + Spun -Off Company will 
+be higher post- transaction; the valuation multiples from pure -play companies in the industry 
+might point to this outcome, but anything could happen in real life.  
+For example, pure -play companies in one segment may trade at 10 –  12x EBITDA multiples, but 
+the Spun- Off Company in the deal you’re analyzing trades at only 6 –  8x because it is perceived 
+as riskier or lower growth . 
+Also, people often fail to properly account for the additional corporate overhead and dis -
+synergies  when companies separate. These additional expenses reduce cash flows and profit 
+margins, and they often end up being higher than expected.  
+ 
+4. What does the Distribution Ratio in a spinoff represent?  
+The Distribution Ratio  represents the number of shares in the Spun- Off Company that 
+shareholders receive for each 1 share of the Parent Company they currently own. For example, 
+if it’s a 4:1 Distribution Ratio, a shareholder with 100 shares in the Parent retain s those 100 
+shares and gets 400 shares in the Spun -Off Company.  
+The Distribution Ratio * Parent’s Share Count * P roposed Share Price gives you the Spun -Off 
+Company’s initial Equity Value after the deal takes place – but this often changes significantly as 
+the market reacts . 
+ 5. Why might a S pun-Off Company raise  additional Debt or E quity at the time of the deal?  
+This happens most frequently when the Spun -Off Company is cash flow -negative and depends 
+on the Parent for funding. It won’t be able to do this post -transaction, so it often raises 
+additional capital in the deal and plans to keep raising funds as needed af terward.  
+ 
+ Advanced Financial Modeling Course  
+ 
+23 of 27 https://breakingintowallstreet.com  
+6. Wait a minute. If the Spun- Off Company raises additional capital in the deal, is it still a 
+spinoff? Wouldn’t it be a carve -out in that case?  
+No. To be a spinoff, the Parent’s shareholders must get a certain number of shares in the Spun-
+Off Company for free  while retaining all their shares in the Parent. Raising additional capital 
+from other investors at the time of the spinoff does not make it  a different deal type.  
+It would be a carve -out only if the Parent’s shareholders did not  get Spun -Off Co shares for free 
+and Spun -Off Co instead sold shares only  via the IPO process.  
+Return to Top . 
+ 
+Financial Statement Adjustments  
+These questions are more technical , so they are likely to come up only if you have worked on a 
+spinoff or similar deal.  
+ 
+1. What are the main adjustments you make to each company's Balance Sheet in a spinoff?  
+First, you should reflect all the transferred  Assets and Liabilities, which means most of the 
+Parent Company’s numbers will  decrease (though there may be exceptions  in certain deals).  
+Equity  for each company should be adjusted based on all  the adjustments to the Net Assets; for 
+example, if the Spun -Off Company’s Assets are adjusted up by $100, but its Liabilities are only 
+adjusted up by $40, its Equity should be adjusted up by $60 so the Balance Sheet balances.  
+For the Parent Company, you should also debit  (deduct) the Spun -Off Company’s entire 
+Common Shareholders’ Equity balance within Equity.  
+Beyond these, you’ll also adjust for transferred /paid/received Cash, Debt, and other financing 
+items and additional capital raised in the deal.  
+ 
+2. What are the “Transaction -Adjusted Equity Value ” and “Transaction -Adjusted Enterprise 
+Value ”, and why are they important in spinoffs ? 
+For the Spun -Off Company, the Transaction -Adjusted Equity Value equals the Parent’s Share 
+Count * Distribution Ratio * Proposed Share Price , plus adjustments for any additional Equity 
+capital raised in the deal.  
+ Advanced Financial Modeling Course  
+ 
+24 of 27 https://breakingintowallstreet.com  
+The Transaction -Adjusted Enterprise Value equals this Transaction -Adjusted Equity Value 
+plus/minus the usual items in the bridge, but you should apply the transaction -related 
+adjustments to the company’s most recent Balance Sheet.  
+For the Parent Company, the Transaction -Adjusted Equity Value equals its Current Equity Value 
+minus the Spun -Off Company’s Distribution Value , or Parent’s Share Count * Distribution Ratio 
+* Proposed Share Price  (i.e., do not include any other capital raised in the deal).  
+The Transaction -Adjusted Enterprise Value is based on the normal bridge items plus the 
+transaction adjustments.  
+These metrics are important because the valuation multiples  for the separated companies are 
+based on them, and the separate DCF analyses also use these bridge items to move from 
+Implied Enterprise Value to Implied Equity Value.  
+ 
+3. What are the most common Income Statement and Cash Flow Statement adjustments  for 
+the companies involved in a spinoff?  
+First, you reallocate the revenue, expenses, and cash flow line items , such as CapEx,  from one 
+company to the other. The Parent’s numbers usually fall significantly if the Spun- Off Company is 
+substantial.  
+Second, if the Parent was funding the Spun- Off Company, you remove all the line items related 
+to that, including the additional Debt and Equity funding and the additional Interest Expense 
+and Shares Issued.  
+Finally, you recalculate the Taxes for each company as a separate entity , which is important in 
+the case of financing changes or different corporate headquarters.  
+ 
+4. Does EPS accretion/dilution mean anything in a spinoff?  
+While you can calculate EPS accretion/dilution for the Parent Company in a spinoff, it does not 
+mean much and is rarely a key motivation for deals.  
+The main problem is that in a spinoff, the Parent Company does not “sell” a subsidiary and 
+record a Gain or Loss; instead, it separates  the Spun -Off Company’s financials and creates and 
+distributes shares in this new entity.  
+So, unlike in a traditional M&A deal, where you can compare the weighted average acquisition 
+cost to the Target’s yield, there’s no “basis for comparison ” in a spinoff.  
+ Advanced Financial Modeling Course  
+ 
+25 of 27 https://breakingintowallstreet.com  
+EPS accretion/dilution mostly tells you whether the Spun- Off Company had higher or lower  
+margins than the Parent.  
+ 
+5. Suppose that a S pun-Off Company needs additional funding post- transaction for its 
+operations. What is the likely valuation impact?  
+It depends on the valuation method. Enterprise Value -based multiples from the comparable 
+companies should not produce different results because Enterprise Value is capital structure -
+neutral. However, Equity Value -based multiples , like P / E , change based on the financing 
+structure, and they could increase or decrease depending on the planned amounts of Debt and 
+Equity and the company’s current capital structure.  
+However, you will see the biggest impact in a DCF because if the company’s cash flows are 
+negative , they will reduce its implied value, and if its Debt and Equity keep changing as it raises 
+more capital, that will affect its WACC. You may even assume a changing WACC over the 
+forecast period to reflect this.  
+For example, if the company keeps issuing 100% Equity to offset its negative cash flow , its 
+WACC will likely increase  because Equity is more expensive than Debt. Therefore, its implied 
+value from the DCF will decrease due to this higher/rising WACC.  
+Return to Top . 
+ 
+Spinoff Valuation  
+The main point of a spinoff is to achieve  a higher total valuation, so these valuation -related 
+questions are more likely than those in the previous section.  
+ 
+1. How do you value each new company  separately in a spinoff?  
+The same way you value any other company: With comparable companies, precedent 
+transactions, and a DCF. Y ou may place less weight on the precedent transactions or skip them 
+since they’re less relevant for valuing newly formed public entities.  
+Other than that, the main difference is that your forecasts must include the transaction adjustments for both companies, such as additional corporate overhead, dis -synergies, and the 
+impact of additional Debt and Equity financing (if applicable ). 
+ Advanced Financial Modeling Course  
+ 
+26 of 27 https://breakingintowallstreet.com  
+ 
+2. What is the MOST LIKELY  reason why DCF -based valuations of the separate companies in a 
+spinoff might produce very different results from valuations based on revenue multiples? 
+The most likely reason is that simple revenue multiples do not account for changes in corporate 
+overhead, dis -synergies, and outside financing, while a proper long -term DCF include s all of 
+these.  
+Revenue multiples capture differences in growth rates  after the spinoff, which is useful, but 
+valuation is ultimately based on the long -term cash flows, so the other items are also critical.  
+ 
+3. Walk me through a Sum -of-the-Parts valuation to assess a spinoff.  
+In a Sum -of-the-Parts (SOTP) valuation, you start by valuing the standalone Parent C ompany 
+and the Spun -Off Company separately via the normal methodologies . 
+You then use these to establish a range of Implied Enterprise Values for each division, which 
+might be based on the 25th to 75th percentile valuation multiples or a similar percentile output 
+range in the DCF sensitivities.  
+Then, you add these Implied Enterprise Values together, deduct the corporate overhead's 
+capitalized value  (which varies widely), and factor in the normal bridge items to calculate the 
+Implied Equity Value.  
+Finally, you divide this by the total share count , or Parent’s Shares * (1 + Distribution Ratio ), to 
+see if the Implied Share Price  for the companies as separate entities might be higher than the 
+Parent’s current price.  
+ 
+4. How does the corporate overhead adjustment work? When is it most/least useful?  
+The corporate overhead adjustment is based on the additional expenses the companies as 
+separate entities must spend on functions like accounting, IT, and HR . The rationale is that 
+operating two smaller, independent entities usually costs more than one larger entity.  
+If these adjustments are not already included in the companies’ projected financials, you should estimate the total amount of additional corporate overhead and capitalize it based on a 
+valuation multiple in -line with the profitability -based multiples from the peer companies (e.g., 
+10x if the median EBITDA multiple is 10x).  
+ Advanced Financial Modeling Course  
+ 
+27 of 27 https://breakingintowallstreet.com  
+The Implied Equity Value then equals Parent Co. Implied Enterprise Value + Spun- Off Co. 
+Implied Enterprise Value – Capitalized Value of Corporate Overhead.  
+This adjustment is most important in a standard SOTP valuation when you have not  yet created 
+full projections for each company as a separate entity; if you already have them, including 
+additional overhead and dis -synergies, you may not even need this separate adjustment.  
+ 
+5. Which TEV bridge items and share counts should you use in the SOTP analysis?  
+The “bridge” at the end of a SOTP valuation for a spinoff should be based on the Parent 
+Company’s Balance Sheet before the deal takes place  because the point of a SOTP valuation is 
+to say, “What would this company be worth to shareholders today  if each division ’s Enterprise 
+Value were different , but the entire company’s Balance Sheet remained the same?”  
+However, even if you used the separate companies’ bridges and added them together, there 
+shouldn’t be much  difference ( in theory ). 
+The share count should be based on the total shares  after creating  new shares for the Spun -Off 
+Company via the Distribution Ratio , i.e., Parent Share Count * (1 + Distribution Ratio).  
+The rationale is that the existing shareholders can capture  this increased value only if the 
+spinoff takes place and additional shares are created, so you must assume some dilutive effect to make a proper comparison.  
+Return to Top . 

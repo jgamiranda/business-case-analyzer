@@ -1,0 +1,484 @@
+ 
+1 of 14  https://breakingintowallstreet.com  
+Advanced Financial Modeling, Module 3: More Advanced Accounting  (Reference Module)  
+You’ll start this module by learning about the Book Value, Face Value, and Market Value of 
+Debt, and how they differ because of items such as Issuance Fees and Original Issue Discount 
+(OID). You’ll also learn about different types of Debt, non -cash or Paid -in-Kind (PIK) Interest, 
+and convertible bond accounting.  
+Then, you’ll learn about Equity Investments and Noncontrolling Interests, see how th ey get 
+created and flow through the financial statements, and see what happens when they disappear 
+as companies deconsolidate their statements.  
+You’ll wrap up with a few lessons on more specific topics, such as the tax treatment of Stock -
+Based Compensation , Unrealized Gains and Losses on different types of securities, FIFO vs. LIFO 
+for Inventory, and introductory Pension Accounting for defined -benefit pension plans.  
+ 
+AFM -03-01: Debt Issuance Fees and the Book Value vs. Face Value of Debt  (20:41 ) 
+In this les son, you’ll learn the difference between the Book Value and Face Value of Debt, and 
+you’ll learn how to amortize Debt issuance fees and reflect the proper accounting treatment 
+when an entire Debt issuance is repaid before its maturity date.  
+Table of Conten ts: 
+• 2:45:  Book Value vs. Face Value and Debt Issuance Fees  
+• 5:58:  Initial Issuance and Repayment Upon Maturity  
+• 11:52:  Early Repayment of Debt  
+• 17:37:  Deferred Taxes  
+• 18:42:  Recap and Summary  
+ 
+Quiz Questions:  
+11:51 When do the Book Value and Face Value of a Debt issuance differ the MOST?  
+a) When the Debt is first issued.  
+b) Upon maturity , when  the Debt is repaid.  
+c) It depends on the Amortization schedule for the issuance fees.  
+d) It depends on whether or not early principal repayments are allowed.  
+Explanation:  The first answer choice is correct. The Book Value and Face Value of Debt always 
+differ the most when the Debt is FIRST ISSUED because at that point, Book Value = Face Value – 
+Issuance Fees. Each year after that, the difference narrows as more  of the Issuance Fees are 
+amortized. The second answer is completely wrong because Book Value = Face Value upon 
+ 
+2 of 14  https://breakingintowallstreet.com  
+maturity, and this question has nothing to do with the Amortization schedule or early principal 
+repayments (they don’t affect the percentage dif ference – just the amount of remaining fees to 
+be amortized).  
+ 
+AFM -03-02: Market Value of Debt  (11:41 ) 
+You’ll learn about the Market Value of Debt in this lesson, why it might differ from the Book 
+Value of Debt, and how it might influence a company’s finan cial statements – even though 
+changes in the Market Value do not make a direct impact.  
+Table of Contents:  
+• 0:37:  The Market Value of Debt  
+• 2:44:  Excel Setup and Calculations  
+• 8:52:  So… Why Does This Matter?  
+• 10:29:  Recap and Summary  
+ 
+Quiz Questions:  
+8:52 If prevailing yields on similar Debt Issuances are initially 5%, the company issues Debt 
+with a coupon rate of 5%, and then prevailing yields rise to 7%, what happens to the Market 
+Value of this company’s Debt?  
+a) It should increase because investors can now ear n a higher yield.  
+b) It should decrease because this Debt is now comparatively less attractive than other 
+issuances.  
+c) We need additional information about the company’s credit quality and the maturity of 
+the Debt to answer this question.  
+Explanation:  The second answer choice is correct. When the Discount Rate goes up, the Present 
+Value of any security, including a bond (Debt), decreases because it means that there are other, 
+higher -yielding options in the market. The first answer makes no sense, and the third answer is 
+partially true because if the credit quality or maturity changes, those could also affect the 
+Market Value. However, we don’t *need* that information to answer the question – if they stay 
+the same, we can predict the change i n Market Value using only the change in prevailing yields.  
+ 
+AFM -03-03: Debt Discounts, Premiums, and Original Issue Discount (OID)  (20:58 ) 
+ 
+3 of 14  https://breakingintowallstreet.com  
+In this lesson, you’ll learn how to reflect an Original Issue Discount (OID) on the financial 
+statements, and how it changes with early Debt principal repayment and unusual amortization 
+schedules; you’ll also make the formulas for Debt Issuance Fees more robust.  
+Table of Contents:  
+• 0:53:  Introduction  
+• 3:10:  OID Without Debt Repayments  
+• 8:58:  OID With Debt Repayments  
+• 14:51:  Generalizing the Issuance Fee Formulas  
+• 18:47:  Recap and Summary  
+ 
+Quiz Questions:  
+14:50 If a company issues $100 of Debt with a 10 -year maturity and an OID of $5, and it then 
+repays $0 of the principal in Year 1 and all $100 in Year 2, wha t happens to the OID in Years 1 
+and 2?  
+a) It decreases by $0.0 in Year 1, and then the full $5.0 is amortized in Year 2.  
+b) It decreases by $0.5 in Year 1 and by $0.5 in Year 2, following the normal straight -line 
+schedule.  
+c) It decreases by $0.5 in Year 1, and the n the full remaining $4.5 is amortized in Year 2.  
+d) None of the above.  
+Explanation:  The third answer choice is correct. When there is no Debt principal repayment, 
+OID simply amortizes on a straight -line schedule, at $5 / 10 = $0.5 per year in this case. That 
+rules out answer choice #1. When the company repays Debt principal, then it reduc es the OID 
+balance proportionally to the amount of Debt principal repaid relative to the initial Face Value 
+of the Debt. So, if it is 50% repayment, the OID will fall by 50%, split into Amortization and 
+“Loss” components (the Loss just represents accelerat ed Amortization). When it’s 100%, as in 
+this question, the full amount of remaining OID is “amortized” in Year 2 (with $0.5 of actual 
+Amortization and $4.0 recorded as a “Loss”) . 
+ 
+AFM -03-04: Introduction to Convertible Bond Accounting  (23:10 ) 
+You’ll learn how and why companies issue Convertible Bonds in this lesson, and you’ll 
+understand how the accounting works from the initial issuance to the Amortization of the Debt 
+Discount and the eventual conversion or maturity of the Bond.  
+Table of Contents:  
+ 
+4 of 14  https://breakingintowallstreet.com  
+• 0:59:  Convertible Bond Accounting  
+• 2:42:  Step 1: Initial Convertible Bond Issuance  
+• 5:21:  Step 2: Handling Maturities and Conversions  
+• 8:15:  Step 3: Amortization of the Debt Discount  
+• 12:37:  Step 4: Linking the Statements  
+• 21:30:  Step 5: Recap and Summary  
+ 
+Quiz Questions:  
+8:14 When forecasting the Conversions line item for a Convertible Bond, why is it convenient 
+to use the MIN function with the Beginning Face Value of the Bond?  
+a) To handle the case where the maturity happens before the conversion . 
+b) To handle the case where part of the Convertible Bond principal, but not all of it, is 
+repaid early.  
+c) To handle the case where the company repurchases the Bond early at a premium.  
+d) All of the above.  
+Explanation:  The first answer choice is correct. Since the user of our mo del could set the 
+Maturity Year and the Conversion Year to any numbers, we need to check for the case where 
+the conversion is in Year 5, but the maturity is in Year 3 (for example) and ensure that the Face 
+Value only goes to $0 once. To do that, it’s conve nient to use MIN to check the potential 
+conversion in a year against the beginning Face Value in that year. The second answer is wrong 
+because early partial repayment is almost unheard of for Convertible Bonds, and we’re not 
+handling the third scenario in this model.  
+ 
+21:30 What is the PRIMARY difference in the accounting treatment s of Original Issue Discount 
+(OID) on a Traditional Bond vs. the Discount on a Convertible Bond?  
+a) The tax  deductibility of the Amortization of OID and the Convertible Bond Discount 
+differ.  
+b) The Convertible Bond Discount does not amortize over time, but the Original Issue 
+Discount does.  
+c) When a Convertible Bond converts into shares, both its components are transferred 
+into Common Shareholders’ Equity.  
+d) Book Value and Face Value tend to be closer for a Traditional Bond.  
+Explanation:  The third answer choice is correct. When a Traditional Bond with OID is repaid 
+early, the remaining Unamortized OID shows up as a Loss on the Income Statement, and the 
+Book Value and Face Value both go  to 0. But with a Convertible Bond, an early conversion 
+ 
+5 of 14  https://breakingintowallstreet.com  
+results in both the Liability and Equity components being transferred into Common 
+Shareholders’ Equity.  The tax -deductibility of these items does not differ, and both amortize 
+over time, so the first two answers are wrong. The last answer is wrong because Book Value 
+and Face Value are not necessarily any closer for a Traditional Bond – it depends on the interest 
+rates and credit quality of the company.  
+ 
+AFM -03-05: Types of Debt and Paid -in-Kind Interes t (PIK)  (11:11 ) 
+In this lesson, you’ll learn about different types of Debt, including the Secured vs. Unsecured 
+categories, and you’ll understand how non -cash, accrued, or paid -in-kind (PIK) interest flows 
+through the financial statements.  
+Table of Contents:  
+• 0:39:  Types of Debt  
+• 3:48:  Mechanics of PIK Interest  
+• 7:06:  Financial Statement Links  
+• 9:35:  Recap and Summary  
+ 
+Quiz Questions:  
+9:34 When interest on Debt is Paid -in-Kind (PIK) for one period, what happens to the Debt’s 
+Book Value and Face Value?  
+a) Book Value increases, but Face Value stays the same.  
+b) They both increase.  
+c) Face Value increases, but Book Value stays the same.  
+d) Neither Face Value nor Book Value increase.  
+Explanation:  The second answer choice is correct. PIK Interest increases both the Book Value 
+and Face Value of the Debt because it means the company will have to pay interest on a higher 
+principal in the future, and it also means that the corresponding Liability line i tem on the 
+Balance Sheet will increase, even more than it already increases from the Amortization of 
+issuance fees and OID.  
+ 
+AFM -03-06: Book Value vs . Market Value vs . Face Value of Bonds: How to Keep Them All 
+Straight  (19:13 ) 
+ 
+6 of 14  https://breakingintowallstreet.com  
+You’ll get a summary of the k ey Debt -related points from the first five lessons in this module 
+here, and you’ll learn how to apply Face Value, Book Value, and Market Value to real Debt 
+schedules for Toro and Atlassian.  
+Table of Contents:  
+• 0:55:  Short Summary  
+• 3:11:  Toro Debt Schedule  
+• 8:05:  Atlassian Debt Schedule  
+• 17:27:  Recap and Summary  
+ 
+Quiz Questions:  
+8:04 How can you SIMPLIFY a Debt Schedule for a company that is continuously issuing and 
+repaying Debt if you want to reflect the Book Value and Face Value each year?  
+a) Assume t hat the average maturity for each Debt issuance is beyond the end of the 
+projection period.  
+b) Do not track the Issuance Fees as a separate line item; just the Amortization and initial 
+deduction for them.  
+c) Ignore the possibility of accelerated Issuance Fee amo rtization upon early repayment.  
+d) All of the above.  
+Explanation:  Everything above is correct. Debt Schedules are much simpler if the maturities and 
+full repayments do not happen within the schedule (answer #1) because then you do not have 
+to handle accelerated Issuance Fee or OID Amortization (answer #3). Also, you can save time 
+and space by not tracking Issuance Fees separately; just deduct the initial fees from the Book 
+Value and add the Amortization of those fees in each period.  
+ 
+AFM -03-07: Equity Method of Accounting (Equity Investments or Associate Companies), Part 
+1: Net Income and Dividends  (15:54)  
+In this lesson, you’ll learn what happens on the three financial statements when a company first 
+purchases a minority stake (Equity Investment ) in another company, and you’ll see how the 
+other company’s Net Income and Dividends flow through the statements.  
+Table of Contents:  
+• 1:01:  Equity Method of Accounting ("Equity Investments" or "Associate Companies")  
+• 5:50: Part 1: Initial Purchase of a Mino rity Stake  
+• 10:22:  Part 2: Net Income and Dividends from Equity Investments  
+ 
+7 of 14  https://breakingintowallstreet.com  
+• 13:51:  Recap and Summary  
+ 
+Quiz Questions:  
+13:50 A Parent Company purchases a 40% stake in another company for $40 at the end of 
+Year 1. The other company generates $10 in Net Income and issues $5 in Dividends in Year 2. 
+What is the Equity Investments line item on the Parent Company’s Balance Sheet at the end 
+of Year 2?  
+a) $45.  
+b) $35.  
+c) $38.  
+d) $42.  
+e) Cannot answer this question without knowing the Parent Company’s Tax Rate.  
+Explanation:  The fourth answer choice is correct. The initial purchase creates an Equity 
+Investment of $40. Then, the Parent records 40% * $10 = $4 of Net Income from the Associate 
+on its Income Statement. It then reverses this $4 on the CFS and records 40% * $5 = $2 for 
+Dividends. The $4 adds to Equity Investments on the Balance Sheet, and the $2 reduces it. $40 
++ $4 – $2 = $42.  The Tax Rate of the Parent does not matter at all, so the last answer choice is 
+wrong.  
+ 
+AFM -03-08: Equity Method of Accounting (Equity Invest ments or Associate Companies), Part 
+2: Changing the Ownership and Gains and Losses  (11:50 ) 
+You’ll learn how to record changes in minority stakes (Equity Investments) in this lesson, 
+including how Realized Gains and Losses work, and why determining the cost  basis can be 
+tricky.  
+Table of Contents:  
+• 0:56:  Increasing the Stake  
+• 2:15: Sales and Realized Gains and Losses  
+• 7:56:  Testing the Model  
+• 9:54:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+8 of 14  https://breakingintowallstreet.com  
+9:53 Company A has a 30% stake in Company B in Year 2  when 100% of Company B is worth 
+$200. Then, in Year 2, Company B’s value increases to $250, and Company A sells its entire 
+stake. Why is the Gain NOT necessarily equal to $15?  
+a) Because Company A might have acquired portions of its stake in Company B at different  
+valuations.  
+b) Because Company A’s cost basis in Company B might have been affected by Net Income 
+and Dividends from Company B.  
+c) Because Company A might have previously sold portions of its stake in Company B at 
+different valuations.  
+d) All of the above.  
+Explanation:  Everything above is true. The point of this question is that the Cost Basis when 
+selling an Equity Investment is not necessarily its market value * ownership percentage just 
+before the sale – it could also be affected by acquisitions and sales  at different prices, as well as 
+cumulative Net Income and Dividends. Remember that Equity Investments are recorded at 
+historical cost and are not marked to market value.  
+ 
+AFM -03-09: Consolidation Accounting (Noncontrolling Interests), Part 1: Acquiring an  Initial 
+Majority Stake  (19:27 ) 
+In this lesson, you’ll get an introduction to Noncontrolling Interests, and you’ll learn how to 
+combine and adjust the Balance Sheets when one company acquires a majority stake (between 
+50% and 100%) of another company.  
+Tabl e of Contents:  
+• 5:26:  Part 1: Recording the Starting State  
+• 10:49:  Part 2: Transaction Assumptions and Goodwill  
+• 13:19:  Part 3: Assets Side Adjustments  
+• 15:00:  Part 4: L&E Side Adjustments  
+• 17:33:  Recap and Summary  
+ 
+Quiz Questions:  
+13:18 When a company acquires 70% of another company rather than 30%, how does the 
+Goodwill calculation differ?  
+a) No Goodwill is created in either scenario.  
+b) Goodwill is created based on 100% of the company’s equity purchase price in the first 
+case, but no Goodwill is created in the second case.  
+ 
+9 of 14  https://breakingintowallstreet.com  
+c) Goodwill is created based on 70% of the company’s equity purchase price in the first 
+case, but no Goodwill is created in the second case.  
+d) Goodwill is created based on 70% of the company’s equity purchase price in the first 
+case, but it’s based on 30% in the second case.  
+Explanation:  The second answer choice is correct. Since the statements are consolidated 100%, 
+the new Goodwill must be based on 100% of the target company’s equity purchase price when 
+there’s a majority -stake acquisiti on for more than 50% but less than 100% of the target 
+company. In a minority -stake deal, no Goodwill is created because the statements are not 
+consolidated at all. The other answer choices all get this wrong.  
+ 
+AFM -03-10: Consolidation Accounting (Noncontrolling Interests), Part 2: Combining the 
+Financials and Reflecting Net Income and Dividends  (20:40 ) 
+You’ll learn how to consolidate fully the financial statements of the Parent and Sub Co in this 
+lesson, including how the Net Income and Dividends for each entity flow into Common 
+Shareholders’ Equity and Noncontrolling Interests.  
+Table of Contents:  
+• 0:54:  Part 1: Combined Income Statement  
+• 5:09: Part 2: Combined Balance Sheet  
+• 6:49:  Part 3: Combined Cash Flow Statement  
+• 12:42:  Part 4: Linking the Balance Sheet  
+• 18:42:  Recap and Summary  
+ 
+Quiz Questions:  
+12:4 2 If a Parent Company owns 80% of Sub Co, and the Sub Co issues a Dividend of $10, 
+what is the *net cash flow impact* on the Parent Company’s Cash Flow Statement?  
+a) It decreases by $8.  
+b) It decreases by $10.  
+c) It decreases by $2.  
+d) It increases by $2.  
+Explanation:  The Parent records 100% of the Sub Co’s Dividends, which represents a cash 
+outflow of $10, but then it records 80% * $10 = $8 of Dividends Received, which is a cash 
+inflow. Therefore, cash flow decreases by $2, or $10 * (1 – Ownership Percentage).  
+ 
+ 
+10 of 14  https://breakingintowallstreet.com  
+AFM -03-11: Consolidation Accounting (Noncontrolling Interests), Part 3: Selling the Stake and 
+Deconsolidating the Financials  (20:46 ) 
+In this final lesson in the sequence on Noncontrolling Interest s, you’ll learn how to 
+deconsolidate the financial statements when the parent company sells part of its stake in 
+another company and reduces its ownership to a minority stake.  
+Table of Contents:  
+• 1:24:  Part 1: Transaction Assumptions  
+• 7:29:  Part 2: Balance Sheet Adjustments  
+• 11:00:  Part 3: Financial Statements in Year 5  
+• 18:59:  Recap and Summary  
+ 
+Quiz Questions:  
+10:59 Which of the following does NOT necessarily change on the Balance Sheet when a 
+company moves from a majority stake to a minority stake in another company?  
+a) The Goodwill that was created in the initial acquisition of the majority stake.  
+b) The Equity Investments and Noncontrolling Interests.  
+c) The New Transaction Debt that was used to fund the initial acquisition of the majority 
+stake.  
+d) Operational Assets, such as Accounts Receivable and Inventory.  
+Explanation:  The third answer choice is correct. When a company goes from a majority stake to 
+a minority stake in another company, the Goodwill created in the original deal must be 
+remov ed, and Equity Investments and Noncontrolling Interests must change to reflect the new 
+ownership. All of the other company’s Assets and Liabilities must also be removed, which 
+means that Operational Assets will definitely change. However, the New Transacti on Debt used 
+to fund the initial deal won’t necessarily change because the company is not required to repay 
+it when its ownership changes.  
+ 
+AFM -03-12: Stock -Based Compensation, Tax Benefits, and Excess Tax Benefits (U.S. GAAP and 
+IFRS)  (21:21 ) 
+You’ll learn  about Stock -Based Compensation and how the exercise of options creates Tax 
+Benefit and Excess Tax Benefit line items on the financial statements in this lesson, as well as 
+how the accounting treatment and Deferred Tax Asset differ under U.S. GAAP and IFRS . 
+Table of Contents:  
+ 
+11 of 14  https://breakingintowallstreet.com  
+• 0:38:  Part 1: Stock -Based Compensation Overview  
+• 1:47:  Part 2: Assumptions  
+• 4:12:  Part 3: Linking the Statements  
+• 9:02:  Part 4: How IFRS is Different  
+• 15:20:  Part 5: Linking the Statements Under IFRS  
+• 19:19:  Recap and Summary  
+ 
+Quiz Questions:  
+9:01 Under U.S. GAAP, if a company records $20 of Stock -Based Compensation on its Income 
+Statement in Year 1, and then its value increases to $40 in Year 5, when employees receive 
+their shares, how does the Deferred Tax Asset change?  Assume a 25 % tax rate.  
+a) It will increase to $5 in Year 1 and decrease back to $0 in Year 5.  
+b) It will increase to $5 in Year 1, increase to $10 after that, and then decrease back to $0 
+in Year 5.  
+c) It will not change at all because only Excess Tax Benefits affect the DTA.  
+d) It will increase to $5 in Year and then decrease to ($5) in Year 5.  
+Explanation:  The first answer choice is correct. The DTA under U.S. GAAP reflects only the lack 
+of Cash -Tax Deductibility for the *initial* grant of SBC, and it decreases when that SB C finally 
+becomes deductible for Cash -Tax purposes upon exercise or receipt of the shares. Therefore, 
+the DTA increases by $20 * 25% = $5 in Year and decreases by $5, moving back to $0, in Year 5 
+in this example. The fact that the SBC’s value has doubled d oes not matter because the Excess 
+Tax Benefits from this increase are recorded directly on the Income Statement and do not 
+affect the DTA on the Balance Sheet.  
+ 
+AFM -03-13: Equity and Debt Investment Types and Unrealized Gains and Losses  (Trading or 
+FVPL, AFS or FVOCI, and HTM or Amortized Cost)  (17:20 ) 
+In this lesson, you’ll learn how companies record different types of Equity and Debt securities 
+on their financial statements, and how the treatment for Unrealized Gains and Losses differs  
+based on the security type.  
+Table of Contents:  
+• 1:47: Overview  
+• 7:08:  Trading or FVPL Securities  
+• 9:22:  AFS or FVOCI Securities  
+• 11:02:  HTM or Amortized Cost Securities  
+ 
+12 of 14  https://breakingintowallstreet.com  
+• 15:37:  Recap and Summary  
+ 
+Quiz Questions:  
+9:21 You record a $20 Unrealized Gain on equity securities on the Income Statement. Why 
+does the Deferred Tax Asset decrease?  
+a) Because you do not actually pay additional Cash Taxes on this Unrealized Gain.  
+b) Because you will owe Cash Taxes only when these equity securities are actually sold.  
+c) Because  Cash Taxes are less than Book Taxes in this period.  
+d) All of the above.  
+Explanation:  Everything above is true. Companies do not pay Cash Taxes on Unrealized Gains or 
+save them on Unrealized Losses; they simply change the Deferred Tax Asset such that the actual 
+tax savings happen in some future period when the company finally sells the securities. When 
+there’s an Unrealized Gain, Cash Taxes will be less than Book Taxes because the Gain is not 
+taxable, which reduces the DTA. It’s the opposite with an Unreal ized Loss (Cash Taxes exceed 
+Book Taxes, which increases the DTA), to represent that the real tax savings will come in a 
+future period.  
+ 
+AFM -03-14: Inventory Costs: LIFO vs. FIFO vs. Moving Average Weighted Cost  (12:54 ) 
+You’ll learn how the LIFO, FIFO, and  Weighted Average methods for recording Inventory and 
+COGS differ in this lesson, and you’ll understand the trade -offs between them and why IFRS 
+does not allow LIFO.  
+Table of Contents:  
+• 0:38:  LIFO vs. FIFO  
+• 3:28:  Excel Demonstration  
+• 8:58:  Trade -Offs of These  Methods  
+• 11:37:  Recap and Summary  
+ 
+Quiz Questions:  
+11:37 When would expect the FIFO method for Inventory and COGS to produce a *higher* 
+COGS figure than the LIFO method?  
+a) When Inventory costs have been rising.  
+b) When Inventory costs have been falling.  
+ 
+13 of 14  https://breakingintowallstreet.com  
+c) When Inventory costs have stayed about the same.  
+d) When Inventory costs have fluctuated up and down.  
+Explanation:  When Inventory costs have been falling, the most recent Inventory purchased will 
+be less expensive than earlier Inventory purchased. LIFO uses t he most recent Inventory, while 
+FIFO uses the oldest Inventory for the costs. Therefore, under FIFO, the COGS shown on the 
+Income Statement will be higher, and under LIFO, the COGS on the Income Statement will be 
+lower. The last two answers do not make sen se because you cannot predict anything about 
+COGS under each method in these cases.  
+ 
+AFM -03-15: Pension Accounting, Part 1: Assets, Liabilities, Income Statement, and Cash Flow 
+Statement (U.S. GAAP) (22:06 ) 
+In this lesson, you’ll learn the fundamentals of pension accounting, including how Pension 
+Assets and Liabilities for defined -benefit plans change, and how the components of the Income 
+Statement and Cash Flow Statement pension line items are created.  
+Table of Contents:  
+• 1:32:  What Are Pens ions?  
+• 2:54:  Defined -Contribution Pension Plans  
+• 4:11:  Defined -Benefit Plans  
+• 6:03:  Pension Assets  
+• 8:45:  Pension Liabilities  
+• 10:41:  Service Cost and Interest Cost  
+• 14:18:  Income Statement  
+• 18:18:  Cash Flow Statement  
+• 20:04:  Recap and Summary  
+ 
+Quiz Questions:  
+14:17 Which of the following CORRECTLY describes the Pension Service Cost and the Pension 
+Interest Cost?  
+a) Both are non -cash, non -operational expenses.  
+b) Both are non -cash, but the Service Cost is operational, while the Interest Cost is not.  
+c) The Service Cost is a cash, operational expense, while the Interest Cost is non -cash and 
+non-operational.  
+d) Both are cash, non -operational expense.  
+ 
+14 of 14  https://breakingintowallstreet.com  
+Explanation:  The second answer choice is correct. Both the Service Cost and Interest Cost are 
+non-cash because the y just represent the passage of time or the accrual of future payouts – but 
+no cash payments in the current period. However, the Service Cost is considered operational 
+since it relates to running the plan for employees, while the Interest Cost is considere d financial 
+since it’s related to the Present Value of future payouts changing.  
+ 
+AFM -03-16: Pension Accounting, Part 2: Links on the Three Statements and IFRS Treatment  
+(16:26 ) 
+You’ll learn how to link pension -related items in a full 3 -statement model in t his lesson, 
+including key simplifications, and you’ll understand how the accounting treatment of defined -
+benefit pension plans differs under IFRS.  
+Table of Contents:  
+• 0:48:  Pension Links on the Financial Statements  
+• 8:57:  IFRS Pension Accounting  
+• 14:04:  Recap and Summary  
+ 
+Quiz Questions:  
+14:0 4 Which of the following is NOT a major difference in pension accounting under IFRS vs. 
+U.S. GAAP?  
+a) Under U.S. GAAP, the difference between Expected and Actual Returns is amortized on 
+the IS; that does not happen under  IFRS.  
+b) The Expected Return on Plan Assets is not an IS line item under IFRS.  
+c) Service Costs and Interest Costs may be put in different categories on the IS.  
+d) The tax deductibility of the IS Pension Expense vs. Employer Contributions may differ.  
+Explanation:  The second answer is the correct choice because the Expected Return on Plan 
+Assets *is* still an Income Statement line item under IFRS. It’s just that the difference between 
+Expected and Actual Returns is not amortized on the IS, unlike U.S. GAAP. Instead,  the 
+difference each year is recorded directly within AOCI in CSE. The last two answer choices are 
+incorrect because they represent *actual differences* between U.S. GAAP and IFRS in the 
+treatment of pensions.  

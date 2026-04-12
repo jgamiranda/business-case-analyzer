@@ -1,0 +1,707 @@
+ 
+1 of 21  https://breakingintowallstreet.com  
+Advanced Financial Modeling, Module 11: Equity vs. Debt vs. Convertible Bond Analysis from 
+a Blank Sheet (Netflix) (1 -Week Case Study)  
+You’ll complete a case study based on Netflix in this module, which has several components.  
+In the first part, you’ll start from a blank Excel sheet and build a 3 -statement model and 
+credit/refinancing analysis for the company to recommend the best way to treat its upcoming 
+$4 billio n debt maturities.  
+In the second part, you’ll analyze one of the  company’s specific bond issuances and calculate 
+metrics such as the Yield to Maturity (YTM), Duration, and Convexity, and recommend  whether 
+the company should refinance that issuance right now.  
+Finally, you’ll conclude by  analyzing a potential convertible  bond issuance for the company, 
+including a valuation, an estimate of its blended cost, and dilution estimates at different share 
+prices if Netflix sets up a “capped call” transaction.  
+ 
+AFM -11-01: Netflix Equity vs. Debt vs. Convertible Bond Case Study Ove rview and Strategy  
+(15:00 ) 
+In this lesson, you’ll get an introduction to this case study and learn about the decision -making 
+process for debt and equity financings and the recommended model completion order.  
+Table of Contents:  
+• 2:24:  Part 1: How to Interpret the Case Document  
+• 5:04:  Part 2: How to Make a Financing Decision  
+• 7:35:  Part 3: Recommended Model Order and Complexity  
+• 13:23:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -11-02: Inputting and Simplifying the Financial Statements  (29:31 ) 
+You’ll learn how to link in, simplify, and format Netflix’s historical financial statements in this 
+lesson based on the Excel or CSV -formatted financials on the company’s website.  
+Table of Contents:  
+• 2:34:  Income Statement  
+ 
+2 of 21  https://breakingintowallstreet.com  
+• 12:23:  Balance Sheet  
+• 18:45:  Cash Flow Statement  
+• 27:53:  Recap and Summary  
+ 
+Quiz Questions:  
+12:22 What is the MOST EFFICIENT way to input a company’s historical financial statements 
+into a blank Excel sheet?  
+a) Enter the numbers manually from an annual filing PDF.  
+b) Link directly to the company’s Excel or CSV with the financials, copy and paste as 
+values, and then manipulate and format the data.  
+c) Link directly to the company’s Excel or CSV, but choose the line items to link to as you go 
+down through each statement.  
+d) Download  the financials from Capital IQ or FactSet and use them as -is. 
+Explanation:  The second answer choice is the best one. It’s fastest to link to all the text labels 
+and data first and then consolidate, delete, and add lines and apply formatting once you’ve 
+copied and pasted everything as values. It will take much longer to do this if you copy and paste 
+manually from the filing PDFs or if you selectively link in or copy items from the Excel or CSV 
+file. Downloading the financials from Capital IQ or FactSet is a n option as well, but even if you 
+do this, you’ll have to spend time changing around the financials to match the presentation you 
+want – and if you don’t have the source data, it may be difficult to do that in some cases.  
+ 
+AFM -11-03: Revenue Projections wi th Scenarios  (24:45 ) 
+In this lesson, you’ll build different operating scenarios for Netflix based on the long -term 
+historical data and its recent Q1 results, and you’ll learn how to set up different assumptions 
+for the paid subscribers and average revenue per subscriber.  
+NOTE TO LESSON:  The FY 21 Total Revenue and Streaming Revenue in the "Data" tab are 
+wrong. We fix this later in the module (lesson AFM -11-11), and this error with the data makes 
+almost no difference because it only affects the DVD R evenue in the projections, which is 
+insignificant.  
+Table of Contents:  
+• 4:07:  Historical Data and Trends  
+• 10:47:  Revenue Scenarios  
+• 20:01:  Checking the Numbers  
+• 23:03:  Recap and Summary  
+ 
+3 of 21  https://breakingintowallstreet.com  
+ 
+Quiz Questions:  
+20:00 Why do we assume much lower paid membership growth rates for Netflix in the 
+projected period vs. the historical period in all scenarios?  
+a) Poor Q1 results in which the company disclosed the first -ever loss in paid members.  
+b) Rising competition from streaming services such as Disney+ and HBO M ax. 
+c) Market saturation, especially in regions with higher membership fees.  
+d) Consensus views that indicate expected revenue growth in the ~10% per year range.  
+e) All of the above.  
+Explanation:  Everything above is true. While Netflix has grown its paid members by 20-40% 
+historically, this growth slowed sharply in the most recent fiscal year (to under 10%), and its Q1 
+earnings had evidence of its first -ever *loss* in members. The streaming service market is 
+increasingly saturated with well -funded competitors, and m ost research analysts expect much 
+slower growth for the company in the future . 
+ 
+AFM -11-04: Income Statement Projections  (25:24 ) 
+You’ll project Netflix’s Income Statement, including its Cash Content Spending and Content 
+Amortization, in this lesson, and you’ll compare its operating margins in the different cases.  
+Table of Contents:  
+• 3:13:  Cost of Revenue  
+• 14:34:  Operating Expenses  
+• 16:55:  Linking and Checking the Numbers  
+• 23:24:  Recap and Summary  
+ 
+Quiz Questions:  
+14:33 Why do we link Netflix’s Cash Content Spending to the total # of paid memberships 
+rather than making it a percentage of revenue?  
+a) Because even if the revenue per paid member decreases, the company might need to 
+produce and license more content if memberships increase.  
+b) Because by doing t his, we ensure that the margins change at least a bit in the different 
+operating cases.  
+c) Because all of Netflix’s paid members are on month -to-month contracts and tend to 
+cancel and renew based on the currently available content.  
+ 
+4 of 21  https://breakingintowallstreet.com  
+d) All of the above.  
+Explanation:  Everything above is true. We do want the margins to be slightly different in the 
+different scenarios, and we also want to reflect reality: more paid members mean the company 
+needs to produce or license more content, and since members are on mo nth-to-month 
+contracts, they tend to be quite fickle based on the available content.  
+ 
+AFM -11-05: Balance Sheet and Cash Flow Statement Projections  (24:49 ) 
+In this lesson, you’ll calculate the historical percentages for the key Balance Sheet and Cash 
+Flow S tatement drivers, set up the projections, and then link the statements to create a 
+functional 3 -statement model.  
+NOTE TO LESSON:  At 20:49 to 20:59, w e should also link "Acquisitions" to "Property  and 
+Equipment ” since it doesn’t link to anything else. It makes no difference because it’s $0 in each 
+projected year, but it is fixed in the “After” Excel file.  
+Table of Contents:  
+• 1:32:  Historical Percentages  
+• 10:12:  Projections  
+• 15:19:  Linking the Statements  
+• 23:15:  Recap and Summary  
+ 
+Quiz Questions:  
+15:18 Why might you assume lower numbers for Stock -Based Compensation as a % of 
+Revenue in future periods for Netflix?  
+a) Because the company’s stock price has just fallen by ~70%, so issuances of similar 
+dollar amounts imply much greater dilution.  
+b) Because you do not w ant the SBC add -back on the Cash Flow Statement to boost the 
+company’s Free Cash Flow significantly.  
+c) Because the company’s overall operating margins are rising in the projected period.  
+d) All of the above.  
+Explanation:  The first answer choice is correct. At a  much lower stock price, the same dollar 
+amount of SBC would create far more dilution, so Netflix will likely reduce the total amount it 
+issues to employees because of its recent stock price drop. The second answer does not make 
+sense because you can subtr act out SBC if you want to avoid this issue, and the third answer 
+ 
+5 of 21  https://breakingintowallstreet.com  
+does not make sense because the operating margin alone tells you nothing about the portion of 
+employee expenses  paid in cash vs. stock.  
+ 
+AFM -11-06: Financing Scenarios and Equity Value / Enterprise Value Bridge  (Debt Comps and 
+Follow -On Equity Comps)  (24:35 ) 
+You’ll set up the Enterprise Value bridge in this lesson and make assumptions for the follow -on 
+equity offering, senior unsecured notes, and convertible bond based on a review of the 
+comparable companies and the comparable debt and follow -on equity offerings.  
+Table of Contents:  
+• 1:41:  Eq Val / TEV Bridge  
+• 4:24:  Capital Raise Assumptions  
+• 13:47:  Convertible Bond and Senior Note Assumptions  
+• 23:16:  Recap and Summary  
+ 
+Quiz Questions:  
+13:46 When might a company have to offer a *higher than normal* discount on its shares in a 
+Follow -On Equity Offering?  
+a) If the deal size as a percentage of its Market Cap is quite large (above the median for the 
+Follow -On Offering comparables).  
+b) If the compa ny has recently reported poor financial results or reduced its expected 
+growth.  
+c) If the company’s share price has recently changed by a significant percentage (vs. the 
+average over the past year).  
+d) All of the above.  
+Explanation:  Everything above is true. If the company has performed poorly recently or guided 
+to lower growth, it’s less appealing to equity investors , so it will have to offer a higher discount. 
+The same is true if its share price has recently dropped or increased by a huge percentage  – an 
+above -average discount may be required to increase investor interest. Finally, if the company is 
+selling a much higher percentage of itself than in recent comparable deals, it may also need to 
+offer a higher discount due to the greater dilution.  
+ 
+AFM -11-07: Valu ation and Diluted Share Count Projections  (25:26 ) 
+ 
+6 of 21  https://breakingintowallstreet.com  
+In this lesson, you’ll project Netflix’s valuation multiples, implied share price, and diluted share 
+count in the different operating scenarios so that you can determine the conversion status of 
+the convertible bond and calculate credit stats and ratios later.  
+NOTE TO LESSON:  In the 15:15 – 15:36 segment here, the formula for the dilution from the 
+convertible bond does not quite handle all the cases correctly. We enter an improved formula 
+in lesson #1 0. 
+Table of Contents:  
+• 2:34:  Projected Valuations  
+• 9:52:  Share Repurchase, Follow -On, and Convertible  
+• 16:3 0: SBC and Shares from Options  
+• 23:45:  Recap and Summary  
+ 
+Quiz Questions:  
+9:51 Which of the following data sources is NOT useful when projecting Netflix’s potential 
+EBITDA multiples in different operating cases?  
+a) The range of EBITDA multiples for the public comps.  
+b) Netflix’s range of EBITDA trading multiples over the past decade.  
+c) Netflix’s projected growth rate and growth patterns vs. its comparable companies.  
+d) None of the above, i.e., these data sources are ALL useful in this case study.  
+Explanation:  The second answer choice is correct, i.e., it is the LEAST USEFUL data source here. 
+The issue is that Netflix’s recent and projected growth rates are far below what they were 
+historically, so the company should trade at much lower multiples. Therefore, i t’s more relevant 
+to compare it to a set of movie/entertainment public comps and their multiples and growth 
+rates now that the company is more of a media company and less of a high -growth tech 
+company.  
+ 
+AFM -11-08: Debt Schedule, Part 1: Data Gathering  (23:35 ) 
+You’ll start setting up the Debt Schedule in this lesson by gathering and inputting data for the 
+Revolver and existing Senior Note tranches of Debt and consolidating the tranches, where 
+possible, to save time and space.  
+Table of Contents:  
+• 3:11:  Revolver and Coupon Rates  
+• 11:25:  Face Values and Maturities  
+ 
+7 of 21  https://breakingintowallstreet.com  
+• 17:19:  Cash Flow Setup  
+• 21:33:  Recap and Summary  
+ 
+Quiz Questions:  
+11:24 When building a Debt Schedule, when might you be able to consolidate different 
+tranches of Debt into one?  
+a) When they have the same or similar coupon rates, maturities, and other terms.  
+b) When they mature after the end of the projection period in the model.  
+c) When they mature in the same period, such as the same year in an annual model.  
+d) All of the above.  
+Explanation:  Everything above is true.  These are all factors that might explain why you choose 
+to consolidate certain tranches of Debt. In other words, it’s worth modeling separate tranches 
+separately ONLY if they have much different terms, such as different coupon rates, maturities, 
+or mandat ory/optional repayments.  The more similar the terms are – especially if the Debt 
+matures after the end of the projection period or holding period – the less worthwhile it is to 
+model the tranches separately.  
+ 
+AFM -11-09: Debt Schedule, Part 2: Cash Flow and Revolver  (28:08)  
+In this lesson, you’ll set up the trickiest formulas in the Debt Schedule, including the ones for 
+the Revolver with a maximum Draw limit, the convertible bond conversion formulas, and the 
+conditions for additional Senior Note funding a nd stock repurchases.  
+Table of Contents:  
+• 2:03:  Filling in Other Line Items  
+• 5:35:  Convertible Bond Formulas  
+• 9:53:  Debt Maturities and Minimum Cash  
+• 14:21:  Revolver  Formulas  
+• 19:27:  Additional Funding and Stock Repurchases  
+• 23:27:  Changing Debt Balances  
+• 25:38:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+8 of 21  https://breakingintowallstreet.com  
+9:53 Which of the following is the BIGGEST difference between the accounting treatments of 
+a convertible bond converting into equity under U.S. GAAP vs. IFRS?  
+a) The entire convertible bond moves into Equity when this  happens under U.S. GAAP, 
+but under IFRS, part of it is already in Equity.  
+b) The IFRS treatment ignores the remaining unamortized issuance fees on the convertible 
+bond.  
+c) There is a Gain or Loss on Debt Extinguishment recorded on the Income Statement 
+when this happens under IFRS.  
+d) There is no Amortization of the Convertible Bond Discount under U.S. GAAP (in most 
+cases).  
+Explanation:  The first answer is the best choice. The third and fourth answer choices are true 
+statements, but the third answer is a fairly small difference, and the fourth answer does not 
+describe a difference related to the CONVERSION of the convertible bond into equity. The 
+second answer is wrong because the IFRS treatment does factor in the unamortized issuance 
+fees via the Gain or Loss on  Debt Extinguishment. The first answer is the best one because 
+under IFRS, most convertible bonds are split into significant Debt and Equity components, but 
+under U.S. GAAP, most are shown as simple Debt liabilities.  
+ 
+23:26 In which of the following situat ions would Netflix repurchase shares?  
+a) Cash Flow Deficit = $200; Revolver Balance = $1,000.  
+b) Cash Flow Surplus = $500; Revolver Balance = $400.  
+c) Cash Flow Surplus = $800; Revolver Balance = $900.  
+d) Cash Flow Deficit = $500; Revolver Balance = $0.  
+Explanation:  The second answer is correct. For a stock repurchase to take place, Netflix’s cash 
+flow surplus *after* Revolver repayment must be positive. If it has a cash flow deficit, no stock 
+repurchases will ever occur, ruling  out the first and fourth answers. The third answer is wrong 
+because with these numbers, the company will repay $800 of its Revolver balance and have 
+nothing left for stock repurchases. Only the second answer gives the company enough cash 
+flow to repurchas e stock.  
+ 
+AFM -11-10: Debt Schedule, Part 3: Interest Expense and Financial Statement Links  (21:43 ) 
+You’ll project the Interest Expense and Amortization of Issuance Costs in this lesson, and you’ll 
+fix some minor issues with the other schedules and link the  Debt & Equity Schedule to Netflix’s 
+full financial statement projections.  
+ 
+9 of 21  https://breakingintowallstreet.com  
+Table of Contents:  
+• 1:17:  Interest and Issuance Costs  
+• 7:56:  Linking the Debt Schedule  
+• 16:11:  Case Review  
+• 20:30:  Recap and Summary  
+ 
+Quiz Questions:  
+16:10 When linking the statements to the Debt & Equity Schedule in the Netflix model, why 
+does the convertible bond’s conversion into Equity not appear explicitly on the Cash Flow 
+Statement?  
+a) Because Netflix follows U.S. GAAP rather than IFRS, and the rules for c onversions into 
+Equity are different.  
+b) Because there’s no pre -existing Equity component of the convertible bond before the 
+conversion takes place.  
+c) Because there’s no net change in Cash from the reclassification of the convertible 
+bond into Equity.  
+d) All of th e above.  
+Explanation:  The third answer choice is correct. Generally, items that do not make a net impact 
+on the company’s Cash balance do not show up explicitly on the Cash Flow Statement, so the 
+reclassification of convertible bonds from Debt into Equity qualifies as such a li ne item or 
+change. While the first two answer choices contain partially correct statements, these 
+statements do not explain why the conversion into Equity is not shown on the CFS; also, the 
+rules for conversions under IFRS are only slightly different, so t he first answer choice is a poor 
+potential explanation here.  
+ 
+AFM -11-11: WACC Analysis Before and After Debt/Equity/Convertible Bond Issuance  (29:36 ) 
+In this lesson, you’ll calculate WACC before and after the company’s capital issuance and build a 
+sensitiv ity table that shows how WACC changes based on the Debt, Equity, and Convertible 
+Bond percentage split in the $4 billion capital issuance . 
+Table of Contents:  
+• 2:23:  Model Setup and Changes  
+• 8:26:  WACC Assumptions  
+• 14:30:  WACC Calculations  
+• 21:25:  WACC Sensitivities  
+ 
+10 of 21  https://breakingintowallstreet.com  
+• 28:10:  Recap and Summary  
+ 
+Quiz Questions:  
+14:29 When a convertible bond switches from being treated as Debt to Equity, what should 
+happen to a company’s overall Pre -Tax Cost of Debt?  
+a) It should increase because more Debt means a higher Cost of Debt.  
+b) It should decrease because convertible bonds have lower coupon rates than traditional 
+Debt.  
+c) It depends on the convertible bond’s YTM when treated as traditional Debt vs. the 
+company’s current weighted average YTM.  
+Explanation:  The last answer choice is correct. In this specific example with Netflix, its Pre -Tax 
+Cost of Debt goes up when the convertible bond is counted as 100% traditional Debt – but 
+that’s only because its Yield to Maturity exceeds the weighted YTM of the existin g issuances. It 
+could go either way , depending on whether this is a new or existing issuance and the relative 
+YTMs. If interest rates have been rising, treating potential or newer issuances as Debt will tend 
+to increase the Cost of Debt, and the opposite i s true if interest rates have been falling since the 
+time of most of the company’s existing issuances.  
+ 
+AFM -11-12: Credit Stats and Ratios  (25:27 ) 
+You’ll calculate the key credit stats and ratios in this lesson, such as the Leverage Ratio, Interest 
+Coverag e Ratio, Debt Service Coverage Ratio (DSCR), Fixed Charge Coverage Ratio (FCCR), and 
+Debt / Total Capital Ratio, and you’ll see how they change in the different operating cases.  
+NOTE TO LESSON:  We start calculating the Fixed Charge Coverage Ratio (FCCR) between 15:15  
+and 15:35  without explaining what “Fixed Charges” mean. Please see the Recap and Summary 
+for the explanation or refer to the written notes in the Excel files.  
+Table of Contents:  
+• 2:16:  Step 1: Link in the Numbers  
+• 8:45:  Step 2: Calculations and Meanings  
+• 19:03:  Step 3: Outcomes in Different Scenarios  
+• 23:38:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+11 of 21  https://breakingintowallstreet.com  
+19:02 Why is it important to look at FCF -based credit stats and ratios such as the Debt Service 
+Coverage Ratio for Netflix?  
+a) Because the compa ny’s main constraint is the Interest Expense, which EBITDA -based 
+metrics ignore.  
+b) Because FCF is the only metric that deducts *all* of the company’s Fixed Charges 
+(interest, debt principal repayments, and lease payments).  
+c) Because Netflix has a significant amount of mandatory principal repayments on its 
+loans, and it will use its FCF to pay for them.  
+d) Because unlike EBITDA, FCF deducts the company’s net cash spent on content (EBITDA 
+only deducts amortized content spending).  
+Explanation:  The last a nswer choice is correct. The key issue for Netflix is that only FCF deducts 
+the Cash Content Spending, net of Content Amortization – EBITDA deducts only the Content 
+Amortization , which is deceptive since it’s quite different from the actual cash spending.  The 
+first answer is wrong because the Interest Expense is not the key constraint, as the EBITDA 
+Cushions are quite high with that metric, and the third choice is wrong because the Senior 
+Unsecured Notes have no mandatory principal repayments. The second ch oice is a true 
+statement, but it’s irrelevant because when you use FCF in a metric like the DSCR, you add back 
+the Fixed Charges first anyway.  
+ 
+AFM -11-13: Model Tweaks and How to Pick the Best Financing Mix  (13:59 ) 
+In this lesson, you’ll tweak the Downside  Case of the model and experiment with different 
+numbers for the Debt and Equity percentages to determine the best financing mix for Netflix’s 
+$4 billion capital raise.  
+Table of Contents:  
+• 0:31:  Known Facts  
+• 2:36:  Downside Case Changes  
+• 4:17:  Financing Mix for the Capital Raise  
+• 12:57:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -11-14: Decision -Making Process, Case Study Presentation, and Memo  (14:06 ) 
+ 
+12 of 21  https://breakingintowallstreet.com  
+You’ll learn about the full decision -making process for financing decisions in this lesson, and 
+you’ll see how it’s implemented in the case study presentation and credit memo that 
+recommend a specific mix of debt and equity for Netflix.  
+Table of Contents:  
+• 1:19:  Decision -Making Process  
+• 7:10:  Case Presentation and Answers  
+• 12:47:  Written Memo  
+ 
+Quiz Questions:  
+12:4 7 Which of the following conditions would have to be true for a convertible bond to 
+make more sense than traditional debt or equity for Netflix?  
+a) Cash interest expense would have to be a key constraint.  
+b) The company would have to be in a higher growth category or have more stock -price 
+appreciation potential.  
+c) Metrics such as Debt / EBITDA and Debt / Total Capital would have to be fine or not 
+relevant for the company.  
+d) All of the above.  
+Explanation:  Everythin g above is true. Convertibles are not “cheaper” than traditional debt or 
+equity since they’re counted as either one or the other in the WACC calculation; their main 
+advantage is a lower cash interest expense than traditional debt. Also, not all types of 
+companies can issue convertible bonds since they tend to be most common among high -
+growth, speculative companies such as biotech startups and technology companies in growth 
+mode. Investors often view them as “hedged equity,” so they tend not to buy convertib le 
+issuances from lower -growth/mature companies. F inally, f inancial maintenance covenants are 
+rare/non -existent on convertible bonds, but if the company targets  specific numbers based on 
+its overall credit profile, a convertible bond counted as debt would still affect numbers such as 
+Debt / EBITDA, which explains why the last answer choice is also correct.  
+ 
+AFM -11-15: Introduction to Bond Analysis and Bond Indentures  (20:07 ) 
+In this lesson, you’ll analyze a bond indenture for one of Netflix’s Unsecured Senior Notes and 
+fill in the key terms, such as the market price, the coupon rate, the interest payment dates, and 
+the limitations on indebtedness when issuing new notes.  
+Table of Contents:  
+ 
+13 of 21  https://breakingintowallstreet.com  
+• 2:07:  Part 1: What Makes Bond Analysis Trickier Than It Seems  
+• 6:39:  Part 2: How to Use Bond Analysis in Investment Banking  
+• 10:00:  Part 3: How to Complete a “Bond Indenture Analysis”  
+• 18:29:  Recap and Summary  
+ 
+Quiz Questions:  
+18:28 Why is a “limitation on indebtedness” in a bond indenture not necessarily the same 
+thing as a financial maintenance covenant that restricts a company’s Debt / EBITDA?  
+a) The financial maintenance covenant normally requires compliance with a number that is 
+measured repeatedly (e.g., each quarter).  
+b) Limitations on indebted ness might refer to the company’s credit stats only when it is 
+issuing new debt under similar terms.  
+c) The criteria might be slightly different, such as a maximum debt amount OR a maximum 
+Debt / EBITDA.  
+d) All of the above.  
+Explanation:  Everything above is true . Limitations on indebtedness are not normally considered 
+“covenants” in quite the same way as traditional maintenance covenants because of these 
+issues: the y apply when a company is issuing *new* notes, but they don’t necessarily need to 
+be maintained at all times. And unlike incurrence covenants, they do not restrict the company 
+from taking specific actions (except for issuing new debt).  
+ 
+AFM -11-16: Bond Yields, Pricing, and Key Relationships  (29:52 ) 
+You’ll learn how to calculate bond prices and different  types of yields in this lesson, and you’ll 
+learn about the key relationships between coupon rates, bond prices, the discount rate, the 
+yield to maturity, the time to maturity, and other factors.  
+Table of Contents:  
+• 1:25:  Part 1: Assumptions and Excel Setup  
+• 9:32:  Part 2: The Yield and Yield to Maturity (YTM)  
+• 16:57:  Part 3: Bond Price Calculations  
+• 21:16:  Part 4: Key Bond Relationships and Graphs  
+• 28:09:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+14 of 21  https://breakingintowallstreet.com  
+16:56 Why might the Excel YIELD function, the XIRR function, and the quick approximation 
+method for the Yield to Maturity each produce slightly different results?  
+a) This might happen due to slight timing differences, such as 365 days in the year vs. the 
+360-day convention.  
+b) The treatment of accrued interest or interest paid in stub periods in between coupons 
+might be different.  
+c) The dates might be less precise in the “quick approximation method” (e.g., simple whole 
+numbers for the years rather than decimals).  
+d) All of the above.  
+Explanation:  Everything above is true. Dates are treated slightly differently by all these YTM 
+calculation methods, which explains most of the minor discrepancies. Accrued interest should 
+be handled roughly the same way, but sometimes the internal Excel functions and manual 
+IRR/X IRR functions do not line up, so that can also create differences.  
+ 
+AFM -11-17: Bond Duration, Convexity, and Key Relationships  (33:12 ) 
+In this lesson, you’ll learn what a bond’s Duration and Convexity mean, how to calculate them, 
+and how to use these prope rties in real life when advising clients on financing and refinancing 
+decisions and making investment recommendations.  
+Table of Contents:  
+• 1:21:  Part 1: Duration and Convexity Overview  
+• 4:08:  Part 2: Bond Duration: Intuition and Calculations  
+• 19:24:  Part 3: Bond Convexity: Intuition and Calculations  
+• 28:28:  Part 4: How to Use These Concepts in Investment Banking  
+• 30:54:  Recap and Summary  
+ 
+Quiz Questions:  
+19:23 Suppose that Bond A has a Duration of 6.0 and Bond B has a Duration of 10.0. Which of 
+the following is  a VALID interpretation of these numbers?  
+a) Investors in Bond A are exposed to more interest -rate risk due to the shorter Duration.  
+b) When the Discount Rate changes by 1%, Bond B’s Price should change by 10%.  
+c) Bond A likely has a higher Coupon Rate than Bond B due to its shorter Duration.  
+d) All of the above.  
+ 
+15 of 21  https://breakingintowallstreet.com  
+Explanation:  The second answer choice is correct. This is the only correct interpretation of 
+Duration here; a Duration of 10.0 means the bond’s Price will change by 10% when the 
+Discount Rate changes by  1%, since Duration is the first derivative of Price with respect to the 
+Discount Rate or YTM. The first answer is false because the interest -rate risk is lower when the 
+Duration is shorter, and the third answer is false because you cannot infer anything a bout the 
+Coupon Rate based on the Duration. The time to maturity, market price, or other factors might 
+also explain the difference in Duration.  
+ 
+AFM -11-18: Accrued Interest, Clean Prices, and Dirty Prices  (14:34 ) 
+You’ll learn about accrued interest and cle an and dirty prices for bonds in this lesson, and you’ll 
+see examples of how these factors affect the formulas and output for the bond’s price, yield to 
+maturity, duration, and convexity.  
+Table of Contents:  
+• 0:51:  Part 1: “Clean” vs. “Dirty” Bond Prices  
+• 2:17:  Part 2: Excel Setup and the COUPPCD Function  
+• 7:55:  Part 3: How the “Dirty Price” Changes Everything  
+• 12:43:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -11-19: Call and Put Options, the Yield to Call  (YTC) , Yield to Put  (YTP) , and Yield to Worst  
+(YTW)  (22:03 ) 
+In this lesson, you’ll learn about call and put options on bonds and how they affect the Coupon 
+Rate and other terms; you’ll use them to calculate the Yield to Call and Yield to Put on different 
+dates and determine the Yield to Worst (YTW).  
+Table of Contents:  
+• 2:00:  Part 1: Why Call and Put Options on Bonds Exist  
+• 4:43:  Part 2: Call Options, Yield to Call (YTC), and Yield to Worst (YTW)  
+• 15:22:  Part 3: Put Options and Yield to Put (YTP)  
+• 20:01:  Recap and Summary  
+ 
+ 
+16 of 21  https://breakingintowallstreet.com  
+Quiz Questi ons:  
+15:21 Suppose that a bond’s YTW is 5%, and its YTM is 6%. Which of the following can you 
+conclude based on this data?  
+a) The Discount Rate (i.e., prevailing yields on similar bonds) is currently less than or 
+equal to the bond’s coupon rate.  
+b) The Discount Rate is currently greater than the bond’s coupon rate.  
+c) The Discount Rate is currently equal to the bond’s coupon rate.  
+d) It’s unlikely that the bond has significant call premiums (call redemption prices) 
+attached.  
+Explanation:  The first answer is co rrect. If the YTW is less than the YTM, all you can conclude is 
+that the Discount Rate is less than or equal to the bond’s Coupon Rate (based on the pattern of 
+call premiums and the relative difference). This is because the bond trades at a premium or par 
+value when this is true, so if the company repays the bond early, the investors can  lose some 
+yield if the premium paid in the beginning exceeds the call redemption earned back upon early 
+repayment.  The second and third answers misstate this relationship ( and the third one is true 
+only if the YTW equals the YTM). The fourth answer may be true, but it’s impossible to say from 
+just this data, so it’s not the best choice.  
+ 
+AFM -11-20: Make -Whole Analysis and Make -Whole Prices  (18:57 ) 
+You’ll learn about Make -Whole Provisions and Make -Whole Prices on bonds in this lesson, and 
+you’ll understand why they heavily discourage companies from repaying their bonds very early 
+on (e.g., Years 1 – 3 for a 10 -year bond).  
+Table of Contents:  
+• 2:22:  Part 1: The Idea Behin d Make -Whole Provisions  
+• 6:51:  Part 2: Make -Whole Price  Calculations  
+• 14:48:  Part 3: What the Make -Whole Price Means for Netflix  
+• 17:19:  Recap and Summary  
+ 
+Quiz Questions:  
+17:18 Why does a Make -Whole Provision for early repayment of a bond ensure that it’s 
+usually NOT a great idea for the company to repay its bond early?  
+a) If interest rates have fallen, the penalty fee for early repayment will be much higher.  
+ 
+17 of 21  https://breakingintowallstreet.com  
+b) If interest rates have risen, the penalty fee will be lower, but the company will pay a 
+higher Coupon Rate on a new issuance.  
+c) Penalty fees for early repayment almost always decrease further into the bond’s tenor.  
+d) All of the above.  
+Explanation:  Everything above is true. Make -Whol e Provisions heavily discourage early 
+repayment because regardless of whether interest rates have fallen or risen since the bond’s 
+initial issuance, the company loses out: either the penalty fee for early repayment is higher, or 
+the penalty fee is lower, b ut the company will have to pay a higher Coupon Rate on the new 
+issuance. *After* the Make -Whole Provision switches to normal call redemption prices that are 
+fixed percentages of par value – if that happens – then it makes more sense for a company to 
+consi der early repayment if interest rates have fallen significantly or its credit profile has 
+improved.  
+ 
+AFM -11-21: Bond Refinancing Recommendation for Netflix  (27:58 ) 
+In this lesson, you’ll put together all the previous lessons to make a refinancing 
+recommendation to Netflix, and even if you recommend against the refinancing, you’ll still 
+suggest possible terms for a new bond issuance  based on investors’ targeted YTM, D uration, 
+and Convexity, and the company’s desire for reduced interest expense.  
+Table of Contents:  
+• 1:24:  Part 1: Should Netflix Refinance?  
+• 4:50:  Part 2: Running the Numbers  
+• 5:28:  Cash Flow Setup  
+• 13:15:  Sensitivities  
+• 16:05:  Duration and Convexity for New Issuance  
+• 20:3 5: Part 3: Likely Terms If Netflix Does Refinance  
+• 26:34:  Recap and Summary  
+ 
+Quiz Questions:  
+26:33 Suppose that a company wants to refinance and offer investors a similar YTM on a new 
+bond by issuing it at a lower Coupon Rate but also including a substantial Original Issue 
+Discount (OID). What is the major disadvantage of this plan?  
+a) The Duration and Convexity will be much lower.  
+b) The company is likely to “lose money” because it repays the first bond at par value 
+and then gets less than par value for the new bond.  
+ 
+18 of 21  https://breakingintowallstreet.com  
+c) The company’s credit rating will likely fall, which will result in a slightly lower YTM.  
+d) All of the above.  
+Explanation:  The second answer is the best choice for the reasons stated: if a company 
+refinances a $1 billion bond and offers a 5% OID on the new bond, effectively, it loses $50 
+million since it repays a bond for $1 billion but gets only $950 million in proceeds from the new 
+bond. The Duration and Convexity will be slightly  lower due to the OID, but the difference is s o 
+small that this is not a good answer. The third answer does not make sense because, if 
+anything, the company’s credit rating should be higher if it issues the bond at a lower Coupon 
+Rate and improves its EBITDA / Interest ratio (and others).  
+ 
+AFM -11-22: Mini -Case Study: How to Make a Refinancing Recommendation to a Distressed 
+Company [OPTIONAL]  (41:06 ) 
+You’ll complete an optional case study in this lesson and analyze a distressed company’s 
+current bond issuance and prospective new bond issuance to make a recommendation about 
+how the company might change the terms to appeal to investors more effectively.  
+Table of Contents:  
+• 3:15:  Part 1: Case Overview / Summary  
+• 6:17:  Part 2: Bond Assumptions  
+• 12:35:  Part 3: Capital Structure Projections  
+• 20:23:  Part 4: Cash Flows and Yield to Exit  
+• 28:30:  Part 5: Alternate Bond Terms  
+• 39:04:  Recap and Summary  
+ 
+Quiz Questions:  
+39:03 Suppose that you recommend a higher Coupon Rate in a new bond issuance for a 
+distressed company that already has a relatively low Cash balance. Which of the following 
+bond terms could be constrained or affected by the Cash balance that changes based on thi s 
+new rate?  
+a) Original Issue Discount (OID).  
+b) Redemption Prices for early repayments.  
+c) Equity Grants.  
+d) All of the above.  
+Explanation:  Everything above is true. A higher Coupon Rate will reduce the company’s cash 
+balance, which means it won’t be able to afford OID as easily – or at all – and that it will have 
+ 
+19 of 21  https://breakingintowallstreet.com  
+less available to pay for the penalty fees on early repayments (“Redemption Pric es”). Also, a 
+lower cash balance will affect the Equity Grants as well – though by much less than the other 
+items on this list – because less cash means the company’s Implied Equity Value will be lower, 
+at least if you forecast its Enterprise Value and bac k into Equity Value based on that.  
+ 
+AFM -11-23: Convertible Bond Valuation and Payoff Diagrams  (36:49 ) 
+In this lesson, you’ll learn how to value a convertible bond by splitting it into its Liability and 
+Equity components and using Black -Scholes to estimate the market value of the call option on 
+the bond; you’ll then create sensitivities and a payoff diagram for the bond based on this 
+analysis.  
+Table of Contents:  
+• 3:49:  Part 1: Liability Component  
+• 8:22:  Part 2: Call Option Component  
+• 16:2 5: Excel Imple mentation of Black -Scholes  
+• 23:31:  Sensitivity Tables  
+• 27:45:  Issues with Black -Scholes  
+• 29:35:  Part 3: Convertible Bond Payoff Diagram  
+• 33:15:  Part 4: Conclusions About Netflix’s Issuance  
+• 35:12:  Recap and Summary  
+ 
+Quiz Questions:  
+16:2 4 Which of the following assumptions makes the greatest impact on a call option’s value 
+under Black -Scholes?  
+a) The Risk -Free Rate.  
+b) The time to expiration or maturity.  
+c) The stock -price volatility.  
+d) The company’s current stock price.  
+Explanation:  In general, the volatility is the most important driver of a call option’s value 
+because it affects both terms of the formula (the stock price distribution and the exercise price 
+distribution) and both the numerator and denominator of “d1” in the Black -Scholes formula. 
+The Risk -Free Rate and time to expiration both make less of an impact. The current stock price 
+also makes a difference, but mostly *in relation* to the exercise price – the closer they are, the 
+more valuable the option. So, the fourth answer choice is not th e best one here because it 
+could be stated more accurately.  
+ 
+20 of 21  https://breakingintowallstreet.com  
+ 
+33:14 Suppose that a company’s current stock price is $1 50, and the conversion price of its 
+convertible bond is $200. The convertible bond’s face value is $1 billion. Based on ONLY this 
+informati on, w hich of the following is a reasonable inference?  
+a) Currently, the bond’s market price is below its payoff value.  
+b) The bond’s market price will equal its payoff value when the stock price rises to $200.  
+c) When the stock price is above $200, the bond’s market price will exceed $1 billion.  
+d) None of the above.  
+Explanation:  The third answer choice is the best one. When the stock price exceeds the 
+conversion price, the convertible bond’s market price *must* be above its face value because 
+the bond also offers downside protection to investors, unlike normal shares. We have no idea 
+whether the first inference is true because it depends on the company’s volatility and the other 
+inputs into Black -Scholes, and the second inference is likely false because the market price 
+usually equals the payoff value well before the stock price reaches the conversion price.  
+ 
+AFM -11-24: Convertible Bond Analysis: Blended Cost, Other Metrics, and Capped Call 
+Transactions  (31:15 ) 
+You’ll finish the convertible bond analysis in t his lesson by calculating its blended cost based on 
+the cost of the embedded call options and calculating related metrics, such as the payback 
+period and the dilution at different share prices if the company sets up a “capped call” or note 
+hedge transactio n along with the bond.  
+Table of Contents:  
+• 2:00:  Part 1: The Blended Cost of Convertible Bonds  
+• 12:48: Part 2: Additional Calculations and Metrics  
+• 19:45:  Part 3: Capped Call Transactions and “Note Hedges”  
+• 29:36:  Recap and Summary  
+ 
+Quiz Questions:  
+12:47 If a convertible bond’s conversion price increases, and nothing else changes, will the 
+Blended Cost increase or decrease?  
+a) It depends on whether the conversion price is currently above or below the stock price.  
+b) It will decrease because the convertible bond is now less like Equity.  
+c) It will increase because the call option component is now more valuable.  
+ 
+21 of 21  https://breakingintowallstreet.com  
+d) It will stay about the same because the lower probability of conversion is offset by the 
+higher Cost of Debt.  
+Explanation:  The second answer choice is correct. If the convertible bond is less likely to 
+convert into Equity, the Blended Cost decreases because the Cost of Equity is higher than the 
+Cost of Debt, and the Cost of the Call Option is higher than even the Cost of Equity. And a 
+higher co nversion price – regardless of the current stock price relative to the conversion price – 
+means a lower probability of conversion into Equity.  The last answer makes no sense because 
+the Cost of Debt will not increase here, and the third option also does no t make sense because 
+the call option becomes less valuable when the conversion price or exercise price is higher.  

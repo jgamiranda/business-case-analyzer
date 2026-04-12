@@ -345,6 +345,13 @@ with tab_prem:
             _tc.write("")
             _tc.checkbox(T("nol_lbl"), value=bool(get("nol_ativo", True)), key="nol_ativo",
                          help=T("nol_help"))
+            if bool(get("nol_ativo", True)):
+                st.slider("NOL Limit (%)" if lang == "EN" else "Limite NOL (%)",
+                          10, 100, int(get("nol_limit_pct", 30)), step=5,
+                          key="nol_limit_pct",
+                          help="Max % of taxable income that can be offset by NOL each year"
+                               if lang == "EN" else
+                               "% máximo do lucro tributável compensável por prejuízo fiscal")
             st.info(T("tributos_info_lr").format(csll=float(get("csll_rate", 9.0))))
         elif regime_sel == "Lucro Presumido":
             _ta, _tb, _tc = st.columns(3)
@@ -735,6 +742,7 @@ df_op_idx = df_op.set_index("Mes")
 _regime     = get("regime_fiscal", "Lucro Real")
 _pis_r      = get("pis_cofins_rate", 9.25) / 100
 _nol_flag   = bool(get("nol_ativo", True)) and (_regime == "Lucro Real")
+_nol_limit  = get("nol_limit_pct", 30.0) / 100
 _csll_r     = get("csll_rate", 9.0) / 100
 _marg_irpj  = get("marg_pres_irpj", 32.0) / 100
 _marg_csll  = get("marg_pres_csll", 32.0) / 100
@@ -774,11 +782,12 @@ for y in range(1,n_anos+1):
     res_y=s("Rec. Residual")
     lair_y=ebit_y-juros_y+res_y
     # Regime-specific tax
+    _nol_used_y = 0.0
     if _regime == "Lucro Real":
         taxable = max(0.0, lair_y)
         if _nol_flag and _nol_bal > 0:
-            used = min(_nol_bal, taxable * 0.30)
-            taxable -= used; _nol_bal -= used
+            _nol_used_y = min(_nol_bal, taxable * _nol_limit)
+            taxable -= _nol_used_y; _nol_bal -= _nol_used_y
         tax_y = taxable * taxa_ir / 100
         if lair_y < 0: _nol_bal += abs(lair_y)
     elif _regime == "Lucro Presumido":
@@ -840,7 +849,8 @@ for y in range(1,n_anos+1):
         "nwc":nwc_y,"delta_nwc":delta_nwc_y,
         "ar":ar_y,"inv":inv_y,"ap":ap_y,
         "rev_draw":rev_draw_y,"rev_repay":rev_repay_y,"rev_interest":rev_int_y,
-        "rev_balance":_rev_bal,"cash_min":min_cash_y}
+        "rev_balance":_rev_bal,"cash_min":min_cash_y,
+        "nol_used":_nol_used_y,"nol_balance":_nol_bal}
 
 # Balanco
 depr_acc=ni_acc=0.0

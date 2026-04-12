@@ -1,0 +1,701 @@
+ Advanced Financial Modeling Course  
+ 
+1 of 25 https://breakingintowallstreet.com  
+Summary of Advanced Merger Model Features  
+Table of Contents:  
+Overview of Advanced Merger Model Features  ................................................................ 1 
+Quarterly Merger Models  ............................................................................................... 2 
+Quarterly Model Setup and Projections  .................................................................................. 3 
+Variable Close Dates  ................................................................................................................ 5 
+Stub Periods and “Rollforwards”  ............................................................................................. 7 
+Exchange Ratios and Collars  ......................................................................................... 10 
+Stock vs. Asset vs. 338(h)(10) Deals  .............................................................................. 13 
+Net Operating Losses (NOLs) in Different Deal Structures  ........................................... 16 
+Interview Questions  .......................................................................................................... 19 
+Quarterly Models, Variable Close Dates, and Stub Periods  ................................................... 19 
+Exchange Ratios and Collars  .................................................................................................. 21 
+Stock vs. Asset vs. 338(h)(10) Deals and NOLs  ...................................................................... 23 
+ 
+Overview of Advanced Merger Model Features  
+This guide covers features common in more advanced merger models , such as quarterly 
+projections, Exchange Ratios with collars, and Stock vs. Asset vs. 338(h)(10) deals.  
+We assume you already know the fundamentals , so we do not spend time re -explaining the 
+basic assumptions or model structure ( please see the introductory guide for that coverage).  
+This guide is less of a step -by-step walkthrough and more of a “quick reference” for formulas 
+and schedules in merger models. You can jump to specific topics using the Table of Contents 
+above.  
+ 
+ 
+ 
+ 
+  
+ 
+ Advanced Financial Modeling Course  
+ 
+2 of 25 https://breakingintowallstreet.com  
+Quarterly Merger Models  
+In a standard merger model, the deal  close s at the end of the Buyer’s fiscal year, and the Buyer 
+and Seller  have the same  fiscal years (e.g., ones that end on December 31st). 
+In real life, both assumptions are often false:  
+• The Buyer’s fiscal year might end on June 30th, but the Seller’s might end on Dec. 31st. 
+ 
+• The deal might close on March 31st, September 30th, or another date that does not 
+coincide with the end of a quarter or year.  
+The first problem is easier to deal with: A lways use the Buyer’s fiscal year in merger models . 
+If the Buyer’s fiscal year ends on June 30th but the Seller’s ends on December 31st, you can take 
+the results from the last six months of the Seller’s fiscal year and add them to the first six  
+months of the next year.  
+You then add those results to the ones from the Buyer’s fiscal year since they now cover the 
+same period (January 1st – December 31st). 
+If the merger model is built on a quarterly basis , you can use functions like XLOOKUP and 
+INDEX/MATCH to retrieve the financials for the corresponding dates  and add together quarters.  
+The second problem with irregular closing dates is more cumbersome to deal with . 
+If the deal closes between fiscal years or quarters, you must create stub period s in the model . 
+For example, if the deal closes on August 14th, you’d have to create two stub periods  in a 
+quarterly model: One that shows the Buyer and Seller’s results from July 1st to August 14th and 
+another that shows the ir results from August 1 5th to September 30th. 
+To do this, you would multiply the Income Statement and Cash Flow Statement line items by 
+the percentages of the quarter that the stub periods represent.  
+July 1st to August 14th is 45 days inclusive, so this is 45 / 92 = 48.9%, and August 15th to 
+September 30th is 47 days inclusive, which is 47 / 92 = 51.1%.  
+You would also have to create a Balance Sheet forecast for August 14th based on the July 1st to 
+August 14th stub period, with links for each “pairing” (e.g., AR on August 14th would be based on 
+Revenue over this period).  
+The first “full” combined quarter would run from October 1st to December 31st, and you would 
+focus on the first full combined year for analytical purposes.  
+ Advanced Financial Modeling Course  
+ 
+3 of 25 https://breakingintowallstreet.com  
+Quarterly Model  Setup and Projections  
+The main differences in quarterly 3 -statement models are as follows:  
+• Year -Over-Year (YoY) Growth Rates:  Instead of projecting the growth from quarter to 
+quarter, such as Q3 to Q4, you should use Y ear-Over-Year growth rates, such as Q4 of 
+20X5 vs. Q4 of 20X4. This is due to the seasonality in many businesses : 
+ 
+• Balance Sheet Projections:  Anything based on an Income Statement figure, such as 
+Accounts Receivable, should use the Last Twelve Months  (LTM) figure  on the IS  rather 
+than a single quarter’s numbers. For example, AR for Q3 of 20X5 should be based on the 
+LTM Revenue between Q4 of 20X4 and Q3 of 20X5.  
+ 
+• Debt, Cash, and Interest:  Anything based on an annual  rate or repayment percentage 
+must be divided by 4 in a quarterly model (there is a more precise way to convert 
+annual rates to quarterly rates, but this is fine in most models). If the annual interest 
+rate on Debt is 8%, the quarterly interest  should be 2% * Quarterly Debt Balance . 
+
+ Advanced Financial Modeling Course  
+ 
+4 of 25 https://breakingintowallstreet.com  
+ 
+• Credit  Stats and Ratios:  If you are mixing Balance Sheet and Income Statement  figures, 
+such as Debt / EBITDA, you must use the LTM  version of the Income Statement metric. 
+So, it’s always Debt At the End of the Quarter / LTM EBITDA.  
+ 
+• Annua l Roll -Ups and Summaries:  Finally, it helps to create annual roll -ups that 
+summarize the Income Statement and Cash Flow Statement with SUMIF and the 
+Balance Sheet with INDEX/MATCH or XLOOKUP. Otherwise, it’s difficult to interpret all 
+the numbers.  
+ 
+The SUMIF function here is based on the numerical year numbers in row 35, which is offscreen; 
+we add only the quarters whose year numbers match those of the full fiscal years.  
+Return to Top . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+5 of 25 https://breakingintowallstreet.com  
+Variable Close Dates  
+Variable close dates affect the model in two main ways:  
+1. Deal Financing and Assumptions  – Depending on the close date, the deal's Cash, Debt, 
+and Stock mix might change as the Acquirer and Target’s Cash and Debt levels change 
+over time.  
+ 
+2. Financial Statement Combination – You must  use INDEX/MATCH or XLOOKUP to bring 
+in the companies’ separate financials and match them to the dates . This could produce 
+very different accretion/dilution figures when measured annually . 
+With point #1, when calculating the Cash and Debt available for use in a deal, you must bring in 
+the numbers from the Acquirer and Target on the close date  and calculate their LTM EBITDAs on 
+the close date . Here are a few examples:  
+ 
+The Post -Transaction Minimum Cash stays the same regardless of the close date, so the 
+Maximum Cash Available for the Deal changes as the close date changes.  We use 
+INDEX/MATCH to find the Acquirer and Target’s numbers based on the assumed close date.  
+The Maximum Debt setup is similar but requires two separate formulas to bring in the Debt and 
+the LTM EBITDA on the close date (the Debt part is shown below):  
+ 
+Assuming the Acquirer and Target both grow modestly , later close dates tend to improve EPS 
+accretion  because they result in higher Cash balance s and lower Debt balances.  
+
+ Advanced Financial Modeling Course  
+ 
+6 of 25 https://breakingintowallstreet.com  
+Therefore, more Cash and Debt can fund the deal, which boosts EPS accretion since they are 
+both cheaper than Stock.  
+To combine the financial statements, you can use INDEX/MATCH or XLOOKUP functions that 
+reference just the Acquirer’s numbers or add the Acquirer and Target’s numbers, depending on 
+whether the deal has closed:  
+ 
+Many items must be recalculated on a quarterly basis on the Combined Income Statement and 
+Cash Flow Statement; examples are the new D&A on asset write -ups, the Foregone Interest on 
+Cash, and the Interest Paid on New Debt:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+7 of 25 https://breakingintowallstreet.com  
+The Balance Sheet  is trick ier to combine because there are three cases:  
+1. Close Date  – You link in a “special version ” of the Balance Sheet, which reflects the 
+adjustments for Cash, Debt, Stock, Goodwill, other asset write -ups, etc.  
+ 
+2. Pre-Close Date  – In this case, it’s just the Acquirer’s Balance Sheet, brought in via an 
+INDEX/MATCH or XLOOKUP function.  
+ 
+3. Post -Close Date  – Depending on the item, these are either additions of the Acquirer and 
+Target’s Balance Sheets (e.g., for the Working Capital lines) or they are based on the 
+previous quarter  plus/minus the corresponding changes on the Cash Flow Statement in 
+this quarter (e.g., Net PP&E  and CapEx and D&A on the CFS ). 
+The formulas get long and complicated and are better understood in Excel, but here’s an 
+example of the se three cases for the Combined Company’s Net PP&E:  
+ 
+The second case is a simple INDEX/MATCH with an IFERROR wrapped around it for the Net 
+PP&E line from the Acquirer’s Balance Sheet  on the matching date . 
+The third case takes the 4Q  20 Net PP&E numbers and subtracts the corresponding CFS lines, 
+such as CapEx and D&A ( this subtraction turns CapEx positive and D&A negative).  
+Return to Top . 
+ 
+Stub Periods and “Rollforwards”  
+If a deal closes on an irregular date , such as August 14th or something else that is not the end of 
+a quarter or fiscal year, and you need to model it accurately, you must create two “stub period 
+financials”  for the Acquirer and Target . 
+
+ Advanced Financial Modeling Course  
+ 
+8 of 25 https://breakingintowallstreet.com  
+In this example, we’ll walk through a deal that closed on April 30th vs. December 31st fiscal years 
+for both companies.  
+If you already have 3 -statement models for the Acquirer and Target , Step 1  is to calculate the 
+pre- and post -transaction stub period  fractions . In this case, they’re ~0.33 and ~0.67 since April 
+30th is about 1/3 of the fiscal year.  
+Next, you create “ stub ” Income Statements and Cash Flow Statements for both periods by 
+multiplying the full -year numbers by these fractions  (Acquirer’s numbers shown below):  
+ 
+The Balance Sheet  is trickier because the April 30th numbers must be “ in-between ” the 
+December 31st numbers from the previous year and the current year.  
+There are two main cases:  
+1. Flows  in from Cash Flow Statement Stub  – This applies to items like Cash, PP&E, and 
+Debt. Simply link the old version of the item to the corresponding lines on the CFS stub.  
+ 
+2. Projected with Stub Periods  – Many Working Capital items fall into this category.  Take 
+the old number and add (Difference  Between Previous and Current FY N umbers ) * P re-
+Transaction Stub Period Fraction  to get the April 30th numbers.  
+Here’s an example for AR:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+9 of 25 https://breakingintowallstreet.com  
+This creates a “rolled forward” version of the Balance Sheet as of the transaction close date.  
+Since the close date  in this model is variable, the Cash/Debt/Stock mix used to fund the deal 
+varies as the date changes. However, the deal’s close date is limited to a 12 -month range here 
+rather than the 2+ year range in the previous example, so the funding won’t vary nearly as 
+much.  
+When combining the statements , you make all the usual adjustments on the Balance Sheet 
+based on the April 30th version : Cash, Debt, and Stock change , and there are asset write -ups, 
+new Goodwill, and a write -down of the Target’s Common Shareholders’ Equity.  
+On the Income Statement and Cash Flow Statement, you will most likely ignore  the pre -
+transaction stub through April 30th and just show the combined numbers in the post-
+transaction stub from May 1st to December 31st, followed by the full combined years after that:  
+ 
+The stub periods  do not change any of the conclusions in this model because the EPS 
+accretion/dilution and other analyses are usually based on the full combined years . 
+The IRR would shift due to the timing differences , but it would not make a huge difference 
+unless the “split year” ( FY 20) differed greatly  from all the other projected years.  
+These points explain why quarterly models, stub periods, rollforwards, and variable close dates 
+are “on the job” topic s: They barely make a difference in most normal scenarios.  
+Return to Top . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+10 of 25 https://breakingintowallstreet.com  
+Exchange Ratios and Collars  
+When a Buyer funds an M&A deal with Stock,  there’s inherent ambiguity  about the purchase 
+price . For example, consider the following scenario:  
+• Equity Purchase Price:  $1,000  
+• Funding : 100%  Stock  
+• Buyer’s Current Share Price:  $10.00  
+Based on this, you conclude that the Buyer must issue 10 0 new  shares to do this deal.  
+But what if the Buyer’s share price falls to $9.00?  
+Does that mean:  
+a) The Equity Purchase Price  falls to $900 since the Buyer now issues 10 0 shares worth 
+$9.00 each.  
+ 
+b) The Equity Purchase Price  stays at $1,000, but the Buyer now issues 111.11 shares 
+rather than 100 shares.  
+It could be either one  – or even a combination of both.  
+Option A is called a Fixed Exchange Ratio  and means  that a constant number of shares  is 
+always issued in the deal.  
+Option B is called a Floating Exchange Ratio  and means the Equity Purchase Price stays the 
+same , so the shares issued change as the Buyer’s share price changes.  
+The Buyer tends to favor the Fixed Exchange Ratio  if it wants to limit dilution and prefers 
+certainty around the post -deal ownership.  
+The Seller tends to favor the Floating Exchange Ratio  if it believes the Buyer’s s tock price will 
+fall, as this method “locks in” its price and produces a higher ownership percentage  if the 
+Buyer’s stock price falls.  
+To compromise, the Buyer and Seller can use a collar  to establish a Fixed Exchange Ratio within 
+certain share -price ranges and a Floating Exchange Ratio within others.  
+For example, a Fixed Exchange Ratio with a collar  might be structured like this:  
+• Buyer’s Share Price Between $50.00 and $60.00:  The Seller always gets 10 million of the 
+Buyer’s shares, so its ownership percentage is fixed , but its effective purchase price 
+ranges from $500 to $600 million.  
+ Advanced Financial Modeling Course  
+ 
+11 of 25 https://breakingintowallstreet.com  
+ 
+• Buyer’s Share Price Above $60.00:  The Seller gets a maximum price of $600 million, so 
+it receive s fewer shares if the Buyer’s share price increases (e.g., 7.5 million shares if the 
+Buyer’s share price reaches $80.00).  
+ 
+• Buyer’s  Share Price Below $50.00:  The Seller gets a minimum price of $500 million, so it 
+receive s more shares if the Buyer’s stock price falls (e.g., 12.5 million shares if the 
+Buyer’s share price falls to $40.00).  
+Another option is a Floating Exchange Ratio with a collar , which might be structured like this:  
+• Buyer’s Share Price Between $50.00 and $60.00:  The Seller always gets an effective 
+purchase price of $550 million. So, it receives 11 million shares when the Buyer’s share 
+price is $50.00 and ~9.2 million shares when the Buyer’s share price is $60.00.  
+ 
+• Buyer’s Share Price Above $60.00:  The Seller always gets ~9.2 million shares, so its 
+ownership stays the same, but its purchase price could climb to much higher levels.  
+ 
+• Buyer’s Share Price Below $50.00:  The Seller always gets 11 million shares, so its 
+ownership stays the same, but its purchase price could fall to much lower levels if the 
+Buyer’s share price falls significantly.  
+If the Seller’s main concern is its ownership  in the combined entity, it could negotiate a Floating 
+Exchange Ratio with a collar to ensure ownership within a specific range.  
+But if its main concern is the purchase price , it might prefer a Fixed Exchange Ratio with a collar 
+to ensure that the purchase price stays within a specific range.  
+Here’s what the se structures look like for the Builders FirstSource / BMC deal:  
+ Advanced Financial Modeling Course  
+ 
+12 of 25 https://breakingintowallstreet.com  
+ 
+ 
+In general, collars are most useful when:  
+• The Seller is moderately sized  relative to  the Buyer –  maybe 1 / 4 or 1 / 3 of its size. So, 
+it’s not a Merger of Equals, but it’s also not a tiny acquisition.  
+ 
+• The parties want the risk protection of a Cash deal and the tax benefits  of a Stock deal.  
+
+ Advanced Financial Modeling Course  
+ 
+13 of 25 https://breakingintowallstreet.com  
+ 
+• It’s a cross -border  deal  involving different currencies  (collars can also reduce FX risk if 
+the offer price is based on one currency).  
+ 
+• The Buyer’s share price has been volatile,  or the Buyer and Seller strongly disagree 
+about the Buyer’s prospects . 
+ 
+• The deal is a competitive auction, and one Buyer wants to stand out by offering 
+attractive deal terms.  
+ 
+• The deal will take a long time to close . A 100% Stock deal that takes 12 months to close 
+because of regulatory and anti -trust requirements is much riskier than one that takes 
+only 2  – 3 months to close.  
+Return to Top . 
+ 
+Stock vs. Asset vs. 338(h)(10) Deals  
+The two main M&A deal structures are Stock Purchases  and Asset Purchases.  
+In a Stock Purchase , the Buyer purchases all  the Seller’s outstanding shares  and gets all its 
+Assets, Liabilities, and off -Balance Sheet items.  
+In an Asset Purchase , the Buyer purchases only selected  Assets of the Seller and assumes only 
+selected  Liabilities. And it gets only the off- Balance Sheet items listed  in the agreement.  
+100% Cash deals, 100% Debt deals, and 100% Stock deals could all be structured as either  Stock 
+Purchases or Asset Purchases; “Stock” here does not refer to the financing method.  
+These two structures exist worldwide  and work similarly under U.S. GAAP and IFRS, but specific 
+details, such as the tax treatments, may differ from country to country.  
+Asset Purchases are far more common for divestitures and acquisitions of smaller, private 
+companies; they’re difficult to use when acquiring large, public Sellers.  
+Buyers  tend to favor Asset Purchases  because:  
+1) They let Buyers pick and choose exactly  what they get in deals, which reduces risk; and  
+ 
+ Advanced Financial Modeling Course  
+ 
+14 of 25 https://breakingintowallstreet.com  
+2) Assets are written up for both Book and Tax purposes, meaning that Buyers can deduct the 
+D&A on Asset Write -Ups for cash -tax purposes . 
+There are other differences as well: F or example, Goodwill amortizes for cash -tax purposes in 
+Asset Purchases,  which provides another tax benefit for Buyers.  
+But in Stock Purchases, Goodwill does not amortize , and the new D&A created in the deal is not 
+cash -tax deductible.  
+One disadvantage of an Asset Purchase is that the Seller’s shareholders must pay taxes based 
+on the purchase price and the Gains on its Net Assets.  
+One disadvantage for the Buyer is that the Seller’s Net Operating Losses (NOLs) are written 
+down 100% and may not be used after the deal closes.  
+Sellers  tend to prefer Stock Purchases  because:  
+1) Their shareholders pay taxes based on the Purchase Price , which means they are almost 
+always lower because the Gain on Net Assets does not factor in.  
+ 
+2) There’s less post -transaction risk because the Buyer acquires everything the Seller has 
+(Assets, Liabilities, and off -Balance Sheet items), so any issues with those items become 
+the Buyer’s responsibility.  
+ 
+3) Stock Purchases are faster to execute than Asset Purchases because the Buyer and 
+Seller don’t need to specify the treatment of every single Asset and Liability.  
+To compromise, Buyers and Sellers can use a 338(h)(10) election to treat a Stock Purchase like 
+an Asset Purchase  for tax purposes.  
+The 338(h)(10) election is specific to the U.S. tax code, so you don’t need to know about it if 
+you’re in another region . However, similar structures may exist in other countries.  
+In a 338(h)(10) deal, the Buyer purchases all the Seller’s shares and gets all its Assets, Liabilities, 
+and off- Balance Sheet items, but the tax treatment is the same as in an Asset deal.  
+So, the new D&A on Asset Write -Ups is cash -tax deductible, no new DTL gets created, there’s 
+tax-deductible Goodwill amortization, and the Seller’s NOLs are written down 100%.  
+338(h)(10) deals have additional requirements as well; for example, the Buyer must be a C 
+corporation, the Seller must be U.S.- based, and the Buyer must acquire at least 80% of the 
+Seller’s “value and voting power ” within 12 months . 
+ Advanced Financial Modeling Course  
+ 
+15 of 25 https://breakingintowallstreet.com  
+Here’s a summary:  
+ 
+Return to Top . 
+ Structure:  Stock Purchase  Asset Purchase  338(h)(10) Election  
+Buyer Acquires:  All Assets , Liabilitie s, and  
+Off-BS Items  Only Certain  
+Assets and 
+Liabilities  All Assets , 
+Liabilities , and Off -
+BS Items  
+Seller Pays Taxes 
+Based On: Purchase Price  Purchase Price PLUS (Value Assigned to 
+Net Assets in Deal  – Book Value of Net 
+Assets)  
+Assets Written Up 
+on Tax Balance 
+Sheet?  No Yes 
+Can Buyer Deduct 
+New D&A on Asset 
+Write -Ups for Cash -
+Tax Purposes?  No Yes 
+Creates New DTL?  Yes No 
+Goodwill  & Other 
+Intangibles:  Not amortized for tax 
+purposes and not cash -
+tax-deductible  Amortization is tax -deductible; 
+amortized over 15 years for cash -tax 
+purposes  
+Allowable Annual 
+NOL Usage:  Equity Purchase Price * 
+Maximum of Past 3 
+Months’ Adjusted Long -
+Term Rates  None  
+Off-Balance Sheet 
+NOL Write -Down:  MAX(0, NOL Balance – 
+Allowable Annual Usage 
+* # Years Until 
+Expiration)  100%  
+Write -Down of NOL 
+Portion of DTA:  MAX(0, NOL Portion – 
+Allowable Annual Usage 
+* Buyer’s Tax Rate * # 
+Years Until Expiration)  100%  
+Most Common 
+Sellers : Public companies and 
+large private companies  Private companies, divested divisions , 
+and distressed public companies  
+Favored By:  Sellers  Buyers  Both  
+ Advanced Financial Modeling Course  
+ 
+16 of 25 https://breakingintowallstreet.com  
+Net Operating Losses (NOLs) in Different Deal Structures  
+We summarized the treatment of the Seller’s NOLs in the table on the previous page , but it’s 
+worth explaining it in more detail with a few sample numbers . 
+In Asset Purchases and 338(h)(10) deals, the Seller’s NOLs are written down 100% and cannot 
+be used post -transaction. I n Stock Purchases, the Buyer can use some  of the Seller’s NOLs 
+each year, but it may have to write down a portion of the total balance.  
+Let’s say the Seller has $100 million in off -Balance Sheet NOLs, which are represented as $25 
+million within its Deferred Tax Asset since it has a 25% tax rate.  
+The Buyer pays an Equity Purchase Price of $1 billion for the Seller.  
+In an Asset Purchase or 338(h)(10) deal, the Buyer writes down the $25 million of NOLs within 
+the DTA and the entire $100 million off -Balance Sheet number, and it cannot use any of the 
+NOLs in the future.  
+But this full write -down does not  happen in a Stock Purchase , and the Buyer can use a limited 
+amount of NOLs annually.  
+For U.S. -based Buyers, the allowable usage is calculated as  follows : 
+• Allowable Annual NOL Usage  = Equity Purchase Price * Highest of Past 3 Months' 
+Adjusted Long -Term Rates  
+The rules vary in different countries ; in some cases, there is no limit or a much higher annual 
+limit, but the NOLs themselves may also expire more quickly (or not at all).  
+These “Adjusted Long -Term Rates” are linked  to the prevailing yields on government bonds in 
+the Buyer’s country (i.e., the Risk -Free Rate).  
+If the past three  months had “Adjusted Long -Term Rates” of 1.2%, 1.0%, and 1.5%, the Buyer 
+could use a maximum of $1 billion * 1.5% = $15 million in NOLs each year.  
+Therefore , the Buyer could use the Seller’s entire $100 million NOL balance over ~7 years to 
+reduce its Cash Taxes  each year . 
+Therefore, if these NOLs do not expire or expire after  7 years, no write -down is required 
+because the Buyer can use the full balance before that happens.  
+As the Buyer uses these NOLs, the off -Balance Sheet figure will decline by $15 million per year , 
+and the portion within the DTA will decline by $15 million * 25% = $3.75 million per year.  
+ Advanced Financial Modeling Course  
+ 
+17 of 25 https://breakingintowallstreet.com  
+However,  if these NOLs were set to expire in 3 years , the Buyer could not  use the entire 
+balance.  
+In that case, the Buyer could use only $45 million of the NOLs, corresponding  to $11.25 million 
+of the DTA balance.  
+So, the Buyer, in the initial transaction, would have to write down $55 million of the off -
+Balance Sheet  NOL balance and $13.75 million of the DTA balance.  
+After that initial write -down, the off -Balance Sheet NOLs would decrease by $15 million per 
+year , and the DTA would decrease by $3.75 million per year.  
+Here’s an example of how the Taxable Income and Cash Taxes differ  in a Stock vs. Asset or 
+338(h)(10) deal:  
+Stock Purchase – Book vs. Cash Taxes  Asset / 338(h)(10) Purchase – Book vs. Cash Taxes  
+  
+In this example, the ending Cash balance is higher in the Asset or 338(h)(10) deal because the 
+Buyer can deduct the new D&A for cash- tax purposes.  
+The Seller’s NOLs are written down, which hurts the Buyer , but the tax advantages of the D&A 
+treatment outweigh this loss . 
+If the Seller has a huge NOL balance, a Stock Purchase might be superior , but if the NOL 
+balance is small  or non -existent, an Asset Purchase or 338(h)(10) e lection might offer more 
+benefits for the Buyer.  
+
+ Advanced Financial Modeling Course  
+ 
+18 of 25 https://breakingintowallstreet.com  
+The exact structure rarely makes a big difference in a merger model unless the deal parameters 
+are unusual (e.g., the Seller has a massive amount of NOLs,  or the Seller’s Assets are written up 
+by huge percentage s). 
+But it’s still good to be familiar with these deal structures because they come up in more 
+advanced interviews and on the job.  
+Return to Top . 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+ 
+  
+ 
+ 
+   
+ Advanced Financial Modeling Course  
+ 
+19 of 25 https://breakingintowallstreet.com  
+Interview Questions  
+It is unlikely that you will get questions about these more advanced M&A concepts in 
+interviews.  
+However, if you’ve had significant work experience or presented a full list of M&A deals on your 
+resume/CV, these more advanced questions have a higher probability of coming up.  
+ 
+Quarterly Models, Variable Close Dates, and Stub Periods  
+Questions about “timing differences” are much more likely to come up in the context of deal 
+discussions  around the models and technical work you completed, but interviewers could still 
+quiz you on the basics in standalone questions.  
+ 
+1. How does a quarterly merger model differ from an annual one? Does it add any value?  
+Most of the differences concern the financial projections for the Buyer and Seller; in a quarterly 
+model, you use Y ear-Over-Year (YoY) growth rates for revenue and expenses, you use LTM 
+Income Statement figures to forecast the Balance Sheet, and you use quarterly versions of the 
+interest rates and repayment terms for Debt. Annual summaries and roll- ups are also common.  
+In the merger model itself, you often allow the deal to close on different quarterly end dates so 
+you can compare the accretion/dilution in different scenarios.  
+Quarterly merger models are most useful when there’s significant uncertainty around the deal’s 
+close date , and at least one company change s significantly over time. Outside of that, the 
+added precision does not necessarily justify the extra time and effort required.  
+ 
+2. Suppose you have built a quarterly merger model with a variable close date. The “baseline” 
+close date is currently Quarter 2 of Year 1. If the deal closes later, such as in Quarter 2 of Year 
+2, how would the EPS accretion/dilution change?  
+It depends on how the Buyer and Seller’s financial profiles change over this period. If their Cash 
+balances are higher and their Debt balances are lower, the deal is likely to be more accretive 
+because it means they can use more Cash and Debt to fund the deal, which is  usually cheaper 
+than Stock . 
+ Advanced Financial Modeling Course  
+ 
+20 of 25 https://breakingintowallstreet.com  
+On the other hand, if these balances move in the wrong direction  due to higher burn rates or 
+reduced cash flows, a later close date  would be more dilutive  because it means the Stock 
+component will be greater.  
+ 
+3. Is that answer complete? Can you  answer this question based on Excel and the financial 
+statements? What else factors in?  
+The previous answer is all you can say based on the financial statements and the Excel model . 
+However, in real life, the other major factor is that the Buyer and Seller’s share prices often 
+change significantly after the deal is announced, and these movements also affect the 
+accretion/dilution if the deal has a Stock component.  
+If the Buyer’s share price increases, any deal with a Stock component become s more accretive, 
+while the opposite happens if its share price decreases ( though this varies based on how the 
+Exchange Ratio is set, possible collars, etc.).  
+ 
+4. What are the main "cases" when combining the Buyer and Seller’s financial statements in a 
+merger model with variable close dates? The main cases on the Income Statement and Cash Flow Statement  are “pre -transaction” and 
+“post -transaction.” The pre -transaction numbers are only the Buyer’s, while the post -
+transaction ones include the Buyer + Seller’s numbers and all the acquisition effects , adjusted 
+based on the periods (monthly vs. quarterly vs. annual) and the possible close date.  
+On the Balance Sheet, there’s also the “close date” case, which is different since the Balance 
+Sheet suddenly changes to reflect the Cash, Debt, and Stock used in the deal, the new Goodwill, 
+the new DTL, the asset write -ups, and so on.  
+The Balance Sheet is trickier than the other statements because many of the line items require 
+different formulas in the post- transaction period; for example, the Working Capital lines are 
+simple combinations of  the Buyer and Seller, but items such as Net PP&E and Debt flow in from 
+the Combined Cash Flow Statement.  
+ 
+5. What would change in a merger model if the deal closed on an irregular date, such as 
+August 15
+th? 
+ Advanced Financial Modeling Course  
+ 
+21 of 25 https://breakingintowallstreet.com  
+You would “roll forward” the Balance Sheets for both companies to August 15th and combine 
+them on that date, ensuring that the Purchase Price Allocation and Sources & Uses schedules 
+are also based  on that date.  
+You would also create “stub periods ” for the Combined Income Statement and Cash Flow 
+Statement to show what happens between the most recent period before  August 15th and 
+August 15th and what happens between August 15th and the next  quarter (or year) after that.  
+In the merger model, you would combine the statements starting in this second stub period 
+(August 15th to the end of the next quarter /year ), but you would still focus on the first full year 
+of combined results  because EPS accretion/dilution is more meaningful over a full year.  
+Return to Top . 
+ 
+Exchange Ratios and Collars  
+Questions about these topics are often conceptual, but it’s possible to receive a few “mental 
+math” questions about the impact of Exchange Ratios and collars on the shares issued in a deal 
+and the EPS accretion/dilution.  
+ 
+1. What's the difference between Fixed and Floating Exchange Ratios, and which do Buyers 
+prefer?  
+With a Fixed Exchange Ratio, the Seller receives a constant number of shares  regardless of the 
+Buyer’s share price . For example, the Buyer might agree to issue two new shares for each of the 
+Seller’s shares. The Seller’s ownership in the combined company stay s the same  as the Buyer’s 
+share price  changes , but its purchase price will change.  
+With a Floating Exchange Ratio, the Seller receives a fixed purchase price but a variable number 
+of shares. For example, the Buyer might agree to pay $200 million to  the Seller, but that means 
+10 million shares if the Buyer’s share price is $20.00 and 40 million shares if the Buyer’s share 
+price is $5.00.  
+Buyers care the most about avoiding dilution in M&A deals, so they tend to favor the Fixed 
+Exchange Ratio if they’re not confident of their current/future share price . If the Buyer is 
+reasonably confident that its share price will rise, it might favor a Floating Exchange Ratio so 
+that it issues fewer shares.  
+ 
+ Advanced Financial Modeling Course  
+ 
+22 of 25 https://breakingintowallstreet.com  
+2. Why might a Buyer and Seller agr ee to a collar in a 100% Stock deal?  
+100% Stock deals present risk for both Buyers and Sellers: The Buyer could dilute its 
+shareholders by a huge amount if its share price falls, while the Seller could receive fewer 
+shares than expected if the Buyer’s share price rises.  
+A collar  allows for a compromise and reduce s the risks by establishing a Fixed Exchange Ratio 
+within a certain range of Buyer share price, with Floating Exchange Ratios outside that region. It might also be set up in the opposite way, with a Floating Exchange Ratio in a certain range and Fixed Exchan ge Ratios outside that range.  
+Sellers can be assured of receiving a fixed purchase price or a fixed number of shares within a range of share prices for the Buyer, while Buyers can limit either the dilution or the effective purchase price.  
+ 
+3. What are example terms for a Fixed Exchange Ratio with a c ollar  in an M&A deal ? 
+This structure means that the Seller gets a fixed number of shares within a certain share price 
+range for the Buyer . 
+So, the purchase price will vary within that range, and above or below that range, the purchase 
+price is fixed, but the shares issued will vary . For example:  
+• Buyer’s Share Price Between $50.00 and $60.00:  The Seller always gets 10 million of the 
+Buyer’s shares  ($500 to $600 million purchase price).  
+ 
+• Buyer’s Share Price Above $60.00:  The Seller always gets a $600 million  purchase price , 
+but the shares issued vary based on the Buyer’s share price.  
+ 
+• Buyer’s  Share Price Below $50.00:  The Seller always gets a $500 million  purchase price , 
+but the shares issued vary based on the Buyer’s share price.  
+ 
+4. How does EPS accretion/dilution change with a Fixed vs. Floating Exchange Ratio? What if 
+there’s a collar?  
+A Fixed Exchange Ratio does not impact  the accretion/dilution because the shares issued by the 
+Buyer are constant regardless of its share price. But with a Floating Exchange Ratio, the shares 
+issued change as the Buyer’s share price changes , so the deal will become more accretive as the 
+Buyer’s share price increases and more dilutive as it falls.  
+ Advanced Financial Modeling Course  
+ 
+23 of 25 https://breakingintowallstreet.com  
+With a collar, the EPS accretion/dilution change s over only specific ranges  of the Buyer’s share 
+price. So, it might vary between $50.00 and $70.00 per share but remain constant below $50.00 
+and above $70.00 if the Exchange Ratio is Fixed in those ranges (for example).  
+ 
+5. Suppose that a Buyer plans to pay $500 million for a Seller using  100% Stock. Its current 
+share price is $50.00, so it will issue 10 million shares to do the deal.  
+If the deal is based on a Floating Exchange Ratio between $40.00 and $60.00 with a collar 
+outside those levels, what are the minimum and maximum purchase prices and shares 
+issued?  
+There are no  minimum or maximum purchase prices when there’s a Floating Exchange Ratio 
+with a collar; the shares issued  are capped above  $60.00 and below $40.00, but the purchase 
+price keeps changing.  
+The purchase price here will be $500 million if  the Buyer’s share price stays between $40.00 
+and $60.00; if it goes outside that range, the purchase price will change.  
+The shares issued will be between $500 million / $60.00 = 8.33 million and $500 million / 
+$40.00 = 12.5 million. These numbers represent the minimum and maximum number of shares 
+issued due to this collar structure . 
+ 
+6. When is a collar most and least useful?  
+A collar is most useful  in a 100% Stock deal when the Seller is moderately sized relative to the 
+Buyer (e.g., 1 / 4 or 1 / 3 of its size), the parties want to compromise and reduce their risk, and 
+there’s disagreement about the Buyer’s share price or prospects.  Any deal expected to take 12+ 
+months to close may also benefit from a collar due to the risk of share price  volatility  before the 
+close.  
+A collar is least useful  when most of these conditions are not true (e.g., there’s little risk of 
+share price volatility or the Buyer is 100x bigger than the Seller).  
+Return to Top . 
+ 
+Stock vs. Asset vs. 338(h)(10) Deals and NOLs 
+ Advanced Financial Modeling Course  
+ 
+24 of 25 https://breakingintowallstreet.com  
+These questions start to border on “obscure,” but they may come up in more advanced 
+interviews with M&A groups, especially in the U.S.  
+ 
+1. Why do Buyers tend to prefer Asset Purchases , while Sellers tend to prefer Stock 
+Purchases ? 
+In Asset Purchases, Buyers can pick and choose the exact Assets they want to acquire and the 
+exact Liabilities they want to assume, which reduces the transaction risk.  
+Buyers can also deduct D&A on Asset Write -Ups for cash -tax purposes in an Asset Purchase, 
+which reduces their tax burden after the deal closes.  
+Sellers tend to prefer Stock Purchases because Asset Purchases leave them with more risk after 
+deals close and because they must pay taxes based on the purchase price PLUS the Gains 
+recorded on their Net Assets in an Asset Purchase.  
+ 
+2. What's the advantage of a 338(h)(10) election for a U.S. -based Buyer?  
+In a 338(h)(10) Election, the Buyer and Seller treat a Stock Purchase as an Asset Purchase for tax 
+purposes.  
+So, the Buyer still acquires all the Assets, Liabilities, and off -Balance Sheet items of the Seller, 
+but it can  also deduct D&A on Asset Write -Ups for cash -tax purposes.  
+The Seller’s entire NOL balance is also written down (as in a standard Asset Purchase).  
+338(h)(10) deals can help Buyers and Sellers compromise and reach an agreement more quickly 
+since they combine the elements favored by Buyers in Asset Purchases and Sellers in Stock 
+Purchases.  
+ 
+3. If a Seller has a massive NOL balance, should the Buyer use a Stock Purchase, Asset 
+Purchase, or 338(h)(10) election to acquire it?  
+The Buyer should use a Stock Purchase because NOLs are written down 100% in Asset Purchase  
+and 338(h)(10) deals,  so the Buyer cannot use the Seller’s NOLs in those deal structures.  
+ 
+ Advanced Financial Modeling Course  
+ 
+25 of 25 https://breakingintowallstreet.com  
+4. Walk me through what happens in a Stock Purchase deal where the Buyer pays an Equity 
+Purchase Price of $2 billion for the Seller, and the Seller has an off -Balance Sheet NOL balance 
+of $400 million. The NOLs expire in 5 years.  
+Assume that the Long -Term Adjusted Rates for the past three  months were 0.5%, 0.7%, and 
+1.0%  and that the Buyer’s Tax Rate is 25%.  
+If the off -BS NOL balance is $400 million, the portion within the DTA should be approximately  
+$100 million at a 25% tax rate.  
+The Buyer can use MAX(0.5%, 0.7%, 1.0%) * $2 billion, or $20 million, of NOLs per year.  
+The NOLs expire in 5 years, which means the Buyer can use 5 * $20 million = $100 million total.  
+Therefore, the Buyer will write down $300 million of the off -BS NOLs and $75 million of the 
+NOLs within the DTA when the transaction closes.  
+The remaining off -BS NOL balance will be $100 million, and the NOL portion within the DTA will 
+be $25 million.  
+After the deal closes , the Buyer will use $20 million of the NOLs each year to reduce its cash -
+taxable income, so  the off- BS balance will decline by $20 million per year . 
+The DTA portion will decline by $5 million per year until both the on- BS and off- BS NOL 
+balances reach $0 at the end of Year 5.  
+ 
+5. How do these numbers change in an Asset Purchase?  
+In an Asset Purchase, the Seller’s Net Operating Losses –  both the off- Balance Sheet and on -
+Balance Sheet versions –  are written down to $0, and the Buyer can’t use any of the Seller’s 
+NOLs. 
+Return to Top . 

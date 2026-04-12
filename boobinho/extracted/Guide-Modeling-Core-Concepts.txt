@@ -1,0 +1,991 @@
+ Advanced Financial Modeling Course  
+ 
+1 of 35 https://breakingintowallstreet.com  
+Financial Modeling Overview and Core Concepts  
+Table of Contents:  
+Overview & Key Rules of Thumb  ................................ ................................ .......................  2 
+Key Rule #1: What Does “Financial Modeling” Mean?  ................................ ..................  2 
+Key Rule #2: The Time Value of Money  ................................ ................................ .........  7 
+Key Rule #3: Present Value (PV), Internal Rate of Return (IRR), and Weighted Average Cost of 
+Capital (WACC)  ................................ ................................ ................................ ............  12 
+Key Rule #4: How to Value Any Company: The Most Important Formula in Finance  .. 22 
+Key Rule #5: What Makes Financial Modeling Hard  ................................ ....................  27 
+Interview Questions  ................................ ................................ ................................ ........  29 
+The Time Value of Money  ................................ ................................ ...........................  29 
+PV, NPV, IRR, and WACC  ................................ ................................ .............................  30 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Advanced Financial Modeling Course  
+ 
+2 of 35 https://breakingintowallstreet.com  
+Overview & Key Rules of Thumb  
+This guide introduces you to the key technical topics  that will come up repe atedly in interviews 
+and on the job.  
+You will probably NOT  receive direct interview questions on these topics – however, you  need 
+to understand these concepts to answer other technical questions successfully.  
+For example, if you don’t understand the time value of money, you will never understand the 
+Discounted Cash Flow (DCF) analysis and DCF -related questions.  
+ 
+Key Rule #1: What Do es “Financial Modeling” Mean ? 
+Imagine that you get into an argument with a friend over a company’s stock price.  
+Right now, the company is trading at $150 pe r share. Y ou think it’s worth $200 per share, but 
+your friend thinks it’s worth $100 per share . 
+You recommend investing in the company, but your friend recommends “shorting” (betting 
+against) the company.  
+How do you tell who’s correct?  
+You create a “financial model” to estimate the company’s value . 
+A “financial model” is like an outline for a long essay  or a blueprint for a building: It doesn’t give 
+you all the details , but it gives you enough details to make a decision . 
+For example, if you create a blueprint for a building, you may not know the color of each wall.  
+But if there’s a big problem with the building, such as a foundation that’s too small, the 
+blueprint will clue you in . 
+A financial model works the same way: it doesn’t tell you everything a company does, but it lets 
+you detect opportunities and major problems . 
+Going back to that example above, let’s say that you create a model to estimate how much cash 
+flow this company will generate in the future.  
+You’re doing this to convince your friend that the company is worth $200 per share.  
+The company has grown its sales  at 10% per year over the past few years , but for the company 
+to be worth $200 per share, your model says that its sales must grow at 30% per year.  
+ Advanced Financial Modeling Course  
+ 
+3 of 35 https://breakingintowallstreet.com  
+Your friend goes through the same exercise and creates his estimates for the company’s future 
+sales , profits , and cash flows as well.  
+According to his model, for the company to be worth $100 per share, its sales must grow at 5% 
+per year.  
+So, who’s right?  
+The answer is that no one is “right,” but your friend is MORE  LIKELY to be correct . 
+That’s because companies tend to grow at slower rates as they get bigger, so a decline from 
+10% to 5% growth is more plausible than an increase from 10% to 30% growth.  
+However, both your analysis and your friend’s analysis rely on predicting the future , which is 
+why no one is “correct .” 
+Financial modeling lets you quantify  your views of a company and back up your arguments with 
+actual numbers.  
+Here are a few examples of how you might use it:  
+• Stock Investing:  A pharmaceutical company’s stock price just fell by 50%. Was that 
+decline justified, o r did the market overreact? Should you buy the stock now because it’s 
+set to rise again?  
+ 
+• Advising on Mergers and Acquisitions:  A large retailer wants to acquire a smaller 
+retailer. Will the acquisition improve its financial metrics and make investors happy?  
+ 
+• Acquiring Companies in Leveraged Buyouts:  Investors want to acquire a food & 
+beverage company, improve its operations, and sell it again in 5 years. Is this plan a 
+good idea? Can they earn the annual returns they’re targeting?  
+If you’re an investor , you use financial modeling to  earn money for yourself by making the 
+correct investment decisions . 
+If you’re an adviser , such as an investment banker, you use financial modeling to advise clients 
+on what they  should do.  
+For example, should a client buy another company? Sell a division? Go public? Raise debt?  
+You never make decisions based SOLELY on a financial model.  
+It’s just a part of the p rocess, like DNA evidence or witnesses in a courtroom trial: I t might 
+inform  your decision, but it won’t dictate  your decision.  
+ Advanced Financial Modeling Course  
+ 
+4 of 35 https://breakingintowallstreet.com  
+And just like in a courtroom trial, the process of making an investment decision or advising a 
+client is a combination of story -telling, data gathering, and some  calculations and evidence.  
+The Steps in the Financial Modeling Process  
+There are many types of financial models , but the overall process for building a model looks like 
+this:  
+• Step 1:  Decide on the Purpose of Your Analysis . 
+• Step 2:  Do Some Background Research . 
+• Step 3:  Identify the Key Drivers . 
+• Step 4:  Gather Data for Other Companies (If Applicable) . 
+• Step 5:  Build Your Analysis . 
+• Step 6:  Present Your Conclusions . 
+This topic will NOT  come up in interviews; it’s here “for your own  information ,” so we won’t 
+devote much space to it.  
+ 
+Step 1: Decide on the Purpose of Your Analysis  
+For example, are you arguing with your friend over whether a company is worth $100 per share 
+or $200 per share?  
+If so, valuation  will be most important. You’ll forecast the company’s sales , profits, and cash 
+flow in the future, and you’ll use those to estimate its value today.  
+On the other hand, if you’re advising a client on an acquisition, then a merger mod el – 
+combining one company with another and assessing  the financial impact  – will be most 
+important.  
+And if you’re at a private equity firm thinking about buying a company and then selling it in the 
+future, a leveraged buyout analysis , where you calculate how much you’ll earn each year by 
+doing that, is most important.  
+Regardless of the analysis , you’ll always need to estimate the company’s future revenue, 
+expenses, and cash flows . 
+Time Required:  5 minutes to decide  on the model (s) to build.  
+ 
+Step 2: Do Some Background Research  
+ Advanced Financial Modeling Course  
+ 
+5 of 35 https://breakingintowallstreet.com  
+You start  by reading the company’s interim and annual reports: How much money is it making? 
+Is it profitable? Has it become more or less profitable over time?  
+Then, you look at the “investor presentations” the company issues, industry research, and 
+reports from banks that cover this company.  
+If you’re an investor, you might also  speak with management, or interview customers or 
+suppliers to get a better idea of what’s happening  on the  ground . 
+Time Required:  Varies widely; it could be 1 hour, or it could be days or weeks.  
+ 
+Step 3: Identify the Key Drivers  
+Next, you identify the key drivers  for a company based on your research.  
+For example, for a retailer, the number of stores it owns, how much it se lls in each store, and 
+the costs  per product sold will be key drivers.  
+For a food & beverage company, the key drivers might be units sold, average selling price, and 
+cost per unit.  
+For an airline company, they  might be the number  of flights, passengers per flight, average 
+revenue per passenger, and cost per flight.  
+For a subscription -based service, they might be the average monthly fee, the number of 
+customers, the cancellation rate, and the growth in new customers.  
+And f or a phar maceutical company, the key drivers might be the number of patients, the price  
+per patient , and the company’s spending on sales & marketing and research & development.  
+Time Required:  30-60 minutes. Do NOT  overthink this part.  
+ 
+Step 4: Gather Data for Other Companies (If Applicable)  
+If you’re valuing  a company, you’ll need to gather data on other, similar companies (“peer 
+companies”) in the market.  
+It’s similar to buying a house or car: Y ou have to check what similar items  cost to see if you’re 
+getting a good deal or not.  
+In other situations, such as advising a client on a n acquisition, you’ll need to gather data on 
+similar acquisitions . 
+ Advanced Financial Modeling Course  
+ 
+6 of 35 https://breakingintowallstreet.com  
+In many cases, you won’t spend much time on this step because you just need “rough 
+numbers” from similar compa nies.  
+It’s far more time -consuming to review those numbers, sift through hundreds of pages, and 
+make tiny adjustments – but you only do that in a handful of cases (such as for a “Fairness 
+Opinion” in investment banking).  
+Time Required:  Varies widely; it could be 1 hour for a quick analysis, or it could take days or 
+weeks if you need perfect numbers.  
+ 
+Step 5: Build Your Analysis  
+You’ll always  estimate the company’s future revenue , expenses, and cash flow . 
+You have to do this because investment decisions are forward -looking:  You decide whether or 
+not to invest, expand, or acquire based on what might happen in the future . 
+Even when you’re advising a client on an acquisition  or fundraising , you still need estimates for 
+the company’s  future revenue , expenses , and cash flow  to present to lenders or investors.  
+Beyond that, the work varies widely based on the type of analysis.  
+For example, if you’re valuing  a company, you’ll spend a lot of time gathering and processing 
+data for peer companies.  
+But if you’re advising a client on a deal, you’ll spend more time looking at different scenarios  
+for the deal and different prices the client might pay.  
+You rarely need a full set of “financial statements”; many analyses include only cash flow 
+projections, which are based  on parts  of the financial statements.  
+Time Required:  Varies widely; it could be 30 minutes for a quick analysis  or 3 months for a 
+complex one. The “average case” i s probably a few days to a week, and in our courses, we focus 
+on models that might take several hours up to a week to complete.  
+ 
+Step 6: Present Your Conclusions  
+This part is like the closing statement  in a courtroom trial.  
+You tie together everything – the numbers, the market analysis, and the “story”  – and make a 
+single recommendation.  
+ Advanced Financial Modeling Course  
+ 
+7 of 35 https://breakingintowallstreet.com  
+For example:  
+• “You should buy this company for $1 billion using your entire cash  balance .” 
+ 
+• “This company’s stock is w orth $100. It’s trading at $50 now, so we should invest in the 
+company.”  
+ 
+• “We should acquire this company in a leveraged buyout, pay $500 million for it, and 
+plan to sell it again in 4 years.”  
+You might make this recommendation in PowerPoint, Word, or verbally , and your audience 
+might be the Partners at your firm, senior bankers, your client, or interviewers.  
+Time Required:  Varies widely; it could be 5 minutes in an interview, 3 -4 hours in a tak e-home 
+case study, or a week on the job.  
+Return to Top . 
+ 
+Key Rule #2: The Time Value of Money  
+Now that you know what “financial modeling” means, it’s time to jump into the numbers.  
+The most important concept is that money today is worth MORE than money tomorrow . 
+In other words, $100 today is worth more than $100 in 5 years.  
+That’s because you could invest that $100 today and end up with more than $100 in 5 years . 
+Many people misunderstand this point and think that future money is less valuable because of 
+inflation.  
+While inflation also makes future money less valuable  today , the REAL  reason is that you could 
+invest money today and earn more in the future.  
+I saw this point firsthand when I lived in South Korea, which has a “unique” real estate system.  
+When you rent an apartment there, there are two options: 전세  (Jeon -se) and 월세  (Wol -se). 
+We’ll label t hese choices Options #1 and #2.  
+With Option #1, you pay an upfront deposit for 50 -80% of the apartment’s value, but you pay 
+no monthly rent, and you get the deposit back at the end.  
+ Advanced Financial Modeling Course  
+ 
+8 of 35 https://breakingintowallstreet.com  
+With Option #2, you pay an upfront deposit for 5 -10% of the apartment’s value, but you pay 
+monthly rent , and you still get that deposit back at the end.  
+Let’s use some specific numbers and say that the apartment is worth $200,000  ($200K).  
+Here’s what Option #1  looks like: 
+• Deposit of $150K (75%  of apartment’s value ). 
+• No monthly rent . 
+• Get back $150K deposit after 2 years . 
+And here’s what Option #2  looks like:  
+• Deposit of $10K (5%  of apartment’s value ). 
+• Monthly rent of $1K . 
+• Get back $10K deposit after 2 years . 
+Nearly 99% of people in the country advised me to go with Option #1.  
+They argued that “ I wouldn’t lose any money” and “ I would get everything back at the end.”  
+In their minds, the options looked like this:  
+ 
+But they were all wrong!  Or at least, not correct in all cases.  
+Why?  
+1) Because $150K received back in 2 years is worth LESS  than $150K today. Even if we 
+receive back “the same amount” in the future, it’s worth less than it is today . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+9 of 35 https://breakingintowallstreet.com  
+2) Paying $140K more  for the deposit means that you CANNOT  invest that $140K 
+elsewhere and earn something with it. So, t here’s an opportunity cost  associated with a 
+higher deposit.  
+With Option #2, we pay $ 12,000 in rent per year.  
+And w ith Option #1, we pay no rent, but we do pay an extra  $140,000 upfront.  
+So, is Option #1 or Option #2 better?  
+It depends on how much  you could EARN with that extra $140,000 . 
+For example, if your best idea is to put that $140,000 in a savings  account at the bank and earn 
+1% interest on it, Option #1 is clearly  better.  
+At a 1 % interest rate, you’d earn $1,400 in interest each year. You would lose money  because 
+you would pay $12,000 in rent to earn $1,400 in interest, which is a loss of $10,600 per year.  
+The diagram below illustrates this : Over 2 years, you lose far less with Option #1.  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+On the other hand, if you invest that $140,000 in to something with a higher yield, such as 10 %, 
+then Option #2 is better:  
+
+ Advanced Financial Modeling Course  
+ 
+10 of 35 https://breakingintowallstreet.com  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+At a 10 % yield , you’d earn $14,000 in interest each year, which exceeds the $ 12,000 in annual 
+rent you’d pay with  Option #2, for a net gain of $2,000 per year.  
+So, in this case, you’d earn  money by paying for monthly rent and investing the extra $140,000 
+elsewhere.  
+All inve stment decisions boil down to  this analysis : Would you earn MORE with this 
+investment than you could earn on similar investments elsewhere? Or would you earn LESS?  
+For example, if you  could invest money and earn 5 % on it, something that yields 8 % for the 
+same amount of risk is an improvement.  
+But if an investment with a similar risk profile yields only 3%, that’s worse because you could 
+earn 5 % on your money elsewhere.  
+And since money today is worth more than money tomorrow, you must discount  future money 
+to its value today, or its “Present V alue,” when you’re analyzing it.  
+For example, what is that $150K deposit I receive back in 2 years worth TODAY?  
+It depen ds on my opportunity cost: W hat I could earn in similar investments elsewhere.  
+If I could earn 10% annually , $150K in 2 years is worth $150K / ((1 + 10%)^2), or $124K, today.  
+That’s because $124K * (1 + 10%) = $136K, and $136K * (1 + 10%) = $150K.  
+So, if I had $124K today and earned 10% on it each year, I’d end up with $150K in 2 years.  
+
+ Advanced Financial Modeling Course  
+ 
+11 of 35 https://breakingintowallstreet.com  
+On the other hand, if I earned only 1% on it each year, it would be worth $150 K / ((1 + 1%)^2), 
+or $147K, today.  
+That’s because $147K * (1 + 10%) = $149K, and $149K * (1 + 10%) = $150K.  
+This concept is called the Present Value , and it’s linked to how much you earn  on an 
+investment  and your opportunity cost . 
+So, going back to my housing situation in South Korea, what was the correct decision? It 
+depends on how much I could have earned with the extra $140,000.  
+The “breakeven point” was 8.2% . 
+If I could have earned exactly 8.2%, “Money Lost + Opportunity Cost  Factored In” would have 
+been $24,000 – the same  as my total rent over 2 years.  
+I might have reviewed my investment ideas and decided  like this:  
+• Realistic Chance of Earning More Than 8.2% Elsewhere:  It would make more sense to 
+choose Option #2 an d pay $12,000 in rent per year. I coul d earn more than $12,000 per 
+year by investing the extra $140,000.  
+ 
+• No Realistic Chance of Earning More Than 8.2%  Elsewhere:  It would make more sense 
+to choose Option #1. I could not earn more than $12,000 per year with the extra 
+$140,000.  
+Key Takeaways:  Money today is worth MORE  than money tomorrow. That’s not because of 
+inflation, but because you could invest  that money today and earn  something with it.  
+The difference between the value of money today and money tomorrow depends on your 
+opportunity cost : How much you could earn with other, similar investments . 
+If this opportunity cost is low, money today won’t be worth that much more. But if the 
+opportunity cost  is high, money today will be worth a lot more.  
+To make investment decisions, you assess the potential returns  – how much you could earn 
+with THIS investment – and your opportunity cost  – how much you cou ld earn elsewhere with 
+OTHER, similar investments.  
+If the potential returns exceed your opportunity cost, you invest ; if not, you don’t . 
+Return to Top . 
+ 
+ Advanced Financial Modeling Course  
+ 
+12 of 35 https://breakingintowallstreet.com  
+Key Rule #3: Present Value (PV) , Internal Rate of Return (IRR), and Weighted Average Cost of 
+Capital (WACC)  
+In the section above, we referred to the key terms informally: “Potential returns,” “Opportunity 
+cost,” and “Y ields.”  
+It’s time to define them more formally  so you can use them to analyze companies.  
+Before delving in, remember the main ways to make investment decisions:  
+1) You invest when an asset’s Asking P rice is below its Intrinsic V alue . 
+ 
+2) And you also invest when an asset’s Potential Returns exceed your Opportunity C ost. 
+These methods are equivalent , which you’ll understand by the end of this section.  
+If you know these concepts, you’ll understand every other concept in financial modeling:  
+1) Hedge Fund Stock Pitches  – Should you buy a stock? Only if its Asking Price is below its 
+Intrinsic V alue . For example, its share price is $100 , but it’s worth $200 per share.  
+ 
+2) Investment Banking Client Recommendations  – If you recommend that a client sell 
+itself in an M&A process, you might suggest a target ed price of $400 – $450 million.  You 
+believe  the company is worth  $500 million, but you set the price lower than that to 
+make it more attractive to acquirers (and to make yourself look good if it sells for more).  
+ 
+3) Private Equity Investment Recommendations  – Should your firm acquire a company in 
+a leveraged buyout?  It depends on the potential returns vs. the firm’s targeted returns. 
+If the deal might produce an average annual return of 25%, and your target is 20%, the 
+answer might be “yes.”  
+The list goes on.  
+In finance, the “opportunity cost” is called the Discount Rate , and it depends on your other, 
+similar investment options.  
+The Discount Rate matters because it lets you calculate the Present Value  of an asset or 
+company – what its future cash flows are worth today . 
+We refer to this Present Value of future cash flows as the “Intrinsic Value” or “Implied Value” of 
+the company or asset as well.  
+ Advanced Financial Modeling Course  
+ 
+13 of 35 https://breakingintowallstreet.com  
+So, if you know the Discount Rate and the future cash flows, you can calculate the Intrinsic 
+Value of an asset and compare it to the Asking Price to make an investment decision.  
+A higher Discount Rate means that the risk and potential  returns are both higher, and a lower 
+Discount Rate means that the risk and potential  returns are both lower.  
+For example, if you invest mostly in the stock market, your Discount Rate will be high because 
+the average annual return has been 10 -11% for the past 100 years.  
+But your risk is also quite high . 
+In a given year, the market might fall by 30%  or 50% , even if the long -term average  is a 10 -11% 
+annual gain.  
+By contrast, if you invest mostly in U.S. government bonds, your Dis count Rate will be much 
+lower: P erhaps 2 -3% in a low -interest -rate environment.  
+But your risk is also much lower  because the U.S. government has  a very low chance of 
+defaulting  on its debt obligations . 
+In real life, no invest or invests in just one asset class, and no company uses just one source of 
+funding.  
+So, you need to look at the weighted average  of these Discount Rates  across all the asset 
+classes or funding sources.  
+For companies, this “weighted average” is called the Weighted Average Cost of Capital , or 
+WACC, and it’s one of the most important metrics for valuing companies.  
+You can use an analogy to your personal  finances to understand WACC: W hat percentages of 
+your money do you put in a checking account, savings account , bonds , and the stock market?  
+Your “Opportunity Cost ” in each category might look like this:  
+ 
+So, what is your “personal  WACC ”? 
+
+ Advanced Financial Modeling Course  
+ 
+14 of 35 https://breakingintowallstreet.com  
+It depends on the percentage you allocate into each category. Here’s an example:  
+ 
+In this case, your “personal WACC” is 2.8% because 0.1% * 35.0% + 1.0% * 30.0% + 5.0% * 
+20.0% + 10.0% * 15.0% = 2.8%.  
+Why not just put everything into the stock market? Because the risk is much higher ! 
+If you do that, and there’s a market crash, you might lose 50% of everything you own in a year.  
+The market may recover in the future, but that might take a very long time.  
+Also, even if there’s no market crash, you’ll need to keep some cash available to pay for living 
+expenses such as rent an d food , so it isn’t feasible to put all your money into stocks.  
+The concepts are similar for companies, but the options  are different , and they relate more to 
+outside funding sources . 
+From  the perspective of an investor, the question is: “Where should I allocate my money?”  
+But from the perspective of a company, the question is: “How should we raise money  to fund 
+operations and expand the business?”  
+The two main funding options for companies are Equity  and Debt. 
+Equity  means that the company will raise money by selling stock to investors. In exchange, each 
+investor will own a small percentage of the company.  
+Debt  means that the company will raise money by borrowing it from lenders . The lenders do 
+not own any porti on of the business, but they receive interest payments , and they get their 
+entire principal  back in the future.  
+For the investor , investing in the stock market is the riskiest method but also produces the 
+highest potential returns over the long term.  
+And for the company , raising Equity  is almost always the most expensive way to fund its 
+operations.  
+
+ Advanced Financial Modeling Course  
+ 
+15 of 35 https://breakingintowallstreet.com  
+Just as investing in bonds results in lower potential returns for you, raising Debt is also less 
+expensive for a company.  
+Here’s a simple example of the WACC calculation for a company:  
+ 
+The exact figures depend on the company’s industry, size, and business risk. 
+For example, companies in “risky” industries, like biotech, tend to have a higher Cost of Equity 
+than similarly -sized companies in mature industries, like manufacturing.  
+The risk is higher in biotech, but so are the potential returns.  
+Similarly, if the company is less creditworthy, i ts Cost of Debt will be higher.  
+Lenders take on more risk by lending the company money, so they demand a h igher interest 
+rate in exchange for that risk.  
+We cover the calculations for Cost of Equity, Cost of Debt, and WACC in detail in the 
+Valuation/DCF lessons and guides, but you often approximate the Cost of Equity by looking at 
+the past stock -marke t performance of the company you’re valuing.  
+For example, if its historical returns were 8 -10% per year, you might assume something similar 
+in the future.  
+To approximate the Cost of Debt, you might look at the interest rate the company is paying on 
+its Debt  or the rates that similar companies are paying on their Debt.  
+Apartments in Korea, WACC, and Present Value  
+So, now that you know about Discount Rates, WACC, and measuring returns, how can you 
+decide whether or not to invest in an asset or company ? 
+You can estimate the Potential R eturns  and compare them to your Discount Rate, or you can 
+estimate the Present Value  and compare it to the Asking P rice.  
+For example, let’s go back to that apartment in Korea and say that it’s up for sale. The owner 
+wants $200K for it, and he expects the tenant to pay $12K in rent per year.  
+
+ Advanced Financial Modeling Course  
+ 
+16 of 35 https://breakingintowallstreet.com  
+We plan to  hold the apartment for 5 years, collect $12K in rent per year, and then sell it for 
+$200K at the end of the period.  
+To make a decision , we can project the cash flows  from the investment, discount them to their 
+Present Value , and then compare the Present Value to the Asking P rice.  
+We also need to know our opportunity cost,  or Discount Rate, which we’ll assume is 2.8% – the 
+same as our “personal WACC” above.  
+Here’s what it looks like in Excel:  
+ 
+In this case, we’ve used the NPV  function in Excel to calculate the Present Value.  
+We could have also calculate d the PV with: $12 / (1 + 2.8%) + $12 / ((1 + 2.8%)^2) + $12 / ((1 + 
+2.8%)^3) + $12 / ((1 + 2.8%)^4) + $212 / ((1 + 2.8%)^5).  
+That formula produces the same result in this simple case:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+17 of 35 https://breakingintowallstreet.com  
+Since the Present Value  of these cash  flows exceeds the apartment’s Asking P rice, we should 
+buy the apartment.  
+But several factors could change our decision : 
+1) The Apartment Sale Value Falls  – If the housing market crashes  and the apartment is 
+worth only $150K at the end, this decision turns into a “No.”  
+ 
+2) The Apartment Stays Vacant for Some Time  – If it takes too long to find tenants, we 
+might  not earn $12K in rent each year, which could also make the decision a “No.”  
+ 
+3) Our Opportunity Cost Changes  – If we find some incredible new opportunity, this 
+apartment might not be worth it.  
+ 
+4) The Asking Price Changes  – If the current owner suddenly d ecides to ask for $250 K, this 
+would turn into a “No” decision.  
+The same factors could change our decision to invest in a company: Its future selling price 
+might fall, its cash flows might decline, our opportunity c ost might change, or the owner of the 
+company might want more for it.  
+But the rules of thumb are simple:  
+• Asking Price < Intrinsic Value:  Invest!  
+• Asking Price > Intrinsic Value:  Don’t invest!  
+ 
+Method #2 for Making Investment Decisions: The Internal Rate of Return (IRR)  
+In addition to comparing an investment’s Present Value and its Asking P rice, you can also 
+estimate its Potential R eturns  and compare them to your Opportunity C ost. 
+You estimate these “Potential R eturns” by calculating the Internal Rate of Return (IRR) , which 
+is a type  of Discount Rate.  
+The difference is that you solve for this Discount Rate  – you don’t know it in advance.  
+If you have a series of cash flows and a Discount Rate, you can solve for the Present Value.  
+And if you have an upfront investment (“Asking Price”) and a series of cash flows, you can solve 
+for the IRR.  
+You can use Excel’s built -in IRR function to calculate the IRR in this apartment scenario:  
+ Advanced Financial Modeling Course  
+ 
+18 of 35 https://breakingintowallstreet.com  
+ 
+With IRR, you must show that upfront invest ment of $200K as a negative in Year 0 , or the 
+function won’t work properly.  
+The IRR here is 6.0%, which means that we should  buy this property  since it exceeds our 
+opportunity cost of 2.8%:  
+ 
+There are several ways to interpret the IRR:  
+Interpretation #1:  If we invested $200K and earned 6% on it each year, compounded annually, 
+we'd earn the equivalent of the positive cash flows shown above.  
+The IRR is "the effective, compounded interest rate on an investment ."  
+Interpretation #2:  IRR is also a way to evaluate the “yield s” of different investments.  
+Specifically, will you earn more with this company, project, or investm ent than you will with 
+other, similar opportunities ? 
+
+ Advanced Financial Modeling Course  
+ 
+19 of 35 https://breakingintowallstreet.com  
+Interpretation #3:  The IRR is the Discount Rate at which the Net Present  Value (NPV)  equals $0.  
+To calculate the NPV, you take the Present Value and then subtract the upfront investment  
+(the “Asking Price”).  
+THE “NPV” FUNCTION IN EXCEL DOES NOT ACTUALLY  CALCULATE THE NET PRESENT VALUE.  
+THE EXCEL “NPV” FUNCTION CALCULATE S THE PRESENT VALUE  – SO, BE CAREFUL!  
+The confusing name means that people often use “NPV” and “PV” interchangeably – so you 
+need to look at the calculations to tell what’s going on.  
+Here’s how the  concept works in this example:  
+ 
+The NPV is $0 when we discount the cash flows using  the IRR for the Discount Rate:  
+ 
+Why Both Investment Evaluation Methods Are the Same  
+We’ve presented these two methods of evaluating investments as different, but they are 
+equivalent to each other.  
+In other words, if the Asking Price < Present Value, then IRR > WACC; and if Asking Price > 
+Present Value, IRR < WACC.  
+To understand why,  start with the definition of Net Present Value:  
+
+ Advanced Financial Modeling Course  
+ 
+20 of 35 https://breakingintowallstreet.com  
+NPV  = Present Value of Cash Flows Discounted @ WACC – Asking Price  
+If NPV is positive, then we invest because PV of Cash Flows @ WACC > Asking Price.  
+You also know that the IRR is the Discount Rate at which the NPV = 0.  
+0 = NPV = Present Value of Cash Flows @ IRR – Asking Price  
+Then, using algebra:  
+PV of Cash Flows @ IRR = Asking Price  
+We can then line up both formulas as follows:  
+x = Present Value of Cash Flows @ WACC – Asking Price  
+And x > 0  since we’re assuming the NPV is positive . 
+0 = Present Value of Cash Flows @ IRR – Asking Price  
+If x > 0, PV of Cash Flows @ WACC  > PV of Cash Flows @ IRR . 
+The Asking Price and Cash Flows are constant in both formulas, so the different Discount Rates 
+must explain the different values.  
+A lower  Discount Rate produces higher  Present Values, so WACC < IRR if x > 0.  
+Therefore, if the NPV is positive, then IRR > WACC . 
+And if the NPV is negative, then IRR < WACC . 
+Using These Concepts in Real Life  
+Companies often make decisions based on WACC and IRR at a divisional level . 
+For example, let’s say that Sir Richard Branson wants to expand Virgin, his multinational 
+conglomerate. He’s considering doing this by launching a shuttle service to Jupiter , or by 
+starting a new low -cost airline in Asia . 
+WAC C for the entire company is 10 %, but WACC for Virgin Galactic  is 15%, and WACC for Virgin 
+Asia is 8 %. 
+These figures represent reality: T his scheme to go to Jupiter is much riskier, but  may also offer 
+higher potential returns.  
+Starting a low -cost airline in Asia is much less risky since it’s already a proven business model, 
+but the potential returns are also lower.  
+ Advanced Financial Modeling Course  
+ 
+21 of 35 https://breakingintowallstreet.com  
+The Jupiter Fleet will cost £1,000 in upfront investment, produce £100 in annual cash flows,  and 
+provide a £1,200 long -term/resale value at the end of 5 years . 
+The Virgin Asia Fleet will cost £400 in upfront investment, produce £30 in annual cash flows, 
+and provide £450 long -term/resale value at the end of 5 years . 
+Based on this information, you calculate the IRR for both opportunities:  
+ 
+The Virgin Galactic opti on produces a higher IRR and beats the WACC for the company as a 
+whole, but you should not pursue it because it does not beat the WACC for just Virgin Galactic.  
+But since the IRR for Virgin Asia beats the WACC for Virgin Asia, you should  pursue that 
+opportunity – even though the IRR is less than WACC for the company as a whole!  
+You always compare the project -specific IRR  to the project -specific WACC . 
+The figures for the company as a whole don’t matter unless the project relates to the entire 
+company.  
+
+ Advanced Financial Modeling Course  
+ 
+22 of 35 https://breakingintowallstreet.com  
+Key Takeaways:  It makes sense to invest in a company or asset when:  
+1) Its Asking Price is below its Intrinsic V alue ; or 
+2) The Potential Returns exceed your Opportunity C ost. 
+In finance, the “Opportunity C ost” is called the Discount Rate , and it depends on your other, 
+similar investment options and how you’re allocating your money.  
+A higher Discount Rate means that the risk and potential returns are both highe r, and a lower 
+Discount Rate means that the risk and potential returns are both lower.  
+The Discount Rate for companies is called the Weighted Av erage Cost of Capital, or WACC,  
+It is based  on the percentage of E quity the company is using times the “cost” of that Equity, 
+plus the percentage of D ebt the company is using times the “cost” of that Debt (plus the same 
+items for any other capital sources).  
+Equity tends to be more expensive than D ebt for the same reason that stock -market 
+investments have a higher yield than bond investments over the long term: The risk and 
+potential returns are both higher . 
+The Net Present  Value equals the Present Value of a series of cash flows minus the upfront 
+investment or “Asking Price.”  
+You can evaluate the potential returns of an investment  by using the Internal Rate of Return, or 
+IRR, function in Excel.  
+The IRR is the "the effective compounded interest rate on an investment ”; if the IRR exceeds 
+the Discount Rate, it makes sense to invest.  
+The IRR is also the Discount Rate at which the NPV of an investment equals $0. If you discount 
+all the cash flows using the IRR as the Discount Rate  and add them up , the total will equal the 
+Asking Price, making the NPV $0.  
+Finally, both methods of evaluating investments are equivalent. If Asking Price < Present Value, 
+IRR > WACC; and if Asking Price > Present Value, IRR < WACC.  
+Return to Top . 
+ 
+Key Rule #4: How to Value Any Company : The Most Important Formula  in Finance  
+So, how much is a company worth?  What is its “Intrinsic V alue”?  
+ Advanced Financial Modeling Course  
+ 
+23 of 35 https://breakingintowallstreet.com  
+It’s worth the sum of its discounted cash flows , from now into eternity, discounted at a rate 
+that’s appropriate for the company’s size, industry, and mix of Equity and D ebt. 
+That “appropriate rate” is the Discount Rate  or the yield  you’re targeting . 
+If a company generates $100 in cash flow each year, how much would you pay for it?  
+It depends on your targeted yield.  
+For example, if your targeted yield is 10%, you would pay $100 / 10 %, or $1,000, for it.  
+By paying $1,000 upfront, you ear n $100 per year, which is a 10 % yield on that investment:  
+ 
+On the other hand, if the Discount Rate – your targeted yield – is 20%, then this company is 
+worth only $500 to you:  
+ 
+It’s worth less because you have better options.  
+You could invest your money in similar opportunities elsewhere and earn 20% per year with 
+it, so you’d only be willing to pay a price that represents that same 20% yield here.  
+If a company generates higher cash flow, you’d also be willing to pay more for it:  
+
+ Advanced Financial Modeling Course  
+ 
+24 of 35 https://breakingintowallstreet.com  
+ 
+At this same targeted yield of 10%, you’d be willing to pay $1,500 rather than $1,000 if the 
+company’s annual ca sh flow is $150 rather than $100.  
+But in real life, no company generates exactly $100 or $150 of cash flow every single year into 
+eternity.  
+Most c ompanies grow . 
+And if there’s growth, you can afford to pay more upfront  and still earn that same 10% yield 
+you’re targeting . 
+Here’s what it looks like if the company’s cash flows are growing at 3% per year:  
+ 
+With growth factored in, the formula for a company’s value is: 
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate)  
+And the Cash Flow Growth Rate must  be less than the Discount Rate.  
+The intuition is simple:  
+
+ Advanced Financial Modeling Course  
+ 
+25 of 35 https://breakingintowallstreet.com  
+• If the company’s Cash Flow is higher , it’s worth more . 
+• If the company’s Cash Flow is lower , it’s worth less . 
+ 
+• If the Discount Rate is higher , the company is  worth less  (you have better options 
+elsewhere!).  
+• If the Discount Rate is lower , the company is  worth more  (your other options aren’t so 
+good!).  
+ 
+• If the company’s Cash Flow  is growing more quickly , it’s worth more  (you’re willing to 
+pay more for higher growth !). 
+• If the company’s Cash Flow is growing more slowly , it’s worth less . 
+This formula  is useful for thinking about valuation at a high level, but it doesn’t quite hold up in 
+real life.  
+For one thing, companies’ growth rates change over time. A company’s cash flow s might be 
+growing at 10% today, but that rate might drop to 3% in 5 -10 years.  
+Also, the Discount Rate might change over time , especially for high -growth companies that 
+mature and become less risky in the future . 
+So, in real life, you typically make “custom” projections for  a company’s cash f lows for the 
+first 5 -10 years, and then you use the “Company Value” formula for the far -future period 
+after those first 5 -10 years . 
+You then discount all those cash flows to their Present Value and add them up to determine 
+what the company is worth today . 
+For a simple example, imagine a company with $100 in initial annual cash flow, growing at 
+10.0% at first a nd declining to 2 .5% growt h by the end of 1 0 years.  
+In that initial 10 -year period, the company’s Discount Rate is 10.0%, but after that, its Discount 
+Rate declines to 9.0% to reflect lower risk and lower potential returns.  
+Also, its cash flows grow at only 2.0% in this p eriod beyond the end of Year 10.  
+With those parameters, we might value the company in the following way:  
+ Advanced Financial Modeling Course  
+ 
+26 of 35 https://breakingintowallstreet.com  
+ 
+The company’s Implied Value or Intrinsic Value here is $1,770, which means that we might 
+invest if its Asking Price were below $1,770.  
+And if its Asking Pr ice were above  $1,770, we would lean against investing.  
+The screenshot above  is an example of a “mini” Discounted Cash Flow (DCF) analysis, and we 
+cover it in a lot more detail in the DCF -related guides and lessons.  
+However, we wanted to present this formula and these concepts early on bec ause they will 
+come up repeatedly in this course.  
+Key Takeaways:  A company is worth the sum of its discounted cash flows  from now into 
+eternity ; you discount those cash  flows at a rate appropriate for the company’s size, industry, 
+and business risk.  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate)  
+And the Cash Flow Growth Rate must  be less than the Discount Rate.  
+The Discount Rate represents your “targeted yield ” or opportunity cost.  
+If your targeted yield is higher, you’re not willing to pay as much  for the company ; if it’s lower, 
+you’re willing to pay more.  
+If a company’s cash flows are growing more quickly, you’re willing to pay more for it; if the 
+company’s cash flows are growing more slowly, you will pay less for it.  
+
+ Advanced Financial Modeling Course  
+ 
+27 of 35 https://breakingintowallstreet.com  
+If a company’s cash flows are higher, you  will pay more for it; if they’re lower, you  will pay less . 
+For example, if a company genera tes $100 of cash flow per year and never grows, and your 
+targeted yield is 10%, then you’d pay $100 / 10%, or $1,000, for it.  
+But if the company generates $100 of cash flow per year  and grows at 3% per year, and your 
+targeted yield is 10%, then you’d pay $100 / (10% – 3%), or $1,429, for it.  
+In real life, this formula doesn’t hold up because companies change  over time.  
+So, you us ually assume that a company’s Discount Rate and Cash Flow Growth Rate change 
+over the first 5 -10 years and then stabilize after that.  
+You discount the company’s cash flows in the first 5 -10 years to Present Value, use the 
+“Company Value” formula for the period beyond that, and then discount that “Company Value” 
+to Present Value.  
+Then, you add them up to determine the company’s Intrinsic Value, which you can compare to 
+its Asking Price.  
+Return to Top . 
+ 
+Key Rule #5: What Makes Financial Modeling Hard  
+If financial modeling consists of picking the right Discount R ate, estimating a company’s Cash 
+Flow Growth  Rate, and then using a simple formula , why are there huge textbooks and courses 
+on the topic?  
+Because it’s difficult to come up with reasonable numbers for everything in that formula:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate < Discount Rate.  
+Also, this formula only works if a company has stabilized, and its Discount Rate and Cash Flow 
+Growth Rate are no longer changing.  
+If they are still changing, then you need to create custom projections for the company’s cash 
+flows based on your research and analysis.  
+Here are a few specific problems that make financial modeling challenging and that explain 
+everything else in this course:  
+ Advanced Financial Modeling Course  
+ 
+28 of 35 https://breakingintowallstreet.com  
+1) There a re different types of “Cash Flow,” and not everyone agrees on how to calculate 
+it. There are also different ways to estimate the Discount Rate and different Discount 
+Rates . 
+ 
+2) In real life, you can’t just “assign ” a growth rate of 3% or 5% to a company’s cash flow s. 
+You have to forecast its revenue, expenses, and other items, see what growth rates they 
+produce , and then extrapolate from there.  
+ 
+3) Companies d o not disclose their “Cash Flow ” in their filings.  You have to calculate it  by 
+looking at their annual and interim reports, making adjustments, including some items, 
+and excluding other items . 
+ 
+4) There are different ways t o measure “Company Value” because a company is worth 
+different amounts depending on which parts  of the company you’re including  and which 
+investors  you’re including . Equity Value and Enterprise Value are two common ways to 
+measure a company’s value , and they both require significant explanation.  
+ 
+5) Sometimes, you care about other factors  not represented in this formula . For example, 
+in a leveraged buyout, you care less about the “Company Value” and more about the 
+average annual ized return  you could earn by  acquiring the company and then selling it 
+in the future.  If you’re evaluating a com pany’s possible Debt issuance, you care more 
+about its ability to repay that Debt than its value.  
+These factors explain everything else in this course.  
+For example, the Accounting and 3 -Statement Projection Lessons  explain how you “translate” 
+a company’s financial statements and accounting metrics into its cash flow.  
+The Valuation and DCF  lessons also cover that process , as well as how to estimate the Discount 
+Rate and a company’s long -term potential.  
+The lessons on Equity Value, Enterprise Value , and Multiples  explain “Company Value ” and the 
+different ways to view it.  
+Finally, the lessons on other topics, such as M&A deals, leveraged buyouts, and equity and debt 
+deals, relate to the “other factors” that are not represented  in this formula . 
+Return to Top . 
+ 
+ Advanced Financial Modeling Course  
+ 
+29 of 35 https://breakingintowallstreet.com  
+Interview Questions  
+You are not likely to receive direct interview questions on these topics.  
+However, they do come up occasionally, which is why we wanted to cover a few sample 
+questions here.  
+Also, many of the concepts here relate to other technical questions, especially the ones on DCF 
+and LBO analysis . 
+ 
+The Time Value of Money  
+1. Why is money worth more today than it is next year ? 
+Because you could invest that money today and earn something with it by next year . 
+ 
+2. If there were no inflation, would money today still be worth more than money next year?  
+Yes, because even with no inflation, you could still invest money today and earn more by next 
+year.  
+ 
+3. You’re considering renting an apartment by paying a very high deposit, but no monthly 
+rent, or paying a much lower deposit and paying monthly rent.  
+How can you decide which option is better?  
+You have to look at your opportunity cost:  How much could you earn with the extra money you 
+save by paying a lower deposit?  
+If you have idea s for high -yielding investments, and you believe you can earn more from them 
+than you’d pay in rent, then it makes sense to choose a lower deposit and monthly rent.  
+On the other hand, if your best idea is putting the money in a checking account at the bank , 
+you’re bet ter off paying the high deposit and skipping monthly rent.  
+But to tell for sure, you’d have to run the numbers and compare your estimated investment 
+income to the rental expense.  
+ 
+ Advanced Financial Modeling Course  
+ 
+30 of 35 https://breakingintowallstreet.com  
+4. Your friend has a new real estate investment idea. He pitches it to you and claims it will 
+generate 10% interest per year.  
+Should you invest in it?  
+It depends  on what your other options are  and how the risk of this investment compares to the 
+risk of tho se other options.  
+For example, if you could earn 12% elsewhere with the same amount of risk, this opportunity 
+makes no sense.  
+On the other hand, if you could earn only 7% elsewhere with the same amount of risk, this 
+opportunity makes a lot more sense.  
+Peop le tend to make the wrong investment d ecisions because they focus on the potential 
+returns without also considering the risk.  
+Return to Top . 
+ 
+PV, NPV, IRR, and WACC  
+1. What does the “Discount Rate” mean?  
+The Discount Rate represents your opportunity cost  or your “targeted yield.” In other words, if 
+you don’t invest in this company or asset, how much could you earn with your money 
+elsewhere , in similar companies or assets ? 
+The Discount Rate represents both the potential returns  and the risk of other, similar 
+opportunities.  
+If the Discount Rate is higher, both the potential returns and the risk are higher; the opposite is 
+true if the Discount Rate is lower.  
+ 
+2. Why is the  Discount Rate higher for stock -market investments than it is for debt 
+investments, such as government bonds ? 
+Because the risk and potential returns of stock -market investments are higher.  
+Over the long term, you might earn an average of 10-11% per year in the stock market. But in a 
+single year, the market might fall by 30% or rise by 40%, so the return each year  varies 
+tremendously.  
+ Advanced Financial Modeling Course  
+ 
+31 of 35 https://breakingintowallstreet.com  
+With debt, by contrast, you’ll earn a fixed amount of interest every single year with a very high  
+certainty.  But it’s also highly unlikely that you’ll earn anything close to 10 -11% each year over 
+the long term.  
+ 
+3. What is WACC?  
+WACC stands for “Weighted Average Cost of Capital,” and it’s the most common Disc ount Rate 
+used to value companies.  
+To ca lculate it, you multiply the % E quity in a company’s capital structure  by the “Cost” of that 
+Equity, multiply the % D ebt in the company’s capital structure by the “Cost” of that Debt, and 
+add them up (and factor in any other sources of capital).  
+For exam ple, if a company is using 60% Equity and 40% D ebt, its Cost of Equity is 10%, and its 
+Cost of D ebt is 5%, then its WACC is 60% * 10% + 40% * 5% = 8%.  
+WACC represents the average annual return you’d expect to earn if you invested in the D ebt 
+AND  Equity of a company proportionally and held both of them for the long term.  
+NOTE: This is a simplified explanation. There’s a whole lot more to WACC – please see the 
+sections and lessons on DCF analysis and valuation for more.  
+ 
+4. You estimate that a company’s WACC is 8.0%. What does that mean?  
+It means that if you invested proportionally in both the company’s Equity AND its D ebt, you’d 
+expect to earn 8.0% per year from the investment, on average, if you hold it for the long term.  
+In a specific year , your returns will vary because the stock market can swing around wildly. But 
+WACC represents your long -term , average expected return.  
+ 
+5. How much would you pay for a company that generates $100 of cash flow every single year 
+into eternity?  
+It depends on your Discount Rate, or “targeted yield.”  
+For example, i f your targeted yield is 10%, you’d pay $100 / 10%, or $1,000, for this company.  
+But if your targeted yield is 20%, you’d pay only $100 / 20%, or $500, for this company.  
+If there’s no growth, the formula is Company Value = Cash Flow / Discount Rate.  
+ Advanced Financial Modeling Course  
+ 
+32 of 35 https://breakingintowallstreet.com  
+ 
+6. A company generates $200 of cash flow today, and its cash flow is expected to grow at 4% 
+per year for the long term.  
+You could earn 10% per year by investing in other, similar companies. How much would you 
+pay for this company?  
+Company Value = Cash Flow / (Discount Rate – Cash Flow Growth Rate), where Cash Flow 
+Growth Rate < Discount Rate.  
+So, this one becomes: $200 / (10% – 4%) = $3,333.  
+Remember that a higher Discount Rate  makes a company less valuable , and a higher cash flow 
+growth rate  makes a company more valuable . 
+ 
+7. What might cause a company’s Present Value (PV) to increase or decrease ? 
+A company’s Present Value might increase  if: 
+• Its expected future cash flows increase . 
+• Its future cash flows are expected to grow at a faster rate . 
+• Our “opportunity cost,” or Discount Rate, decreases  because we lose access to certain 
+investments.  
+A company’s Present Value might decrease  if: 
+• Its expected future cash flows decrease . 
+• Its future cash flows are expected to grow at a slower rate . 
+• Our “opportunity cost,” or Discount Rate, increases  because we gain access to better 
+investment opportunities.  
+ 
+8. How do you decide whether or not to invest in a company or asset?  
+It makes sense to invest when:  
+1) Its Asking Price is below its Intrinsic V alue.  
+2) The Potential Returns exceed your Opportunity C ost. 
+Of course, you don’t decide based solely  on the numbers. These are just rules of thumb for 
+thinking through the decision.  
+ Advanced Financial Modeling Course  
+ 
+33 of 35 https://breakingintowallstreet.com  
+You would also review the qualitative and market factors and make sure that all of those 
+support your decision as well.  
+ 
+9. What does the internal rate of return (IRR) mean?  
+The IRR is the “the effective compounded interest rate on an investment .” 
+For example, if you invest $1,000 today and end up with  $2,000 after 5 years, the IRR 
+represents the interest rate you’d have to earn on that $1,000 , compounded  each year , to get 
+$2,000 in 5 years.  
+It’s 14.87% in that case, which you can verify with some simple math:  
+$1,000 * (1 + 14.87%) = $1,148.7, and then $1,148.7 * (1 + 14.87%) = $1,319.5.  
+And then $1,319.5 * (1 + 14.87%) = $1,515.7, and $1,515.7 * (1 + 14.87%) = $1,741.1.  
+Finally, $1,741.1 * (1 + 14.87%) = $2,000.  
+The IRR also represents the Discount Rate at which the Net Present  Value of an investment 
+equals 0.  
+ 
+10. Wait, what’s “Net Present Value”?  
+Net Present Value equals the Present Value of an investment, i.e., the sum of its dis counted 
+cash flows, minus the “Asking P rice” – what you pay upfront for the investment.  
+For example, if the Present Value of a n investment is $1,000 and the Asking P rice is $800, then 
+its Net Present  Value is $200.  
+ 
+11. So, how do you use IRR?  
+Normally, you calculate IRR and then compare it to the Discount Rate, or WACC, of a project, 
+investment, or company.  
+If IRR exceeds WACC, it makes sense to invest; if it does not, you should not invest.  
+For example, you estimate that a project’s IRR is 12%.  
+You could invest in other, similar projects and earn 10%.  
+ Advanced Financial Modeling Course  
+ 
+34 of 35 https://breakingintowallstreet.com  
+Therefore, it makes sense to invest in this project because the IRR exceeds your opportunity 
+cost – what you could earn elsewhere.  
+ 
+12. What impacts the IRR of a project, investment, or company?  
+Most of the same factors that impact Present Value: The expected future cash flow and cash 
+flow growth rate, for example.  
+Your Discount Rate, or opportunity cost, does NOT  impact the IRR because you are solving for 
+the Discount Rate when you calculate IRR . 
+Other factors t hat influence IRR include the Asking Price of a company or investment and the 
+expected selling price of that company or investment.  
+ 
+13. What would make the IRR increase or decrease?  
+An investment’s IRR might increase  if: 
+• Its expected future cash flows increase . 
+• Its future cash flows are expected to grow at a faster rate . 
+• Its expected selling price in the future increases . 
+• Its “Asking P rice” decreases . 
+An investment’s IRR might decrease  if: 
+• Its expected future cash flows decrease . 
+• Its future cash flows are expected to grow at a slower rate . 
+• Its expected selling price in the future decreases . 
+• Its “Asking P rice” increases . 
+ 
+14. A company is considering expanding by launching a low -cost airline service in Southeast 
+Asia.  
+The company’s overall WACC is 11%, but its WACC in this region and industry is 8%. It 
+believes the IRR from this expansion project will be ~10%.  
+Should it expand into Southeast Asia?  
+Yes, because you must compare IRR to WACC on a project or department -specific basis.  
+ Advanced Financial Modeling Course  
+ 
+35 of 35 https://breakingintowallstreet.com  
+The WACC of the company as a whole doesn’t matter – what matters is that the IRR in this 
+specific region and division  exceeds WACC for this same region and division.  
+As always, in real life, you don’t decide just based on the numbers. This question is just a 
+simplified example to illustrate the concept.  
+ 
+15. Why is valuation more complex than looking at a company’s cash flow s, cash flow growth 
+rate, and an appropriate Discount Rate?  
+First off, there are many different types of “cash flow,” and no one can agree on exactly how to 
+calculate it. It also takes quite a bit of effort to move from a company’s financial statements to 
+its cash flow.  
+Also, the Discount Rate is tricky to estimate, it might change over time, and you might use a 
+different Discount Rate depending on the type of cash flow.  
+It also takes time and effort to estimate a company’s cash flow growth ; to do that, you often 
+have to build a more complex financial model.  
+Finally, “company value” is not so simple because it depends on which investors and which 
+parts of the company you’re including.  
+These factors make valuation and financial modeling tricky and time -consuming, and they 
+explain everything else in this course . 
+Return to Top . 

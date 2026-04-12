@@ -1,0 +1,351 @@
+ 
+1 of 11  https://breakingintowallstreet.com  
+Module 6: Advanced Merger Model (Builders FirstSource and BMC Stock Holdings)  
+In this module, you’ll build a quarterly merger model for Builders FirstSource / BMC Stock  
+Holdings  with more advanced transaction assumptions, including support for a fixed exchange 
+ratio with a collar and the choice of a Stock or Asset / 338(h)(10) deal structure.  
+You’ll also build a full tax schedule to plot the combined company’s NOL usage following the 
+deal close, and you’ll combine the financial statements in a robust way using INDEX/MATCH 
+functions. You will draft a 10 -slide presentation at the end to answer the case study questions.  
+ 
+AFM -06-01: Introduction and Quarterly Financial Projections  (33:01)  
+You’ll get an introduction to the main topics in the module in this lesson, and you’ll learn some 
+of the key differences when building quarterly 3 -statement models for companies.  
+Table of Contents:  
+• 4:08:  Key Differences in Quarterly Models  
+• 9:44:  Part 1: Data Sourcing  
+• 12:09:  Part 2: Growth Rates  
+• 17:51:  Part 3: Balance Sheet Line Items  
+• 22:06:  Part 4: Debt, Cash, and Interest  
+• 24:40:  Part 5: Credit Stats and Ratios  
+• 25:35:  Part 6: Annual Roll -Ups 
+• 31:16:  Recap and Summary  
+ 
+Quiz Questions:  
+17:51 Why is it important to use year -over -year growth rates for revenue line items in 
+quarterly models?  
+a) Because companies are often seasonal, with stronger and weaker periods for sales.  
+b) Because sales may not grow linearly from one quarter to the next sequential quarter.  
+c) Because differences in individual quarters might explain very different cash flow and 
+financing requirements.  
+d) All of the above.  
+Explanation:  Everything above is true. When a company is seasonal, with stronger and weaker 
+quarters every year, or when its sales do not grow linearly in sequential quarters, it’s a good 
+candidate for a quarterly model. If the company’s financing requirements change significantly each quarter due to different cash flow profiles, quarterly models can also be useful.  
+ 
+2 of 11  https://breakingintowallstreet.com  
+ 
+AFM -06-02: Assumptions for a Cash/Debt/Stock Deal  (10:50)  
+You’ll learn how to set up the first part of the transaction assumptions in this lesson, including 
+support for variable close dates in a quarterly merger model.  
+Table of Contents:  
+• 4:15:  INDEX/MATCH for Variable Close Dates  
+• 10:11:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ AFM -06-03: Fixed Exchange Ratio with Collar Assumptions for a 100% Stock Deal  (10:28)  
+In this lesson, you’ll set up the assumptions for a Fixed Exchange Ratio with a Collar in a 100% 
+Stock deal, and you’ll learn why Targets might negotiate for this type of structure to reduce 
+uncertainty about the purchase price.  
+Table of Contents:  
+• 0:21:  Motivation for Collars  
+• 3:22:  MIN/MAX Calculations  
+• 9:16:  Recap and Summary  
+ 
+Quiz Questions:  
+9:15 Why might the Target in an M&A deal favor a Fixed Exchange Ratio with a Collar?  
+a) If it is concerned that the Acquirer’s share price will drop significantly.  
+b) If it is concerned about its ownership percentage in the combined entity.  
+c) If it is worried that the Acquirer’s share price will rise significantly.  
+d) None of the above.  
+Explanation:  The first answer is correct. With this structure, the Target gets the same Equity 
+Purchase Price even if the Acquirer’s share price keeps decreasing – the Acquirer issues more 
+shares to ensure an equivalent purchase price.  
+ 
+ 
+3 of 11  https://breakingintowallstreet.com  
+AFM -06-04: Fixed vs. Floating Exchange Ratio and Collar Analysis  (13:37)  
+You’ll learn how to analyze different structures in 100% Stock deals in this lesson, including 
+Fixed and Floating Exchange Ratios with and without Collars to reduce the risk of the Acquirer’s share price changing before the deal closes.  
+Table of Contents:  
+• 1:28:  Part 1: Fixed and Floating Exchange Ratios  
+• 6:29:  Part 2: Fixed and Floating Exchange Ratios with Collars  
+• 12:26:  Recap and Summary  
+ 
+Quiz Questions:  
+12:25 If the Target is worried about the Acquirer’s share price falling in a 100% Stock deal, 
+which type of deal structure would it prefer?  
+a) A Floating Exchange Ratio with a Collar.  
+b) A Fixed Exchange Ratio.  
+c) A Fixed Exchange Ratio with a Collar.  
+d) None of the above.  
+Explanation:  The third answer is correct. A Fixed Exchange Ratio with a Collar means that the 
+Target always gets a purchase price within a specific range and that if the Acquirer’s share price 
+falls below its “Floor,” the Target’s ownership in the combined company increases as the 
+Acquirer issues more shares to the Target. This structure ensures a higher ownership percentage for the Target and a minimum purchase price. The other structures here w ill result 
+in a lower purchase price for the Target with no lower bound  if the Acquirer’s share price keeps 
+falling.   
+ 
+AFM -06-05: Transaction Financing and Sources & Uses  (15:27)  
+In this lesson, you’ll learn how to set up the transaction financing assumptions, deal multiples, 
+and Sources & Uses schedule differently in a quarterly merger model with variable close dates, 
+and you’ll see which parts of the model change and which stay the same.  
+Table of Contents:  
+• 1:33:  Deal Metrics  
+• 3:41:  Transaction Financing  
+• 7:48:  Sources & Uses  
+• 12:11:  Test Different Cases  
+ 
+4 of 11  https://breakingintowallstreet.com  
+• 14:13:  Recap and Summary  
+ 
+Quiz Questions:  
+14:12 Which of the following aspects of a merger model should NOT change when it’s a 
+quarterly model with a variable close date?  
+a) The Sources & Uses schedule.  
+b) The Cash, Debt, and Stock used to fund the deal (if all financing sources are used).  
+c) The amount of the Target’s Debt to replace or assume.  
+d) The transaction multiples. 
+Explanation:  The last answer choice is correct because the transaction multiples are always 
+based on the LTM financial data as of the transaction announcement date, not the transaction 
+close date. The other elements here all change because the companies’ Cash, Debt, an d EBITDA 
+change over time, and the deal financing in mixed deals is based on the maximum available 
+Cash and Debt when the deal closes. The Target’s Debt keeps changing each quarter, which means that the Sources & Uses schedule will also change  due to the changing numbers for the 
+Target’s Debt on both the Sources and Uses sides.  
+ 
+AFM -06-06: Purchase Price Allocation for Stock vs. Asset vs. 338(h)(10) Deals  (14:12)  
+You’ll learn about Stock Purchases, Asset Purchases, and 338(h)(10) deals in this lesson and see 
+how they affect the Purchase Price Allocation schedule, including differences in asset write -ups, 
+the new Deferred Tax Liability, and the new Goodwill created.  
+Table of Contents:  
+• 4:07:
+ Target’s Balance Sheet  
+• 5:52:  Allocable Purchase Premium and Write -Ups 
+• 6:51:  Book vs. Tax Depreciation & Amortization  
+• 9:43:  Goodwill Calculation  
+• 12:22:  Recap and Summary  
+ 
+Quiz Questions:  
+12:21 Which of the following is NOT a difference between an M&A deal structured as a Stock 
+Purchase and one structured as an Asset Purchase?  
+a) The Goodwill created will often differ.  
+ 
+5 of 11  https://breakingintowallstreet.com  
+b) A new Deferred Tax Liability will not be created in an Asset Purchase.  
+c) The Acquirer can deduct D&A on asset write -ups for cash -tax purposes in an Asset 
+Purchase.  
+d) Goodwill is amortized for both book and tax purposes in an Asset Purchase. 
+Explanation:  The last answer is correct, i.e., this answer choice is false. Goodwill is amortized 
+only for tax purposes in an Asset Purchase –  not for book purposes. The rest of the choices are 
+correct and state the proper differences between these deal structures.  
+ 
+AFM -06-07: Combined Balance Sheet with Variable Close Dates  (13:35)  
+In this lesson, you’ll combine and adjust the Balance Sheets of the Acquirer and Target, 
+factoring in variable close dates and the Stock vs. Asset vs. 338(h)(10) deal structures.  
+Table of Contents:  
+• 0:58:  Linking in the Acquirer’s Numbers  
+• 2:57:  Pro-Forma Adjustments  
+• 9:45:  Testing Different Cases  
+• 11:50:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -06-08: Quarterly Synergy Projections  (22:33 ) 
+You’ll learn how to set up quarterly projections for the revenue and expense synergies and the 
+merger and integration costs in this lesson, and you’ll see how the value of the synergies differs on a quarterly basis.  
+Table of Contents:  
+• 1:54:  Step 1: Enter Fiscal and Combined Year #  
+• 4:24:  Step 2: Revenue Synergies  
+• 9:05:  Step 3: Cost Synergies  
+• 12:02:  Step 4: Merger & Integration Costs  
+• 15:37:  Step 5: Value of Synergies to Acquirer  
+• 18:42:  Step 6: Test Different Cases  
+• 20:26:  Recap and Summary  
+ 
+6 of 11  https://breakingintowallstreet.com  
+ 
+Quiz Questions:  
+12:01 Why is it necessary to use the OFFSET and ROUNDUP functions when calculating 
+quarterly synergies in the more advanced merger model?  
+a) Because the appropriate revenue and expense synergies will shift columns depending 
+on the transaction close date.  
+b) Because if the combined year # is 0.25, 0.50, or 0.75, it’s really “Combined Year 1.”  
+c) Because the synergy assumptions are arranged top to bottom, but the periods in the 
+model go from left to right.  
+d) All of the above.  
+Explanation:  Everything above is true. Because of the variable close dates, we need to use 
+ROUNDUP to determine the Combined Year # we’re currently in, and we need to use OFFSET to move down the appropriate number of rows and retrieve the current synergy percentage or employee reduction figure.  
+ 
+AFM -06-09: Combined Quarterly Income Statement Projections  (27:25 ) 
+In this lesson, you’ll learn how to combine the quarterly Income Statements of the Acquirer and 
+Target using a combination of INDEX/MATCH functions and new formulas for the line items created in the deal, such as the depreciation and amortization on asset write -ups. 
+Table of Contents:  
+• 1:15:  Step 1: Link in the Acquirer + Target Line Items  
+• 7:42:  Step 2: Link in the Items That Change in the Transaction  
+• 15:46:  Step 3: Calculate the Taxes and EPS Accretion/Dilution  
+• 22:16:  Step 4: Test the Model  
+• 25:07:  Recap and Summary  
+ 
+Quiz Questions:  
+15:45 Is it necessary to use INDEX/MATCH functions to pull in numbers from the Acquirer and 
+Target’s separate financial statements in a quarterly merger model with a variable close 
+date?  
+a) Yes – because of the variable close date.  
+b) Yes – because of the quarterly periods.  
+c) No – it just saves time and makes the model more flexible.  
+ 
+7 of 11  https://breakingintowallstreet.com  
+d) No – we could use direct links and get the same results.  
+Explanation:  The third answer is correct. The INDEX/MATCH functions are not “required,” but 
+they make it easier to copy and paste around the summation formulas and handle cases where 
+the Income Statements of the Acquirer and Target do not match up. It has nothing to do  with 
+the variable close date or the quarterly periods; it’s more about how similar the Income Statements are to each other and how closely they match the Combined Income Statement.  
+ 
+AFM -06-10: Combined Quarterly Cash Flow Statement Projections ( 19:36 ) 
+You’ll learn how to combine both companies’ quarterly Cash Flow Statements in this lesson, 
+including the changing New Debt balance and links to items that require an INDEX/MATCH formula and ones that do  not. 
+Table of Contents:  
+• 1:29:  Step 1: Project the Changing Debt Balance  
+• 6:48:  Step 2: Link in the Items That Do Not Require an INDEX/MATCH  
+• 10:01:  Step 3: Set Up the INDEX/MATCH Formula  
+• 14:40:  Step 4: Test the Model  
+• 17:32:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -06-11: Combined Quarterly Balance Sheet Projections  (25:13)  
+In this lesson, you’ll combine the quarterly Balance Sheets for the Acquirer and Target and learn 
+how to separate them into cases for items that change in the deal vs. items that do not and 
+handle each item differently based on the date relative to the transaction close date.  
+NOTE TO LESSON:  At the 17:12 –  17:20 mark, we make a mistake with the anchoring of the 
+date. We return and fix this problem in a few minutes.  Please watch until the correction.  
+Table of Contents:  
+• 1:55:  Step 1: Items That Do Not Change in the Transaction  
+• 9:19:  Step 2: Items That Change in the Transaction 
+• 20:06:  Step 3: Test the Model  
+ 
+8 of 11  https://breakingintowallstreet.com  
+• 23:20:  Recap and Summary  
+ 
+Quiz Questions:  
+20:05 On the Combined Balance Sheet in this quarterly merger model, which of the following 
+is NOT a possible category/case for each line item?  
+a) Before the Close Date – Link in only the Acquirer’s number.  
+b) On the Close Date –  Link the number based on the previous balance and the CFS line 
+items.  
+c) After the Close Date –  Link in both the Acquirer and Target’s numbers.  
+d) After the Close Date –  Link the number based on the previous balance and the CFS line 
+items.  
+Explanation:  The second answer choice is correct, i.e., this is NOT a possible category or case. If 
+we’re ON the Transaction Close Date, we always link in the Balance Sheet figure from the combined Balance Sheet after the pro -forma adjustments; it does not make sense to link the 
+statements in a traditional way on this date because many items change in the transaction. The 
+first choice is correct because if it’s before the Close Date, we always include the Acquirer’s 
+numbers. And the last two choices are correct because if it’s after the Close Date, we either add the Target and Acquirer’s numbers (for line items that do not change in the deal) or set up a traditional link (for items that do change in the deal).  
+ 
+AFM -06-12: Book vs. Cash Taxes and Section 382 NOLs, Part 1 (19:20 ) 
+You’ll learn how to set up the assumptions for a Target’s Net Operating Losses (NOLs) in an 
+M&A deal in this lesson, including how the write -down differs in different deal types; you’ll also 
+set up the beginning part of the Tax Schedule for the deal.  
+Table of Contents:  
+• 2:41:  Step 1: Pull in the Required NOL Data  
+• 6:28:  Step 2: Calculate the Write -Down 
+• 10:33:  Step 3: Calculate Cash Taxable Income  
+• 17:39:  Recap and Summary  
+ 
+Quiz Questions:  
+10:33 In an M&A deal structured as a Stock Purchase, the Acquirer pays a $2 billion Equity 
+Purchase Price for the Target, and long -term tax -exempt interest rates are 1%. The Target has 
+ 
+9 of 11  https://breakingintowallstreet.com  
+NOLs of $ 250 million with an expiration 10 years into the future. What is the NOL Write -
+Down?  
+a) $50 million.  
+b) $100 million.  
+c) $150 million.  
+d) $200 million.  
+Explanation:  The first answer choice is correct. The allowable NOL usage here is $2 billion * 1% 
+= $20 million per year over 10  years, for a total of $20 million * 10 = $200 million. The Target’s 
+NOL balance is $ 250 million, which means that $2 50 – $200 = $50 million of it will go unused by 
+the end of 10 years. Therefore, the Acquirer must write down this $50 million portion of the 
+Target’s NOLs.  
+ 
+AFM -06-13: Book vs. Cash Taxes and Section 382 NOLs, Part 2 (Changes in Deferred Tax Assets 
+and Liabilities)  (21:40)  
+In this lesson, you’ll complete the Tax Schedule by factoring in the NOLs, calculating the Change 
+in the DTA and DTL, and linking the schedule to the financial statements.  
+Table of Contents:  
+• 1:31:  Step 1: NOL Usage and Creation  
+• 7:14:  Step 2: Deferred Taxes and DTA/DTL Changes  
+• 13:50:  Step 3: Link the Tax Schedule to the Statements  
+• 19:31:  Recap and Summary  
+ 
+Quiz Questions:  
+13:49 If a company’s Pre -NOL Cash Taxable Income is $100, it has an NOL balance of $150, 
+and it’s allowed to use $20 in NOLs in each period, how does its Deferred Tax Asset change in 
+this period?  Assume a 25% tax rate.  
+a) It’s up by $5.  
+b) It’s up by $25.  
+c) It’s down by $5.  
+d) It’s down by $15.  
+Explanation:  The third answer choice is correct. The allowable NOL usage is $20, which means 
+that the company’s NOL balance decreases by $20 in this period. Therefore, the on- Balance 
+Sheet version of the NOL within the DTA decreases by $20 * 25% = $5. Note that this is shown 
+ 
+10 of 11  https://breakingintowallstreet.com  
+as a positive on the CFS because a DTA decreasing means that the company’s cash flow has 
+increased due to  this application of the NOL.  
+ 
+AFM -06-14: Annual Summaries and Sensitivities  (21:21)  
+You’ll learn how to create annual summaries or “roll- ups” for the quarterly merger model in 
+this lesson, and you’ll draw some quick conclusions about the benefits or drawbacks of 
+potential deal structures using the sensitivity tables.  
+Table of Contents:  
+• 2:27:  Step 1: Annual Summaries  
+• 9:21:  Step 2: Sensitivity Tables  
+• 19:06:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ AFM -06-15: Other Tweaks for the Quarterly Merger Model  (10:42)  
+In this lesson, you’ll learn about a few other tweaks required to support this quarterly merger 
+model with variable close dates in the supporting schedules.  
+Table of Contents:  
+• 0:38:  Summary Sheet  
+• 3:32:  Valuation/DCF  
+• 5:42:  Value Creation Analysis  
+• 6:59:  Contribution Analysis  
+• 9:42:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ AFM-06-16: Pitch Book Presentation & Case Study Answers  (11:00 ) 
+ 
+11 of 11  https://breakingintowallstreet.com  
+This final lesson of the case study will walk you through a follow -up M&A presentation to the 
+client about variable close dates, different Exchange Ratio structures, and the different 
+transaction structures and how they affect the financial results.  
+Table of Contents:  
+• 4:22:  Variable Close Dates  
+• 5:33:  Exchange Ratios  and Collars  
+• 8:36:  Stock vs. Asset vs. 338(h)(10)  Structures  
+• 9:43:  Summary  
+ 
+Quiz Questions:  
+9:42  How can you simulate the best and worst case s for a Floating Exchange Ratio with a 
+Collar in a model that only supports a Fixed Exchange Ratio with a Collar?  
+a) Remove the Acquirer Share Price Floor and Cap and enter the Min and Max Exchange 
+Ratios for the baseline numbers.  
+b) There’s no easy way to do this; you’ll have to change around all the formulas for the Exchange Ratio and Shares Issued.  
+c) Replace the Acquirer Share Price Floor and Cap with the Min and Max Exchange Ratios instead.  
+d) Remove the Exchange Ratio assumptions and assume a fixed number of shares issued in 
+all cases.  
+Explanation:  The first answer is correct. With a Floating Exchange Ratio with a Collar, there is a 
+Maximum Exchange Ratio that is activated when the Acquirer’s Share Price drops below a certain level and a Minimum Exchange Ratio that is activated when the Acquirer’s Sh are Price 
+rises above a certain level. To simulate these cases, therefore, you can enter these Exchange 
+Ratios for the baseline numbers, set the normal Share Price Floor to 0, and set the Cap to some 
+number that is much higher than the Acquire r’s current Share Price. The third answer makes no 
+sense because Exchange Ratios and Share Price Floors and Caps use different units, and the fourth answer corresponds to a Fixed Exchange Ratio, not a Floating Exchange Ratio with a 
+Collar.  

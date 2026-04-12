@@ -1,0 +1,512 @@
+ 
+1 of 16  https://breakingintowallstreet.com  
+Advanced Financial Modeling, Module 9: Advanced LBO Model (KKR / Viridor)  
+In this module, you’ll complete a 4-hour case study based on KKR’s leveraged buyout of Viridor, 
+a waste management company in the U.K. It is based on a full 3-statement model and includes 
+more advanced features, such as stub periods, a dividend recap, a Working Capital target, 
+Revolver Fees, OID, and IRR and recovery analyses for lenders.  
+There are also full investment recommendation presentations for both the  equity investors and 
+the lenders at the end.  
+ 
+AFM -09-01: Advanced LBO Model – Overview and Data Gathering  (14:39 ) 
+In this first lesson, you’ll get an introduction to the KKR / Viridor case study, and you’ll learn 
+about the deal parameters and where to fin d the required data.  
+Table of Contents:  
+• 2:01 : Deal Overview  
+• 7:16: Data Gathering  
+• 13:35 : Recap and Summary  
+ 
+Quiz Questions:  
+13:35 Why is it very difficult to find the proper data for an LBO of a divested company?  
+a) The parent company might not disclose full, historical financials.  
+b) It may not be clear how to split revenue and expenses between the Parent and Sub Co. 
+c) Automated sources such as Capital IQ or FactSet might also be rough estimates.  
+d) All of the above.  
+Explana tion:  Everything above is true. These all represent reasons why it’s often difficult to find 
+data for divestitures unless the parent company explicitly discloses all the information in its 
+filings.  
+ 
+AFM -09-02: Viridor – Revenue Projections (10:37)  
+You’ll l earn how to project Viridor’s revenue from existing facilities and newer ERF plants across 
+different scenarios in this lesson.  
+Table of Contents:  
+• 1:28:  Existing Facilities and ERF Plants  
+ 
+2 of 16  https://breakingintowallstreet.com  
+• 2:48:  Waste Throughput  
+• 6:25:  Pricing Growth  
+• 8:47:  Revenue in Different Scenarios  
+• 9:51:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-03: Viridor – Expense Assumptions ( 11:16 ) 
+You’ll learn how to forecast Viridor’s expense drivers in this lesson, including its employee 
+count, employee expenses, raw material costs, and tax rate.  
+Table of Contents:  
+• 0:30:  Historical Expenses  
+• 5:36:  Expense Drivers  
+• 10:01:  Recap and Summary  
+ 
+Quiz Questions:  
+10:00 If there’s no specific guidance provided for a company’s expenses, what’s the safest 
+way to forecast something like employee costs in a financial model?  
+a) Make them  a percentage of revenue.  
+b) Assume they grow in -line with the employee count and wages that rise in -line with 
+inflation.  
+c) Set them such that the company’s margins stay in a si milar range in the projected 
+period.  
+d) Any of the above could work.  
+Explanation:  Anything here could work, depending on the numbers and historical trends. These 
+are all common  approaches to forecasting expenses so that the company’s margins  stay in a 
+similar range. The main drawback is that if the company’s margins are expected to change for 
+some reason, these methods will be less effective.  
+ 
+AFM -09-04: Viridor – CapEx, Depreciation, and Leases (12:44 ) 
+ 
+3 of 16  https://breakingintowallstreet.com  
+In this lesson, you’ll project both Growth and Maintenance CapEx for Viridor, set up a 
+Depreciation schedule based on the construction times and useful lives, and make simple 
+assumptions for the leases on the company’s non -ERF facilities.  
+Table of Contents:  
+• 0:55:  Growth CapEx and Depreciatio n 
+• 7:23:  Maintenance CapEx and Leases  
+• 11:37:  Recap and Summary  
+ 
+Quiz Questions:  
+11:3 7 In a Depreciation schedule in which each asset takes multiple years to build, why can’t 
+the Depreciation start in the same year as the initial CapEx spent on the asset?  
+a) Depreciation can begin only once an asset is finished and put into use.  
+b) It’s not accura te to do this because the CapEx in Year 1 won’t be fully depreciated in this 
+case.  
+c) This doesn’t make sense because the CapEx is typically incurred on the final day of the 
+year.  
+d) All of the above.  
+Explanation:  The first answer is correct. The short, simple a nswer is that a company can start 
+depreciating an asset only after the asset is finished and put into use. The second answer is 
+factually incorrect since all CapEx related to a new asset will eventually be depreciated, and the 
+third answer is not a good ch oice because there are many ways around this issue; for example, 
+you could use the mid -year convention and assume that CapEx is incurred, on average, halfway 
+through each year, in which case there could be CapEx and Depreciation on the same asset in 
+the sa me year.  
+ 
+AFM -09-05: Viridor – Balance Sheet and Cash Flow Statement Drivers  (10:21 ) 
+You will set up the Balance Sheet and Cash Flow Statement assumptions for Viridor in this 
+lesson, including the Minimum Cash and Debt Issuance formulas.  
+Table of Contents:  
+• 0:42 : Historical Percentages  
+• 3:41 : Projections  
+• 9:18 : Recap and Summary  
+ 
+ 
+4 of 16  https://breakingintowallstreet.com  
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-06: Viridor – Projecting and Linking the Statements  (15:05 ) 
+In this lesson, you’ll project and link Viridor’s financial statements over the 6 -year holding 
+period, and you’ll see how the Cash balance ends at very different numbers in the different 
+scenarios.  
+Table of Contents:  
+• 0:39 : Income Statement  
+• 2:58 : Balance Sheet, Part 1  
+• 4:29 : Cash Flow Statement  
+• 9:32 : Balance Sheet, Part 2  
+• 13:54 : Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-07: Transaction Assumptions and Sources & Uses for a Cash -Free, Debt -Free Deal 
+with a Working Capital Adjustment  (14:51 ) 
+You’ll set up the LBO transaction assumptions in this lesson, including the Purchase Enterprise 
+Value and Equity Value, the Sources & Uses schedule, and the adjustments required for a cash -
+free/debt -free divestiture deal with a Working Capital adjustment a t deal close.  
+Table of Contents:  
+• 1:56:  Transaction Assumptions  
+• 5:51:  Debt, OID, and Issuance Fees  
+• 7:56:  Sources & Uses  
+• 13:25:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+5 of 16  https://breakingintowallstreet.com  
+13:25 Suppose that a company’s Working Capital at deal close is $200 vs. a targeted level of 
+$150. How does this change the total amount the *PE firm* pays and the total amount that 
+*goes to the shareholders*?  
+a) The PE firm pays $50 extra, and the selling shareholders get $50 extra.  
+b) The PE firm pays the same amount, and the selling shareholders get $50 less.  
+c) The PE firm pays $50 less, and the selling shareholders get $50 more.  
+d) The PE firm pays the same amount, and the selling shareholders get $50 more.  
+Explanation:  The last answer is correct. When there’s a Working Capital adjustment , the 
+Purchase Enterprise Value is adjusted up or down, and the PE firm either “takes” some of the 
+company’s Working Capital or funds additional Working Capital such that the effective price the 
+PE firm remains the same. So, in this case, the Purchase TEV would increase by $50, but the PE 
+firm would also “take” $50 of the company’s Working Capital.  
+This adjustment mostly affects the selling shareholders because it means th ey will get more or 
+less depending on how they manage the company’s finances before the deal closes . If there’s a 
+WC surplus, they’ll get this surplus amount because it increases the Purchase TEV and Purchase 
+Equity Value; if there’s a WC deficit, this deficit gets deducted from both the Purchase TEV and 
+Purchase Equity Value, reducing the proceeds to the shareholders.  
+ 
+AFM -09-08: Stub Period Support on the Income Statement and Cash Flow Statement ( 13:42 ) 
+In this lesson, you’ll set up support for the stub periods on the financial statements so that the 
+leveraged buyout can close midway through the company’s next fiscal year.  
+LESSON NOTE:  From 10:20 to 10:30, we "forget" to copy across the  links at the top of the CFS . 
+We return and fix this issue starting at 13:00  in the Recap and Summary section.  
+Table of Contents:  
+• 1:21:  Income St atement  
+• 7:10:  Cash Flow Statement  
+• 12:19: Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-09: Balance Sheet “Rollforward” to Deal Close Date  (10:31 ) 
+ 
+6 of 16  https://breakingintowallstreet.com  
+You’ll link in Viridor’s historical Balance Sheets and “roll forward” the first projected one to the 
+transaction close date in this lesson; you’ll then use this modified version in the transaction 
+assumptions and Working Capital adjustments.  
+Table of Contents:  
+• 1:03:  Historical Balance Sheets  
+• 2:13:  Working Capital Line Items  
+• 3:39:  Other Balance Sheet Line Items  
+• 7:11:  Transaction Adjustments  
+• 9:22:  Recap and Summary  
+ 
+Quiz Questions:  
+9:21 What’s the best way to “roll forward” the Balance Sheet when a transaction closes in 
+between two fiscal years?  
+a) Link in the stub period CFS numbers.  
+b) Multiply line items by the stub period fraction.  
+c) The best method depends on the specific line item.  
+Explanat ion: The last answer choice is correct. The “best method” to roll forward the Balance 
+Sheet up through the transaction close date depends on the line item. With the Working Capital 
+line items, it’s easiest to multiply by fractions to estimate their values as of the close date. But 
+with items such as Net PP&E , Other Intangibles , and Total Debt, it’s easiest to link to the 
+corresponding Cash Flow Statement line items from the stub period there.  
+ 
+AFM -09-10: Purchase Price Allocation and Balance Sheet Adjustm ents  (10:42 ) 
+In this lesson, you’ll set up the Purchase Price Allocation schedule and the Balance Sheet 
+adjustments for this deal, including changes due to its status as a cash -free, debt -free deal and 
+the Working Capital adjustments . 
+Table of Contents:  
+• 0:58:  Purchase Price Allocation  
+• 3:41:  Balance Sheet Adjustments  
+• 9:17:  Recap and Summary  
+ 
+Quiz Questions:  
+ 
+7 of 16  https://breakingintowallstreet.com  
+9:16 Which of the following Balance Sheet adjustments occurs DIRECTLY because a deal is 
+structured as an asset purchase rather than a stock purchase?  
+a) The company’s existing Deferred Tax Liability (DTL) is written down.  
+b) No new DTL is created since assets are written up for both book and tax purposes.  
+c) The company’s Cash balance immediately post -transaction falls to its Minimum Cash.  
+d) All of the above.  
+Explanation:  The second answer choice is the best one. In an asset purchase, assets are written 
+up for both book and tax purposes, so there’s no book vs. cash tax difference after the deal 
+closes, which means no Deferred Tax Liability is crea ted. The first answer choice is true in most 
+deals of all types, and the third answer has nothing to do with asset vs. stock purchases but is 
+instead related to the cash -free/debt -free structure.  
+ 
+AFM -09-11: Transaction Effects and Projecting and Linking t he Post -Transaction Balance 
+Sheet  (14:19 ) 
+You’ll calculate transaction effects, such as the amortization of new line items, and then you’ll 
+use this information to link and project the Balance Sheet after the deal closes, from the stub 
+period through the e nd of the holding period.  
+Table of Contents:  
+• 0:52:  Income Statement  
+• 5:58:  Cash Flow Statement  
+• 7:10:  Balance Sheet  
+• 12:48:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-12: Debt Schedule, Part 1: Revolver and Mandatory and Optional Repayments  
+(13:38 ) 
+In this lesson, you’ll set up the first part of the Debt Schedule, including the Cash Flow Available 
+for Debt Repayment, the Revolver, and the mandatory and optional Debt principal repayments.  
+ 
+8 of 16  https://breakingintowallstreet.com  
+LESSON NOTE:  At 3:00, we forget t o add the P IK Interest to the face values for the last two debt 
+tranches (Subordinated Notes and Mezzanine) ; we  return and fix this issue in the next lesson 
+when checking the Debt Schedule.  
+Table of Contents:  
+• 1:11:  Mandatory Repayments  
+• 4:55:  Cash Flow Available and Revolver  
+• 7:13:  Optional Repayments  
+• 11:17:  Linking the Debt Repayments  
+• 12:30:  Recap and Summary  
+ 
+Quiz Questions:  
+12:30 In the Optional Debt Repayment schedule of an LBO, why do we not need to add the 
+Revolver Borrowing to the remaining Revolver balance in the period when comparing the 
+Revolver balance to the cash flow available * sweep percentage?  
+a) Because if Revolver Borrowing is required, there cannot be any optional repayments.  
+b) Because the Revolver never has mandatory repayme nts – only optional ones.  
+c) Because 100% of the company’s available cash flow is always used to repay the Revolver 
+first.  
+d) All of the above.  
+Explanation:  The first answer choice is correct. When a Revolver draw is required, the company 
+cannot possibly make an y optional Debt principal repayments because it means the company’s 
+Cash balance would end below its Minimum Cash – which is why we need to draw on the 
+Revolver for additional funds. Therefore, it is unnecessary to add the Revolver Borrowing when 
+checking his case. The fact that the Revolver has no mandatory repayments has nothing to do 
+with this question, so the second answer is wrong. And the 100% cash flow sweep for the 
+Revolver also has nothing to do with this question because even with the highest seni ority and 
+a 100% sweep, any tranche of Debt – except for the Revolver – could potentially have 
+additional draws that we need to add to the “current balance” before making optional 
+repayments.  
+ 
+AFM -09-13: Debt Schedule, Part 2: Net Interest Expense and Revolver Fees  (15:52 ) 
+You’ll calculate the Net Interest Expense and the Revolver Commitment and Overdraw Fees in 
+this lesson, including support for both average Debt balances (circular references) and 
+beginning Debt balances (no circular references).  
+ 
+9 of 16  https://breakingintowallstreet.com  
+Table  of Contents:  
+• 0:51:  Net Interest Expense  
+• 9:08:  Revolver Fees  
+• 11:46:  Linking the Statements  
+• 14:48:  Recap and Summary  
+ 
+Quiz Questions:  
+14:48 What is the MAIN effect of the Commitment Fees on a partially undrawn Revolver 
+along with the Overdrawn Fees?  
+a) It depends on how much of the Revolver is drawn.  
+b) They raise the effective interest rate.  
+c) They incentivize the company to draw on as much of the Revolver as possible.  
+d) They encourage the company to draw on other sources of Debt before the Revolver.  
+Explanation:  The second answer choice is the best one. Since the fees apply to the Revolver 
+regardless of the percentage drawn, they raise the effective interest rate. The first answer is a 
+true statement,  but it doesn’t answer the question – yes, the exact effect depends on the 
+drawn percentages, but even without knowing that, we can say that the effective interest rate 
+goes up. These fees do not incentivize the company to draw on the maximum Revolver because 
+the cash interest expense would also increase . And they don’t encourage the company to use 
+other sources of Debt because the Revolver is still the cheapest in terms of interest and 
+principal repayments.  
+ 
+AFM -09-14: Debt Schedule, Part 3: Dividend Recap  (10:56 ) 
+In this lesson, you’ll implement a Dividend Recap in Year 3 or 4 of the LBO model and change 
+the formulas in the Debt Schedule and on the financial statements to support this feature.  
+Table of Contents:  
+• 1:03:  Debt Schedule  
+• 5:44:  Financial Statements  
+• 9:31:  Recap an d Summary  
+ 
+Quiz Questions:  
+ 
+10 of 16  https://breakingintowallstreet.com  
+9:30  Why is a dividend recap in an LBO model unlikely to make a huge impact on the IRR to 
+the private equity firm?  
+a) Because most dividend recaps are based on relatively low multiples of EBITDA.  
+b) Because a dividend recap only results in a partial recovery of the upfront investment 
+earlier in the holding period.  
+c) Because a dividend recap also means additional Debt to repay in the holding period or 
+upon exit.  
+d) All of the above.  
+Explanation:  Everything above is true and explains why  dividend recaps tend to make a small 
+difference on the IRR and other output. They tend to be relatively small next to the upfront 
+investment and exit value, and they also result in additional Debt that the company must repay, 
+reducing its cash flow during  the holding period and the exit equity value if the additional Debt 
+is not fully repaid by then.  
+ 
+AFM -09-15: Tax Schedule and Net Operating Losses (NOL) in an Asset Purchase (9:09 ) 
+You will set up the Tax Schedule for the LBO model in this lesson and use it to track the 
+company’s NOL accruals and usages throughout the holding period.  
+Table of Contents:  
+• 1:20:  Taxable Income  
+• 3:35:  Net Operating Losses  
+• 6:34:  Linking the Statements  
+• 8:05:  Recap and Summary  
+ 
+Quiz Questions:  
+8:04 In which of the following LBO scenarios would a Tax and NOL Schedule be likely to make 
+the BIGGEST difference?  
+a) The acquisition of a large, public company for a small premium.  
+b) The acquisition of a large, public company for a large premium.  
+c) A divestiture  of one specific division at a huge premium to Net Assets.  
+d) The acquisition of a small, closely held private company for a high EBITDA multiple.  
+Explanation:  The third answer choice is the correct one. Taxes make the biggest impact in an 
+LBO model when item s that are not normally cash -tax deductible, such as Goodwill 
+Amortization, become deductible at significant levels, which is what happens when the deal is 
+ 
+11 of 16  https://breakingintowallstreet.com  
+structured as an asset purchase rather than a stock purchase (most common for divestitures 
+and small er, private companies). The first two answers are not correct because public company 
+acquisitions are almost always stock purchases, and the last answer is not the best one because 
+we don’t know whether or not the equity purchase price represents a huge pr emium to the 
+company’s Net Assets  (a high multiple increases the likelihood but  doesn’t necessarily prove it).  
+ 
+AFM -09-16: Credit Stats and Ratios, ROIC, and LBO Exit Multiples  (16:13 ) 
+In this lesson, you will calculate the credit stats and ratios for Viridor and use its Return on 
+Invested Capital (ROIC) before and after the deal to estimate the proper range of EBITDA exit 
+multiples in the different scenarios.  
+Table of Contents:  
+• 1:25:  EBITDA, Debt, and Interest  
+• 6:16:  Debt Paydown, Growth, Margins, and R OIC 
+• 13:02:  Conclusions and Assumption Changes  
+• 15:06:  Recap and Summary  
+ 
+Quiz Questions:  
+15:05 Why might the ROIC calculation in an LBO model differ in the pre -transaction and post -
+transaction periods?  
+a) The tax rate often changes after the deal takes place.  
+b) There may be additional D&A on assets written up in the deal, which affects EBIT.  
+c) You might treat operating lease liabilities differently in each period.  
+d) All of the above.  
+Explanation:  The second answer choice is correct. It makes no sense to assume  a different tax 
+rate or to treat operating lease liabilities after the deal closes (unless the tax rate is set to 
+change in a future year), but there is frequently additional depreciation and amortization on 
+asset write -ups in leveraged buyouts. That addi tional D&A is deducted to calculate EBIT or 
+Operating Income, and NOPAT is based on EBIT * (1 – Tax Rate).  
+ 
+AFM -09-17: Exit Equity Value and Project -Level Returns  (11:14 ) 
+You’ll estimate the Exit Equity Value in this LBO model in different exit years in this lesson, 
+factoring in the debt repayment, prepayment penalties, and equity grants to the mezzanine 
+ 
+12 of 16  https://breakingintowallstreet.com  
+investors, and you’ll calculate the returns to the PE firm before the dividend recap and 
+management earn -outs.  
+Table of Contents:  
+• 0:55:  Exit Equity Value  & Debt Repayments  
+• 5:19:  Prepayment Penalties & Equity Grants  
+• 8:33:  Project -Level Returns  
+• 10:12:  Recap and Summary  
+ 
+Quiz Questions:  
+[No quiz questions.]  
+ 
+AFM -09-18: Management Earnouts and Sponsor Returns with Dividend Recap  (8:21 ) 
+You’ll estimate the equity returns, i.e., the returns to the private equity firm, in this lesson, 
+factoring in the earn -outs paid to management, the dividend recap, the stub period, and the 
+scenarios and variable exit years.  
+Table of Contents:  
+• 0:28:  Earn -Outs to Management  
+• 4:00:  Returns to Sponsor  
+• 7:30:  Recap and Summary  
+ 
+Quiz Questions:  
+7:29 In an LBO model, is a Dividend Recap likely to make a bigger impact on the PE firm’s IRR 
+or returns multiple?  
+a) The IRR.  
+b) The returns multiple.  
+c) It will make about the same percentage impact on both.  
+Explanation:  A Dividend Recap will make a bigger impact on the IRR because of the time value 
+of money. Essentially, it means that instead of waiting to get some of their invested capital back 
+at the end of the deal (the exit), th e PE firm can recover some of this upfront investment earlier 
+in the holding period. This doesn’t necessarily change the multiple  by much (if anything), but it 
+will boost the IRR in most cases since it shifts the returns to an earlier year . 
+ 
+13 of 16  https://breakingintowallstreet.com  
+ 
+AFM -09-19: Returns to Lenders (OID, Issuance Fees, Prepayment Penalties, and Equity 
+Granted)  (14:14 ) 
+In this lesson, you’ll estimate the IRRs, multiples, and recovery percentages for the lenders, 
+including the Senior Unsecured Noteholders, Subordinated Noteholders, and Mezzanine 
+investors, including the impact of OID, issuance fees, cash interest and principal repayments, 
+prepayment penalties, and equity granted.  
+Table of Contents:  
+• 1:13:  Senior Unsecured Notes  
+• 4:45:  Subordinated Notes  
+• 8:40:  Mezzanine  
+• 11:19:  Conclusions  
+• 13:04:  Recap and Summary  
+ 
+Quiz Questions:  
+13:03 How does Paid -in-Kind (PIK) Interest affect the IRR to lenders in an LBO?  
+a) It makes no direct impact on the cash flows, but it does indirectly affect components of 
+the cash flows.  
+b) It increases the Cash Interest over time by increasing the Debt principal.  
+c) It increases the “Repayment Upon Exit” and “Prepayment Penalty” lines by increasing 
+the Debt principal.  
+d) All of the above.  
+Explanation:  Everything above is correct. PIK Intere st does not appear as an explicit line item in 
+the returns schedule for lenders, but it affects many line items in this schedule, including the 
+Cash Interest, Principal Repayment Upon Exit, and Prepayment Penalty, because it increases 
+the Debt balan ce over time.  
+ 
+AFM -09-20: Sensitivities for Equity Investors and Lenders  (10:07 ) 
+You’ll set up sensitivity tables for the IRRs and recoveries for the different investor groups in 
+this lesson, and you’ll draw quick conclusions about the conditions that might make the deal 
+work more effectively.  
+Table of Contents:  
+ 
+14 of 16  https://breakingintowallstreet.com  
+• 1:15:  Creating the Tables and Determining the Ranges  
+• 6:23:  Conclusions  and Fixes  
+• 9:19:  Recap and Summary  
+ 
+Quiz Questions:  
+9:18 Why might the IRR in an LBO be higher for both the lenders and the equity investors 
+with an earlier exit date?  
+a) The exit multiple might not increase over time to compensate for the longer holding 
+period in later years.  
+b) The time value of money makes it easier to earn higher IRRs based on the same money -
+on-money multiple if the holding period is shorter.  
+c) Items like dividends, OID, and prepayment penalties contribute more to the IRR when 
+the holding period is shorter.  
+d) All of the above.  
+Explanation:  Everything above is true. For the same money -on-mone y multiple, the IRR will 
+always be higher in a shorter holding period because the annualized rate of return increases. 
+One-time items, such as dividends, OID, and prepayment penalties, are also more significant for 
+the IRR when the holding period is shorte r because they’re “distributed” over fewer years.  The 
+first answer choice makes the point that if the exit multiple remains at 20x (for example), and 
+the company’s EBITDA does not grow much, the time value of money means that the IRR is 
+likely to be lower with a later exit date.  
+ 
+AFM -09-21: Investment Recommendation Presentation (Equity)  (11:06 ) 
+In this lesson, you’ll learn how to structure and draft a 10 -slide investment recommendation 
+presentation for this leveraged buyout, including both market data from  outside research and 
+the numerical output from the LBO model.  
+Table of Contents:  
+• 0:28:  Outline and Structure  
+• 1:26:  Overview  
+• 3:15:  Market  
+• 4:02:  LBO Model Output  
+• 8:04:  Counter -Factual  
+• 9:49:  Recap and Summary  
+ 
+15 of 16  https://breakingintowallstreet.com  
+ 
+Quiz Questions:  
+9:49 How might you use data on a company’s market in an investment recommendation for a 
+leveraged buyout?  
+a) To determine whether the revenue growth assumptions match the market growth rate.  
+b) To figure out if the company’s spending and CapEx match historical and market norms.  
+c) To assess the potential for add -on acquisitions and further market consolidation.  
+d) All of the above.  
+Explanation:  Everything above is true. You can use the market data to assess the industry's 
+overall attractiveness , the company’s ability to make add -on acquisiti ons, and the plausibility of 
+the key revenue, expense, and CapEx assumptions.  
+ 
+AFM -09-22: Investment Recommendation Presentation for Lenders  (10:06 ) 
+You’ll learn how a 10 -slide investment recommendation for the lenders in this deal might differ 
+in this lesson, including how to present the numbers and market data differently and highlight 
+different risk factors and possible mitigants.  
+Table of Contents:  
+• 0:38:  Outline and Structure  
+• 2:26:  Overview  
+• 4:06:  Market  
+• 4:37:  The Numbers  
+• 6:40:  Risk Factors  
+• 8:51:  Recap and Summary  
+ 
+Quiz Questions:  
+6:39 How might “The Numbers” section of an investment recommendation presentation 
+differ for the equity investors vs. the lenders?  
+a) The lender version would focus on the range of outcomes in different scenarios.  
+b) The lender version would focus on the chances of losing money in different scenarios.  
+c) The lender version would not include references to the IRR output.  
+d) All of the above.  
+ 
+16 of 16  https://breakingintowallstreet.com  
+Explanation:  The second answer choice is correct. The equit y investors and the lenders care 
+about their respective IRRs and the deal’s outcome in different scenarios, but lenders pay far 
+more attention to the downside cases because their upside is relatively capped (aside from 
+special features such as equity grant ed to certain lender groups). This focus on downside risk is 
+the key difference  between equity and debt investment recommendations.  

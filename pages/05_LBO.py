@@ -1000,10 +1000,18 @@ def build_debt_schedule(tx: dict, ops_df: pd.DataFrame, tranche_inputs: dict,
         # FCF after mandatory
         fcf_after_mand = fcf_available - total_mand
 
-        # --- Cash sweep ---
-        # Sweep from excess FCF after maintaining min cash
-        excess_cash_for_sweep = max(0.0, fcf_after_mand)  # only if positive
-        sweep_total = excess_cash_for_sweep * (cash_sweep_pct / 100.0)
+        # --- Cash sweep (step-down by leverage tier) ---
+        excess_cash_for_sweep = max(0.0, fcf_after_mand)
+        total_debt_now = sum(open_bal.values())
+        leverage_now = total_debt_now / ebitda if ebitda > 0 else 99.0
+        # Step-down: higher leverage → higher mandatory sweep
+        if leverage_now > 4.0:
+            effective_sweep_pct = max(cash_sweep_pct, 75.0)
+        elif leverage_now > 3.0:
+            effective_sweep_pct = max(cash_sweep_pct * 0.67, 50.0)
+        else:
+            effective_sweep_pct = min(cash_sweep_pct, 25.0)
+        sweep_total = excess_cash_for_sweep * (effective_sweep_pct / 100.0)
 
         # Sweep priority: TLA -> TLB -> Senior Notes -> Sub Notes (most LBOs sweep senior first)
         sweep_alloc = {"TLA": 0.0, "TLB": 0.0, "Senior Notes": 0.0, "Sub Notes": 0.0, "Mezzanine": 0.0}

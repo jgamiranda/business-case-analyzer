@@ -1,0 +1,3317 @@
+ Advanced Financial Modeling Course  
+ 
+1 of 121 https://breakingintowallstreet.com  
+Equity Value, Enterprise Value, and Valuation Metrics and Multiples  
+Table of Contents:  
+Overview & Key Rules of Thumb  ................................ ................................ .......................  2 
+Key Rule #1: Equity Value and Enterprise Value: Meaning and Calculations  .................  2 
+Key Rule #2: How Events Impact Equity Value and Enterprise Value  ..........................  18 
+Key Rule #3: Why the Concept of Enterprise Value Doesn’t Hold Up in Real Life  .......  27 
+Key Rule #4: The Equity Value Calculation  ................................ ................................ .. 31 
+Key Rule #5: Other Dilutive Items: RSUs, Convertible Bonds, and More  .....................  36 
+Key Rule #6: The Equity Value to Enterprise Value “Bridge”  ................................ .......  43 
+Key Rule #7: Income Statement Valuation Metrics: EBIT, EBITDA, and Net Income  ... 45 
+Key Rule #8: Cash Flow Statement Valuation Metrics: FCF, FCFF, and FCFE ................  53 
+Key Rule #9: V aluation Multiples: How to Pair Metrics with Eq Val & TEV  ..................  60 
+Key Rule #10: How to Use Multiples in Real Life  ................................ .........................  69 
+Key Rule #11: Equity Investments and Noncontrolling Interests in Enterprise Value  .. 77 
+Key Rule #12: Pensions in Enterprise Value  ................................ ................................  82 
+Key Rule #13: Operating Leases and Capital Leases in Enterprise Value  .....................  86 
+Key Rule #14: Net Operating Losses (NOLs) and Other Items  ................................ ..... 92 
+Interview Questions  ................................ ................................ ................................ ........  95 
+The Concepts of Equity Value and Enterprise Value  ................................ ...................  95 
+How Events Impact Equity Value and Enterprise Value  ................................ ............  100 
+Valuation Multiples  ................................ ................................ ................................ ... 107 
+Calculat ing Equity Value and Enterprise Value  ................................ ..........................  116 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ Advanced Financial Modeling Course  
+ 
+2 of 121 https://breakingintowallstreet.com  
+Overview & Key Rules of Thumb  
+Questions about  Equity Value , Enterprise Value , and valuation metrics and multiples  are some 
+of the most common ones in interviews.  
+Unfortunately, most guides, textbooks, and websites do a very  poor job of explaining these 
+topics.  
+With accounting, sometimes the explanations are not great, but the information  is correct.  
+But with Equity Value and Enterprise Value, the information is often WRONG . 
+For example, if someone asked you what “Enterprise Value” meant, what would you say?  
+From the Google search results, a reasonable answer might be: “Market  Capitalization, plus 
+Debt, Noncontrolling interests, and P referred Stock .” 
+Other sources give definitions such as:  “Enterprise Value represents the ‘theoretical takeover 
+price’ of a company.”  
+All these definitions are wrong , incomplete, or misleading . 
+The REAL  definition of Enterprise Value is: “The value of a company’s core business operations 
+to ALL  the investors in the company.”  
+In the sections below, we’ll expand on this definition, explain how to pair Equity Value and 
+Enterprise Value with operating metrics to create valuation  multiples , and explain how Equity 
+Value and Enterprise Value change after specific events.  
+ 
+Key Rule #1: Equity Value and Enterprise Value: Meaning and Calculations  
+These concepts go back to that all -important formula:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate < Discount Rate.  
+The accounting lessons dealt with the Cash Flow part of that formula.  
+Equity Value  and Enterprise Value  deal with the Company Value  part.  
+Specifically, how do you measure  “Company Value”?  
+That is tricky to answer because companies are worth different amounts to different types of 
+investors . 
+ Advanced Financial Modeling Course  
+ 
+3 of 121 https://breakingintowallstreet.com  
+It’s also tricky to answer because “the market” may say a company is worth one amount, but 
+its intrinsic value  may be different . 
+So, there are  at least  two ways you can measure a company’s value:  
+• “Market Value”  – What  is the company worth right now  according to the stock market , 
+its current owners , or its current investors ? 
+ 
+• Implied or “Intrinsic” Value  – What should  the company be worth according to your 
+analysis  and views ? 
+Why might the Market Value be different from the Implied Value ? 
+Let’s say you’re analyzing a company that has $100 in cash flow . 
+Both you and the company’s current owners believe the appropriate Discount R ate is 10%  
+because similar companies are expected to  generate annual ized returns of 10% over the long 
+term . 
+However, you disagree about the expected growth rates . You believe the company’s cash flow 
+will grow at 4%, but the current o wners think it will grow at 5%.  
+As a result, the company’s value is different for each group:  
+Implied Value for YOU  = $100 / (10% – 4%) = $1,666.  
+Market Value  = $100 / (10% – 5%) = $2,000.  
+The owners want $ 2,000 for the company, or they won’t sell it.  
+But you believe that the company is too expensive  and that its intrinsic value is quite a bit 
+lower.  As a result, you won’t buy the company at their asking price of $2,000.  
+That’s the main reason why a company’s Market Value often differs from its Implied Value: you 
+believe the company’s future growth will be one number, but “the market,” or other 
+invest ors, believe something else . 
+You might also d isagree about the Discount Rate  or even the company’s Cash Flow. But most  
+valuation differences boil down to disagreements about future growth  rates.  
+Beyond this issue of Implied Value vs. Market Value, another problem is that “Company Value” 
+might refer to different investor groups.  
+A company might have funded  its operations with just Equity, a combination of Debt and 
+Equity, Debt + Equity + Preferred Stock, or other combinations of capital.  
+ Advanced Financial Modeling Course  
+ 
+4 of 121 https://breakingintowallstreet.com  
+So, does “Company Value” refer to just the amount attributable to Equity investors (common 
+shareholders)? Or does it incl ude all the investor groups?  
+This question creates the main two measurements of “Company Value”: Equity Value  and 
+Enterprise Value . 
+• Equity Value:  The value of EVERYTHING  a company has (Net  Assets, or Total Assets – 
+Total Liabilities), but only to EQUITY INVESTORS  (common shareholders) . 
+ 
+• Enterprise Value:  The value of the company’s CORE BUSINESS OPERATIONS  (Net 
+Operating  Assets, or Operating  Assets – Operating  Liabilities), but to ALL INVESTORS  
+(Equity, Debt,  Preferred, and possibly others) . 
+The “Equity Value” view of a company like Target look s like this:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+5 of 121 https://breakingintowallstreet.com  
+Equity Value represents EVERYTHING: Total Assets – Total Liabilities.  
+And the “Enterprise Value” view  look s like this:  
+ 
+Enterprise  Value excludes  Non -Operating Assets, such as Cash and Financial Investments, as 
+well as Non -Operating Liabilities , such as Debt.  
+Equity Value  is known colloquially as “Market Capitalization” or “Market Cap,” and for public 
+companies, it’s equal to Current Share Price * Shares Outstanding.  
+People often use Equity Value or Market Cap when discussing company valuations, and 
+journalists usually  write about it because it’s simple and easy to calculate.  
+But there is a big problem with it: if a company’s capital structure  (the percentage of Equity 
+vs. Debt) changes, Equity Value will also change!  
+
+ Advanced Financial Modeling Course  
+ 
+6 of 121 https://breakingintowallstreet.com  
+On th e other hand, Enterprise Value will not change – or at least, not change as much  – even 
+if the company’s capital structure changes.  
+For example, consider these three capital structures for the same company : 
+ 
+That is the real significance of Enterprise Value : it doesn’t suddenly change even when the 
+company’s Equity and Debt percentages change.  
+So, we often use Enterprise Value when analyzing companies because it lets us reach 
+conclusions without worrying about the companies’ capital structure s. 
+One real -life analogy to explain Equity Value and Enterprise Value is buying a house  with 
+different amounts for the mortgage and down payment.  
+For example, if you buy a $500K house  using a mortgage for 50% of it, the “Equity Value” and 
+“Enterprise Value” l ook like this:  
+ 
+If you changed the terms and put down only 20% upfront, it would look like this:  
+
+ Advanced Financial Modeling Course  
+ 
+7 of 121 https://breakingintowallstreet.com  
+ 
+And then if you paid for the house 100% with the down payment , it would look like this:  
+ 
+Regardless of how you finance  the purchase of the house, its “Enterprise Value” stays the 
+same at $500K.  
+And that is why Enterprise Value is essential  for valuing companies as well . It doesn’t work 
+exactly  as shown above, but the idea is quite similar.  
+ 
+Why Define the Metrics This Way ? And Why Do We Need Both of Them?  
+One common question we get goes like this:  
+“Why  do you pair Total Assets – Total Liabilities with Common Shareholders (Equity Value), but 
+Operating  Assets – Operating Liabilities with All Investors (Enterprise Value)? Isn’t this pairing 
+arbitrary? If so, couldn’t you create other pairings?”  
+No, it’s not arbitrary. You can understand the pairing with the following logic:  
+1) A company can generate Equity internally  from its Net Income (Net Income flows into 
+Retained Earnings in Common Shareholders’ Equity), but it can also raise  Equity from 
+outside investo rs by issuing stock.  
+
+ Advanced Financial Modeling Course  
+ 
+8 of 121 https://breakingintowallstreet.com  
+ 
+2) On the other hand, a company cannot  generate Debt, Preferred Stock, and other 
+funding sources internally – it must  ask outside investors for these funds.  
+ 
+3) A company is unlikely  to raise capital from outside investors to acquire Non-Core or Non-
+Operating Assets , such as a side business selling ice cream if it’s a software company.  
+ 
+4) However, since Equity may be generated  internally  or raised externally , the company 
+could use it for anything: both Operating Assets and Non -Operating Assets.  
+So, we pair Enterprise Value with Net Operating Assets and Equity Value with Net Assets.  
+In real life, this logic does not necessarily hold up 100%.  
+For example, companies might issue Debt to acquire side businesses that have nothing to do 
+with their core operations.  
+However, the convention  is to follow the logic above  to standardize these metrics and make it 
+easier to compare companies.  
+We need both  Equity Value and Enterprise Value when analyzing companies because:  
+1) One analysis might produce the Implied Equity Value, while another might produce the 
+Implied Enterprise Value – and we need to move between them with a “bridge.”  
+ 
+2) No single investor group is an island – actions taken by one affect everyone else! For 
+example, if a company raises Debt, that affects the risk and potential returns for 
+common shareholders as well.  
+A specific example of point #1 is that if we’re analyzing a company from the perspective of 
+common shareholders, we often use the Discounted Cash Flow (DCF) analysis to estimate what 
+its share price should be . 
+However, the DCF usually produces the company’s Implied Enterprise Value . 
+Therefore, we need to jump across the “bridge” from Enterprise Value to Equity Value so that 
+we can divide Equity Value by the share count to get the Implied Share Price.  
+ 
+How to Calculate Current Equity Value and Current Enterprise Value  
+You usually start  this process by calculating a company’s Current Equity Value.  
+ Advanced Financial Modeling Course  
+ 
+9 of 121 https://breakingintowallstreet.com  
+There are three main methods you can use to calculate it:  
+• Method #1:  Share s Outstanding  * Current Share Price (for publicly  traded companies) . 
+ 
+• Method #2:  Market Value of Total Assets – Market Value of Total Liabilities  (technically, 
+“Market Value of Everything on the L&E Side Except for Common Shareholders’ Equity”).  
+ 
+• Method #3:  The company’s valuation in its last round of funding, o r its valuation in an 
+outside appraisal (for private companies) . 
+We almost always use Method #1 for public companies and Method # 3 for private companies 
+because it’s difficult and time -consuming to estimate the Market Value of every single Asset 
+and Liability on the company’s Balance Sheet.  
+Here’s a simple example of how to calculate Equity  Value for a public company:  
+ 
+We multiply the Current Share Price of $10.00 by the Shares Outstanding of 1,000 to get the 
+Current Equity Value of $10,000.  
+To move across the bridge to Enterprise Value, we can refer back to the definition:  
+• Enterprise Value:  The value of the company’s CORE BUSINESS OPERATIONS  (Net 
+Operating Assets, or Operating Assets – Operating Liabilities), but to ALL INVESTORS  
+(Equity, Debt,  Preferred, and possibly others) . 
+Written as a formula, the definition would look like this:  
+• Enterprise Value  = (Market Value of Assets – Non -Operating Assets) – (Market Value of 
+Liabilities – Liability and Equity Items That Represent Other Investor Groups)  
+“Other Investor Groups” means “groups besides  the common shareholders.”  
+Rearranging the terms, we get:  
+
+ Advanced Financial Modeling Course  
+ 
+10 of 121 https://breakingintowallstreet.com  
+• Enterprise Value  = Market Value of Assets – Market Value of Liabilities – Non -Operating 
+Assets + Liability  and Equity Items That Represent Other Investor Groups  
+The first two terms of this formula are also used in Method #2 of calculating Equity Value:  
+• Equity Value  = Market  Value of Assets – Market Value of Liabilities  
+So, we can substitute this into the Enterprise Value formula:  
+• Enterprise Value  = Equity Value – Non-Operating Assets + Liability  and Equity Items That 
+Represent Other Investor Groups  
+Since the starting point for Current Enterprise Value is Current Equity Value, you subtract Non -
+Operating Assets  and add Liability & Equity Items That Represent Other Investor Groups  to 
+make this move.  Here’s a simple example:  
+ 
+We’ll cover “Noncontrolling Interest s” later in this guide ; don’ t worry about them for now.  
+In this example, the only Non -Operating Asset  is Cash.  
+Technically, some amount of Cash is always operational because companies need a minimum 
+amount to pay for the day -to-day running of the business.  
+However, this minimum amount varies widely between different companies and industries, so 
+the standard treatme nt is to simplify it and assume that  all Cash is “ Non -Operating .” 
+Doing so also makes it easier to compare companies and get a quick read of each company’s 
+valuation . 
+Other examples of Non -Operating Assets  include:  
+• Financial Investments , such as stocks and bonds . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+11 of 121 https://breakingintowallstreet.com  
+• Owned Properties  from which the company earns rental income (rather than using the 
+properties internally and generating no income from them).  
+ 
+• Side Businesses  that earn income for the company  (e.g., an ice cream or Japanese 
+whiskey business owned by a software company).  
+ 
+• Assets Held for Sale  and Assets  Associated with Discontinued Operations . 
+ 
+• Equity Investments  or Associate Companies , which represent minority stakes in other 
+companies ( the Parent Company owns < 50% of these other companies).  
+ 
+• Net Operating Losses (NOLs) , which are a component of the Deferred Tax Asset.  
+An Asset is Non -Core or Non -Operating  if the company does not need that Asset to sell 
+products/services and deliver them to customers.  
+What about “Liability & Equity Line Items That Represent Other Investor Groups?”  
+You add these items when moving from Equity Value to Enterprise Value, and the most 
+common examples are Debt  and Preferred Stock . 
+These both represent “other investor groups” because companies cannot generate  Debt or 
+Preferred Stock internally:  they must contact investors, ask to borrow the funds, and promise 
+to pay them Interest or Preferred Dividends each year in exchange for the money.  
+Other items in this category include:  
+• Capital Leases  – Debt -like obligations with Interest payments that are used specifically 
+to acquire plants, property, and equipment (PP&E).  
+ 
+• Noncontrolling Interests  – These represent the unowned portions  of majority -owned 
+companies. If Company A owns 80% of Company B, it will consolidate Company B’s 
+financials with its own but also record a Noncontrolling Interest for the 20% of Company 
+B that it does not own.  
+ 
+These count as “another investor group” because if a company owns more than 50% of 
+another company, it has eff ective control of that other company and can draw on all its 
+resources, including those linked to the minority shareholders of this other company. 
+You also count these in Enterprise Value for comparability purposes  (see the section on 
+Equity Investments and Noncontrolling Interests ). 
+ Advanced Financial Modeling Course  
+ 
+12 of 121 https://breakingintowallstreet.com  
+ 
+• Unfunded Pensions  – If a company has a defined -benefit pension , meaning it’s required 
+to pay retired employees a fixed amount eac h year, then it will have Pension Assets and 
+Pension Liabilities. Pension Assets represent the investments set aside for these 
+retirement payments, and Pension Liabilities represent the Present Value of the 
+expected future obligations. If the Liabilities exceed the Assets, the pension is unfunded , 
+and only  that portion (Pension Liabilities – Pension Assets) should be added in the 
+Enterprise Value bridge.  
+ 
+The employees  act as “another investor group” in this case. In exchange for lower 
+salaries/benefits in the present, they accept promised payments from the company 
+once they retire. It’s similar to Debt, but over a much longer -term time frame. For more, 
+see the section on Pensions . 
+ 
+• (Potentially ) Operating Leases  – In 2019, the accounting rules for Operating Leases 
+changed, and they now appear on -Balance Sheet. Under IFRS, you normally add them 
+when calculating Enterprise Value because of how the lease expense is presented on the 
+Income Statement, but under U.S. GAAP, it could go either way  as long as you’re 
+consistent with the valuation multiples.  For more on Leases, please see the section on 
+Operating and Capital Leases . 
+There are some other potential items in this category that might represent “other investors 
+groups” as well , which we discuss in Key Rule #14 . 
+ 
+What About Private Companies?  
+The examples above use public companies with easy -to-determine Share Prices and Share 
+Counts.  
+If you’re working with private companies  – ones not listed on the stock market – not that much  
+changes.  
+The concepts of Equity Value and Enterprise Value still apply, as does the distinction between 
+Current Value and Implied Value.  
+The main difference is that you can’t calculate Current Equity V alue by using the company’s 
+Share Price and Shares Outstanding because its shares are not publicly traded . 
+ Advanced Financial Modeling Course  
+ 
+13 of 121 https://breakingintowallstreet.com  
+So, you have to rely on the valuation at which the company most recently raised money, the 
+price at which it was acquired, or another external number to estimate its Current Equity Value.  
+As a result, you can’t calculate its Current Enterprise Value in a strai ghtforward way.  
+In practice, you often skip Current Equity Value and Current Enterprise Value for private 
+companies and just estimate Implied Equity Value and Implied Enterprise Value.  
+If you’re a banker advising a public company , you might compare the company’s Current Share 
+Price to its Implied  Share Price – what you think  it should  be worth.  
+But if you’re advising a private company , you might skip the comparison and simply tell the 
+client what you think  it should  be worth.  
+ 
+Equity Value and Enterprise Value : Implications and Myths  
+The definitions of Equity Value and Enterprise Value have far -reaching implications.  
+We’ll explore those implications in this s ection and then bust some common myths : 
+Implication #1: Current Equity Value Cannot Be Negative, But Current Enterprise Value Can Be 
+Negative  
+A company’s Current Sh are Price cannot be negative, and its Share Count  also cannot be 
+negative. So, it’s mathematically impossible for Current Equity Value to be negative.  
+Yes, Net Assets on the Balance Sheet could be negative, but the Market Value  of Net Assets is 
+extremely unlikely to be negative unless it’s a distressed company.  
+On the other hand, Current Enterprise Value could easily be negative. For example, what if the 
+company’s Current Equity Value is $100 milli on, but it has $200 million in Cash and no D ebt?  
+Its Current Enterprise Value is negative $100 million . 
+This scenario is rare; it’s most common for pre -bankruptcy companies that are burning through 
+cash at high rates  and that are likely to die  soon . 
+A Negative Enterprise Value lets you buy Cash at a discount … assuming the company survives!  
+ 
+Implication #2: Both the IMPLIED Equity Value and IMPLIED Enterprise Value Can Be Negative  
+ Advanced Financial Modeling Course  
+ 
+14 of 121 https://breakingintowallstreet.com  
+As a simple example, if a company’s Cash Flow is currently negative $100, and the Discount 
+Rate is 3% , with a Cash Flow Growth Rate of 2%: 
+Company Value  = ($100) / (3% – 2%) = ( $10,000 ) 
+Assuming that this is the cash flow to ALL investors  (Unlevered Free Cash Flow) and that the 
+Discount Rate is WACC, then the company’s Implied Enterprise Value is negative $10,000.  
+If the company has $500 in Cash and no D ebt, then its Implied Equity Value will also be 
+negative.  
+You back into Implied Equity Value  in this case , so there’s no reason why it can’t  be negative.  
+While this scenario is THEORETICALLY possible, it’s extremely unlikely in real life unless you’re 
+analyzing distressed or highly speculative companies  (e.g. , tech or biotech startups).  
+So, if you g ot this result in a valuation, you might just set the Implied Share Price to $0.00 and 
+assume the company is worthless.  
+ 
+Implication #3: IN THEORY, Financing Events Do Not Affect Enterprise Value ; Only Changes to 
+the Company’s Core Business (i.e., Net Operating Assets)  Affect Enterprise Value  
+If a company with an Equity Value of $1,000 and Enterprise Value of $1,200 issues  $100 of 
+Common Stock , what happens to both metrics?  
+You know from the Accounting lessons that issuing $100 of Common Stock results in $100 of 
+additional Cash on the Assets side of the Balance Sheet and $100 in additional Common 
+Shareholders’ Equity on the L&E side.  
+Common Shareholders’ Equity increases by $100, so Equity Value increases by $100.  
+To move from Equity Value to Enterprise Value, you sub tract Non -Operating Assets , and you 
+add L&E Line Items That Represent Other Investor Groups . 
+Equity Value is $100 higher, but you subtract the extra $100 of Cash  since Cash is a Non -
+Operating Asset.  
+There are no other , new investor groups to add.  
+These changes cancel each other out, and Enterprise Value stays the same . 
+That is extremely important . 
+ Advanced Financial Modeling Course  
+ 
+15 of 121 https://breakingintowallstreet.com  
+According to the theory  behind it (the Modigliani –Miller theorem ), financing events do NOT 
+affect Enterprise Value.  
+Here are a few examples  (“TEV” = Enterprise Value):  
+• Issuing Debt:  Won’t impact  TEV; Cash and Debt both increase and offset each other.  
+ 
+• Repaying Debt:  Won’t impact  TEV; Cash and Debt both decrease and offset each other.  
+ 
+• Issuing Stock : Won’t impact  TEV; Cash and Equity Value both increase and offset each 
+other.  
+ 
+• Repurchasing Shares:  Won’t impact  TEV; Cash and Equity Value both decrease and 
+offset each other.  
+ 
+• Issuing Dividends:  Won’t impact  TEV; Cash and Equity Value both decrease and offset 
+each other.  
+In these examples, there’s also a much simpler explanation: Net Operating Assets do not 
+change.  Cash, Debt, and Common Stock are all Non -Operating in nature.  
+Enterprise Value changes only  if a comp any’s Net Operating Assets  (i.e., its core business 
+operations) change s. 
+Here are a few examples , all assuming that Cash on the Assets side balances the change : 
+• PP&E Increases:  PP&E is an Operating Asset . No Operating Liabilities change, so Net 
+Operating  Assets (NOA) increases , and Enterprise Value increase s. 
+ 
+• Inventory Increases:  Inventory is an Operating Asset . No Operating Liabilities change, so 
+Net Operating Assets (NOA) increases , and Enterprise Value increases.  
+ 
+• Accounts Receivable Decrease s (due to cash collection) : AR is also an Operating Asset , 
+and no Operating Liabilities change. NOA decreases , so Enterprise Value decreases . 
+ 
+• Deferred Revenue Increases:  This is an Operating Liability . No Operating Assets change, 
+so when Deferred Revenue goes up, NOA goes down . Therefore, Enterprise Value 
+decre ases. 
+ Advanced Financial Modeling Course  
+ 
+16 of 121 https://breakingintowallstreet.com  
+In these specific examples, Equity Value does not change because Cash, not Common 
+Shareholders’ Equity, balances each change.  
+However, if these changes had been  funded by a Stock Issuance or something else that affected 
+Common Shareholders’ Equity , then Equity Value would have changed.  
+To summarize:  
+• Equity Value  changes only if Common Shareholders’ Equity changes; if it does, both CSE 
+and Equity Value change by the same amount  (at least in a simplified “interview 
+question” setting ). 
+ 
+• Enterprise Value  changes only if Net Operating Assets changes; if it does, both NOA and 
+TEV change by the same amount  (at least in a simplified “interview question” setting ). 
+You can sometimes shorten the Equity Value rule to “Do Net Assets change?” but be careful  – if 
+the company has Preferred Stock, Noncontrolling Interests, or anything else in Equity  but not 
+Common Shareholders’ Equity , that shortcut won’t work.  
+Finally, note that these  principle s are true in theory , but not in real life all the time ( please see 
+Key Rule #3 ). 
+ 
+Myths About Equity Value and Enterprise Value  
+Before moving on, let’s destroy some common myths about Equity Value and Enterprise Value 
+that you’ll see on Investopedia, Wikipedia, online forums, and other “sources ”: 
+MYTH #1: Enterprise Value is the “Cost to Acquire a Company”  
+NO! As stated above, Enterprise Value  is the value of a company’s core business operations to 
+all the investors in the company.  
+When a company wants to acquire 100% of another company, at the minimum , it must pay for 
+all the other company’s shares outstanding.  
+So, the minimum  purchase price is the other company’s Equity Value.  
+Past that, it gets tricky because not all acquisitions treat Debt and Cash the same way.  
+In most cases , the seller ’s Debt must be “refinance d” (i.e., replace d with new Debt, or 
+completely repaid ) in an acquisition.  
+ Advanced Financial Modeling Course  
+ 
+17 of 121 https://breakingintowallstreet.com  
+However, this same condition i sn’t necessarily true of the other Debt -like items  that you add 
+when moving from Equity Value to Enterprise Value.  
+And if the buyer simply replaces the seller’s Debt with new Debt, is the buyer really “paying” for 
+the seller’s Debt?  
+Also, the acquirer doesn’t necessarily “get” all the seller’s Cash for it self because the seller still 
+needs a certain amount for day-to-day operations.  
+Finally, the acquirer may have to pay additional fees to close the deal, and these fees are not 
+reflected  in the seller’s Enterprise Value at all.  
+ 
+MYTH #2: Ente rprise Value is the “True Value” of a Company  
+This statement might seem true at first, but it’s missing one critical component: to whom?  
+Enterprise Value might be the “true value” of a company to all the investors in aggregate , but if 
+you’re a common shareholder, it’s certainly not the company’s true value to you.  
+Going back to the home -buying analogy with the $250K mortgage and $250K down payment, 
+how much is that new house worth to you?  
+You might be tempted to say, “$500K, ” but think about what would happen if you tried to sell 
+the hou se right after you bought it.  
+You’d only get $250K in proceeds because you’d have to repay the $250K mortgage. Even if 
+the home sells for $500K total, you only get $250K from the sale.  
+ 
+MYTH #3: Debt “Adds” to Enterprise Value, and Cash “Subtracts” from Enterprise Value  
+No, no, and no. 
+Debt doesn’t “add to” a company’s Enterprise Value. You add Debt  when you move from a 
+company’s Equity Value to its Enterprise Value . 
+Similarly, Cash doesn’t “subtract from ” a company’s Enterprise Value.  
+You subtract Cash  when you move from a company’s Equity Value  to its Enterprise Value . 
+This distinction may  seem trivial , but the difference is huge . 
+ Advanced Financial Modeling Course  
+ 
+18 of 121 https://breakingintowallstreet.com  
+If you say that Debt “adds to” Enterprise Value, you’re implying that Debt issuances can change  
+a company’s Enterprise Value – which is not true!  
+If you get this distinction wrong, you’ll incorrectly think that simple issuances of Debt and 
+Equity change  a company’s Enterprise Value.  
+But they do not . Only changes to a company’s core business affect its Enterprise Value . 
+(In reality, there may still be a small effect from financing changes, but far less of an effect than 
+there is on Equity Value.)  
+ 
+MYTH #4: You Subtract Cash When Calculating Enterprise Value Because It’s “The Opposite” 
+of Debt  
+No, no, no, and no.  
+You subtract Cash when moving from Equity Value to Enterprise Value because it is a Non -
+Operating or Non -Core Asset . 
+In other words, the company doesn’t need  its full Cash balance to continue selling/delivering 
+products and services to customers.  
+On the other hand, it does  need its Inventory and its PP&E to keep  doing these activities – so 
+you don’t add or subtract those items.  
+Technically,  you should subtract only the excess  Cash balance, but in practice , everyone 
+simplifies this and subtracts the entire balance.  
+Finally, there’s another reason why Cash is not “the opposite” of Debt: many forms of Debt do 
+not allow early repaymen t. 
+Even if a company has a huge Cash balance, it can’t necessarily use it to repay Debt.  
+Return to Top . 
+ 
+Key Rule # 2: How Events Impact Equity Value  and Enterprise Value  
+Common interview questions about Enterprise Value and Equity Value include the following:  
+• “What happens to a company’s Enterprise Value if it raises $100 of Debt?”  
+ 
+• “What happens to a company’s Equity Value if it issues $100 in Dividends?”  
+ Advanced Financial Modeling Course  
+ 
+19 of 121 https://breakingintowallstreet.com  
+ 
+• “A company has excess Cash. How do its Equity Value and Enterprise Value change if it 
+chooses to repurchase Stock vs. repay Debt?”  
+ 
+• “A CEO finds $100 of Cash on the street and adds it to the company’s bank account. 
+How do Equity Value and Enterprise Value change?”  
+These questions always refer to the Current Equity Value  and Current Enterprise Value , so you 
+only think about changes to the company’s Balance Sheet – not its future cash flows.  
+You can answer 99% of these questions with a simple, 2 -step process:  
+1) Does Common Shareholders’ Equity (CSE)  change?  
+If so, then Equity Value change s by the amount that CSE changes.  If not, then Equity Value does 
+not change.  
+You can also think of this as, “Do Net Assets change?” but be careful  because if there are 
+Noncontrolling Interests or Preferred Stock, Net Assets no longer equals CSE!  
+Items that affect CSE include Net Income, Dividends, Stock Issuance s, and Stock Repurch ases. 
+2) Do Net Operating Assets  (NOA)  change?  
+If so, then Enterprise Value will change by the amount that NOA changes. It doesn’t matter 
+which investor group was responsible because Enterprise Value reflects all investors.  
+Let’s go through a few examples in different categories to illustrate the thought process  (TEV = 
+Enterprise Value , Eq Val = Equity Value , CSE = Common Shareholders’ Equity, and NOA = Net 
+Operating Asset s). We assume a 25% tax rate  in each example : 
+ 
+Category #1: Capital Structure Changes  
+Single -step changes here are fairly simple, but multi -step ones can be tricky. It’s easiest to think 
+about the net effect  on CSE and NOA rather than explaining each step in the process.  
+ 
+1a) Company Issues $100 of Common Stock and Does Nothing With It  
+Eq Val increases by $100, and TEV stays the same . 
+ Advanced Financial Modeling Course  
+ 
+20 of 121 https://breakingintowallstreet.com  
+ 
+1) Does CSE change?  Yes, it’s up by 
+$100.  Therefore, Eq Val increases  by $100.  
+ 
+2) Does NOA  change?  No, because the 
+proceeds go into Cash , which is Non -
+Operating , and no Operating Liabilities 
+change. Therefore, TEV does not change.  
+ 
+ 
+ 
+1b) Company Issues $100 of Common Stock and Uses the Proceeds to Issue $50 of Dividends  
+This one is the same as above, but Eq Val increase s by only $50, while TEV remains the same.  
+1) Does CSE change?  Yes, it’s up by $50. Therefore, Eq Val increases by $50.  
+ 
+2) Does NOA  change?  No, because the proceeds go into Cash, and the Dividends come out 
+of Cash , and Cash is Non -Operating . Therefore, TEV does not change.  
+ 
+1c) Company Issues $100 of Common Stock to Fund a $100 Acquisition  
+Eq Val increases by $100, and TEV increases 
+by $100.  
+1) Does CSE change?  Yes. It’s up by 
+$100  because of the Stock Issuance , so Eq 
+Val is up by $100.  
+ 
+2) Does NOA  change?  Yes, because 
+these Acquired Assets are operational  (the 
+split between Existing Assets and 
+Goodwill/Intangibles is irrelevant) , and no 
+Operating Liabilities change. NOA is up by 
+$100, so TEV is up by $100.  
+
+ Advanced Financial Modeling Course  
+ 
+21 of 121 https://breakingintowallstreet.com  
+1d) Company Issues $100  of Debt  and Does Nothing With the Proceeds  
+Nothing changes; both Eq Val and TEV stay the same.  
+1) Does CSE change?  No. Debt issuances do not affect CSE, so Eq Val stays the same.  
+ 
+2) Does NOA  change?  No, because the proceeds go into Cash, and Cash is Non -Operating. 
+Debt is also a Non -Operating Liability. Therefore, TEV does not change.  
+ 
+1e) Company Issues $100 of Debt to Fund a $100 Common Stock Repurchase  
+Eq Val decreases by $100, and TEV stays the same.  
+ 
+1) Does CSE change?  Yes, it decreases 
+by $100 because of the Stock Repurchase, so 
+Eq Val decreases by $100.  
+ 
+2) Does NOA  change?  No, because 
+nothing that changes here (Debt, Cash, and 
+Equity) is an Operating Asset or Liability. 
+Therefore, TEV stays the same.  
+ 
+ 
+ 
+1f) Company Issues $100 of Debt to Purchase  $100 of  Financial Investments  
+Both Eq Val and TEV stay the same.  
+1) Does CSE change?  No, because Debt issuances do not affect CSE.  Therefore, Eq Val stays 
+the same.  
+ 
+2) Does NOA  change?  No, because nothing that changes here (Debt, Cash, and Financial 
+Investments) counts as an Operating Asset or Liability. Therefore, TEV stays the same.  
+ 
+1g) Company Issues $100 of Preferred Stock to Fund a $100 Common Stock Repurchase  
+
+ Advanced Financial Modeling Course  
+ 
+22 of 121 https://breakingintowallstreet.com  
+This one is the coun ter-example to the intuition that a change in Net Assets will also affect 
+Equity Value – because Net Assets here do not change, but Equity Value does!  
+Eq Val decreases by $100, and TEV stays the same.  
+ 
+1) Does CSE change?  Yes, because the $100 
+Stock Repurchase reduces CSE by $100. 
+Therefore, Eq Val decreases by $100.  
+ 
+2) Does NOA  change?  No. Preferred Stock, 
+Cash, and CSE are all Non -Operating, so no 
+Operating Assets or Liabilities change, and, 
+therefore, TEV stays the same.  
+ 
+ 
+This example shows why it’s better to use Common Shareholders’ Equity  – not Net Assets – 
+when determining whether or not Equity Value changes.  
+ 
+Category #2: Operating Asset  and Liability Changes  
+With these types of events, Enterprise Value often changes – but you need to be careful with 
+the “Net” part of “Net Operating  Assets.”  
+In other words, if an Operating  Asset and an Operating Liability both increase by the same 
+amount , Enterprise Value will not change!  
+Also, if you get a multi -step question about something like Inventory or Deferred Revenue, the 
+net effect by the end  is that Enterprise Value tends to stay the same.  
+For example, if a company purchases Inventory and then sells it to generate Net Income, its 
+Equity Value increases, but its Enterprise Value remains the same at the end of the process.  
+ 
+2a) CapEx Increases by $100, Boosting Net PP&E  
+Eq Val stays the same, and TEV increases by $100.  
+
+ Advanced Financial Modeling Course  
+ 
+23 of 121 https://breakingintowallstreet.com  
+ 
+1) Does CSE change?  Cash is used to 
+purchase the PP&E, so CSE does not change. 
+Therefore, Eq Val does not change.  
+ 
+2) Does NOA  change?  Yes. Net PP&E is 
+an Operating Asset, and it increases by $100; 
+no Operating Liabilities change , so NOA 
+increases by $100, and TEV increases by $100.  
+ 
+ 
+ 
+2b) Inventory Increases by $100 (Step 1)  
+This explanation is almost the same as the one above: Cash moves into an Operating Asset 
+(Inventory)  and CSE does not change, so Eq Val stays the same,  and TEV increases by $100.  
+ 
+2c) Company Sells $100 of Inventory for $200 of Finished Goods (Step 2)  
+In the second step of this process, the company sells the goods and recognizes $200 in Revenue 
+and $100 in COGS  on the Income Statement.  Pre-Tax Income increases by $100, and Net 
+Income increases by $75 at a 25% tax rate.  
+On the Cash Flow Statement, the o nly net 
+change from Step 1 through Step 2  is that 
+Cash increases by $75 due to the additional 
+Net Income (Inventory goes up by $100 and 
+then down by $100, so the two changes 
+cancel  each other out).  
+On the Balance Sheet, Cash is up by $75 on 
+the Assets side, and CSE is up by $75 on the 
+L&E side.  
+
+ Advanced Financial Modeling Course  
+ 
+24 of 121 https://breakingintowallstreet.com  
+So, the cumulative change from Step 1 t hrough  Step 2  is that Eq Val increases by $75 , and TEV 
+stays the same.  
+ 
+1) Does CSE change?  Yes. It is up by $75, so Eq Val is up by $75.  
+ 
+ 
+2) Does NOA  change?  No. Only Cash and CSE change (cumulatively from Step 1 through 
+Step 2), and they are both Non -Operating, so TEV stays the same.  
+ 
+2d) Deferred Revenue Increases by $100  
+Eq Val stays the same, and TEV decreases by $100.  
+ 
+1) Does CSE change?  There are no 
+changes on the Income Statement  because 
+the DR has not been recognized as Revenue 
+yet, so Net Income does not change.  Nothing 
+else affects CSE, either, so Eq Val stays the 
+same.  
+ 
+2) Does NOA  change?  Yes. DR is an 
+Operating Liability, but Cash is not an 
+Operating Asset , so NOA falls by $100. 
+Therefore, TEV decreases by $100.  
+ 
+Note that  this is only the intermediate step of this process.  
+If you traced it all the way through to the recognition of the Deferred Revenue as Revenue on 
+the Income Statement, representing the product/service delivery, then Eq Val would increase, 
+and TEV would stay the same from s tart to finish of the 2 -step process . 
+ 
+Category #3: Unusual Events on the Income Statement  
+These questions can be more difficult because you might have to trace the changes through all 
+the financial statements to determine the answer.  
+
+ Advanced Financial Modeling Course  
+ 
+25 of 121 https://breakingintowallstreet.com  
+Therefore, we recommend ignoring issues such as Book vs. Cash Taxes to simplify these 
+questions as much as possible.  
+This last category of questions is also rare, so you should not devote much time or effort to it.  
+ 
+3a) A CEO Picks Up $100 in Cash on the Street  
+Eq Val increases by $75, and TEV stays the same.  
+This change would be recorded as a $100 “Extraordinary Gain ” on the Income Statement . 
+Technically , it would not affect the company’s Cash Taxes , but we are ignoring that detail . 
+Net Income increases by $75, assuming a 25% tax rate, and nothing else changes on the CFS, so 
+Cash on the Assets side is up by $75, and CSE on the L&E side is also up by $75.  
+ 
+1) Does CSE change?  Yes. It’s up by $75 
+because of the increased Net Income, so Eq Val 
+increases by $75.  
+ 
+2) Does NOA  change?  No. Cash and CSE are 
+not Operating Assets or Liabilities, so NOA stays 
+the same, and so does TEV.  
+ 
+ 
+ 
+3b) Company Records a $100 Goodwill Impairment  
+Eq Val decreases by $75, and TEV decreases by $100.  
+Pre-Tax Income falls by $100, so Net Income is down by $75 at a 25% tax rate  (once again, 
+we’re ignoring the Book vs. Cash Tax differences to simplify this question).  
+On the CFS, Net Income is down by $75, but the Goodwill Impairment is non -cash, so you 
+reverse it and add back $100. Cash at the bottom is up by $25.  
+On the BS, Cash is up by $25 , and Goodwill is down by $100, so the Assets side is down by $75.  
+
+ Advanced Financial Modeling Course  
+ 
+26 of 121 https://breakingintowallstreet.com  
+Liabilities stay the same, but CSE is down by $75 due to the reduced Net Income.  
+ 
+1) Does CSE change?  Yes. It’s down by $75 
+because of the reduced Net Income, so Eq Val 
+decreases by $75.  
+ 
+2) Does NOA  change?  Yes. Goodwill is an 
+Operating Asset, and it falls by $100; nothing 
+else that changes is an Operating Asset or 
+Liability , so TEV decreases by $100.  
+ 
+ 
+ 
+3c) Preferred Dividends Increase by $10  
+Eq Val decreases by $10, and TEV stays the same.  
+Preferred Dividends appear toward the bottom of the Income Statement and reduce Net 
+Income to Common (or whatever the very bottom Net Income is called) by $10.  
+Nothing else on the CFS changes , so Cash is down by $10. On the Balance Sheet, Cash is down 
+by $ 10, and CSE is also down by $10 because of the reduced Net Income to Common.  
+ 
+1) Does CSE change?  Yes, because Preferred 
+Dividends are deducted from Common 
+Shareholders’ Equity. So, CSE is down by $10, 
+and so is Eq Val.  
+ 
+2) Does NOA  change?  No. Cash and Equity are 
+not part of Net Operating Assets, so TEV stays 
+the same.  
+Note that Preferred Stock  on the Balance 
+Sheet does not change when a company issues 
+Preferred Dividends ! 
+
+ Advanced Financial Modeling Course  
+ 
+27 of 121 https://breakingintowallstreet.com  
+Return to Top . 
+ 
+Key Rule # 3: Why the Concept of Enterprise Value Doesn’t Hold Up in Real Life  
+In the first section , we stated that Enterprise Value is not affected by financing  changes  – only 
+operational ones – but that Equity Value may be  affected by both . 
+But that’s not quite true . 
+In real life, Enterprise Value will be LESS  affected  by financing changes than Equity Value, but 
+there will still be SOME  impact.  
+The reasoning goes back to that all -important formula:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate < Discount Rate.  
+Let’s say that “Cash Flow” is “ Unlevered Free Cash Flow,” or Free Cash Flow to Firm, meaning 
+that it’s available to ALL the investors in the company.  
+Therefore, you reflect all investors in the Discount Rate, so you use the Weighted Average Cost 
+of Capital  (WACC).  
+“Company Value ” will be the company’s Implied Enterprise Value:  
+Implied  Enterprise Value  = Unlevered FCF / (WACC – Unlevered FCF Growth Rate)  
+A company has Unlevered FCF of $100, and it’s growing by 3% per year. WACC is 10%.  
+If the company now raises additional Debt or Equity, repays Debt,  or repurchases Stock , its 
+WACC will change . 
+WACC is equal to the “cost” of each part of a company’s capital structure times the percentage 
+of capital in that part:  
+WACC = Cost of Equity * % Equity + Cost of Debt * % Debt + Cost of Preferred * % Preferred  
+If a company switches to different amounts of Debt, Equity, and Preferred Stock, those 
+percentages will all change , which means that WACC will change.  
+But there’s more to it than that : at different levels of Debt and Equity, the Costs  of Debt and 
+Equity also change  (we’ll ignore Preferred Stock for simplicity) : 
+ Advanced Financial Modeling Course  
+ 
+28 of 121 https://breakingintowallstreet.com  
+ 
+These “Costs” are guess timates  – they’re not based on  a specific set of rules , but on what 
+happens in real life as companies take on more Debt.  
+Debt investors (lenders) expected lower returns than Equity investors since they earn only a 
+fixed  interest rate ; even if a company doubles its cash flow, Debt investors do not benefit.  
+Also, Interest Expense is tax-deductible  to the company , making it less expensive to pay.  
+For these reasons, Debt is “cheaper” than Equity.  
+Since Debt is cheaper than Equity, more Debt may reduce WACC… up to a certain point.  But: 
+1) As the company takes on more Debt, the Cost of Debt  will keep rising because the 
+company becomes riskier and riskier for new lenders; and  
+ 
+2) The Cost of Equity  will also rise for the same reason: more Debt means higher risk for 
+the common shareholders as well.  
+With more Debt, the company stands a higher chance of going bankrupt , which increases the 
+risk for all the investors.  Here’s a table with the data in the graph above:  
+
+ Advanced Financial Modeling Course  
+ 
+29 of 121 https://breakingintowallstreet.com  
+ 
+As a result, this graph for Implied Enterprise Value at different levels of Debt and Equity is not 
+quite accurate : 
+ 
+In reality, the graph would look more like this one:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+30 of 121 https://breakingintowallstreet.com  
+The company’s Implied Enterprise Value doesn’t change that much  over reasonably low levels 
+of Debt – but it starts to fall rapidly at much higher Debt percentages.  
+The table below shows the difference  between assuming that WACC stays the same  at 
+different Debt and Equity levels (“Accounting” Enterprise Value) and assuming that it  changes  
+(Implied Enterprise Value):  
+ 
+This concept applies more to the Implied  Enterprise Value than to Current  Enterprise Value.  
+If a company raises more Debt in rea l life, its Current Enterprise Value will probably not change 
+overnight. But if it is expected to have more Debt going forward, its Current Enterprise Value 
+will start to change.  
+Qualitatively, here’s why capital structure affects the Discount Rate and, therefore, affects 
+Implied Enterprise Value:  
+1. Taxes  – Interest paid on Debt is tax -deductible, but Common Dividends and Preferred 
+Dividends are not. Since the tax treatments differ, Enterprise Value is NOT affected in 
+the same  way by additional Debt vs. additional Equity.  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+31 of 121 https://breakingintowallstreet.com  
+2. Bankruptcy Risk  – Debt and some t ypes of Preferred Stock increase the chances of a 
+company going bankrupt because of the Interest Expense (or mandatory Preferred 
+Dividends) and the requirement to repay the principal in the future. If a company raises 
+Equity, there’s no added risk of bankruptcy because it won’t owe cash payments to 
+anyone ; Common Dividends are “optional ” and can always be cut.  
+ 
+3. Agency Costs  – Debt investors want to earn their interest and receive their money back 
+at the end. Since Debt investors cannot earn more than  the interest rate, they want the 
+company to be as conservative as possible and focus on paying them back. But Equity 
+investors want the company to grow  because they have unlimited upside . These 
+conflicting agendas mean that Debt is not equivalent to Equity.  
+ 
+4. Efficient Markets  – This idea that Debt, Equity, and Preferred Stock are equivalent 
+assumes that the markets are efficient  and that companies’ share prices always reflect 
+all relevant information. But t hese assumptions are often wrong, especially for smaller, 
+lesser-known companies  in obscure markets.  
+The Bottom Line:  This section is not meant to “disprove” the concept of Enterprise Value.  
+Enterprise Value is critical because it does  represent the value of a company’s core business 
+operations to all the investors in the company.  
+But in real life, it’s not really  “capital structure -neutral,” as some sources claim.  
+Instead of saying, “Enterprise Value stays  the same regardless of capital structure, but Equity 
+Value change s as the capital structure changes,” it’s better to think of it as:  
+“Enterprise Value is less affected by capital structure than Equity Value.”  
+Return to Top . 
+ 
+Key Rule # 4: The Equity Value Calculation  
+If a company is public  – you can buy its shares on the stock market, and the company issues 
+reports  on its financial performance – then  you can calculate its Equity Value with Common 
+Shares Outstanding * Current Share Price.  
+However, it gets more complex than that in real life because the company might also have 
+dilutive securities  that could potentially  create more shares if the company’s share price 
+reaches certain level s. 
+ Advanced Financial Modeling Course  
+ 
+32 of 121 https://breakingintowallstreet.com  
+For example:  
+• The company decides to pay its employees using stock options . The company’s share 
+price is $10.00 right now, but if it reaches $20.00, the employees can pay the company 
+$20.00 per option to get one new share. So, if the company’s share price increases to 
+$2000 or more , employees might start exercising their options and creating new shares.  
+ 
+• The company issues a convertible bond  to fund an expansion effort . Right now, the 
+company’s share price is $50.00. But if it reaches $100.00, the convertible bond 
+invest ors can “convert” the bond into new shares . 
+ 
+• The company issues restricted stock units (RSUs)  to employees. These are like normal 
+shares of the company, but they have restrictions on when employees receive them and 
+when they can sell them.  
+Companies issue these types of securities because they reduce cash operating expenses . 
+Instead of paying higher cash salaries to employees, companies can offer lower salaries and 
+more in RSUs or stock options.  
+Those might cost the company in the future IF its share price increases, but in the short term, 
+cash expenses decrease.  
+If you are pressed for time, you do not need to follow the detailed calculations shown in this 
+section or the n ext one; instead, you can just retrieve the company’s estimate for its “diluted 
+share count” from its filings.  
+For example, for Target , we could look in the company’s 10 -K, search for “diluted,” and use the 
+following 515.6 million number instead of doing any math:  
+ 
+However, you still need to be familiar  with this proce ss for two reasons:  
+1) It’s a common topic in interviews, especially entry -level investment banking interviews.  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+33 of 121 https://breakingintowallstreet.com  
+2) You will have to calculate Diluted Shares manually on the job . 
+ 
+The Step -by-Step Calculations for Target and Vivendi  
+Start by looking up the company’s common shares outstanding  at the end of its most recent 
+reporting period.  U.S. companies list this  number  on the first page  of their 10 -K or 10 -Q: 
+ 
+ 
+ 
+Non -U.S. companies do not list anything on the first pages of their annual or interim reports, so 
+you’ll have to search for terms like “shares outstanding” to find the numbers.  
+Once you have th e number , you should search for “exercise price” or “strike price” in the same 
+filing to find the company’s stock options granted to employees:  
+ 
+Then, you use the Treasury Stock Method (TSM)  to calculate the dilution from these options.  
+To do this, you write an Excel formula that does the following:  
+1) If the Current Share Price is below  the Exercise Price, do nothing and set dilution to 0.  
+ 
+2) If the Current Share Price exceeds the Exercise Price, employees pay the company 
+Exercise Price * # Options to exercise their options and receive one new share per 
+option.  
+
+ Advanced Financial Modeling Course  
+ 
+34 of 121 https://breakingintowallstreet.com  
+ 
+3) Then, the company uses the proceeds to repurchase some of these newly created 
+shares  at the same Current Share Price.  
+This method is not an accurate representation of reality . 
+Employees will not necessarily exercise all their options as soon as they can do so, and the 
+company won’t necessarily use all the proceeds to repurchase shar es. 
+However, everyone still uses the TSM to standardize the calculation  and make it eas ier to 
+compare different companies . Here’s the calculation for Target:  
+ 
+The arithmetic goes like this:  
+• Newly Created Shares:  0.714  million  
+• Company Gets Cash Proceeds:  $56.02  * 0.714 million = $ 39.998 million  
+• Company Repurchases  Shares : $39.998  million / $ 97.40  = 0.411 million shares.  
+• Net Dilution:  0.714  million – 0.411 million = 0.303 million.  
+Vivendi lists multiple tranches  of options, but the principles are the same; you just calculate 
+Dilution for all the tranche s and add them up:  
+
+ Advanced Financial Modeling Course  
+ 
+35 of 121 https://breakingintowallstreet.com  
+ 
+If one of Vivendi’s option tranches had an Exercise Price above €19.36, there would be 0 
+Dilution from it because those options would not be exercisable.  
+The same Treasury Stock Method applies to warrants granted to employees  as well.  
+You never  factor in options written on existing shares by other parties in the financial markets . 
+Only options that the company  grants directly to employees  count because they’re the only one 
+that create new shares . 
+In interviews, the numbers will never be as ugly as the ones used above.  
+A realistic interview question might be: “A company’s current share price is $20.00. It has 10 
+million shares and 1 million options with an exercise price of $10.00. What is its Diluted Equity 
+Value?”  
+To answer that, assume tha t all 1 million shares get created. The company receives 1 million * 
+$10.00, or $10 million, in proceeds. At a share price of $20.00, it can buy back half of those 
+shares, or 500,000. So, the company ends up with 10.5 million diluted shares.  
+Therefore, Diluted Equity Value = 10.5 million * $20.00 = $210 million.  
+Other Notes, Private Companies, and More  
+You do not complete this same process for private companies because they do not list their 
+options outstanding in public filings, and they don’t even have “C urrent Share Prices.”  
+You almost always focus on Implied  Equity Value and Enterprise Value when analyzing  private 
+compan ies, and you rarely divide Implied Equity Value by the Share Count to get the Implied 
+Share Price, so this level of precision is unnecessary.  
+
+ Advanced Financial Modeling Course  
+ 
+36 of 121 https://breakingintowallstreet.com  
+If a company has multiple share classes , take the Current Share Price * Share Count of each 
+class and sum them up to determine its Equity Value.  
+But be careful: if it’s a foreign company listed in the U.S. with ADR s (American Depository 
+Receipts), ignore  the ADRs because they represent shares already listed on the company’s 
+home exchange. Just get the company’s information from its home exchange in that case.  
+If a public company has negative Net Income , it will not list its “Diluted Shares” in its filing 
+because securities like options will be anti-dilutive to EPS . 
+Think about the math  if a company has negative $10 million in Net Income, 100 million in Basic 
+Shares, and 105 million in Diluted Shares: ($10 million) / 105 millio n is less negative  than ($10 
+million) / 100 million.  
+You won’t be able to check your work with these companies, and you’ll have to calculate the 
+Diluted Shares yourself.  
+Return to Top . 
+ 
+Key Rule # 5: Other Dilutive Items: RSUs, Convertible Bonds, and More  
+Once you have the company’s option and warrant information  and the Diluted Shares from 
+those, you can proceed to the next step: looking for other dilutive securities.  
+These include Restricted Stock, RSUs, P erformance Shares, Convertible Bonds, and variations.  
+Restricted Stock and Restricted Stock Units (RSUs)  are both “incentive compensation” granted 
+to employees, usually with requirements  that employee s stay for a certain number of years 
+before they can receive or sell the shares . 
+The difference is that Restricted Stock is usually  included in the company’s Common Share 
+Count, while RSUs are not . 
+Therefore, you should search for and add RSUs to the Diluted Share Count, but you can ignore 
+normal “Restricted Stock.”  
+There are also legal and tax differences, but they are unimportant for valuation purposes.  
+Here’s an example for Target:  
+ Advanced Financial Modeling Course  
+ 
+37 of 121 https://breakingintowallstreet.com  
+ 
+These are “Restricted Stock Units,” so you add them t o the Diluted Share Count.  
+There may be restrictions on them right now, but eventually , they will create dilution.  
+Performance Shares  or “Stock Appreciation Rights” (SARs) are another class of restricted 
+securities that may create dilution, but the restriction here is a “performance goal” rather than 
+time.  
+For example, if an executive receives Performance Shares, they might be able to s ell them once 
+the company’s Share Price reaches a certain level, or once the company  reaches a certain 
+Revenue or EBITDA target.  
+In theory, you could check these performance goals and count 100% of the Performance Shares 
+if the goals are satisfied, and non e of the Performance Shares if they’re not.  
+In real life , however, companies do not disclose the details of these goals, so you usually add all 
+the Performance Shares or ignore them all.  
+We choose to add Target’s Performance Shares, which makes our estimate of Diluted Shares 
+higher and therefore more conservative (i.e., a lower Implied Share Price):  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+38 of 121 https://breakingintowallstreet.com  
+So far, we have ~509 million of Diluted Shares for Target vs. their estimate of ~516 million:  
+Our estimate will never match the company’s 100% because the company’s estimates are 
+typically based on older Share Prices and “average” Share Counts  over years or quarters.  
+However, we’re within ~1% of their number, which is good enough.  
+Also, the company may still have additional dilutive securities beyond options, RSUs, and 
+Performance Shares, and if it does, our estimate will be off.  
+The final type of dilutive security is the Convertible Bond.  
+These are an alternate form of Debt, where the company pays much lower interest rates in 
+exchange for giving the bondholders the option to “convert” their bonds into new shares in the 
+future – if the company’s Share Price reaches a certain level (the “Conversion Price”).  
+This Conversion Price is usually a modest premium to the company’s Current Share Price, such 
+as 20 -30%.  
+For companies, Convertible Bonds are “cheaper Debt”; for investors, Convert ible Bonds are 
+“hedged Equity” . 
+Even if a company’s share price stagnates or falls significantly, the Convertible Bond investors 
+will probably  get their principal back , which creates some downside protection.  
+
+ Advanced Financial Modeling Course  
+ 
+39 of 121 https://breakingintowallstreet.com  
+With Convertible Bonds, you use an “all or nothing” approach ( also called the “If Converted” 
+method)  to estimate the Dilution.  
+If the company’s Current Share Price exceeds the Conversion Price, then you assume that all the 
+bonds convert into shares.  
+If it does not, then  you assume that nothing converts , and you count the Convertible Bonds as 
+Debt instead.  
+To calculate the number of Dilutive Shares, take the Bond Principal and divide it by the 
+Conversion price.  
+For example, here’s some information on Zendesk’s Convertible Bonds:  
+ 
+This part gives us the Conversion Price of $63.07 and the Bond Principal of $575 million.  
+To calculate the Dilutive Shares from this Convertible Bond, $575 million / $63.07 = 9.117 
+million.  
+So, the formula is easy:  IF(Current_Share_Price >= 63.07, 9.117, 0)  
+If there are no Dilutive Shares from this bond, you should count its Fair Market Value of $793 
+million when adding Debt in the Enterprise Value  bridge:  
+ 
+This calculation is simple, but it’s often  more complex because when companies issue 
+Convertible Bonds, they often do so with “Capped Call”  or “Note Hedge”  transactions.  
+Our first clue that Zendesk has done something like this is in this section of their annual report, 
+which shows only ~1.3 million “shares related to convertible senior notes”:  
+
+ Advanced Financial Modeling Course  
+ 
+40 of 121 https://breakingintowallstreet.com  
+ 
+This discrepancy is big compared with our estimate of ~9.1 million shares.  
+If you keep reading, you’ll find where the company describes its “Capped Call” transactions : 
+ 
+In a “Capped Call” transaction, the company purchases Call Options on its own stock  at the 
+Conversion Price,  and then it sells  Warrants on its own stock  at a higher price . 
+So, if its Share Price reaches the Conversion Price, resulting in ~9.1 million new shares, the 
+company immediately exercises all its Call Options to buy back all the newly created shares, 
+cance lling out the dilution.  
+If the Share Price keeps climbing and eventually reaches the Warrant Exercise Price, new shares 
+will be create d, resulting in some dilution (but less than the ~9.1 million new shares).  
+So, you apply the Treasury Stock Method (TSM) only to the Warrants  to calculate the dilution.  
+Here’s the full example for Zendesk:  
+
+ Advanced Financial Modeling Course  
+ 
+41 of 121 https://breakingintowallstreet.com  
+ 
+In this case, the company’s Current Share Price is $56.88, so there’s no dilution because it’s 
+below both the Warrant Exercise Price and the Conversion Price.  
+There would be dilution only if the Current Share Price exceeded the Warrant Exercise Price of 
+$95.20.  
+We are simplifying this treatment a bit because the initial dilution from the Convertible Bond  
+doesn’t always “cancel out”; companies might purchase different numbers of Call Options, and 
+they might sell different numbers of Warrants.  
+But this is a d ecent rule of thumb that you can use to approximate the diluted shares from 
+“hedged” Convertible Bonds.  
+The result is the company’s Diluted Share Count , which includes its Basic Shares  plus the 
+potential  shares from Options, Warrants, Convertible Bonds, RSUs, Performance Shares, and 
+other sources.  
+Zendesk has no dilution from its Convertible Bonds, so the full calculation is quite simple : 
+
+ Advanced Financial Modeling Course  
+ 
+42 of 121 https://breakingintowallstreet.com  
+ 
+The Diluted Equity Value , or Current Share Price * Diluted Shares Outstanding, doesn’t “mean” 
+anything specific ; it’s just a more accurate calculation . 
+When you value a company using your views  to determine its Implied Enterprise Value and 
+Implied Equity Value, you use the Diluted Share Count to back into the company’s Implied Share 
+Price . 
+For example, if the company’s Implied Equity Value is $100 million, its Implied Share Price will 
+be different i f you use its Diluted Share Count of 1.2 2 million rather than its Basic Share Count 
+of 1.19 million.  
+Dilutive securities also exist for private companies, but you don’t think about them quite as 
+much  because you often stop at the company’s Implied Enterprise Value  or Implied Equity 
+Value  rather than going all the way to Implied Share Price.  
+Return to Top . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+43 of 121 https://breakingintowallstreet.com  
+Key Rule # 6: The Equity Value to Enterprise Value  “Bridge”  
+When you’re analyzing public companies, you normally start by calculating the Equity Value for 
+each company and then using it to calculate Enterprise Value.  
+This process should not be difficult if you follow the formula for Enterp rise Value in Key Rule #1 : 
+• Enterprise Value  = Equity Value – Non-Operating Assets + Liability  and Equity Items That 
+Represent Other Investor Groups  (i.e., ones besides  Common Shareholders)  
+Ideally, you will use the market values  of these items, but if they’re not available, the book 
+values fine  for everything except Equity Value . 
+Common examples of items in each category include:  
+• Non -Operating Assets:  Cash, Financial Investments, Rental Properties (if it’s not a real 
+estate compa ny), Side Businesses, Assets Held for Sale , Discontinued Operations , Equity 
+Investments or Associate Companies , and Net Operating Losses (NOLs) (a component of 
+the Deferred Tax Asset) . 
+ 
+• Liability and Equity Items That Represent Other Investor Groups  (i.e., ones beyond 
+common shareholders) : Debt, Preferred Stock, Capital Leases , Noncontrolling Interests , 
+Unfunded Pensions , and (potentially) Operating Leases . 
+If you find something not on this list that you want to add or subtract, you should proceed very 
+carefully because there are not that many “special items .” 
+The company’s Balance Sheet  is your starting point for this exercise, but you’ll need to go 
+beyond it to find items like the Fair Market Value of Debt, details on the Pension Plans, and the 
+Net Operating Losses embedded in the Deferred Tax Asset.  
+Here are the examples we use for Tar get, Zendesk, and Vivendi : 
+ Advanced Financial Modeling Course  
+ 
+44 of 121 https://breakingintowallstreet.com  
+This one for Target is a fairly standard bridge. A 
+few notes:  
+• Debt:  The company initially grouped Debt 
+and Capital Leases on its Balance Sheet, so we 
+separated them and found the Fair Market 
+Value of the Debt portion, which is u sed in this 
+bridge.  
+ 
+• Pensions:  We count only the unfunded  or 
+underfunded  portion, which equals MAX(0, 
+Pension Liabilities – Pension Assets). We also 
+multiply by (1 – Tax Rate) since contributions 
+into pension plans are tax -deductible in the U.S.  
+ 
+• Operating Leases:  We choose not to count 
+this as “another investor group” here; i t could 
+go either way under U.S. GAAP, as long as 
+you’re consistent in the valuation multiples . 
+For Zendesk, we use the following bridge:  
+• Net Operating Losses:  We found these by 
+searching for the Deferred Tax Asset 
+disclosures. They’re considered “non -
+operating” because they’re not required to run 
+the business an d do not flow through the 
+statements automatically , as other 
+components of the DTA do. Technically, we 
+should adjust the NOLs and remove the portion 
+that is unlikely to be utilized , but we’ll get to 
+this in Key Rule #14 . 
+ 
+• Tota l Debt:  Remember from the previous 
+section  that the company’s Convertible Bonds 
+do not create dilution in this case. Therefore, 
+we count the entire Fair Market Value of the 
+Convertible Bonds as Debt in the Enterprise 
+Value calculation.  
+
+ Advanced Financial Modeling Course  
+ 
+45 of 121 https://breakingintowallstreet.com  
+Finally, we use this bridge  for Vivendi:  
+• Equity Investments and Noncontrolling 
+Interests:  We took both of these directly from 
+the Balance Sheet because the company did 
+not disclose their Fair Market Values in a 
+straightforward way.  
+ 
+• Total Debt:  We took the  Balance Sheet 
+number and replaced portions of it with the 
+Fair Market Value numbers the company 
+disclosed.  
+ 
+• Unfunded Pensions:  Similar to Target, this 
+is MAX(0, Pension Liabilities – Pension Assets). 
+But we do not multiply by (1 – Tax Rate) here, 
+under the assumption that contributions into 
+European pension plans are not tax -deductible.  
+ 
+• Operating Leases:  Yes, we count them as “another inves tor group” here. The reason is 
+that under IFRS, companies must split the rental expense into Interest and Depreciation 
+elements  on the Income Statement, so Operating Leases must be included in Enterprise 
+Value – or multiples such as TEV / EBITDA will be in consistent.  
+We occasionally get questions about other items that might potentially  be counted in this 
+Enterprise Value bridge, but there’s rarely a good reason to include other items.  
+Goodwill & Other Intangibles should never be in here, nor should DTAs (except for the NOLs) or 
+DTLs; Industry -Specific Assets are operational, so they should also not be here.  
+Sometimes  people will add items like Legal and Restructuring Liabilities, and y ou may need to 
+look at an item like “Provisions” in more detail to see what’s in it.  
+For more on these items, please see Key Rule #14 . 
+Return to Top . 
+ 
+Key Rule # 7: Income Statement Valuation Metrics: EBIT , EBITDA , and Net Income  
+
+ Advanced Financial Modeling Course  
+ 
+46 of 121 https://breakingintowallstreet.com  
+Equity Value and Enterprise Value are useful when you create a long -term cash flow analysis for 
+a company (i.e., a Discounted Cash Flow or DCF), and you want to compare the company’s 
+Implied  Value to its Current  Value.  
+But they’re not that useful for comparing different companies.  
+For example, consider these two companies:  
+• Company A  – Current Eq Val of $500 million; Current TEV of $800 million.  
+• Company B  – Current Eq Val of $100 million; Current TEV of $300 million.  
+Which company is more expensive ? 
+You might say, “Company A ” because its Current Equity Value and Current Enterprise Value are 
+both higher.  
+But it’s not a fair comparison because Company A could also be much bigger than Company B . 
+For example, what if Compa ny A has $100 million in EBITDA and $300 million in Revenue, and 
+Company B has $10 million in EBITDA and $30 million in Revenue?  
+If you take both companies’ Enterprise Values and divide them  by these metrics, you get these 
+results:  
+• Company A  – TEV / EBITDA = 8 .0x; TEV / Revenue = 2.7x.  
+• Company B  – TEV / EBITDA = 30 .0x; TEV / Revenue = 10.0x.  
+Now, Company B seems more expensive because its TEV-per-EBITDA  and TEV-per-Revenue  
+numbers are both higher.  
+This concept is similar to how a house’s asking price might be $2 million, and another’s might 
+be $500K.  
+By itself, that doesn’t mean anything because one house might be a lot bigger than the other.  
+What matters are the per-square -foot  or per-square -meter  prices . 
+If the $2 million house has 2 0,000 square feet, its asking price is  $100 per square foot.  
+And if the $500K house has 2 ,500 squar e feet, its asking price is $2 00 per square foot.  
+Which one seems more expensive now?  
+Of course, even those numbers may not tell the whole story.  
+ Advanced Financial Modeling Course  
+ 
+47 of 121 https://breakingintowallstreet.com  
+For example, what if the $100 -per-square -foot home is in an area with gang violence, while the 
+$200 -per-square -foot home is in a safe area with no crime?  
+Sure, the $100 -per-square -foot home is “cheaper,” but would you want to live there?  
+It works the same way with companies : to compare them, you need to create “multiples” that 
+value them on a per -unit basis . 
+And as with houses, these multiples  are a starting point  for the analysis  but don’t tell you the 
+full story.  
+Here are a few examples of common valuation multiples : 
+• TEV / Revenue  – Enterprise Value / Revenue  
+• TEV / EBIT  – Enterprise Value / EBIT  
+• TEV / EBITDA  – Enterprise Value / EBITDA  
+• P / E – Equity Value / Net Income or Price per Share / Earnings per Share  
+Just like you can’t compare the price of a home in Manhattan to the price of a home in Biwabik , 
+Minnesota , you also can’t compare  companies of significantly different sizes in different 
+industries.  
+The companies must be similar for a comparison of the multiples to be meaningful . 
+So, if you’re looking at a set of mid -size European manufacturing companies with EBITDA 
+between €100 million and €500 million, multiples like TEV / EBITDA and P / E are meaningful.  
+But you can’t compare a pre -revenue biotech startup to Pfizer – it’s meaningless because the 
+companies are so different.  
+ 
+Revenue, EBIT, EBITDA, EBITDAR , and Net Income  
+In theory, we could calculate “Cash Flow” for each company in a set and then create “Cash Flow 
+Multiples.” After all:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate < Discount Rate  
+But there are a few problems with this approa ch: 
+1. It creates comparability issues  because companies use slightly different accounting 
+methods and set up their Cash Flow Statements differently.  
+ Advanced Financial Modeling Course  
+ 
+48 of 121 https://breakingintowallstreet.com  
+ 
+2. So, you have to “clean” and “normalize” each company’s Cash Flow Statement to 
+calculate its Cash Flow , which requires human discretion and a lot more time and effort 
+– which may not be viable in a quick, time -pressured analysis.  
+Therefore, to simplify the task and get comparable numbers, we often use metrics and 
+multiples based on the Income Statement and a partial  Cash Flow Statement . 
+Examples include Revenue (also called “Net Sales” or “Turnover”), Net Income (“the bottom 
+line”), EBIT, EBITDA, and EBITDAR.  
+You should already know what these metrics mean from the accounting lessons and guides, but 
+in the context of valuation, you can think of them as attributes of a property . 
+We mentioned that TEV / EBITDA is like a “per -square -foot” price  for a property; by that 
+analogy, EBITDA is like the number of square feet . 
+EBIT, EBITDA, EBITDAR, and Net Income all measure a company’s profitability , and the 
+corresponding valuation multiples measure the company’s price in relation to  its profits . 
+By contrast, Revenue measures a company’s sales , so the corresponding TEV / Revenue 
+multiple measures the company’s price in relation to its sales.  
+Part 1: How to Calculate Each Metric  
+Revenue  = Revenue, Net Sales, or Turnover at the top of the Income Statement.  
+EBIT  = Operating Income on the Income Statement, adjusted for non -recurring charges.   
+EBITDA  = EBIT +  Depreciation & Amortization , always taken from the  Cash Flow Statement.  
+EBITDAR  = EBITDA + Rent or Lease Expense on the Income Statement.  
+Net Income  = Net Income on Income Statement (the very bottom one or "Net Income to 
+Common," after Preferred Dividends and Equity Investment/NCI Net Income).  
+Revenue, EBIT, EBITDA, and EBITDAR all pair with Enterprise Value, but they may use slightly 
+different versions  of Enterprise Value  depending on the accounting system.  
+For example, when you use EBITDAR, you must add Operating Leases to Enterprise Value and 
+count them as “another investor group.”  
+And when using EBITDA  under IFRS, you must do the same thing in the Enterprise Value 
+calculation  (see this section for more ). 
+ Advanced Financial Modeling Course  
+ 
+49 of 121 https://breakingintowallstreet.com  
+Net Income  is the only common Income Statement -based metric that corresponds to Equity 
+Value (P / E is the multiple).  
+Below, y ou can see example  calculations for Target  and Zendesk:   
+ 
+These calculations are very straightforward; you just input simple numbers from the Income 
+Statement and Cash Flow Statement.  
+You may need to dig through the filings to find the non -recurring charges in the footnotes, but 
+that is not necessary for a quick analysis.  
+To do a quick asse ssment, look at the IS and CFS and see if anything listed under Operating 
+Expenses or Non -Cash Adjustments on the CFS appears to be “non-recurring ” (i.e., it occurred 
+only once in the past 4 -5 years)  and if so, add it back.  
+Vivendi’s calculations are a bit  different because of how the lease expense  is recorded on the 
+statements under IFRS:  
+
+ Advanced Financial Modeling Course  
+ 
+50 of 121 https://breakingintowallstreet.com  
+ 
+Revenue, EBIT, EBITDA, EBITDAR, and Net Income differ in 5 key respects:  
+1) To Whom is the Money is Available ? – Equity investors, D ebt inves tors, and the 
+government? Just E quity investors? Equity investors and Debt investors? Someone else?  
+ 
+2) Operating Expenses  (OpEx)  vs. Capital Expenditures (CapEx)  – Some metrics deduct 
+both of these , some deduct neither, and others deduct only one.  
+ 
+3) Rent/Lease Expense  – Some metrics deduct this in full, some do not deduct anything, 
+and some deduct only part  of it. Also, it differs under U.S. GAAP and IFRS.  
+ 
+4) Interest, Taxes, and Non -Core Business Activities  – Some metrics deduct (or add) all of 
+these, while others completely  exclude them.  
+ 
+5) When They’re Useful  – Sometimes you WANT  to reflect the impact of CapEx , and 
+sometimes you don’t. The same applies to interest and taxes.  
+We’ll explain these differences below and then give you a summary chart : 
+Part 1: To Whom is the Money Available?  
+Equity investors , Debt investors, Preferred investors (if they exist), and the government all have 
+claims  on Revenue, EBIT, EBITDA, and EBITDAR . 
+That’s because no one has been “paid” yet ; for example, a company’s Operating Income  (EBIT)  
+is still available to everyone  since it’s above Interest Expense, Dividends of all types, and Taxes.  
+
+ Advanced Financial Modeling Course  
+ 
+51 of 121 https://breakingintowallstreet.com  
+With Net Income (to Common), only E quity investors have a claim because D ebt investors have 
+been paid  with Interest, and the government has been paid  with Taxes.  
+And Preferred Investors , if they exist, have been paid with Preferred Dividends.  
+Part 2: Operating Expenses (OpEx) vs. Capital Expenditures (CapEx)  
+Revenue  deducts  neither OpEx nor CapEx since it is simply the top -line sales of the business.  
+EBIT  deducts OpEx and the after -effects  of CapEx  (since Depreciation is within OpEx) , but not 
+CapEx directly . 
+EBITDA  deducts OpEx but no CapEx (neither the immediate spending nor the after -effects).  
+EBITDAR  also deducts OpEx but not CapEx.  
+Net Income  deducts OpEx and the after -effects of CapEx , but not direct CapEx spending.  
+Part 3: Rent/Lease Expense  
+Revenue  – The rental expense is never deducted under any accounting system.  
+EBIT  – Full deduction for the rental expense under U.S. GAAP; under IFRS, only the Depreciation 
+element is deducted.  
+EBITDA  – Full deduction for the rental expense under U.S. GAAP; under IFRS, nothing is 
+deducted because both the Interest and Depreciation elements are “added back ” or excluded.  
+EBITDAR  – Under both accounting systems, no rental expens e is deducted because each line 
+item (Rent, Interest  element , and Depreciation  element ) is “added back ” or excluded.  
+Net Income  – Full deduction for the entire rental expense under both accounting systems.  
+Part 4: Interest, Taxes, and Non -Core Business Activities  
+Revenue, EBIT, EBITDA, and EBITDAR are all the same here: none deduct the N et Interest 
+Expense or Taxes, and none add non-core business income or subtract non -core expenses . 
+On the other hand, Net Income  is the opposite: it deducts Net Interest Expense and Taxes, and 
+it adds non -core business income and subtracts non -core expenses.  
+Part 5: When They’re Useful  
+Revenue  is most useful when the company has negative numbers for EBIT  and EBITDA , as well 
+as nega tive cash flow figures. Zendesk  falls into this category: there’s no other way to value the 
+company, so we have to use TEV / Revenue multiples.  
+ Advanced Financial Modeling Course  
+ 
+52 of 121 https://breakingintowallstreet.com  
+EBIT  is sometimes  closer to Free Cash Flow  (Cash Flow from Operations – CapEx) because both 
+metrics reflect the partial impact , or “after -effect ,” of CapEx . 
+So, if CapEx is more important for the company, or you want  to reflect its partial impact 
+because CapEx drives value in the sector, then EBIT  may be more useful.  
+EBITDA  is sometimes  closer to Cash Flow from Operations  because both metrics completely 
+exclude CapEx.  
+So, you might use EBITDA when CapEx is less significant, or when you want to normalize 
+otherwise similar companies that happen to ha ve different CapEx and D&A policies.  
+EBITDAR  is used primarily to normalize companies with different types of leases ( Operating vs. 
+Capital ) and to normalize companies following U.S. GAAP vs. IFRS.  
+Net Income  is not great for comparing companies, and it’s also not great for approximating 
+their cash flow s, so it’s useful mostly as a very quick  metric that requires no calculations.  
+Here’s a summary of the key points in this section  (see the accompanying Excel file  as well):  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+53 of 121 https://breakingintowallstreet.com  
+ 
+Return to Top . 
+ 
+Key Rule # 8: Cash Flow Statement Valuation Metrics: FCF, FCFF, and FCFE  
+All company valuation comes down to that all -important formula:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate < Discount Rate.  
+So, Cash Flow -based metrics and multiples must be the best, most relevant ones, right?  
+In theory, yes.  
+Interview questions on how to  calculate  Free Cash Flow, Unlevered Free Cash Flow, and 
+Levered Free Cash Flow  are common.  
+And you need to know these metrics when completing a Discounted Cash Flow (DCF) analysis,  
+building leveraged buyout (LBO) models, and e stimating a company’s ability to repay debt.  
+But these metrics are NOT  that useful when you’re comparing  a company to its peers and 
+valuing it using multiples  from its peers.  
+
+ Advanced Financial Modeling Course  
+ 
+54 of 121 https://breakingintowallstreet.com  
+The biggest problem is that there’s huge variability across Cash Flow Statements in different 
+regions, industries, and accounting systems.  
+As a result, you often need to adjust the numbers  for comparative purposes.  
+For example, many online sources state that “Free Cash Flow” is defined as Cash Flow from 
+Operations minus CapEx.  
+But is that the case for all companies?  
+No! 
+Under IFRS, many companies start the Cash Flow from Operations section of their Cash Flow 
+Statements with something other  than Net Income, such as EBIT or Pre -Tax Income.  
+So, you may have to adjust the CFO  figure and deduct Net Interest Expense, Taxes, and other 
+items if they’re not included within CFO. Here it is for Vivendi:  
+ 
+How to Calculate FCF and Its Variations  
+There are three  major types of Free Cash Flow, and each one attempts to answer the same 
+question:  
+How much discretionary cash flow  does a company generate?  
+Metrics such as EBIT and EBITDA were “approximations” of this cash flow, while Free Cash 
+Flow -based metrics move us closer to the real thing.  
+After the Cash Flow from Operations section, most  of the items in Cash Flow from Investing and 
+Financing are “optional,” with a few exceptions, such as CapEx.  
+
+ Advanced Financial Modeling Course  
+ 
+55 of 121 https://breakingintowallstreet.com  
+That’s why you calculate “Free Cash Flow” by taking Cash Flow from Operations and 
+subtracting CapEx  (possibly with adjustments) : it tells you how much cash flow the company’s 
+core business is generating on a recurring, predictable basis.  
+But FCF also reflects the company’s capital structure , and you don’t necessarily want to do 
+that.  
+The three main types of Free Cash Flow differ based on:  
+1. Investor Groups  – Do you want “discretionary cash flow” that’s available only to Equity 
+Investors (Equity Value), or to  All Investors (Enterprise Value)?  
+ 
+2. Treatment of Debt  – Do you want a metric that deducts  Debt Principal Repayments (and 
+possibly adds Debt I ssuances), or one that completely ignores those items because you 
+want to assess how much Debt a company could  repay?  
+If you want discretionary cash flow available to All Investors , then the metric is Unlevered Free 
+Cash Flow , also abbreviated to UFCF or called “Free Cash Flow to Firm” (FCFF).  
+To calculate this one, you do not start with CFO because you must exclude or “add back” the 
+Net Interest Expense  (and Preferred Dividends and Other Income/Expenses , if applicable) . 
+Instead, the starting point is EBIT  * (1 – Tax Rate), also known as Net Operating Profit After 
+Taxes (NOPAT).  
+On the other hand, if you want discretionary cash flow available only to Equi ty Investors, then 
+there are two options: Free Cash Flow (FCF)  and Levered Free Cash Flow (LFCF) , also called 
+Free Cash Flow to Equity (FCFE).  
+The main difference is that FCF does  not deduct Debt Repayments or add Debt Issuances, while 
+LFCF may do one or both of those  (there is disagreement about how to calculate it) . 
+• Free Cash Flow:  Cash Flow from Operations – CapEx  (but if CFO does not deduct Net 
+Interest Expense, Taxes, All Lease Expenses, etc., then you must adjust it by doing so).  
+ 
+• Unlevered Free Cash Flow:  Net Operating Profit After Taxes (NOPAT) + D&A and 
+sometimes other non -cash adjustments +/ - Change in Working  Capital – CapEx . 
+ 
+• Levered Free Cash Flow:  Net Income to Common + D&A and sometimes  other non -cash 
+adjustments +/ - Change in Working Capital – CapEx – (Mandatory?) Debt Repayments + 
+Debt Issuances (?) . 
+ Advanced Financial Modeling Course  
+ 
+56 of 121 https://breakingintowallstreet.com  
+We use question marks in the last definition because people disagree about the calculation:  
+• Should Levered FCF subtract all Debt Repayments or only the Mandatory  ones ? What if 
+you can’t tell what’s Mandatory vs. Optional?  
+ 
+• And should it also add Debt Issuances? Or just Debt Issuances that were required to 
+fund the business ? Can you tell what was required vs. optional?  
+This disagreement is one reason why we recommend against  using Levered FCF.  
+Free Cash Flow (FCF)  by itself is often used in standalone financial statement analysis, in 
+transaction models for M&A and LBO deals, and to estimate a company’s ability to repay Debt, 
+issue Dividends, and acquire assets  or companies.  
+The FCF calculation is straightforward fo r most companies:  
+ 
+If the company’s Cash Flow from Operations includes a lot of “strange” items beyond the 
+normal D&A add -back, Deferred Taxes, and Change in Working Capital, then you may need to 
+remove some of those as well.  
+At a certain point, though, all these adjustments defeat  the purpose of FCF : it’s supposed to be 
+a quick -and-simple metric.  
+Unlevered Free Cash Flow  represents discretionary cash  flow available to All Investors, as if the 
+company did not pay Interest on Debt or Preferred Dividends . 
+We use it primarily in the Discounted Cash Flow (DCF) analysis  when valuing a company based 
+on its future cash flows.  
+
+ Advanced Financial Modeling Course  
+ 
+57 of 121 https://breakingintowallstreet.com  
+UFCF completely ignores Net Interest Expense, Preferred Dividends, and Other Income / 
+(Expenses) and includes only the company’s core  business  revenue and expenses.  
+The main components are:  
+1. Revenue  
+2. COGS and Operating Expenses  
+3. Taxes  
+4. Depreciation & Amortization (and sometimes other non -cash adjustments, such as 
+Deferred Taxes ) 
+5. Change in Working Capital  
+6. Capital Expenditures  
+You ignore  Net Interest Expense, Other Income / (Expense), most non -cash adjustments, most 
+of the CFI section, and  the entire CFF section on the CFS . 
+Besides Depreciation & Amortization, the main, other non -cash adjustment is Deferred Income 
+Taxes. Here’s the UFCF calculation for Target:  
+ 
+We pulled most of these numbers from the company’s annual Cash Flow Statement.  
+You always  ignore the company’s historical Tax es and recalculate them based on EBIT . Since 
+UFCF ignore s capital structure, you must also ignore the tax benefit of Interest Expense . 
+Under IFRS, one issue is that if you start this calculation with EBIT, it won’t deduct the full Lease 
+Expense (just the Depreciation element).  
+Another issue is that you cannot  add back the full D&A from the Cash Flow Statement because 
+part of that D&A figure will be the Depreciation element of the Lease expense!  
+Therefore, you need to adjust EBIT by deducting the Interest element of the Lease expense and 
+then use a slightly different D&A figure that excludes lease -related D&A, as in the Vivendi 
+example below:  
+
+ Advanced Financial Modeling Course  
+ 
+58 of 121 https://breakingintowallstreet.com  
+ 
+Outside of these changes , you should rarely  adjust much else:  
+• Stock -Based Compensation:  This is not a real non -cash expense and should not be 
+added  back in UFCF  because it changes the company’s diluted share count.  
+ 
+• Impairments, Gains/Losses, Write -Downs:  No need for adjustments because you 
+should have already excluded these or added them back in EBIT.  
+ 
+• Purchase of Intangibles or Internal IP/Software Costs:  If these are actual recurring 
+items in the CFI section, yes, you can deduct them  in FCF, UFCF, and LF CF. 
+ 
+• Amortization of Debt Discounts  / Premiums  and Issuance Fees : Do not add or subtract 
+these  items because they typically appear within Interest Expense, so they do not affect 
+Operating Income  in the first place.  
+ 
+• Income or Dividends from Associates / Equity Investments / JVs:  Do not add or 
+subtract these because they’re unrelated to the company’s core business . 
+Finally, Levered Free Cash Flow , also known as Free Cash Flow to Equity, or FCFE, has two key 
+differences compared with Unlevered FCF:  
+1) Net Income to Common  is the starting point, not NOPAT.  
+ 
+2) Debt Repayments and Debt Issuances  should factor in… somehow. People disagree on 
+the treatment, with some arguing that you should subtract only  Mandatory Debt 
+Repayments, some saying it should be all Debt Repayments, and some arguing for 
+subtracting Repayments and adding Issuances as well.  
+
+ Advanced Financial Modeling Course  
+ 
+59 of 121 https://breakingintowallstreet.com  
+If you choose to subtract Debt Issuances and add Debt Repayments , here are the calculations 
+for Target and Vivendi:  
+Here’s a chart to sum marize the differences between these different types of Free Cash Flow:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+60 of 121 https://breakingintowallstreet.com  
+ 
+Return to Top . 
+ 
+Key Rule # 9: Valuation Multiples: How to Pair Metrics with Eq Val & TEV 
+To create valuation multiples , you take Enterprise Value or Equity Value and divide them by 
+metrics such as Revenue, EBIT, EBITDA, EBITDAR, Net Income, or Unlevered Free Cash Flow . 
+How  do you decide whether to pair a metric with Equity Value or Enterprise Value?  
+There are three simple rules to follow:  
+1. Rule #1:  If a metric deducts Net Interest Expense  (and Preferred Dividends, if 
+applicable), use Equity Value  in the numerator of  any multiple with this metric in the 
+denominator . 
+ 
+2. Rule #2:  If the denominator of a TEV -based multiple does not  deduct an Income 
+Statement expense , then the numerator should add its  corresponding Balance Sheet 
+line item  (and vice versa) . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+61 of 121 https://breakingintowallstreet.com  
+ 
+3. Rule #3:  Stick to Equity Value, Enterprise Value Including  Operating Leases, and 
+Enterprise Value Excluding Operating  Leases, and avoid “half -pregnant” metrics and 
+multiples . 
+These rules may seem simple , but they can be tricky  to apply in real life.  
+ 
+Rule #1: Net Interest Expense  Deductions  
+To understand this one, t hink about “who gets paid” at each step down a company’s Income 
+Statement.  
+As you move down the Income Statement,  you start eliminating different investor groups as 
+they receive payment, and you start reflecting the impact of Non -Operating Assets . 
+For example, once the company records Interest Expense, that’s it for the Debt investors – after 
+this line item is subtra cted, they cannot receive further payment.  
+No, Debt Principal Repayments on the CFS do not count as “payment” because those are just a 
+return of the Debt investors’ original money  – not a return on it.  
+And after Preferred Dividends are subtracted at the bo ttom of the Income Statement, that’s it 
+for the Preferred Stockholders – they cannot receive any further payment.  
+You can think of this concept using the funnel 
+structure on the right:  
+If a metric does not deduct Net Interest 
+Expense or Preferred Dividends, then you pair 
+it with Enterprise Value . 
+If a metric  does  deduct Net Interest Expense 
+and Preferred Dividends,  then you pair it with 
+Equity Value . 
+After both of those have been subtracted, the 
+remaining cash flow is available only  to the 
+Equity Investors, which is why metric s in this category pair with Equity Value.  
+This rule also explains why you never  subtract Common Dividends in any financial metric that’s 
+used in valuation multiples: no investors would be left after doing so!  
+
+ Advanced Financial Modeling Course  
+ 
+62 of 121 https://breakingintowallstreet.com  
+ 
+Rule # 2: Numerators and Denominators  
+The easiest way to understand this rule – if the denominator  of a TEV -based multiple does not 
+deduct an expense on the Income Statement , then the  numerator should add its corresponding  
+Balance Sheet line item (and vice versa)  – is with a few examples.  
+For example, think about Enterprise Value and the TEV / EBITDA multiple  and Debt.  
+EBITDA excludes  or adds back  the Interest Expense, so Enterprise Value adds the company’s 
+Debt , which is the B alance Sheet  line item that corresponds to Interest Expense.  
+Or, think about the (Enterprise Value + Operating Leases ) metric in the numerator, which pairs 
+with EBITDAR  in the denominator.  
+The denominator excludes  or adds back  the Rental Expense, so the numerator adds its 
+corresponding Balance Sheet line item: Operating Leases.  
+Under IFRS,  EBITDA excludes  or adds back  the full Rental Expense in the form of their Interest 
+and Depreciation  elements , so the TEV numerator  adds the Operating Leases.  
+This rule applies to the rest of the items in the TEV bridge as well . A few examples  include:  
+• Preferred Stoc k: Preferred Dividends are excluded  in TEV -based metrics  because 
+Preferred Stock is added  in the TEV calculation.  
+ 
+• Capital Leases : Interest on Capital Lease Liabilities is  excluded  in TEV -based metrics  
+because Capital Leases are added  in the TEV calculation.  
+ 
+Rule #3: Don’t Use “Half -Pregnant” Multiples  
+Could  you ever be half-pregnant  in real life? No!  
+You’re  either  pregnant, or  you’re not pregnant.  
+In the same way, you should avoid using multiples that correspond to something “halfway” 
+between Equity Value and Enterprise Value.  
+As an example  of this rule , let’s say that a company has Equity, Debt, Cash, and Preferred Stock.  
+Its Income Statement has all the standard items, including Operating Income, Net Income, and 
+Net Income to Common.  
+ Advanced Financial Modeling Course  
+ 
+63 of 121 https://breakingintowallstreet.com  
+In this scenario, you could use Equity Value and pair it wit h Net Income to Common.  
+However, you should NOT use (Equity Value + Preferred Stock ) and pair  it with just Net 
+Income.  
+Technically, the numerator and denominator match up – but it will be very  confusing to anyone 
+looking at your work.  
+What does Equity Value + Preferred Stock mean?  
+Is that “Half Enterprise Value?” “Special Enterprise Value?” “Kardashian Enterprise Value?”  
+Equity Value and Enterprise Value are standard numbers that everyone knows how to calculate, 
+so you shouldn’t deviate from them for the sake of “doing something different. ” 
+The only  exception to this rule is that you may treat Operating Leases differently in Enterprise 
+Value depending on the accounting system.  
+Under U.S. GAAP, you use Enterprise Value Including Operating Leases with EBITDAR, and 
+Enterprise Value Excluding Operating Leases with EBIT and EBITDA.  
+And under IFRS, EBITDA already excludes the full Lease Expense, so it pairs with Enterprise 
+Value Including Operating Leases.  
+Here are examples of the Valuation Multiple calculations and pairings for Target : 
+ 
+And here are the same calculations for Vivendi:  
+
+ Advanced Financial Modeling Course  
+ 
+64 of 121 https://breakingintowallstreet.com  
+ 
+Balance Sheet Metrics and Multiples  
+In addition to the Income Statement and Cash Flow Statement -based metrics and multiples, 
+there are also Balance Sheet -based metrics and multiples.  
+The most common Balance Sheet -based metrics are:  
+• Book Value:  Total Assets – Total Liabilities (“Net Assets”) . 
+ 
+• Net Operating Assets:  Operating Assets – Operating Liabilities . 
+ 
+• Invested  Capital:  Book Value of Equity + Debt + Preferred Stock + Other Investor Groups 
++ Operating Leases (possibly) . 
+Pairing these metrics is straightforward because they go right back to the definitions of Equity 
+Value and Enterprise Value:  
+• Book Value:  It always pairs with Equity Value to create the Equity Value / Book Value, 
+or P / BV, multiple, since Equity Value represents Net Assets.  Technically, you should 
+use “Common Book Value” and exclude  Preferred Stock and NCI if the company has 
+them.  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+65 of 121 https://breakingintowallstreet.com  
+• Net Operating Asse ts: It always pairs with Enterprise Value to create the TEV / NOA 
+multiple, since Enterprise Value represents Net Operating Assets.  
+ 
+• Invested  Capital:  It always pairs with Enterprise Value to create the TEV / IC multiple, 
+since Enterprise Value represents All Investor Groups.  
+And… that’s it.  
+The only  tricky point once again relates to Operating Leases: if you count them in Invested 
+Capital, you must also count them in Enterprise Value (and vice versa).  
+The TEV / IC multiple tells you how valuable a company is relative to the cumulative capital it 
+has raised (or generated) over time.  
+For example, if a firm has raised and generated $1,000 total of Equity, Debt, and Preferred 
+Stock, is its Enterprise Value now m ore or less than that?  
+TEV / IC tells you how efficiently  a company is using its capital, and it tends to correlate with the 
+Return on Invested Capital (ROIC) . 
+The P / BV , or Equity Value / Book Value, multiple is common for certain  types of companies.  
+The idea is similar to the TEV / IC  multiple, but P / BV corresponds only to Equity Investors . 
+It tells you how efficiently the company has used its Equity, both internally generated and 
+externally raised, to grow.  
+However, the P / BV multiple means little for most companies because their market values 
+are NOT linked directly to the Balance Sheets.  
+P / BV is most meaningful for commercial banks and insurance firms,  which have different 
+accounting and valuation methodologies and are Balance Sheet -driven.  
+P / BV for commercial banks and insurance firms is correlated with Return on Equity  (ROE) , 
+which is defined  as Net Income / Average Equity (or Net Income to Common /  Average 
+Common Shareholders’ Equity if there’s Preferred Stock).  
+Companies that generate higher Net Income relative to  their Equity have higher ROE figures 
+and tend to trade at higher P / BV multiples  (in theory).  
+ 
+Industry -Specific Metrics and Multiples (OPTIONAL)  
+Finally, industry -specific  metrics and multiples also exist.  
+ Advanced Financial Modeling Course  
+ 
+66 of 121 https://breakingintowallstreet.com  
+Sometimes, they exist because nothing else works:  If a biotech or technology startup has no 
+revenue yet, you can’t use TEV / EBITDA or TEV / Revenue to value it.  
+You have to use some other metric, such as Unique Visitors , Monthly Active Users , or 
+Registered Users.  
+Other times, they exist because modified financial metrics  may be more meaningful, or 
+because operational metrics  are just as relevant as financial ones.  
+Most ind ustries use standard valuation multiples, but a few use very different ones:  
+• The MOST Different Sector:  Commercial Banks and Insurance Firms . There are MANY 
+different metrics and multiples, you don’t use the DCF, and Enterprise Value is not a 
+meaningful concept.  
+ 
+• Moderately Different:  Metals & Mining, Oil & Gas, and Real Estate and REITs (real 
+estate investment trusts).  Enterprise Value is still valid , and s tandard multiples apply, 
+but there are also new multiples and new methodologies.  
+ 
+• Somewhat Different:  Healthcare, Airlines, Power & Utilities, and Cleantech.  The 
+multiples are standard, but many operational metrics are different.  
+ 
+• Quite Standard:  Consumer/ Retail , Restaurants, Chemicals, Construction, 
+Transportation, Technology, and Media/Telecom.  
+Here is a quick summary  of each segment:  
+Financial Institutions (FIG)  
+For commercial banks and insurance firms, the concept of “Enterprise Value” is invalid because 
+you can’t separate  “Operating Assets” and “Operating Liabilities”  from Total Assets and Total 
+Liabilities. A Loan or Investment is a Non -Operating Asset to a nor mal company, but it’s an 
+Operating Asset to a bank.  
+You rely on the P / E, P / BV, P / TBV (Equity Value / Tangible Book Value) multiples, the 
+Dividend Discount Model (DDM) rather than the DCF, and for life insurance, the Embedded 
+Value methodology (a super -long -term variant of the DCF).  
+For the other sectors within financ ial institutions – asset management firms, investment banks, 
+brokerages, and fin -tech companies – all the standard metrics, multiples, and methodologies 
+apply, the DCF still works, and Enterprise Value is still meaningful.  
+ Advanced Financial Modeling Course  
+ 
+67 of 121 https://breakingintowallstreet.com  
+Metals & Mining  
+You still use standard multiples here, but Reserves , Resources , and Production  are very 
+important operational metrics as well.  
+“Reserves” have a higher probability of being extracted than Resources, and Resources can be 
+split  into Inferred, Measured, and Indicated.  
+Mining companies that operate in different segments (e.g., gold, zinc, and copper) often 
+convert everything into “Min eral Equivalent” Resources and Reserves.  
+You can then use valuation multiples like Enterprise Value / Mineral Equivalent Reserves or 
+Enterprise Value / Mineral Equivalent Production.  
+The NAV Model , which is a super -long -term DCF without a Terminal Value (you assume the 
+mine runs out of resources  that are “economically viable to extract” ), is also common.  
+Oil & Gas  
+Just like in mining, you can make multiples out of metrics like Reserves and Production: TEV / 
+Proved Reserves and TEV / Daily Production , for example.  
+Some “upstream” (exploration & production) companies capitalize the cost of all exploration, 
+while others expense the unsuccessful portion, so you use EBITDAX  (EBITDA + Exploration 
+Expense) to normalize these treatments.  
+For midstream companies (pipeline companies that transport oil), “Distributable Cash Flow” is 
+important because these companies are structured  as Master Limited Partnerships (MLPs).  
+Downstream companies (ones that refine oil and gas and turn it into fuel) use the standard 
+metrics and multiples.  
+Real Estate and REITs  
+Most segments – gaming, lodging, and homebuilding – use standard metrics and multiples.  
+Real Estate Investment Trusts (R EITs)  are companies that buy, sell, develop, and renovate 
+properties constantly, and act like “private equity firms for properties.”  
+Since massive Depreciation and constant Gains and Losses on property sales distort their Net 
+Income  figures , you use Funds from Operations (FFO) , which equals Net Income + D&A – Gains 
++ Losses, instead of Net Income.  
+FFO deducts Net Interest Expense , so the multiple is Equity Value / FFO.  
+ Advanced Financial Modeling Course  
+ 
+68 of 121 https://breakingintowallstreet.com  
+There’s also Adjusted Funds from Operations (AFFO) , which is similar to FFO but which adjusts 
+for Recurring Maintenance CapEx, the Amortization of Lease Intangibles, the Straight -Lining of 
+Rent, and other non -cash items.  
+There is a Net Asset Value (NAV)  model for REITs as well, but it’s based  on valuing each 
+property individually and determining the REIT’s value from that. So, it’s a Balance Sheet 
+valuation rather than a super -long -term DCF.  
+Healthcare  
+There are no major valuation differences, but you’ll see far -in-the-future DCF analyses for 
+startup biotech firms that are not yet generating revenue . For more established companies, 
+you’ll see different operational metrics , such as $ per Patient  and # of Beds . 
+Airlines  
+Under U.S. GAAP, EBITDAR and TEV Including Operating Leases / EBITDAR are common because 
+some airlines rent their planes, some own them, and some do a mix of both  (under IFRS, the 
+normal TEV Including Operating Leases / EBITDA multiple works fine).  
+The operational metrics are also different : Revenue per Available Seat Mile (RASM) or per 
+Kilometer, the Load Factor, Revenue Passenger Miles (RPM) or Kilometers, and the Passenger 
+Count all matter a lot.  
+Power & Utilities  
+You use standard mul tiples, but the metrics differ: one key one is Megawatt (MW) Supply , 
+defined as Existing Generation – Expected Retirements + Expected Additions + Net Imports.  
+You also pay attention to Cost Recovery, Plant Availability and Reliability, and Outage Rates.  
+Cleantech  
+Similar to traditional Power & Utilit y companies, power generated  and related metrics are 
+quite important, and many asset prices are quoted  on a $ per KW or $ per MW basis.  
+Consumer/Retail  
+The valuation multiples are all standard, and EBIT DAR and the matching valuation multiple are 
+both common under U.S. GAAP when some companies rent their stores , and others own them.  
+Important operating metrics include Same -Store Sales, Inventory Turnover, Sales per Store, and 
+Sales per Square Foot or Square Meter.  
+Chemicals  
+ Advanced Financial Modeling Course  
+ 
+69 of 121 https://breakingintowallstreet.com  
+The v aluation multiples are very standard; a key operating metric is production capacity . 
+Construction Services  
+The valuation multiples are standard, but the key operating metrics include the Backlog  (how 
+much work has been signed but not yet completed), Option Years  (years of potential work over 
+the minimum in the Backlog), and the Book to Bill Ratio  (the ratio of work a company is signing 
+vs. delivering).  
+Transportation & Logistics and Maritime/Shipping  
+The multiples are all standard, but valuation can get tricky because many shipping companies 
+are structured as MLPs. So, you have to think about Distributable Cash Flow and which  sets of 
+investors are entitled to different cash flows from the company.  
+Key metrics include Shipping Capacity, Contract Length, Utilization Rates, Average Length of 
+Haul, # of Drivers or # of Ships, and Revenue per Mile or Kilometer.  
+Technology  
+The multiples are standard for established companies, but for pre -revenue startups and 
+mobile/gaming companies, you’ll see metrics like Unique Visitors, Monthly Active Users, Mobile 
+Users, and Subscribers, all of which pair with Enterprise Value.  
+Media / Telecom  
+The standard multiples all apply, but # Subscribers  is a vital  operational metric , and TEV / 
+Subscribers is a common multiple. Other key metrics include Average Revenue per User (ARPU), 
+Subscriber Penetration, Renewal Rates, # Access Lines, and Access Line Growth.  
+Return to Top . 
+ 
+Key Rule # 10: How to Use Multiples in Real Life  
+So far, we’ve calculated metrics for Target, Vivendi, and Zendesk based on the last full fiscal 
+year  for each company.  
+But there are also other  metrics and multiples that are based on different periods, such as the 
+last twelve months (LTM) or trailing twelve months (TTM), as well as future periods , such as 
+next year or the year after that (“forward multiples”).  
+Historical multiples are useful because they represent what happened in real life, but they can 
+be distorted by acquisitions, divestitures, changes in accounting policies, and so on.  
+ Advanced Financial Modeling Course  
+ 
+70 of 121 https://breakingintowallstreet.com  
+Forward multiples are useful because they represent consensus expectations  for a company, 
+and company val uation is based on expectations of future performance.  
+So, when you value a company, you normally look at both  historical multiples and forward 
+multiples  based on metrics such as EBITDA and Net Income.  
+When you do this, you always  pair these metrics with the company’s Current Equity Value or 
+Current Enterprise Value. You never  “project” Equity Value or Enterprise Value.  
+That’s because Current Eq Val and Current TEV represent past results  as well as future 
+expectations  as of the valuation date . 
+To project  them, you’d have to jump into the future, find future expectations  in the future , and 
+then bring that knowledge back to the valuation date.  
+If you’ve discovered how to time travel successfully , go ahead.  
+If, however, you are similar to most humans in that you cannot violate the space -time 
+continuum, never  project Current Equity Value or Current Enterprise Value.  
+LTM Multiples , also called “Trailing Twelve Months” or TTM Multiples, are useful when part of  
+the company’s current fiscal year has passed, and results are available for at least one quarter.  
+For example, it’s currently May, and the company announced Q1 results in April . Or it’s 
+October, and the company has announced Q1, Q2, and Q3 results.  
+It’s mor e accurate to use these LTM figures rather than the full fiscal year ones if something 
+major happened in the first few quarters of the year, such as higher/lower revenue growth or 
+margins, an acquisition, a major geopolitical event, or a pandemic . 
+Let’s say that it’s currently August 2020, and we want to calculate the LTM EBITDA for a 
+company based on the Q1 and Q2 results of 2020.  
+You do the following  to set this up:  
+• Start with the 2019 numbers, i.e., the company’s EBITDA for the full year from January 
+1, 2019 to December 31 , 2019.  
+ 
+• Then, add the EBITDA for the first two quarters of 2020 ( January 1 through June 30 ). 
+ 
+• And subtract the EBITDA for the first two quarters of 2019 (January 1 through June 30).  
+Here it is in Excel:  
+ Advanced Financial Modeling Course  
+ 
+71 of 121 https://breakingintowallstreet.com  
+ 
+You could also calculate the LTM EBITDA by summing up EBITDA in the individual quarters: Q3 
+2019 + Q4 2019 + Q1 2020 + Q2 2020.  
+However, it’s usually easier to add and subtract partial periods  because you’ll have to review 
+fewer filings if you do it that way.  
+Once you have these figures for the company, you might now look up consensus estimates for 
+its projected EBITDA for 2020 and 2021.  
+If you are at a bank, you could do this via services like Capital IQ, FactSet, or Bloomberg; if not, 
+you could try to find estimates on Google/Yahoo Finance, Finviz, Zacks, or Motley Fool.  
+Here’s what the forward multiples look like:  
+
+ Advanced Financial Modeling Course  
+ 
+72 of 121 https://breakingintowallstreet.com  
+ 
+The LTM EBITDA Multiple is 9.9x, the Year 1 Forward Multiple is 9.4x, and the Year 2 Forward 
+Multiple is 8.9x, which are all perfectly normal . 
+You always use the same Enterprise Value in the numerator (or the same Equity Value for P / E 
+and other multiples), but the denominator keeps growing , so the valuation multiples should be 
+lower in the future.  
+That doesn’t make th e analysis “misleading” because you do the same thing for every 
+company you’re analyzing . 
+The forward multiples for all companies should be lower than the ir historical multiples, 
+assuming the companies are growing.  
+ 
+The Endgame of Valuation Multiples  
+In Key Rule #7 , we mentioned that a “valuation multiple” is similar to the per -square -foot or 
+per-square -meter price of a house.  
+But multiples are also “shorthand” for full valuation.  
+Going back to the all -important formula:  
+
+ Advanced Financial Modeling Course  
+ 
+73 of 121 https://breakingintowallstreet.com  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate  < Discount Rate  
+In a valuation, you  select companies that are similar  to the subject company (the one you are 
+analyzing) in terms of financial metrics (Revenue , EBITDA, etc.), geography, and industry.  
+By doing so, you make sure the companies in this set have similar Discount Rates and Cash Flow 
+figures.  
+If that’s true, then differences in each company’s Cash Flow Growth Rate should  explain the 
+differences  in the ir valuation multiples.  
+So, if one company has a higher expected growth rate than the others in the set, then it should  
+trade at higher multiples.  
+This is a very rough rule that fails to hold up in real life  for many reasons , but it is a useful 
+starting point in valuation s. 
+Think of it as the “first clue on the crime scene” in a murder mystery: you won’t solve the entire 
+case with this one clue, but you might figure out if you’re on the right track . 
+To illustrate this concept, we’ll start by walking through a theoretical example to show why 
+growth rates and valuation multiples are related. Then, we’ll look at real multiples for Target, 
+Zendesk, and Vivendi.  
+Let’s say that a company has $100 in Cash Flow , it’s not growing at all, and it has no 
+expectations of future growth:  
+ 
+Company Value = $100 / 10% = $1,000, so the Valuation Multiple = $1,000 / $100 = 10x.  
+Now, let’s say there’s 3% growth each year:  
+
+ Advanced Financial Modeling Course  
+ 
+74 of 121 https://breakingintowallstreet.com  
+ 
+In this case, Company Value = $100 / (10% – 3%) = $1,429, so the Valuation Multiple = $1,429 / 
+$103 = 13.9x.  
+We’re using the Year 2 Free Cash Flow because multiples are based  on future  expectations.  
+The higher multiple indicates that you’d be willing to pay more for the company if its cash 
+flows were growing more quickly.  
+And now let’s say the company grows even more quickly – at 5% per year rather than 3%:  
+ 
+The multiple increases  once again!  
+Since the Company Value = $100 / (10% – 5%) = $2,000, the Valuation Multiple = $2,000 / $105 
+= 19.0x. 
+
+ Advanced Financial Modeling Course  
+ 
+75 of 121 https://breakingintowallstreet.com  
+As with many of these concepts, this one does not always hold up in real life.  
+One problem is that valuation multiples are usually based  on Income Statement metrics like 
+Revenue, EBIT, EBITDA, and Net Income, but the company’s value depends on its Cash Flow  
+and Cash Flow Growth Rate . 
+When there are big discrepancies between cash flow and metrics such as EBIT and EBITDA, this 
+rule won’t work as well.  
+Another problem is that this rule  assumes the Discount Rate stays the same.  
+But the Discount Rate is quite subjective , and even if  you’ve picked companies of similar sizes in 
+the same industry, the Discount Rate may not be the same, or even similar, for all of them.  
+For example, maybe you’ve picked U.S. -based retailers with revenue between $200 and $500 
+million for your set of compar able companies.  
+That seems  reasonable, but are they all truly comparable? What if one company is spending 
+half as much on CapEx, but growing at the same rate as the others?  
+Or what if one retailer specializes in a geography or sub -industry that is declinin g? 
+In those cases, the individual companies’ Discount Rates might differ substantially.  
+Finally, non -financial factors also influence valuation multiples . 
+For example, what if a company just reported earnings far below expectations because of an 
+expense as sociated with a recent lawsuit?  
+The company’s stock price might plummet, reducing its valuation multiples, even though 
+nothing about its expected long -term performance  has changed . 
+Or what if one company just recruited a top executive from a competitor, or announced plans 
+to develop a new product that might take the market by storm?  
+Those factors are difficult to quantify in a company’s cash flow or cash flow growth rate, but 
+they could all affect its multiples.  
+ 
+Real -Life Valuation Multiples for Target, Zendesk, and Vivendi  
+If we apply these same concepts to the companies used in this guide, we get the following 
+results after selecting comparable companies and running the numbers:  
+ Advanced Financial Modeling Course  
+ 
+76 of 121 https://breakingintowallstreet.com  
+ 
+From these numbers, Target looks "appropriately valued"  – it's growing at lower rates than its 
+peer companies, and its revenue and EBITDA multiples are also lower by about the same 
+proportions.  
+A full analysis might yield a different conclusion, but a 30 -second glance at the numbers tells us 
+that the company is probably not  dramatically mispriced . 
+ 
+With Zendesk and its comparable companies, EBITDA multiples are meaningless because most 
+of these high -growth software companies have negative or near -zero EBITDA figures.  
+Zendesk looks significantly undervalued  here because its Revenue Growth is higher  than those 
+of its peer companies, but both its Revenue multiples are significantly lower.  
+This one result doesn’t “prove” that Zendesk is undervalued, but it means that we might want 
+to investigate it and conduct a more detailed analysis.  
+Finally, Vivendi’s results look like this:  
+
+ Advanced Financial Modeling Course  
+ 
+77 of 121 https://breakingintowallstreet.com  
+ 
+Vivendi looks undervalued  here because it is growing more quickly than its peer companies, but 
+its Revenue multiples are the same ; only its Forward EBITDA multiple is higher . 
+However, it doesn’t seem quite as undervalued as Zendesk . It’s worth a more detailed analysis , 
+but it’s al so a complicated case because Vivendi is a huge conglomerate, which means that we 
+may need to analyze each segment separately.  
+Return to Top . 
+ 
+Key Rule # 11: Equity Investments and Noncontrolling Interests  in Enterprise Value  
+Equity Investments  are Assets that represent a company’s minority stake s in other compan ies. 
+For example, Company A owns 30% of Company B. Company A record s an Equity Investment or 
+“Associate Company” on the Assets side of its Balance Sheet for this 30% stake.  
+The financial statements of Company A and Company B are not consolidated in this case; they 
+are kept separate, and there ar e only a few adjustments for the Net Income and Dividends from 
+Company B.  
+Noncontrolling Interests  are line items within Equity that represent what a company  does not  
+own  when it owns a majority , but less than 100% , of another company.  
+For example, Company A owns 70% of Company B. Company A record s a “Noncontrolling 
+Interest” for the 30% it does not own on the  L&E side of the Balance Sheet  under Equity.  
+The financial statements are fully consolidated  in this case, as if Company A owned 100% of 
+Company B and had all its Assets, Liabilities, Revenue, Expenses, and so on.  
+
+ Advanced Financial Modeling Course  
+ 
+78 of 121 https://breakingintowallstreet.com  
+However, Company A owns only 70% of Company B, so on its Income Statement, it adjusts by 
+deducting 30% * Company B’s Net Income . On its Cash Flow Statement, it ensures that only 
+70% * Company B’s Dividends are shown as cash inflows.  
+In the Equity Value to Enterprise Value bridge , you subtract Equity Investments  and add 
+Noncontrolling Interests . 
+The simplest explanation for the first o ne is that Equity Investments are Non -Core or Non -
+Operating Assets.  
+The Parent Company owns less than 50%, so it cannot “control” these other companies . 
+Therefore, its stakes are considered non -core to its business.  
+The simplest explanation for the second one is that Noncontrolling Interests  represent another 
+investor group, beyond the common shareholders.  
+When the Parent owns over 50% of another company, it controls  it, and the minority 
+shareholders have relatively limited power.  
+So, effectively, the minority shareholders in that other  company become an “investor group” in 
+the Parent Company.  
+If you’re interviewing for entry -level roles, you should probably stop here  and resist the urge 
+to explain these concepts in more detail, because they get confusing and difficult to describe.  
+If, however, you’re aware of the risks, and you want to go beyond these simple explanations, 
+read on.  
+The secondary reason why you subtract  Equity Investments and add Noncontrolling Interests in 
+the TEV bridge is for comparability . 
+Unless you make this adjustment, Enterprise Value and metrics such as EBITDA will not reflect 
+the same percentages of the other, partially -owned companies.  
+By itself, Equity Value  (Market Cap) implicitly  includes the values of these partial stakes.  
+These partial stakes count as Assets, and Current Equity Value means “the market value of Net 
+Assets to Common Shareholders” – so they must be in there.  
+But because of accounting rules , you will see either 0% or 100%  of the other companies’ EBIT 
+and EBITDA in the Parent Company’s metrics.  
+That creates a problem because an “unadjusted” Enterpris e Value will include the real 
+ownership percentage  of the other compan ies – whether it’s 30%, 70%, or something else.  
+ Advanced Financial Modeling Course  
+ 
+79 of 121 https://breakingintowallstreet.com  
+Theoretically, we could fix this problem by adjusting the financial metrics, but in practice, it’s 
+much easier to adjust by adding and subtracting items in the Enterprise Value calculation.  
+On the left is a specific example, starting with a 
+Parent Company with an Equity Value of $350 that 
+has a 30% stake in a $100 Associate Company . 
+This $350 Equity Value already includes  the $30 
+Value of Equity Investments.  
+If we calculate d Enterprise Value with $350 – $50 
++ $200 = $500, it would still include the 30%  stake  
+in the Associate Company.  
+But EBIT and EBITDA would include 0%  of that 
+Associate Company, which creates a mismatch.   
+ 
+Here’s what the “Combined” Income Statement looks like in this scenario:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+80 of 121 https://breakingintowallstreet.com  
+To fix this issue, therefore, we subtract the $30 of Equity Investments in the Enterprise Value 
+calculation, which ensures that the numerator of TEV / EBITDA includes 0% and the 
+denominator  also includes 0% of these other companies:  
+ 
+With Noncontrolling Interests, it’s the opposite problem: metrics such as EBIT and EBITDA 
+include 100%  of the Majority -Owned Company’s EBIT and EBITDA, but the Parent Company 
+owns less than 100% of the Majority -Owned Company.  
+Here’s an example with the sam e numbers, but with the assumption that the Parent Company 
+owns 70% of the other company instead:  
+ 
+
+ Advanced Financial Modeling Course  
+ 
+81 of 121 https://breakingintowallstreet.com  
+When the Parent Company owns a majority  of the Other Company, the financial statements are 
+consolidated 100% , with a deduction for Other Company’s Net Income * (1 – Ownership 
+Percentage) at the bottom.  
+Here’s the Income Statement:  
+ 
+To fix this issue, we add the Noncontrolling Interests to Enterprise Value so that it includes  
+100%  of the Majority -Owned Company rather than 70% : 
+
+ Advanced Financial Modeling Course  
+ 
+82 of 121 https://breakingintowallstreet.com  
+ 
+The adjustments for both Equity Investments and Noncontrolling Interests are about ensuring 
+consistency in the numerators and denominators of valuation multiples.  
+If EBITDA includes  0% of a 30% -owned company’s EBITDA, then Enterprise Value must also 
+include  0% of the 30% -owned company’s value, which means you need to subtract Equity 
+Investment s. 
+And if EBITDA includes 100% of a 70% -owned company’s EBITDA, then Enterprise Value must 
+also include 100% of the 70% -owned company’s value, which means you need to add the 
+Noncontrolling Interests.  
+Return to Top . 
+ 
+Key Rule # 12: Pensions in Enterprise Value  
+Company pension plans may factor into the Enterprise Value calculation  and valuation 
+multiples  as well.  
+Here is the short version of how they work:  
+
+ Advanced Financial Modeling Course  
+ 
+83 of 121 https://breakingintowallstreet.com  
+1) Only “Defined -Benefit” Pension Plans Matter  – These are plans where the company 
+promises to pay retired employees specific amounts in the future, and the company is 
+responsible for setting aside the fun ds and investing them appropriately.  
+ 
+Defined -Contribution Pensions, such as the 401(k) plan in the U.S. do not factor into 
+Enterprise Value at all  because they do not appear on the Balance Sheet. They are the 
+responsibility of employees, and even if the company “matches” employee 
+contributions, that match is a single Operating Expense on the Income Statement with 
+no corresponding Balance Sheet line item.  
+ 
+2) Add the Un(der)funded Pension When Calculating Enterprise Value  – In other words, 
+MAX(0, Pension Liabilities – Pension Assets).  Companies do not receive any “credit” for 
+a properly funded pension!  
+ 
+The employees  represent “another investor group” in this case because they agree to 
+work for lower compensation today in exchange for payments much later on, effectively 
+funding the company’s present -day operations.  
+ 
+3) Tax-Adjust the Un(der)funded Pension If Contribution s Into the Plan Are Tax -
+Deductible  – For example, in the U.S. , contributions into most defined -benefit pension 
+plans are tax -deductible ( meaning they reduce Cash Taxes) . As a result, we multiply 
+MAX(0, Pension Liabilities – Pension Assets) by (1 – Tax Rate) when adding it to 
+Enterprise Value. The treatment varies in other countries.  
+ 
+4) Exclude or “Add Back” the Financial Components of the Pension Expense in TEV -Based 
+Metrics  – The Pension Expense on the Income Statement is normally split into 
+components such as the Service Cost, Interest, Expected Return, Amortization of Losses, 
+Amortization of Prior Service Cost, Settlement Charges, and so on.  
+ 
+Only the Service Cost is operational , so only the Service Cost should be deducted in  
+TEV-based  metrics such as EBIT and EBITDA. The other  components of the Pension 
+Expense  are all “financial” in nature.  
+Pension accounting is confusing, but as a quick review, here are the line item s that normally 
+affect  the Pension Plan Assets and Projected Benefit Liabilities  (Pension Liabilities ): 
+ Advanced Financial Modeling Course  
+ 
+84 of 121 https://breakingintowallstreet.com  
+ 
+And then on the Income Statement  and Cash Flow Statement , here are the standard  
+components of the Pension Expense:  
+ 
+The biggest issue is that companies don’t always explain where the different components of 
+the Pension Expense show up on the Income Statement.  
+If that’s the case, then you’ll need to dig through the filings to make sure that your calculations 
+for EBIT and  EBITDA are correct.  
+U.S.-based companies generally  put the Service Cost  within Operating Expenses and place 
+everything else within Interest Expense or Other Expenses, but under IFRS, the treatment varies 
+widely.  
+
+ Advanced Financial Modeling Course  
+ 
+85 of 121 https://breakingintowallstreet.com  
+For example, here are Vivendi’s Pension Expense disclosures:  
+ 
+If you wanted to change this treatment in Enterprise Value and valuation multiples by not 
+including the Un(der)funded Pension, then you would have to deduct the entire  Pension 
+Expense (all components) in metrics like EBIT and  EBITDA.  
+However, this is a bad idea because the financial portion of the Pension Expense fluctuates 
+significantly based on market conditions, so you’ll get more consistent numbers if you exclude it 
+in the first place (or “add it back” if the company has c lassified it as an Operating Expense).  
+Other than the adjustment for taxes, is it worth trying to re -value the Un(der)funded Pension 
+itself?  
+For example, if the company’s assumed Rate of Return on its Pension Assets is unrealistic, and 
+its Pension Liabilities are understated, should you increase the Un(der)funded Pension?  
+No, this adjustment is probably not  worth it , unless the Liability is massive  (e.g., > 20% of 
+Enterprise Value) and it’s also very distorted.  
+Otherwise, it’s difficult to explain and justify your calculations, especially since most companies 
+do not disclose enough information to calculate these pension items from the ground up.  
+You’re extremely unlikely to receive questions about how pension -related line items affect 
+Equity Value and Enterprise Value, but just in case, here’s a summary:  
+
+ Advanced Financial Modeling Course  
+ 
+86 of 121 https://breakingintowallstreet.com  
+• Increasing the Financial Components of the Pension Expense  will reduce Equity Value, 
+but not Enterprise Value, since these are considered non -operational.  
+ 
+• Increasing the Service Cost Component  will reduce both Equity Value and Enterprise 
+Value since operational items affect both these metrics.  
+Both the Financial Components and the Service Cost are added back on the Cash Flow 
+Statement, but the Financial Components are usually not Cash -Tax-Deductible, which means 
+the company’s Deferred Tax Asset will increase.  
+And since this increase does not represent a Net Operating Loss, the additional DTA is 
+considered operational.  
+• Pension Payments to Employees  do not affect anything because they’re deducted from 
+both the Pension Assets and the Pension Liabilities. Therefore, Net Assets , Net 
+Operating Assets , Common Shareholders’ Equity, and the Funded Status of the plan all 
+stay the same.  
+ 
+• Pension Contributions  generally  won’t affect Enterprise Value, but if these 
+contributions “flip a plan” from Underfunded to Funded, they might make TEV increase  
+because Net Pension Assets, when the plan is Funded, count as Net Operating Assets. 
+But when the plan is Underfunded, they do not. Equity Value will change only if these 
+contributions are funded with a Common Stock issuance.  
+Do NOT worry about these items too much because they are exceptionally unlikely interview 
+questions.  
+Make sure you understand the basics for including Un(der)funded Pensions in TEV, and how to 
+ensure that metrics such as EBIT and EBITDA deduct only the Service Cost.  
+Return to Top . 
+ 
+Key Rule # 13: Operating Leases and Capital Leases in Enterprise Value  
+We’ll start this section with Capital Leases  because they’re much simpler to explain.  
+Capital Leases are Debt -like item s that companies use to acquire equipment, property, 
+factories, and other PP&E.  
+There are Interest Expense and Depreciation associated with Capital Leases and their 
+corresponding Assets, and metrics like EBITDA already exclude or “add back” these expenses.  
+ Advanced Financial Modeling Course  
+ 
+87 of 121 https://breakingintowallstreet.com  
+Therefore, you should a lways add Capital Leases in the Enterprise Value bridge and count 
+them as Debt -like item s; this also ensures consistency in the valuation multiples.  
+Some people argue that Capital Leases are “operational” in nature, but this point is irrelevant 
+because if you ignore  them in TEV, then you’ll get inconsistent valuation multiples.  
+Operating Leases  are trickier because their accounting and valuation treatm ent has changed 
+over time.  
+For many decades, companies under all accounting systems worldwide recorded their 
+Operating Leases off-Balance Sheet , and hardly anyone included them in Enterprise Value.  
+You capitalized the Operating Leases by multiplying the annual rental expense by 7 -8x and 
+added  them to Enterprise Value only if you were using metrics like EBITDAR that excluded the 
+entire Rental Expense.  
+But in 2019, the accounting rules changed under both U.S. GAAP and IFRS, and companies 
+began to record Operating Leases directly on their Balance Sheets  on the Liabilities & Equity  
+side, along with “Right -of-Use” (ROU) Assets on the other side.  
+By itself, that change is not a big deal because you could  still choose to include or exclude 
+Operating Leases in Enterprise Value.  
+But the problem is that companies now record the Lease Expense itself differently under U.S. 
+GAAP and IFRS, which creates consistency problems with standard valuation multiples.  
+Under IFRS, the Lease Expense is split into Interest and Depreciation element s, but under U.S. 
+GAAP, it’s still recorded as a Lease or Rental Expense.  
+Despite these changes, though, most companies’ Net Income and Net Change in Cash figures 
+stay nearly the same because it’s the same total expense ; it’s just presented differently.  
+This makes it a frustrating accounting rule because it creates the need for extra adjustments 
+without changing the substance of valuation at all.  
+Here’s the pre -2019 version, along with the IFRS and U.S. GAAP versions, of the Income 
+Statement for a hypothetical airline  company:  
+ Advanced Financial Modeling Course  
+ 
+88 of 121 https://breakingintowallstreet.com  
+ 
+On the Balance Sheet, the Assets side now has Right -of-Use Assets or Operating Leases Assets, 
+and the L&E side now has Op erating Lease Liabilities.  
+Here’s the Cash Flow Statement:  
+
+ Advanced Financial Modeling Course  
+ 
+89 of 121 https://breakingintowallstreet.com  
+ 
+These changes are cosmetic : the statements look different, but the Net Change in Cash stays 
+the same, and a DCF valuation of the company also stays the same.  
+The valuation implications are as follows:  
+• Both Systems:  If you add Operating Leases in the TEV bridge, then you must pair TEV 
+with metrics that exclude or “add back” the full Lease Expense. If you do not add 
+Operating Leases, then you must pair TEV with metrics that deduct  the full Lease 
+Expense.  
+ 
+• U.S. GAAP:  We normally do not count Operating Leases in the TEV bridge so that EBIT 
+and EBITDA remain valid metrics in the TEV / EBIT and TEV / EBITDA multiples. If you do 
+count Operating Leases, then you must use EBITDAR and TEV  Including Operating Leases  
+/ EBITDAR instead.  
+ 
+• IFRS:  When you use EBITDA, you must pair it with TEV Including Operating Leases. 
+EBITDA and EBITDAR are now the same. And EBIT is a problematic metric because it 
+deducts only part of  the full Lease Expense (t he Depreciation element), so EBIT multiples 
+are invalid unless you adjust EBIT.  
+
+ Advanced Financial Modeling Course  
+ 
+90 of 121 https://breakingintowallstreet.com  
+Here’s a summary of the proper valuation multiples for this hypothetical airline, with Operating 
+Leases added  in the TEV bridge vs. no addition : 
+ 
+You also  need to be careful with Returns -based metrics  such as Return on Invested Capital 
+(ROIC) and Return on Capital Employed (ROCE) . 
+If you count Operating Leases in Invested Capital or Capital Employed (e.g., Invested Capital = 
+Average Shareholders’ Equity + Debt – Cash + Operating Leases ), then the EBIT number used to 
+calculate NOPAT in ROIC must exclude  or add back  the Interest eleme nt of the Lease Expense.  
+This applies even if the company follows U.S. GAAP; it’s required for comparability  between 
+other companies with Operating Leases.  
+U.S.-based companies need to estimate this number based on their total Lease Expense.  
+You can see an example for Target here:  
+
+ Advanced Financial Modeling Course  
+ 
+91 of 121 https://breakingintowallstreet.com  
+ 
+On the other hand, if you do not count Operating Lease Liabilities in Invested Capital, then you 
+do not need to adjust EBIT.  
+The usual assumption with Operating Lease Assets and Operating Lease Liabilities is that they 
+change by roughly the same amount in each period.  
+So, if a company signs a new lease and records a $100 Lease Liability, it should also record a 
+$100 Lease Asset.  
+Under U.S. GAAP, these both count in the Net Operating Assets  calculation , so TEV does not 
+change. Eq Val also does not change because CSE stays the same.  
+If the Lease Asset and Liability change by different  amounts, then both Eq Val and TEV could 
+potentia lly change.  
+Under IFRS, these changes do affect TEV because the Lease Assets are operational, but the 
+Lease Liabilities are not.  
+Finally, since Capital Leases are similar to Debt, they impact TEV if they’re used to acquire 
+Operating Assets, such as PP&E  (which they usually are ). Equity Value won’t change because 
+CSE stays the same.  
+Return to Top . 
+ 
+
+ Advanced Financial Modeling Course  
+ 
+92 of 121 https://breakingintowallstreet.com  
+Key Rule # 14: Net Operating Losses (NOLs) and Other Items  
+This last section of the guide will cover Net Operating Losses, along with a few other 
+miscellaneous items that may factor into the Enterprise Value bridge.  
+Net Operating Losses (NOLs)  accumulate when a company records negative Pre -Tax Income.  
+The off -Balance Sheet NOL increases by –Pre-Tax Income, and the Deferred Tax Asset increases 
+by –Pre-Tax Income * Tax Rate . 
+When the company finally records positive Pre -Tax Income, it can use these NOLs to reduce its 
+Taxable Income, thereby reducing its Cash Taxes . 
+In models, we always set Book Taxes on the Income Statement equal to Pre-Tax Income * Tax 
+Rate ; we adjust for NOL s later in the Book vs. Cash Tax Schedule . 
+Here’s a quick example of how NOL accumulation and usage works:  
+ 
+In the Enterprise Value bridge calculation, you subtract the on -Balance Sheet NOLs within the 
+DTA, counting them as Non -Operating Assets.  
+The logic is that the NOLs are not core to the compa ny’s business  because they’re not required 
+to sell and deliver products and services . 
+By contrast, other components of the DTA are closer to being “core” to the business:  
+
+ Advanced Financial Modeling Course  
+ 
+93 of 121 https://breakingintowallstreet.com  
+ 
+Also, NOLs are often worth something to acquirers in M&A deals  because the acquirers may be 
+able to use the NOLs to reduce their own taxes.  
+In real life, you often adjust  the NOL balance if the company has recorded a “Valuation 
+Allowance” netted against the DTA : 
+ 
+This “Valuation Allowance” means that the company does not expect to realize the benefits of 
+the full DTA before it expires; usually, this is because the company  will have extremely negative 
+Pre-Tax Income for the near future.  
+Besides NOLs, we often get questions about the following items in the TEV bridge:  
+• Goodwill & Other Intangible Assets:  Remember that these get created when a  
+company acquires other companies. So, if the acquired companies are still part of this 
+
+ Advanced Financial Modeling Course  
+ 
+94 of 121 https://breakingintowallstreet.com  
+company’s operations, then these items count  as Operating Assets! Therefore, you 
+should not adjust for these in the TEV bridge.  
+ 
+• Industry -Specific Assets (e.g., “Content Assets” for Vivendi  or Netflix ): These almost 
+always count  as Operating Assets, so there’s no adjustment for them in the Enterprise 
+Value bridge.  
+ 
+• “Provisions” and “Other Liabilities”:  These items have vague names, so you need to 
+check what’s in them before you do anything. If these items include Debt, other 
+interest-bearing borrowings, or Un (der) funded Pensions, you should add those 
+components in the bridge. But if these items are related to simple timing differences or 
+unknown and uncertain future expenses, you should not add them.  
+ 
+• Legal & Restructuring Liabilities:  Yes, the se items do represent possible future cash 
+outflows, but unlike with Debt, Preferred Stock, Capital Leases, and Unfunded Pensions, 
+there’s no ongoing “Interest” component.  
+ 
+Also, do they truly represent “other investor groups”? Maybe  if the company has some 
+massive Liability here that will require it to raise Debt or other outside funding in the 
+future, you could count it, but it’s still a bit questionable.  We rarely count th ese items in 
+the TEV bridge.  
+ 
+• Deferred Tax Liabilities (DTLs):  You do not include these in the bridge because DTLs are 
+operational and correspond to timing differences  that will reverse in the future. They 
+also don’t represent another investor group : what company ever says, “Let’s raise 
+money for a new factory by… changing around some of our tax policies!” Even if that 
+could work, it might take years to see results.  
+ 
+So, not only is the intent different, but the timing is also highly uncertain because DTLs 
+do not necessarily reverse on a predictable schedule (for example, think about a DTL 
+created due to the creation of Indefinite -Lived Other Intangible Assets in an acqu isition).  
+ 
+Finally, there’s no “comparability” argument for adding these, as there is with Operating 
+Leases and Noncontrolling Interests.  
+Return to Top . 
+ 
+ Advanced Financial Modeling Course  
+ 
+95 of 121 https://breakingintowallstreet.com  
+Interview Questions  
+Questions about  valuation  are among the most common ones in investment banking 
+interviews, second only to questions about accounting.  
+While many valuation questions concern specific methodologies, such as the DCF analysis, 
+many are also about the underlying concepts : Equity Value, Enterprise Value, and valuation 
+multiples.  
+You used to be able to memorize a few multiples and the Enterpris e Value calculation to 
+answer these questions, but now you need to understand the concepts  at a deeper level.  
+ 
+The Concepts of Equity Value and Enterprise Value  
+1. What do Equity Value and Enterprise Value MEAN ? Don’t explain how you calculate them – 
+tell me what they mean!  
+Equity Value  represents  the value of EVERYTHING  a company has ( its Net Assets ) but only to 
+EQUITY INVESTORS  (i.e., common shareholders).  
+Enterprise Value represents  the value of the company’s CORE BUSINESS OPERATIONS  (its Net 
+Operating Assets ) but to ALL INVESTORS  (Equity, Debt, Preferred, and possibly others).  
+ 
+2. Why do you use both Equity Value and Enterprise Value ? Isn’t Enterprise Value more 
+accurate?  
+Neither one is “better” or “more accurate” – they represent different concepts, and they’re 
+important to different types of investors.  
+Enterprise Value and TEV-based multiples  have some advantages because they are not affected 
+by changes in the company’s capital structure as much as  Equity Value and Eq Val -based 
+multiples are affected.  
+However, in valuation, one methodology might produce Implied Enterprise Value, while 
+another might produce Implied Equity Value, so you will need to move between them to 
+analyze a company.  
+Finally, you use both of them because actions taken by one investor group affect all the other  
+groups . If a company raises Debt, that also affect s the risk and potential returns for common 
+shareholders . 
+ Advanced Financial Modeling Course  
+ 
+96 of 121 https://breakingintowallstreet.com  
+ 
+3. Why do you pair Net Assets with Common Shareholders in Equity Value, but Net Operating 
+Assets with All Investors in Enterprise Value? Isn’t that an arbitrary  pairing ? 
+No. The logic is that Common Shareholders’ Equity can be generated internally  (via Net Income) 
+or raised externally  (Stock Issuances) , so the company can use it for both Operating and Non -
+Operating Assets.  
+But if the company raises funds via outside investors (Debt, Preferred Stock, etc.), then most 
+likely  it will use those funds to pay for Operating Assets, rather than  spending the money on 
+random Non -Operating Assets  (such as a whiskey side business for a software company).  
+This rule does not always hold up in real life, but this is the basic rationale.  
+ 
+4. What’s the difference between Current Enterprise Value and Implied Enterprise Value?  
+Current Enterprise Value is what “the market as a whole ” thinks the company’s core  business 
+operations are worth to all investors; Implied Enterprise Value is what you think the core -
+business operations are worth based on your  views and analysis.  
+You calculate Current Enterprise Value for public companies by starting with Current Equity 
+Value, subtracting Non -Operating Assets, and adding Liability  and Equity line items that 
+represent other investor groups  (i.e., ones beyond the  common shareholders).  
+But you calculate Implied Enterprise Value based on valuation methodologies such as the 
+Discounted Cash Flow (DCF) analysis, comparable public companies, and precedent 
+transactions.  
+ 
+5. Why might a company's Current Enterprise Value be different from its Implied Enterprise 
+Value?  
+Remember that Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where 
+Cash Flow Growth Rate < Discount Rate.  
+Everyone agrees on a company’s current Cash Flow, but you might  disagree with the market on 
+the Discount Rate or Cash Flow Growth Rate.  
+In most cases, your view of a company’s value will be different than the market’s view because 
+you believe its cash flow will grow at a faster or slower rate.  
+ Advanced Financial Modeling Course  
+ 
+97 of 121 https://breakingintowallstreet.com  
+ 
+6. Why do you subtract Cash, add Debt , and add Preferred Stock  when moving from Equity 
+Value to Enterprise Value in the “bridge”?  
+You subtract  Non -Operating Assets because Enterprise Value reflects only Net Operating 
+Assets. Cash and Investments are examples  of Non -Operating Assets , but Equity Investments 
+(Associate Companies), Assets Held for Sale, and Assets Associated with Discontinued 
+Operations also count.  
+You add Liability & Equity line items that represent other investor groups  beyond the common 
+shareholders  because Enterprise Value represents All Investors. Debt and Preferred Stock are 
+the most common examples, but Un derfunded Pensions , Capital Leases , and Noncontrolling 
+Interests also qualify.  
+ 
+7. You're about to buy a house using a $600K mortgage and a $200K down payment. What 
+are the real -world analogies for Equity Value and Enterprise Value in this case?  
+The “Enterprise Value” here is the $800K total price of the house , and the “Equity Value” is the 
+$200K down payment  you’re making . 
+ 
+8. Could a company's Equity Value ever be negative?  
+Trick question. A company’s Current Equity Value  cannot be negative because it is based  on 
+Shares Outstanding * Current Share Price, and neither of those can be negative.  It also can’t be 
+negative for private companies . 
+However, its Implied Equity Value  could be negative because you use your views and 
+assumptions  to calculate that. If the company’s Implied Enterprise Value is $0, for example, and 
+it has more Debt than Cash, then its Implied Equity Value will be negative.  
+Note, however, that you typically say its Equity Value is $0 in cases like this . 
+ 
+9. Could a company's Enterprise Value ever be negative?  
+Yes. Both Current and Implied Enterprise Value could be negative – for example, a  company 
+might have Cash that exceeds its Current Equity Value  and no Debt. And your Implied 
+Enterprise Value might be the same as, or close to, its Current Enterprise Value.  
+ Advanced Financial Modeling Course  
+ 
+98 of 121 https://breakingintowallstreet.com  
+Once again, you often say the company’s Enterprise Value is simply $0 in cases like this.  
+ 
+10. Why do financing  events such as paying Dividends or issuing Debt not affect Current 
+Enterprise Value?  
+Current Enterprise Value changes only if Net Operating Assets change.  
+Paying Dividends reduces the company’s Cash and Common Shareholders’ Equity, and issuing 
+Debt increases the company’s Cash and Debt. None of these is an Operating Asset  or Liability , 
+so Current Enterprise Value cannot possibly change.  
+ 
+11. You estimate a company’s Implied Value wit h Company Value = Cash Flow / (Discount 
+Rate – Cash Flow Growth Rate) , where Cash Flow Growth Rate < Discount Rate.  
+Will this give you the company’s Implied Equity Value or Implied Enterprise Value?  
+It depends  on the type of Cash Flow and the Discount Rate you are using. If you’re using Cash 
+Flow  Available to All Investors (i.e., Unlevered  FCF or Free Cash Flow to Firm)  and WACC for the 
+Discount Rate, then this formula will produce the Implied Enterprise Value.  
+If you’re using Cash Flow  Available ONLY  to Equity Investors (i.e., Levered F CF or Free Cash Flow 
+to Equity)  and Cost of Equity for the Discount Rate, then this formula will produce the Implied 
+Equity Value.  
+ 
+12. If financing events do not affect Current Enterprise Value, what DOES affect it?  
+Only changes to the company’s Net Operating Assets ( i.e., changes to its “core business”) affect 
+Enterprise Value.  
+For example, if the company purchase s PP&E using Cash, or it raises Debt to purchase PP&E or 
+Inventory , both of those will increase Current Enterprise Value.  
+ 
+13. Is it possible for a single change to affect both Current Equity Value and Current 
+Enterprise Value?  
+Yes. For this to happen, Net Operating Assets must change, and Common Shareholders’ Equity 
+must also change.  
+ Advanced Financial Modeling Course  
+ 
+99 of 121 https://breakingintowallstreet.com  
+So, for example, if the company issues $100 of Common Stock to fund the purchase of $100 in 
+PP&E , both Eq Val and TEV will increase by $100 . 
+ 
+14. Why does Enterprise Value NOT necessarily represent the "true cost" to acquire a 
+company?  
+First, because the treatment of the seller’s existing Debt and Cash differs based on the terms of 
+the deal. The buyer may not necessarily “repay” the seller’s Debt  – it could instead refinance it 
+and replace it with new Debt  – and it may not “get” all the seller’s Cash.  
+Also, the buyer has to pay additional fees for the M&A advisory, accounting , and legal services, 
+and the financing to acquire another company, and those are not reflected  in its Enterprise 
+Value.  
+ 
+15. In theory, if Companies A and B are the same  in all respects, but Company A is financed  
+with 100% Equity , and Company B is financed  with 50% Equity and 50% D ebt, then their 
+Ente rprise Values will be the same.  
+Why is this NOT true in reality?  
+Because  a company’s capital structure, whether current, optimal, or targeted, affects the 
+Discount Rate used to calculate the Implied Enterprise Value (and the Discount Rate “the 
+market as a whole” uses for the company’s Current Enterprise Value ). 
+Not only do the  percentages  of Equity, Debt, and Preferred Stock affect WACC, but the Cost  of 
+each one also change s as the company’s capital structure changes.  
+For example, going from no Debt to a small amount of Debt may initially reduce WACC because 
+Debt is cheaper than Equity. But past a certain point, additional Debt will increase WACC 
+because the risk to all investors  starts increasing at that stage . 
+Enterprise Value is LESS  affected by capital structure changes than E quity Value, but there will 
+still be some  effect . 
+ 
+16. What about private companies? How do the concepts of Equity Value and Enterprise 
+Value work there?  
+ Advanced Financial Modeling Course  
+ 
+100 of 121 https://breakingintowallstreet.com  
+Eq Val and TEV still apply to private companies, but you cannot calculate Current Equity Value 
+with Current Share Price * Shares Outstanding because private companies do not have publicly 
+traded shares.  
+All you can do is look at the company’s most recent valuation in a fundraising (e.g., for a tech 
+startup) or some other outside appraisal of the company to estimate its Current Equity Value.  
+This also makes it difficult to calculate Current Enterprise Value, so you often focus on Implied  
+Equity Value  and Enterprise Value rather than comparing your estimates to what the market 
+thinks the company is currently worth.  
+Return to Top . 
+ 
+How Events Impact Equity Value and Enterprise Value  
+These questions are simple to answer if you remember the two key rules:  
+1) Does  Common Shareholders’ Equity (CSE)  change?  
+If so, then Equity Value changes by the amount that CSE changes. If not, then Equity Value does 
+not change.  
+You can also think of this as, “Do Net Assets change?” but be careful  because if there are 
+Noncontrolling Interests or Preferred Stock, Net Assets no longer equals CSE!  
+Items that affect CSE include Net Income, Dividends, Stock Issuance s, and Stock Repurchase s. 
+2) Do Net Operating Assets  (NOA)  change?  
+If so, then Enterprise Value will change by the amount that NOA changes. It doesn’t matter 
+which investor group was responsible because Enterprise Value reflects all investors.  
+You could also get questions about how valuation multiples change, but th ese qu estions are a 
+bit pointless because the historical  financial metrics  (Revenue, EBITDA, Net Income, etc.) will 
+not change immediately after a capital raise, acquisition, or another event takes place.  
+So, you can answer any question about valuation multiples by explaining what happens to 
+Equity Value and Enterprise Value (e.g., if TEV increases, then TEV / EBITDA also increase s). 
+The sample questions and answers below use the following terminology and a ssumptions:  
+• TEV = Enterprise Value  
+• Eq Val = Equity Value  
+ Advanced Financial Modeling Course  
+ 
+101 of 121 https://breakingintowallstreet.com  
+• CSE = Common Shareholders’ Equity  
+• NOA = Net Operating Asset s 
+• Tax Rate = 25%  
+ 
+1. A company issues $200 in Common S hares. How do Equity Value  and Enterprise Value 
+change?  
+CSE increases by $200, so Eq Val increases by $200.  
+NOA  does not change because neither Cash nor CSE is operational, so TEV stays the same.  
+Alternatively, in the TEV formula , the extra Cash offsets the higher Equity Value.  
+ 
+2. A company issues $200 in Common Shares , and it use s $100 from the proceeds to pay 
+Dividends to the common shareholders. How does everything change?  
+CSE increases by $100 after both changes, so Eq Val increases by $100.  
+NOA  does not change because neither Cash nor CSE is operational, so TEV stays the same.  
+Alternatively, in the TEV formula , the extra Cash offsets the higher Equity Value.  
+ 
+3. The company decides to use the $200 in proceeds from new Common Stock to acquire 
+another business for $100 instead. How does everything change?  
+CSE increases by $200 from this issuance, so Eq Val increases by $200.  
+Of this $200 in proceeds, $100 remains in Cash, and $100 is allocated to Acquired Assets from 
+the other business.  
+These Acquired Assets are Operating Asset s, and no Operating Liabilities change, so NOA  
+increases by $100 . TEV, therefore, increases by $100.  
+ 
+4. What if the company uses th at same $100 from new Common Stock to acquire an Asset 
+rather than an entire company?  
+CSE still increases by $200, so Eq Val is up by $200.  
+ Advanced Financial Modeling Course  
+ 
+102 of 121 https://breakingintowallstreet.com  
+If this Asset is considered “Operating” or “Core,” such as a factory, then NOA increases by $100, 
+so TEV also increases by $100.  
+If not – for example, the Asset is a short -term investment – then NOA does not change , and TEV 
+stays the same.  
+ 
+5. What happens if this company issues  $200 in Debt to fund a $100 Asset acquisition 
+instead?  
+The main difference is that Eq Val no longer change s because CSE does not change as a result 
+of a Debt issuance.  
+If this $100 Asset is Operational, NOA increases , so TEV increases  by $100 ; if not, TEV stays the 
+same.  
+ 
+6. A company issues $200 of Debt to fund a $200 Equity Purchase Price acquisition of a 
+company with $1 50 in Common Shareholders’ Equity.  
+How do Equity Value and Enterprise Value change , considering that the acquirer must create 
+Goodwill?  
+The $50 of Goodwill here does not affect anything beca use Goodwill is an Operating Asset. 
+$200 of Acquired Company Assets vs. $150 of Acquired Company Assets and $50 of Goodwill 
+make the same impact on both Eq Val and TEV.  
+This $200 Debt Issuance does not affect CSE, so Eq Val stays the same.  
+TEV increases by $200 because NOA increases by $200  (Operating Assets increase by $200, and 
+no Operating Liabilities change).  
+ 
+7. A company issues $100 in Preferred Stock to purchase $50 of PP&E. How do Equity Value 
+and Enterprise Value change?  
+CSE does not change because Preferred Stock issuances flow into Preferred Stock within Equity, 
+not Common Shareholders’ Equity. Therefore, Eq Val stays the same.  
+NOA  increases by $50 because the PP&E is an Operating Asset, and no Operating Liabilities 
+change,  so TEV increases by $50.  
+ Advanced Financial Modeling Course  
+ 
+103 of 121 https://breakingintowallstreet.com  
+ 
+8. Now the company issues $100 in Preferred Stock to repurchase $50 of Common Stock . How 
+do Equity Value and Enterprise Value change?  
+CSE decreases by $50 because of this repurchase, so Eq Val decreases by $50.  
+NOA  does not change because Cash, Preferred Stock, and CSE are all Non -Operating, so TEV 
+stays the same.  
+ 
+9. A company issues $ 150 of Debt and $ 50 of Common Stock to acquire $1 75 of PP&E and $ 25 
+of Short -Term Investments. How do Equity Value and Enterprise Value change?  
+CSE increases by $50 because of the Common Stock Issuance, so Eq Val increases by $50.  
+The $175 of PP&E counts as an Operating Asset, and no Operating Liabilities change (Debt is 
+Non -Operating), so NOA  increases by $175, and TEV also increases by $175.  
+ 
+10. Current Equity Value represents the Market Value of ALL Assets.  
+But if that’s the case, why doesn’t a $100 Debt issuance boost Equity Value? The company 
+receive s $100 in extra Cash from this issuance, which should boost  its Total Assets.  
+This is a trick  question because the interviewer makes two mistakes in the premise:  
+1) Equity Value represents Net Assets, not Total Assets.  
+2) And Current Equity Value represents the Net Assets’ market value only  to Equity 
+Investors.  
+So, Eq Val does not change in this scenario because Common Shareholders’ Equity does not 
+change , so nothing related to point #2 changes. A nd Net Assets doesn’t even change, going 
+along with point #1 . 
+ 
+11. A company purchase s $100 of Inventory  using Cash . How do Equity Value and Enterprise 
+Value change?  
+There are no changes on the Income Statement in this initial step  because the Inventory has not 
+yet been sold.  
+On the Balance Sheet, CSE stays the same in this initial step, so Eq Val stays the same.  
+ Advanced Financial Modeling Course  
+ 
+104 of 121 https://breakingintowallstreet.com  
+NOA  increases by $100 since Inventory is an Operating Asset, and no Operating Liabilities 
+change, so TEV increases by $100.  
+ 
+12. Now assume the Inventory is sold for $200  and walk me through how the *entire* 
+process from beginning to end affects Equity Value and Enterprise Value.  
+On the Income Statement, Revenue is up by $200, and Pre -Tax Income is up by $100 (due to the 
+$100 of Inventory now being recognized as COGS). Net  Income increases by $75  at a 25% tax 
+rate.  
+On the CFS, Net Income is up by $75, and there are no other changes (Inventory went up and 
+now goes down), so Cash is up by $75 at the bottom.  
+On the Balance Sheet, Cash is up by $75 on the Assets side, and CSE i s up by $75 on the L&E 
+side.  
+Since CSE is up by $75, Eq Val increases by $75.  
+NOA  does not change because Cash is not an Operating Asset  and no Operating Liabilities 
+change , so TEV stays the same.  
+Intuition:  This 2 -step process represents the company generating Net Income and letting it sit 
+in Cash; that process does not make its core business more valuable, so TEV does not increase.  
+ 
+13. A company collects $ 200 of cash from a customer upfront for a service that it has not yet 
+delivered. How do Equity Value and Enterprise Value change?  
+This change is recorded as a $200 increase in Cash on the Assets side of the Balance Sheet, and 
+a $200 increase in Deferred Revenue on the L&E side.  
+CSE does not change  because there’s no Net Income generation yet, and there are no 
+Dividends, Stock Issuances, or Stock Repurchases, so Eq Val stays the same.  
+NOA  decreases  by $200 because the Deferred Revenue is an Operating Liability, and no 
+Operating Assets change. Therefore, TEV decreases by $200.  
+ 
+14. Now, the company delivers the service to the customer and recognizes the $ 200 as 
+Revenue , along with $100 in Operating Expenses . Walk me through how the *entire* process 
+from beginning to end affects Equity Value and Enterprise Value.  
+ Advanced Financial Modeling Course  
+ 
+105 of 121 https://breakingintowallstreet.com  
+On the IS, Pre -Tax Income is up by $100, and Net Income is up by $75  at a 25% tax rate . On the 
+CFS, Net Income is up by $75, and nothing else changes (DR went up and now goes down), so 
+Cash is up by $75.  
+On the BS, Cash is up by $75 on the Assets side , and CSE is up by $75 on the L&E side.  
+Since CSE is up by $75, Eq Val increases by $75.  
+NOA  does not change because Cash is Non -Operating , and no Operational Liabilities have had a 
+cumulative change, so TEV stays the same.  
+Intuition:  This 2 -step process represents the company generating Net Income and letting it sit 
+in Cash; that process does not make its core business more valuable, so TEV does not increase.  
+ 
+15. A CEO finds $100 of C ash on the street and adds it to the company’s ban k account. How 
+do Equity Value and Enterprise Value change?  
+This event would be recorded as a $100 Extraordinary Gain on the Income Statement.  
+If you ignore Taxes completely, Net Income increases by $100, Cash increases by $100, and on 
+the Balance Sheet, C ash is up by $100 on the Assets side, and CSE is up by $100 on the L&E side.  
+CSE is up by $100, so Eq Val increases by $100.  
+NOA  does not change  because no Operating Assets or Liabilities change , so TEV stays the same.  
+If you factor in Taxes and assume a 25% rate, Net Income and Cash increase by $75 instead, so 
+Eq Val increases by $75 , and TEV remains the same.  
+TEV would change only if you assumed that the Extraordinary Gain does not affect Cash Taxes, 
+in which case the DTA would decrease by $25, reducing TEV by $25 ( we don’t recommend 
+mentioning this in interviews  because it’s more advanced and will lead to harder questions ). 
+Intuition:  “Finding” a Non -Operating Asset on the street does not make a company’s core 
+business more valu able.  
+ 
+16. A company experiences a disaster at one of its factories and record s a $100 PP&E Write -
+Down. It also decides to issue $50 in Common Stock to get the funds required to replace this 
+factory  in the future . How do Equity Value and Enterprise Value change?  
+ Advanced Financial Modeling Course  
+ 
+106 of 121 https://breakingintowallstreet.com  
+The PP&E Write -Down reduces Pre -Tax Income by $100 and Net Income by $75  at a 25% tax 
+rate.  
+On the CFS, Net Income is down by $75, but the Write -Down is non -cash, so you add back $100. 
+You also reflect the $50 Stock Issuance in CFF , so Cash at the bottom increases by $75.  
+(We’re ignoring Cash vs. Book Taxes in this question and assuming the Write -Down is deductible 
+for both, for simplicity. ) 
+On the BS, Cash is up by $75, and Net PP&E is down by $100, so the Assets side is down by $25. 
+The L&E side is also down by $25 due to the $75 Net Income reduction and $50 Stock Issuance.  
+CSE is down by $25, so Eq Val is down by $25.  
+NOA  is down by $100  due to the $100 PP&E Write -Down, and no Operating Liabilities change, 
+so TEV decreases by $100.  
+Intuition:  Changes to Operational line items can affect both TEV and Eq Val, but the impact on 
+Eq Val may be “ reduced ” if the company also changes its capital structure at the same time.  
+ 
+17. A company has excess Cash. How do Equity Value and Enterprise Value change if the 
+company uses the Cash to repay Debt vs. repurchase Common Stock?  
+NOA  does not change in any case because nothing here is operational, so TEV stays the same.  
+In the first case – Debt repayment – CSE does not change because Debt issuances and 
+repayments do not affect it, so Eq Val does not change.  
+In the second case – a Common S tock repurchase – CSE decreases, so Eq Val decreases.  
+ 
+18. A company issues a press release indicating that it expects its revenue to grow at 20% 
+rather than its previous estimate of 10%. How does everything change?  
+This change relates more to the company’s Implied  or Intrinsic  value.  Since the company 
+expects higher sales growth, both its Implied Enterprise Value and Implied Equity Value will 
+increase because they are both based on the company’s expected future cash flows.  
+Current Eq Val and Current TEV may also increase if the company ’s share price instantly jumps 
+up, but you can’t link the change to one specific line item on the Balance Sheet changing; there 
+won’t be an immediate change on the BS right after this announcement.  
+ Advanced Financial Modeling Course  
+ 
+107 of 121 https://breakingintowallstreet.com  
+Return to Top . 
+ 
+Valuation Multiples  
+Questions about valuation multiples may seem easy at first glance, but they can be surprisingly 
+tricky if you don’t understand the fundamental concepts . 
+For example, do you understand how a valuation multiple is both shorthand for a cash flow -
+based valuation, and also a way to compare different companies?  
+Do you understand the trade -offs of different metrics and multiples? What about the 
+exceptions and special cases , such as differences under U.S. GAAP vs. IFRS?  
+Test yourself with the full set of questions below:  
+ 
+1. What IS a valuation  multiple?  
+A valuation multiple is shorthand  for a company’s value based on its Cash Flow, Cash Flow 
+Growth Rate, and Discount Rate. You could value a company with this formula:  
+Company Value  = Cash Flow / (Discount Rate – Cash Flow Growth Rate) , where Cash Flow 
+Growth Rate  < Discount Rate  
+But i nstead of providing all that information, valuation multiples let you use a number like 
+“10x” and express it in a condensed way.  
+You can also think of valuation multiples as “per -square -foot” or “per -square -meter” values 
+when buying a house: they help you compare  houses  or companies  of different sizes and see 
+how expensive or cheap they are, relative to similar houses  or companies . 
+ 
+2. How do you use valuation multiples in real life?  
+Most often, you use them in “Comparable Company Analysis” or “Public Comps” when you find 
+public companies similar to the one you’re analyzing and use their multiples to value your 
+company.  
+For example, you might screen companies by geography, industry, an d financial size  so that 
+they are similar to your company.  
+ Advanced Financial Modeling Course  
+ 
+108 of 121 https://breakingintowallstreet.com  
+Then, you look at the growth rates of various metrics and their corresponding multiples to see 
+how your company is currently priced.  
+For example, if the median EBITDA growth of this set of companie s is 10%, and your company is 
+growing at 20%, but your company’s TEV / EBITDA and the median TEV / EBITDA of the set are 
+similar, then perhaps your company is undervalued.  
+If the companies are truly comparable, then they should have similar Discount Rates and Cash 
+Flow figures. So, the differences in Cash Flow Growth Rates  should explain most of the 
+difference  in the multiples.  
+ 
+3. Why are valuation multiples and growth rates often NOT as correlated as you might 
+expect?  
+The first problem is that company valuation is based on cash flow , which is different from 
+metrics like EBIT and EBITDA ( which are just approximations of cash flow ). 
+So, even if a company’s EBITDA growth is 10% , its Cash Flow growth might be 5% or 20% or 
+(5%) due to items like Taxes, the Change in Working Capital, and so on.  
+Also, it’s difficult to find 100% comparable companies in most industries, so there will usually 
+be differences in the Discount Rate s because the risk and potential returns will differ.  
+Finally, “current events” always affect the multiples, even if they don’t change a company’s 
+long -term performance.  For example, legal troubles, a new ly announced  product, or a new 
+executive  could all change a company’s short -term market valuation.  
+ 
+4. You’re valuing a mid -sized manufacturing company . This company’s TEV / EBITDA multiple 
+is 15x, and the median TEV / EBITDA for the comparable companies is 10x. What’s the most 
+likely explanation?  
+The most likely explanation is that the market expects th is company’s cash flows to grow more 
+quickly than those of the comparable companies . For example, other companies might be 
+expected to grow at 5%, but this company might be expected to grow at 1 5%. 
+The Discount Rate is unlikely to differ by a huge amount because these companies a re all about 
+the same size and are in the same industry, which means the risk and potential returns should 
+be similar.  
+ Advanced Financial Modeling Course  
+ 
+109 of 121 https://breakingintowallstreet.com  
+“Current events” could also affect the multiple s, but it’s hard to say what they might be without 
+additional information.  
+ 
+5. Would you rather buy a company trading at a 1 0x TEV / EBITDA multiple, or one trading at 
+a 5x multiple?  
+It depends on how each company compares to its peers, or comparable companies, in terms of 
+growth rates and multiples.  
+If the 10x company is growing at the same rate as its peer companies, but the peer companies 
+are trading at multiples in the 13x -16x range, then the 10x company looks like a good deal.  
+And if the 5x company is growing more slowly than its peer companies, despite trading in the 
+same range (4 -6x EBITDA), then the 5x company might be expensive  for the growth it offers.  
+When you buy compan ies, you always try to find ones that are undervalued  – which means 
+similar or lower multiples than peer companies, despite the same or higher growth . 
+ 
+6. Walk me through how you calculate EBIT and EBITDA for a public company.  
+With EBIT, you start with the company’s Operating Income on its Income Statement and then 
+add back any non -recurring charges that have reduced Operating Income . 
+With EBITDA, you do the  same thing and then add Depreciation & Amortization from the 
+company’s Cash Flow Statement  so that you get the all-inclusive number  (D&A on the Income 
+Statement is often embedded fully or partially in other line items there).  
+You do not add back items like the Amortization of Debt Issuance Fees or the Amortization of 
+Debt Discounts  because they are typically components of the  Net Inte rest Expense on the IS.  
+ 
+7. Is anything different under U.S. GAAP vs. IFRS for these calculations? Do the multiples 
+differ at all?  
+The main difference is that under U.S. GAAP, both EBIT and EBITDA fully deduct the Lease or 
+Rental Expense, but under IFRS, they do not – because the Lease Expense is split into Interest 
+and Depreciation elements . 
+EBIT under IFRS deducts part of  the Lease Expense, while EBITDA adds back or excludes  the 
+entire  Lease Expense.  
+ Advanced Financial Modeling Course  
+ 
+110 of 121 https://breakingintowallstreet.com  
+You still use Enterprise Value in the numerator of these valuation multiples, but under IFRS, you 
+must add Operating Leases to Enterprise Value, and EBIT is no longer a valid metric  (unless you 
+adjust it).  
+Under U.S. GAAP, no adjustment for Operating Leases is required, and TEV / EBIT and TEV / 
+EBITDA are both valid multiples as -is. 
+ 
+8. How do you calculate “Free Cash Flow” (just FCF, not Levered or Unlevered FCF) , and what 
+does it mean?  Are there any differences under U.S. GAAP vs. IFRS?  
+Free Cash Flow is defined as Cash Flow from Operations – Capital Expenditures, assuming  that 
+Cash Flow from Operations deducts the Net Interest Expense, Taxes, and the full Lease Expense.  
+It tells you how much Debt principal the company could repay, or how much it could spend on 
+activities such as acquisitions, dividends, or stock repurchases.  
+The main difference under the two accounting systems is that IFRS -based companies often start 
+their Cash Flow f rom Operations sections with something other than Net Income , which means 
+you may need to adjust CFO by subtracting the Net Interest Expense, the Interest element of 
+the Lease Expense, or other items from elsewhere on the Cash Flow Statement.  
+Also, under IFRS, you should not add back the entire D&A line item on the CFS – only the D&A 
+that’s unrelated to the leases.  That way, you ensure that the full Lease Expense is deducted.  
+ 
+9. How do you calculate Unlevered FCF and Levered FCF, and how do you use them differently 
+than normal Free Cash Flow?  
+Unlevered Free Cash Flow  equals Net Operating Profit After Taxes (NOPAT) + D&A and 
+sometimes other non -cash adjustments +/ - Change in Working Capital – CapEx.  
+Levered Free Cash Flow  equals Net Income to Common + D&A and sometimes other non -cash 
+adjustments +/ - Change in Working Capital – CapEx – (Mandatory?) Debt Repayments + Debt 
+Issuances (?).  
+You normally use UFCF in DCF valuations because it lets you evaluate a company while ignoring 
+its cap ital structure; FCF is more useful for standalone company analysis and determining a 
+company’s Debt repayment capacity.  
+LFCF is not useful for much of anything because people disagree about the basic definition, but 
+you could use it in a Levered  DCF, and i t may better represent the Net Change in Cash.  
+ Advanced Financial Modeling Course  
+ 
+111 of 121 https://breakingintowallstreet.com  
+ 
+10. If a company’s cash flow matters most, why do you use metrics like EBIT and EBITDA in 
+valuation multiples rather than FCF  or UFCF ? 
+Mostly for convenience  and comparability . FCF and UFCF measure  a company’s cash flow  more 
+accurately , but they also take more time to calculate since you need to review the full Cash 
+Flow Statement and possibly adjust some of the items.  
+Also, the individual items within  FCF and UFCF vary  quite a bit between different co mpanies, 
+regions, industries, and accounting systems, so you often need to normalize these figures , 
+which requires discretion and explanation.  
+ 
+11. How do you decide whether to use Equity Value or Enterprise Value when you create 
+valuation multiples?  
+If the financial metric in the denominator of the valuation multiple deducts Net Interest 
+Expense , then it pairs with Equity Value because the Debt Investors can no longer be “paid” 
+after they earn their interest; only Equity Investors can earn something now.  
+If the metric does not deduct Net Interest Expense, then it pairs with Enterprise Value. This rule 
+applies to both financial metrics (EBIT, EBITDA, etc.) and non -financial ones (Unique Users, 
+Subscribers, etc.).  
+ 
+12. If a company has bo th Debt and Preferred Stock, why is it NOT valid to use Net Income 
+rather than Net Income to Common when calculating its P / E multiple?  
+You can use Equity Value or Enterprise Value in multiples, but you shouldn’t create multiples 
+that are based  on metrics in between  Equity Value and Enterprise Value.  
+If you use Net Income rather than Net Income to Common , you’ll have to use Equity Value + 
+Preferred Stock in the numerator – which is halfway to Enterprise Value, but missing the 
+adjustments for Debt, Cash, etc.  
+This numerator will confuse anyone looking at your analysis, so you should stick with the 
+standard Equity Value metric and pair it wit h Net Income to Common.  
+ 
+13. Should you use Equity Value or Enterprise Value with Free Cash Flow?  
+ Advanced Financial Modeling Course  
+ 
+112 of 121 https://breakingintowallstreet.com  
+It depends on the type of Free Cash Flow. If the FCF metric deducts  Net Interest Expense, i.e. , it 
+is either “Free Cash Flow” or Levered FCF, use Equity Value.  
+If it does not deduct  the Net Interest Expense, i.e. , it is Unlevered FCF, use Enterprise Value.  
+ 
+14. What are the advantages and disadvantages of TEV / EBITDA vs. TEV / EBIT vs. P  / E? 
+First, note that you never  look at just one multiple when valuing companies. You want to 
+evaluate compan ies across different multiples and methodologies  to get the big picture.  
+But the interviewer will probably be annoying and press you on this point, so you can say that 
+TEV / EBITDA is better in cases whe re you want to exclude the company’s CapEx and capital 
+structure completely . 
+TEV / EBIT is better when you want  to ignore capital structure but partially fac tor in CapEx  (via 
+the Depreciation, which comes from CapEx in previous year s). 
+So, TEV / EBITDA is more about normalizing companies and more useful in industries where 
+CapEx is not a huge value driver, while TEV / EBIT is better when you want to link CapEx to the 
+comp any’s value  (e.g., for an industrials company).  
+The P  / E multiple is not that useful in most cases because it’s affected by different tax rates, 
+capital structures, non -core business activities, and more ; you use it mostly as a “check ,” and 
+since it’s a standard multiple everyone knows.  
+ 
+15. In the T EV / EBITDAR multiple, how do you adjust Enterprise Value?  
+If the denominator of a valuation multiple excludes  or adds back  an expense  on the Income 
+Statement , then the numerator should add the Balance Sheet item corresponding to that 
+expense . 
+EBITDAR is EBITDA + Rental Expense, so it adds back  the Rental Expense.  
+Therefore, in TEV, you must add the company’s on -Balance Sheet Operating Leases.  
+Under IFRS, EBITDAR = EBITDA because companies do not record the Rental Expense at all, so 
+(TEV + Operating Leases) / EBITDAR = (TEV + Operating Leases) / EBITDA.  
+ 
+16. If EBITDA decreases, how do Unlevered FCF and Levered FCF change?  
+ Advanced Financial Modeling Course  
+ 
+113 of 121 https://breakingintowallstreet.com  
+EBITDA = Revenue – COGS – Operating Expenses  Excluding D&A . 
+If EBITDA decreases, it means that Revenue has dropped , or that COGS or Operating Expenses 
+have increased.  
+Unlevered FCF and Levered FCF also add and subtract all these items, plus more . 
+As a result, both Levered FCF and Unlevered FCF will also decrease  since the Operating Income 
+that flows into both of them will be lower.  
+Technically , the FCF figures might stay the same if changes in D&A, the Change in Working 
+Capital, or CapEx offset the drop in Operating Income.  
+But that’s not the main point of the question; the point is that a decrease in Operating Income 
+will also reduce UFCF and LFCF , assuming everything else stays the same.  
+ 
+17. What are some different ways you can calculate Unlevered FCF?  
+If you assume that metrics like EBIT and EBITDA have been adjusted for non -recurring charges 
+and that Cash Flow from Operations (CFO) deducts Net Interest Expense, Taxes, the full Lease 
+Expense, and other standard items : 
+• Method #1:  EBIT * (1 – Tax Rate) + D&A and Possibly Other Non -Cash Adjustments +/- 
+Change  in Working Capital  – CapEx.  
+ 
+• Method #2:  (EBITDA – D&A) * (1 – Tax Rate) + D&A and Possibly Other Non -Cash 
+Adjustments +/- Change  in Working Capital  – CapEx.  
+ 
+• Method #3:  CFO – (Net Interest Expense and Other Items Between Operating Income 
+and Pre -Tax Income) * (1 – Tax Rate) – CapEx.  
+In Method #3, you ’re reversing the Net I nterest Expense , which is why that term has a negative 
+sign in front.  
+ 
+18. When you calculate Unlevered FCF starting with EBIT  * (1 – Tax Rate), or NOPAT, you’re 
+not counting the tax shield from the interest expense. Why? Isn’t that incorrect?  
+No, it’s correct. If you’re ignoring  the company’s capital structure, you have to ignore 
+EVERYTHING  related to its capital structure. You can’t say, “Well, let’s exclude interest… but 
+let’s still keep the tax benefits from that interest.”  
+ Advanced Financial Modeling Course  
+ 
+114 of 121 https://breakingintowallstreet.com  
+The tax savings from the interest expense do not exist if there is no interest expense.  
+ 
+19. When you create “forward multiples” based on projections for metrics such as Revenue 
+and EBITDA, how do you adjust Enterprise Value? Do you project it forward as well?  
+No. You never “project” Equity Value or Enterprise Value when calculating multiples for use in 
+Public Comps or Comparable Company Analysis.  
+Instead, you always use each company’s Current Equity Value or Current Enterprise and divide 
+them b y the historical metrics and the projected metrics.  
+In other words, the numerator  stays the same  for both historical and projected metrics.  
+This is because Current Eq Val and Current TEV represent past performance as well as the 
+market’s future expectations  for the company.  
+ 
+20. Two companies have the same P  / E multiple s but different TEV / EBITDA multiples. How 
+can you tell which one has higher Net Debt , assuming that each one has only Equity, Cash, 
+and Debt  in its capital structure ? 
+You might be tempted to say, “The one with the higher EBITDA multiple, ” but that’s wrong 
+because the companie s could be different sizes.  
+For example, if both companies have P / E multiples of 15x, but one has Net Income of $10 , and 
+one has Net Income of $100, the Equity Values are $150 and $1,500.  
+If the TEV / EBITDA multiples are 20x for the first one and 10x for the second one, and EBITDA is 
+$20 for the first one and $200 for the second one, the TEVs are $400 and $2,000.  
+So, t he first one has a Net Debt of $250, and the second one has a Net Debt of $500.  
+But if you change the company sizes so that the first one has Net Income of $150 and EBITDA of 
+$300, and the second one has Net Income of $100 and EBITDA of $200, you’ll get th e opposite 
+result: the first one now has higher Net Debt.  
+If you constrain  the companies and say that their Net Income and EBITDA figures are the same, 
+then yes, the company with the higher TEV / EBITDA multiple will have the higher Net Debt.  
+ 
+ Advanced Financial Modeling Course  
+ 
+115 of 121 https://breakingintowallstreet.com  
+21. Two companies have the same amount of Debt, but one has Convertible Debt , and the 
+other h as traditional Debt.  
+Both companies have the same Operating Income, Tax Rate, and Equity Value . Which 
+company will have a higher P  / E multiple?  
+Since the interest rates on Convertible Debt are lower than the rates on traditional Debt, the 
+company with Convertible Debt will have a lower interest expense  and, therefore , a higher Net 
+Income.  
+Therefore, it will have a lower P / E multiple than the company with traditional Debt because 
+both companies have the same Equity Value . 
+Advanced Note:  Technically, you should record the “Amortization of the Convertible Bond 
+Discount” on the Income Statement, which reflects how the Liability component of a 
+Convertible Bond is worth less than that of an equivalent, traditional Bond because of the lower 
+interest rate. If you do this, the n the Net Incomes of both companies will be much closer, so the 
+P / E multiples may be almost the same.  
+ 
+22. A company is currently trading at 10x TEV / EBITDA. It wants to sell an Operating Asset for 
+2x the Asset’s EBITDA. Will that transaction increase or decrease the company’s Enterprise 
+Value  and its TEV / EBITDA multiple?  
+The sale will reduce  the company’s Enterprise Value because the company is trading an 
+Operating Asset for Cash , which is a Non -Operating Asset.  
+Even though the company’s Enterprise Value decreases, its TEV / EBITDA multiple increase s 
+because the Asset’s multiple was lower than the entire company ’s multiple.  
+Pretend that the company’s total EBITDA was $100, and that this Asset contributed $20 of that 
+EBITDA. Therefore, t he company’s Enterprise Value before the sale was $1,000.  
+The company now sells the Asset for $40. After the sale, the company’s Enterprise Value falls by 
+$40, and its EBITDA falls by $20. So, its new TEV / EBITDA is $960 / $80, or 12x.  
+Return to Top . 
+ 
+ 
+ 
+ Advanced Financial Modeling Course  
+ 
+116 of 121 https://breakingintowallstreet.com  
+Calculating Equity Value and Enterprise Value  
+1. Is it accurate to subtract 100% of the Cash balance when moving from Equity Value to 
+Enterprise Value?  
+No, but everyone does it anyway . A portion of any company’s Cash balance is an “Operating 
+Asset” because the company needs a minimum amount of Cash to continue running its 
+business.  
+So, technically, you should subtract only  the Excess Cash, i.e. MAX(0, Cash Balance – Minimum 
+Cash ). 
+However, companies rarely disclose this number, and it varies widely between different 
+industries, so everyone subtracts the entire Cash balance.  
+ 
+2. Why do you NOT subtract Goodwill when moving from Equity Value to Enterprise Value? 
+The company doesn't need it to continue operating its business.  
+Goodwill reflects the premiums paid for previous acquisitions  – if you subtracted it, you’d be 
+saying, “Those previous acquisitions are not a part of this company’s core business anymore.”  
+And that’s true only if the company has shut down o r sold those companies, in which case it 
+should have removed all Assets and L iabilities associated with them.  
+ 
+3. Why do you subtract only part of a company's Deferred Tax Assets (DTAs) when calculating 
+Enterprise Value?  
+Deferred Tax Assets contain many different items, some of which are related to simple timing 
+differences or tax  credits for operational items.  
+But you should subtract ONLY  the Net Operating Losses (NOLs) in the DTA because those are 
+considered Non -Operating Assets (and they have some potential value to acquirers in M&A 
+deals) ; they’re less related  to operations than the rest of the items in a DTA.  
+You may also reduce the NOL in proportion to the Valuation Allowance / DTA, as the Valuation 
+Allowance indicates that the company does not expect to realize the full benefits of the DTA.  
+ 
+4. How do you factor in Working Capital when moving from Equity Value to Enterprise Value?  
+ Advanced Financial Modeling Course  
+ 
+117 of 121 https://breakingintowallstreet.com  
+You don’t.  Equity Value represents Net Assets to Common Shareholders, and Enterprise Value 
+represents Net Operating Assets to All Investors.  
+Each item in Working Capital counts in both Net Assets and Net Operating Assets, so you don’t 
+adjust anything  because both Eq  Val and TEV include the full value of Working Capital.  
+NOTE:  By “Working Capital” here, we mean “Operating Working Capital,” i.e., the Working 
+Capital number excluding Cash, Debt, etc.  
+ 
+5. Why do you subtract Equity Investments, AKA Associate Companies, when moving from 
+Equity Value to Enterprise Value?  
+First, they’re Non-Operating Assets  since the Parent Company has only minority stake s in these 
+companies and, therefore, cannot control them.  
+Second, you subtract them for comparability purposes. Metrics like EBITDA, EBIT, and Revenue 
+include 0% of thes e companies’ financial contributions , but Equity Value implicitly includes the 
+value of the stake  (e.g., 30% of the Associate Company’s Value if the Parent owns 30% of it).  
+Therefore, you subtract the Equity Investments when moving from Equity Value to Enterprise 
+Value  to ensure that the numerator of TEV -based multiples – Enterprise Value – completely 
+excludes Equity Investments, matching the metrics in the denominator that also exclude them.  
+ 
+6. Why do you add Noncontrolling Interests (NCI) when moving from Equity Value to 
+Enterprise Value?  
+First, these Noncontrolling Interests rep resent another investor group  beyond the common 
+shareholders: the minority shareholders of the Other Company in which the Parent Company 
+owns a majority stake.  The Parent Company effectively controls this Other Company now, so it 
+counts these minority owners as an investor group.  
+Second, you add NCI  for comparability purposes. Since the financial statements are 
+consolidated 100% when the Parent Company owns a majority stake in the Other Company, 
+metrics like Revenue, EBIT, and EBITDA include 100% of the Other Company’s financials.  
+Equity Value, howev er, includes only the value of the actual percentage the Parent owns.  
+So, if a Parent Company owns 70% of the Other Company, the Parent Company’s Equity Value 
+will include the value of that 70% stake. But its Revenue, EBIT, and EBITDA include  100%  of the 
+Other Company’s Revenue, EBIT, and EBITDA.  
+ Advanced Financial Modeling Course  
+ 
+118 of 121 https://breakingintowallstreet.com  
+Therefore, you add the 30% the Parent Company does not own  – the Noncontrolling Interest – 
+when you move from Equity Value to Enterprise Value so that Enterprise Value reflects 100% of 
+that Other Company’s value.  
+Doing so ensures that metrics such as TEV / Revenue and TEV / EBITDA include 100% of the 
+Other Compan y in both the numerator and the denominator.  
+ 
+7. Should you add on -Balance Sheet Operating Leases in the Equity Value to Enterprise Value 
+bridge?  
+Under U.S. GAAP, you could either add them  or ignore them. If you add them, however, you 
+have to pair TEV Including Operating Leases with EBITDAR; multiples such as TEV / EBIT and TEV 
+/ EBITDA are no longer valid because the denominators deduct the full Rental Expense.  
+Under IFRS, you pretty much h ave to add the Operating Leases in the TEV bridge because 
+metrics such as EBITDA already exclude  the Interest and Depreciation elements of the Lease 
+Expense.  
+It’s questionable whether or not Operating Leases represent “another investor group,” so this 
+adjustment is made mostly for comparability and consistency.  
+ 
+8. At a high level, how do Pensions factor into the Enterprise Value calculation?  
+Only Defined -Benef it Pension plans factor in because Defined -Contribution Plans do not appear 
+on the Balance Sheet.  
+You should add the Unfunded or Underfunded portion, i.e., MAX(0, Pension Liabilities – Pension 
+Assets), in the TEV bridge because the employees  represent another investor group in this case.  
+They  agree  to lower pay and benefits today  in exchange for fixed payments once they retire, 
+and the company must fund the pension and invest the funds appropriately.  
+If contributions into the pension plan are tax -deductible, then you should also multiply the 
+number by (1 – Tax Rate) in the bridge.  
+ 
+9. What is the difference between Basic Equity Value and Diluted Equity Value? What do they 
+mean?  
+ Advanced Financial Modeling Course  
+ 
+119 of 121 https://breakingintowallstreet.com  
+Basic Equity Value is Common Shares Outstanding * Current Share Price, while Diluted Equity 
+Value includes the impact of dilutive securities, such as options, warrants, RSUs , and 
+convertible bonds, and is Diluted Shares Outstanding * Current Share Price.  
+Companies create and issue these dilutive securities to incentivize employees to stay at the 
+company  (and to raise funds, in the case of convertible bonds).  
+Basic vs. Diluted  Equity Value does not “mean” anything in particular, but Diluted Equity Value 
+is a more accurate measure of what the company’s Net Assets are worth to common 
+shareholders.  
+ 
+10. A company has 100 shares outstanding, and its current share price is $10.00. It also has 10 
+options outstanding at an  exercise price of $5.00 each. W hat is its Diluted Equity Value?  
+Its Basic Equity Value is 100 * $10 .00 = $1,000 . To calculate the diluted shares , note that the 
+options are all “in  the money”  – their exercise price is les s than the current share price.  
+When these options are exercised , 10 new shares are created , so the share co unt increases to 
+110. 
+The investors paid the company $5.00 to exercise  each option , so the company gets $50 in 
+cash. It uses that cash to buy back 5 of the new shares, so the diluted share count is 105, and 
+the Diluted Equity Value is $1,050.  
+ 
+11. A company has 1 million shares outstanding , and its current share price is $100 .00. It also 
+has $10 million of convertible bonds, with a par value of $1,000 and a conversion price of 
+$50.00. 
+What are its diluted shares outstanding  and Diluted Equity Value?  
+First, note that these convertible bonds are convertible into shares because the company’s 
+share price is above the conversion price . So, you do count them as addi tional shares . 
+These convertible bonds will create $10 million / $50.00 = 200,000 new shares.  
+You don’t use the Treasury Stock Method with convertibles because the investors don’t pay the 
+company  to convert the bonds into shares ; they paid for the bonds upon the first issuance.  
+So, the diluted shares are 1.2 million, and the Diluted Equity Value is $120 million.  
+ 
+ Advanced Financial Modeling Course  
+ 
+120 of 121 https://breakingintowallstreet.com  
+12. A company has 10,000 shares outstanding and a current share price of $20.00. It has 100 
+options outstanding at an exercise price of $10.00.  
+It also has 50 Restricted Stock Units (RSUs) outstanding.  
+Finally, it also has 100  convertible bonds outstanding at a conversion price of $10.00 and par 
+value of $100.  
+What is its Diluted Equity Value?  
+Since the options are in -the-money, you assume that they get exercised, so 100 new shares are 
+created.  
+The company receives 100 * $10.00 , or $1,000, in proceeds. Its sh are price is $20.00, so it can 
+repurchase 50 shares with these proceeds. There are now 50 net additional shares outstanding . 
+You add the 50 RSUs as if they were common shares, so now there’s a total of 100  additional 
+shares outstanding.  
+The company’s share price of $20.00 exceeds the conversion price of $10.00, so the convertible 
+bonds can convert into shares.  
+Divide the par value by the conversion price to determine the shares per bond : 
+$100 / $10.00 = 10 new shares per bond  
+There are 100 individual convertible bonds, so you get 1,000 new shares .  
+These changes create 1,100 additional shares outstanding, so the diluted share count is now 
+11,100, and the Diluted Equity Value is 11,100 * $20.00, or $222,000.  
+ 
+13. This same company also has Cash of $10,000, Debt of $30,000, and Noncontrolling 
+Interests of $15,000. What is its Enterprise Value?  
+You subtract the Cash, add the Debt, and the n add Noncontrolling Interests:  
+Enterprise Value = $222,000 – $10,000 + $30,000 + $15,000 = $257,000.  
+ 
+14. A company issued a convertible bond in a “ capped call” transaction where it also 
+purchased call options on its own stock at an exercise price equal to the conversion  price and 
+sold warrants on its stock at a higher exercise price.  
+ Advanced Financial Modeling Course  
+ 
+121 of 121 https://breakingintowallstreet.com  
+How would you estimate the dilution in this case?  
+In capped call transactions, the call options typically offset all the initial dilution from the 
+convertible bond. New shares get created, but then the company exercises its call options to 
+repurchase them.  
+Then, you apply the Treasury Stock Met hod to the warrants sold at the higher exercise price, 
+such as $100 if the conversion price is $60 or $70.  
+So, if the company’s current share price is $40, there will be no dilution until it reaches $100 – 
+at which point you will use the TSM to calculate the dilution from the warrants.  
+Note:  This logic may not hold up if the company purchases a different number  of call options, 
+such as 1,000 when the potential ly dilutive shares from the convertible bond are 1,100 or 
+1,200. So, we are making some simplifying assumptions here, but this is the basic idea.  
+Return to Top . 

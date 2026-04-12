@@ -1,0 +1,507 @@
+ 
+BIWS – 4-Page Technical Cheat Sheet for Investment Banking Interviews  
+ 
+https://breakingintowallstreet.com  
+ 
+ 
+Finance Concepts  
+ 
+Time Value of Money: Money  today is worth MORE  than money 
+tomorrow because you could invest it today and earn more by 
+tomorrow.  
+ 
+ 
+ 
+Discount Rate:  Measures both the risk  and the potential returns  of an 
+investment; represents the annualized returns you ’re expect ing or 
+targeting on other , similar investments. 
+ 
+Net Present Value  (NPV): Present Value – Upfront Cost or Asking Price . 
+ IRR (Internal Rate of Return):  The annualized return you expect to earn 
+from this specific investment , regardless of what similar ones offer.  Like 
+the compound interest rate on a simple investment.  
+ 
+Invest When:  IRR > Discount Rate or NPV > 0 . 
+Do Not Invest When:  IRR < Discount Rate or NPV < 0 . 
+ 
+Balance Sheet  
+ 
+Provides a snapshot of a company’s 
+Assets (its resources) and Liabilities 
+and Equity  (its funding sources) at a 
+specific point in time; Assets must 
+always equal Liabilities + Equity.  
+ 
+Assets:  Can be sold for cash or 
+provide a future economic benefit. 
+Cash, Investments, Accounts 
+Receivable, Inventory, Prepaid 
+Expenses, Net PP&E, Goodwill, Other 
+Intangibles, Lease Assets, and 
+Deferred Tax Assets.  
+ 
+Liabilities:  Funding sources  and 
+future obligations / cash outflows. 
+Accounts Payable, Accrued Liabilities, 
+Deferred Revenue, Lease Liabilities, 
+Pensions  Liabilities , and Debt.  
+ 
+Equity:  Additional funding sources 
+related to external parties (stock issuances) or internally generated 
+via after -tax profits . 
+ 
+Accounting Interview Questions  
+ 
+Record Revenue  and Expenses  only when the product /service is 
+delivered  or allocated . If there’s no delivery/allocation , use BS  line 
+items like Deferred Revenue and Prepaid Expenses for tracking.  
+ 
+Ending AR  = Beginning AR + Non -Cash Rev. – Cash Collections of Rev.  Income Statement  
+ 
+Shows a company’s revenue, 
+expenses, and taxes over a 
+PERIOD, such as 1 year, 1 
+quarter, or 1 month; items must 
+correspond to delivery or 
+allocation in the period  and 
+affect the income available to 
+the common shareholders.  
+ 
+Common Lines:  Revenue, Cost 
+of Goods Sold (COGS), Operating 
+Expenses, Depreciation & 
+Amortization, Gains/Losses, 
+Interest Income/Expense , and 
+Taxes.  
+ 
+Summary Lines:  Gross Profit  
+(Revenue – COGS), Operating 
+Income (Revenue – COGS – OpEx), and Net Income (OpInc +/ - Other 
+Income/Expense – Taxes).  
+ 
+Cash Flow Statement  
+ 
+Shows  a company’s cash inflows and 
+outflows over a period; items may be 
+adjustments to IS line items or additional 
+cash inflows/outflows not on the IS.  
+ 
+Cash Flow from Operations:  Net Income, 
+Non- Cash Adjustments, and changes to 
+Current Assets and Liabilities, excluding Debt 
+and Cash.  
+ 
+Cash Flow from Investing:  Changes to many 
+Long -Term Assets and some non -operational 
+Current Assets.  
+ 
+Cash Flow from Financing:  Changes to many 
+Long -Term Liabilities and Equity lines ; also, 
+some non -operational Current Liabilities  
+(e.g., Short -Term Debt).  
+ 
+Asset UP / DOWN   Cash Flow DOWN  / UP  
+Liability UP / DOWN   Cash Flow UP / DOWN   
+ 
+Accounting Interview Questions  
+ 
+1) START with the Income Statement and explain how/if it changes.  
+ 
+2) Then, explain how the Cash Flow Statement changes, if at all 
+(including changes in Deferred Taxes).  
+ 
+3) Finish by explaining how the Balance Sheet changes  and why it still 
+balances, i.e., why Assets still equal Liabilities + Equity.  Make sure you 
+explain changes in Cash and Equity.  
+
+ 
+BIWS – 4-Page Technical Cheat Sheet for Investment Banking Interviews  
+ 
+https://breakingintowallstreet.com  
+ 
+ 
+ 
+Ending Inventory  = Beginning Inventory + Inventory Purchases – 
+Inventory Sold/Delivered and Recorded in COGS. 
+ 
+Ending Net PP&E  = Beginning Net PP&E + CapEx – Depreciation – 
+Losses + Gains – Sale Proceeds and Write -Downs. 
+ 
+Ending AP  = Beginning AP + Delivered -But-Unpaid- in-Cash Expenses – 
+Cash Payment of Prior Expenses. 
+ 
+Ending DR = Beginning DR + Cash Collected for Undelivered Sales – 
+Revenue Recognized for Previously Delivered Sales.  
+Ending Debt  = Beginning Debt + Issuances – Repayments . 
+ Ending Common Equity  = Beginning Common Equity + Net Income + 
+SBC – Dividends +/ - Common Shares Issued/Repurchased. 
+ 
+Equity Value & Enterprise Value  
+ 
+Equity Value  is the value of 
+EVERYTHING  a company 
+has (Net Assets, or Total 
+Assets – Total Liabilities), 
+but only to the EQUITY 
+INVESTORS  (the common 
+shareholders).  
+ 
+Enterprise Value  is the 
+value of the company’s 
+CORE BUSINESS 
+OPERATIONS  (Net 
+Operating Assets, or 
+Operating Assets – 
+Operating Liabilities), but 
+to ALL INVESTORS  (Equity, Debt, Preferred, and possibly others).  
+ 
+Enterprise Value  = Equity Value – Cash + Debt + Preferred Stock + 
+Noncontrolling Interests . 
+(More Advanced:  Subtract Investments, Non- Core Assets, and NOLs; 
+add Unfunded Pensions, other funding sources, and maybe Leases .) 
+ 
+Diluted Equity Value  = Share Price * ( Basic Shares + Dilutive Shares 
+from Options, Warrants, RSUs, Convertibles, etc. ) 
+ 
+Treasury Stock Method:  If the Options are in the money, Diluted 
+Shares = # Options – # Options * Exercise Price / Current Share Price.  
+Add these to the Basic Shares when calculating the Diluted Shares.  
+ 
+Does Common Shareholders’ Equity (CSE) Change?  If so, then Equity 
+Value change s by that amount. If not, it does not change.  
+ 
+Do Net Operating Assets (NOA) Change?  If so, then Enterprise Value 
+(TEV)  changes by that amount. If not, it does not change.  
+ 
+EX: A company issues $100 of common stock to buy a  factory. CSE is up 
+by $100, so Equity Value is up by $100. The factory is in Net PP&E, a 
+core operating asset, so NOA is up by $100, and TEV is by $100.  Valuation Methodologies and Multiples  
+ 
+You value a company  
+based on its future cash 
+flows (DCF Analysis) or the 
+multiples  from 
+Comparable Public 
+Companies and P recedent 
+Transactions. A “multiple” 
+is like  a metric such as $ / 
+square foot or $ / square meter when buying a home; it normalizes  
+company values given their different sizes.  
+ 
+Screen  for comparable companies based on geography, industry, and 
+size (e.g., U.S. steel manufacturers with > $1 billion in revenue); for precedent transactions, add time  (e.g., deals over the past 10 years).  
+ 
+To calculate  valuation multiples, us e Equity Value  in the numerator if 
+the denominator deducts  the Interest Expense (e.g., Net Income and 
+Free Cash Flow). Use Enterprise Value  if it does not.  
+ 
+Metric:  Revenue  EBITDA  Net Income  
+Multiple:  TEV / Revenue  TEV / EBITDA  P / E  
+Calculation: Enterprise Value 
+/ Revenue  Enterprise Value 
+/ (Operating 
+Income + D&A 
+on CFS + Non -
+Recurring 
+Charges)  Equity Value / 
+Net Income to 
+Common  
+OpEx:  Not deducted  Deducted  Deducted  
+CapEx:  Not deducted  Not deducted  Partial 
+deduction due 
+to D&A  
+Interest /Taxes:  Not deducted  Not deducted  Deducted  
+Metric Meaning:  Net sales before 
+expenses , taxes, 
+and capital 
+structure  Core, recurring 
+business 
+profitability 
+before cap ital 
+structure / taxes  Profit after 
+taxes, capital 
+structure, and 
+non-core 
+activities  
+Use Cases:  Generic for 
+all/most 
+companies; 
+more useful for 
+unprofitable/CF -
+negative ones  Normalize 
+companies with 
+different CapEx, 
+D&A, capital 
+structures, 
+taxes, etc.  Quick/simple 
+comparison but 
+not useful for 
+normalizing; 
+industry -specific 
+(FIG)  
+ Basic Valuation:  The median TEV / EBITDA in a set of comparable public 
+companies is 10x. Your company’s multiple is 8x. The comparable companies are in the same industry with similar revenue, growth rates, and margins   Therefore, your company “should be” trading at a 10x 
+multiple, meaning its Enterprise Value should be ~25% higher. You can back into Equity Value from here by adding Cash, subtracting Debt, etc., 
+and divide by its share count to determine its implied share price.  
+ Public Comps  are useful because they’re based on real- world, near -term 
+data, but there may not be truly comparable companies; Precedent Transactions  are useful because they’re based on the real prices paid 
+for other companies, but the data is often spotty/misleading, and the 
+implied values tend to be higher due to the control  premiums.  
+ 
+
+ 
+BIWS – 4-Page Technical Cheat Sheet for Investment Banking Interviews  
+ 
+https://breakingintowallstreet.com  
+ 
+ 
+Discounted Cash Flow (DCF) Analysis  
+ 
+A DCF values a compan y 
+based on the Present Value of its future cash 
+flows  over the next 5 – 
+10 years plus  their 
+Present Value after that, in the “Terminal Period”  
+(whose value you estimate with the 
+Terminal Value).  
+ 
+You almost always use an Unlevered DCF , which uses Unlevered Free 
+Cash Flow and the Weighted Average Cost of Capital (WACC) for the 
+Discount Rate.  Terminal Value  could be based on the Multiples 
+Method (multiply the final 
+forecast year EBITDA by a 
+multiple from the comps) 
+or the Gordon Growth 
+Method  (see right).  
+ 
+Unlevered FCF  = Operating Income * (1 – Tax Rate) + D&A +/ - Change 
+in Working Capital – CapEx  
+(More Advanced:  There may be adjustments for Deferred Taxes, 
+Acquisitions, Intangible Purchases, Capitalized R&D, and Non-Recurring 
+Charges. Always deduct  the full Lease Expense for simplicity.)  
+ 
+ALWAYS EXCLUDE  Interest Expense/Income, Preferred Dividends, Debt 
+Principal Repayments, and Stock Issuances/Repurchases. 
+ 
+Like EBITDA, UFCF is not  affected by the company’s capital structure 
+(Debt, Equity, Interest, etc.). However, the Discount Rate (WACC) is  
+affected by capital structure, so the DCF output could still change.  
+ 
+Implied Enterprise Value in a DCF  = Present Value of UFCF in Explicit 
+Forecast Period + Present Value of Terminal Value   Then, add Cash, 
+subtract Debt, etc., to get the Implied Equity Value.  
+ 
+DCF Type:  Unlevered  Levered  
+Metric:  Unlevered FCF 
+(defined above)  LFCF = Net Income to 
+Common + D&A +/ - 
+Change in Working 
+Capital – CapEx  +/- Net 
+Change in Debt  
+Discount Rate:  WACC  Cost of Equity  
+Terminal Value (TV): TEV / EBITDA for 
+Terminal Multiple  P / E or Eq Val / LFCF 
+for Terminal Multiple  
+Enterprise Value 
+“Bridge”:  Add Cash, subtract 
+Debt, etc., to move to 
+implied Eq Val  No bridge; The PV of 
+LFCFs + PV of TV  
+equals the Implied 
+Equity Value  
+Valuation Output:  Results are often close but will rarely , if ever, be 
+the same – very difficult to pick “equivalent” 
+assumptions for real -life companies  
+Use Cases:  Virtually all industry 
+sectors outside of FIG 
+(banks/insurance)  Some equity REITs and 
+midstream oil & gas 
+companies  
+ 
+ Discount Rate  (WACC)  
+ The Weighted Average Cost of Capital (WACC)  in a DCF represents the 
+average annualized return you might expect to earn by investing in the entire capital structure (Equity, Debt, Preferred, etc.) of similar 
+companies in the market. To a company, it represents the cost of 
+funding its operations via all its sources of capital.  
+ 
+Metric:  Cost of Equity  Cost of Debt  WACC  
+Calculation: Risk-Free Rate + 
+Equity Risk 
+Premium * 
+Levered Beta  
+(typically, the re -
+levered Beta ) Use the Yield to 
+Maturity (YTM) 
+on existing Debt; 
+could also use a 
+simple interest 
+rate or Risk -Free 
+Rate  + Credit 
+Default Spread  Cost of Equity 
+* % Equity + 
+Cost of Debt * (1 
+– Tax Rate) * % 
+Debt + Cost of 
+Preferred Stock 
+* % Preferred 
+Stock  
+Corresponds To:  Equity Value  Debt  Enterprise Value  
+Meaning:  Average annualized return you would expect from 
+investing, including both income and price changes  
+Smaller Co.:  Higher  
+No Debt to 
+Some Debt:  Higher Higher Lower, then 
+Higher  
+Lower RFR:  Lower  
+Lower ERP:  Lower  N/A Lower  
+Lower Tax Rate:  Higher IF the company has Debt (if not, no direct impact)  
+ 
+In Cost of Equity, you normally “un- lever” Beta for each comparable 
+company, take the median, and then re -lever it based on the subject 
+company’s capital structure:  
+ 
+• Unlevered Beta  = Levered Beta / (1 + Debt / Equity * (1 – Tax 
+Rate) + Preferred Stock / Equity)  
+• (Re-)Levered Beta  = Unlevered Beta * (1 + Debt / Equity * (1 – 
+Tax Rate) + Preferred Stock / Equity)  
+ Equity is more expensive than Debt because its risks and potential 
+returns are both higher; also, the interest paid on Debt is tax -deductible, 
+which makes the cash costs cheaper for the company.  
+ 
+M&A and Merger Models  
+ 
+Merger Model Walkthrough:  1) Project Buyer/Seller s tatements.  
+ 2) Estimate the Purchase Price and Cash, Debt, and Stock funding.  
+ 
+3) Create Sources & Uses and Purchase Price Allocation schedules.  
+ 4) Combine the Balance Sheets and reflect Cash, Debt, and Stock used, 
+new Goodwill, and Seller’s Common Equity write -down. 
+ 5) Combine Income Statements, including Foregone Interest on Cash, 
+Interest on New Debt, and Synergies.  
+ 6) Combined Net Income = Combined Pre- Tax Income * (1 – Buyer’s Tax 
+Rate); Combined EPS = Combined Net Income / (Buyer’s Shares + Shares 
+Issued in Deal)  
+ 7) EPS Accretion / Dilution = Combined EPS / Buyer’s Standalone EPS – 1 
+
+ 
+BIWS – 4-Page Technical Cheat Sheet for Investment Banking Interviews  
+ 
+https://breakingintowallstreet.com  
+ 
+ 
+M&A and Merger Models  
+ 
+Deals are accretive  when the Combined EPS is higher than the Buyer’s 
+standalone EPS and dilutive  when it’s lower : 
+ 
+Component:  Calculation  
+Cost of Cash:  Foregone Interest Rate on Cash * (1 – Buyer’s 
+Tax Rate)  
+Cost of Debt:  Interest Rate on New Debt * (1 – Buyer’s Tax 
+Rate)  
+Cost of Stock:  Buyer’s  Net Income / Buyer’s  Equity Value  
+Weighted Cost of 
+Acquisition:  % Cash Used * Cost of Cash + % Debt Used * 
+Cost of Debt + % Stock Used * Cost of Stock  
+Seller’s Purchase Yield:  Seller’s Net Income / Purchase Equity Value  
+Accretive/Dilutive?  Accretive if Weighted Cost < Purchase Yield; 
+Dilutive if Weighted Cost > Purchase Yield  
+ 
+If the deal is 100% Stock, compare the Buyer’s P / E multiple to the 
+Seller’s Purchase P / E multiple. If the Buyer’s multiple is higher, the 
+deal will be accretive; if not, it will be dilutive.  
+ 
+M&A Purchase Price:  Based on a premium to the Seller’s current share 
+price for public companies; for private companies, use a multiple such 
+as TEV / EBITDA.  The “true price” is the Purchase Enterprise Value.  
+ 
+Financing Mix:  Buyers use as much Cash as possible first, then Debt, 
+and then Stock because of their respective costs. Cash is limited based 
+on Min. Cash requirements, and Debt is normally limited based on a 
+max or targeted Debt / EBITDA.  
+ 
+Sources & Uses:  Demonstrates where the funding comes from and 
+where it goes to; existing Debt is almost always refinanced and 
+replaced with a new issuance of the same size (terms may differ). 
+ 
+ 
+Combined 
+Metric*:  Calculation  Expected Range  
+Combined 
+Equity Value  Buyer’s Equity Value + 
+Market Value of Stock 
+Issued  Buyer’s Eq. Val. to 
+Buyer’s Eq. Val. + Seller’s 
+Purchase Eq. Val  
+Combined 
+Enterprise Value 
+(TEV)  Buyer’s Enterprise Value + 
+Seller’s Purchase 
+Enterprise Value  Buyer’s TEV + Seller’s 
+Purchase TEV, but often 
+falls post -announcement  
+Combined TEV 
+Multiples  Combined TEV / 
+(Combined Revenue, 
+EBITDA, etc. of Buyer and 
+Seller)  Must be between Buyer’s 
+multiples and Seller’s 
+purchase multiples  
+Combined Eq. 
+Val Multiples  Must recalculate manually 
+based on Combined Eq Val 
+and Net Income, including 
+acquisition effects  Normally  between 
+Buyer’s multiples and 
+Seller’s purchase 
+multiples, but do not 
+have to be  
+*Everything may change based on market’s reaction  to deal ; Buyer’s 
+share price often falls (for example).  Leveraged Buyouts and LBO Models  
+ LBO Model Walkthrough:  1) Assume a Purchase Price, Debt and Equity 
+used, Interest Rate on Debt, and Operational Drivers (revenue growth, margins, etc.).  
+ 2) Create a Sources & Uses schedule to reflect the Debt and Investor 
+Equity used, Fees, and treatment of the company’s Cash and Debt.  
+ 
+3) Project the company’s Income Statement and a partial Cash Flow 
+Statement down to the Free Cash Flow (FCF) line.  
+ 4) CF Avail. For Debt Repayment = Beginning Cash + FCF – Minimum 
+Cash (and subtract Mandatory Debt Repayments if applicable).  
+ 
+5) Repay this amount of Debt each year (and the mandatory 
+repayments) and link the Interest Expense to this changing Debt balance, ensuring that FCF also deducts the Interest.  
+ 6) Assume an EBITDA exit multiple, back into the Exit Equity Value, and 
+calculate the IRR and MoM multiple based on these Exit Equity Proceeds 
+vs. the Investor Equity in the beginning.  
+ Ideal LBO Candidates:  Stable  / predictable cash flows, modest CapEx, 
+fragmented industry, growth  / margin opportunities, strong 
+management, solid asset bases, and realistic paths to exit.  
+ Debt Types:  Revolver (temporary borrowing), Secured Debt (Lower 
+floating rates, principal repayments, collateral, maintenance covenants), 
+and Unsecured Debt (Higher fixed rates, no principal repayments, and 
+incurrence covenants ). Draw on Revolver when CF Avail. For Debt 
+Repayment turns negative and repay when it’s positive.  
+ 
+Returns Sources:  Multiple Expansion (buy for 10x EBITDA and sell for 
+12x), EBITDA Growth, and Debt Paydown / Cash Generation.  
+ 
+Returns Drivers:  Purchase and Exit Assumptions matter most; % Debt 
+used is very significant; revenue growth, margin, and cash flow 
+assumptions are also important. Specific Debt terms matter less.  
+ 
+LBO Valuation:  Use Goal Seek to solve for the maximum price  a PE firm 
+could pay to achieve its targeted IRR, such as 20%, with the operational, exit, and debt  / equity assumptions as “constants.”  
+ LBO Math  (for “in between” values, approximate  via averages ): 
+ 
+Multiple and Time Frame:  Approximate IRR:  
+2x in 3 Years  ~25%  
+2x in 5 Years  ~15%  
+3x in 3 Years  ~45%  
+3x in 5 Years  ~25%  
+ 
+EX: Buy a $100 EBITDA company for 10x EBITDA and 6x Debt / EBITDA, 
+sell at $150 EBITDA for 9x  in 5 years , and repay  $250 of Debt. Exit TEV = 
+$150 *9 = $1,350. Subtract the $600 – $250 = $350 of remaining Debt. 
+$1,000 Exit Equity Proceeds / $400 Investor Equity = 2.5x, so it’s a ~20% 
+IRR over 5 years since 2.5x is right between 2x (~15%) and 3x (~25%).  
+ 

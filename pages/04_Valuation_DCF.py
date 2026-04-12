@@ -1221,7 +1221,12 @@ def _run_dcf(wacc_override=None, g_override=None, exit_mult_override=None,
         preferred_v = st.session_state.get("dcf_preferred_equity", 0.0)
         cash_v = st.session_state.get("dcf_cash_equiv", 100.0)
         eq_inv_v = st.session_state.get("dcf_equity_investments", 0.0)
-        net_debt_val = total_debt_v + minority_v + preferred_v - cash_v - eq_inv_v
+        pension_v = st.session_state.get("dcf_unfunded_pensions", 0.0)
+        nol_v = st.session_state.get("dcf_nol_value", 0.0)
+        # Pensions after tax shield; NOLs add value
+        pension_adj = pension_v * (1 - st.session_state["dcf_tax_rate"] / 100)
+        net_debt_val = (total_debt_v + minority_v + preferred_v + pension_adj
+                        - cash_v - eq_inv_v - nol_v)
         equity = ev - net_debt_val
     else:
         net_debt_val = st.session_state.get("dcf_net_debt", 0)
@@ -1279,6 +1284,10 @@ with tabs[4]:
             with br3:
                 st.number_input(T("enter_eq_invest"), step=5.0, format="%.1f",
                                 key="dcf_equity_investments")
+                st.number_input("Unfunded Pensions" if lang == "EN" else "Pensoes nao-financiadas",
+                                step=5.0, format="%.1f", key="dcf_unfunded_pensions")
+                st.number_input("NOL Value (Tax Asset)" if lang == "EN" else "Valor NOL (Ativo Fiscal)",
+                                step=5.0, format="%.1f", key="dcf_nol_value")
                 st.number_input(T("enter_diluted_shares"), min_value=0.1, step=10.0,
                                 format="%.1f", key="dcf_diluted_shares")
         else:
