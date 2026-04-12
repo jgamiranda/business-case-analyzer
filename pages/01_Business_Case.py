@@ -2003,13 +2003,13 @@ text-transform:uppercase;letter-spacing:.04em">{T("sv_metrica_lbl").format(m=met
                     m_hi = _get_metric_val(*r_hi, tn_metric)
                     tn_data.append({"var":vname,"lo":m_lo,"hi":m_hi,"impact":abs(m_hi-m_lo)})
                 tn_data.sort(key=lambda x: x["impact"])
-                st.session_state["tn_data"]   = tn_data
-                st.session_state["tn_metric"] = tn_metric
-                st.session_state["tn_base"]   = base_val
+                st.session_state["tn_data"]        = tn_data
+                st.session_state["tn_metric_cache"] = tn_metric
+                st.session_state["tn_base"]        = base_val
 
         if st.session_state.get("tn_data"):
             tn_data   = st.session_state["tn_data"]
-            tn_metric = st.session_state.get("tn_metric", "NPV (R$)")
+            tn_metric = st.session_state.get("tn_metric_cache", "NPV (R$)")
             base_val  = st.session_state.get("tn_base", 0)
             m_disp = _METRIC_EN.get(tn_metric, tn_metric) if lang=="EN" else tn_metric
 
