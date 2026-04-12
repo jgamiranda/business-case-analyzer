@@ -1373,8 +1373,7 @@ with tab_res:
                 decreasing={"marker": {"color": "#dc2626"}},
                 totals={"marker": {"color": "#1a56db"}},
             ))
-            # Apply per-bar colors
-            fig_wf.data[0].marker.color = _bar_colors
+            fig_wf.update_traces(marker=dict(color=_bar_colors))
             fig_wf.update_layout(
                 title=f"{T('g5_waterfall_title')} — {_wf_sel} ({unit})",
                 height=480, showlegend=False,
