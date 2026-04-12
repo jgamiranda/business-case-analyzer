@@ -658,8 +658,17 @@ with tab_div:
 
     # Grafico consolidado (placeholder — preenchido apos computacoes globais)
     st.divider()
-    st.subheader(T("dv_schedule_title"))
-    div_chart_placeholder = st.empty()
+    st.markdown(
+        '<style>.dv-schedule-exp details{border:2px solid #f97316 !important}'
+        '.dv-schedule-exp details summary{background:#fff7ed !important;border:none !important}'
+        '.dv-schedule-exp details summary p,.dv-schedule-exp details summary span'
+        '{color:#c2410c !important}</style>',
+        unsafe_allow_html=True)
+    with st.container():
+        st.markdown('<div class="dv-schedule-exp">', unsafe_allow_html=True)
+        with st.expander(f"\U0001f4ca  {T('dv_schedule_title')}", expanded=True):
+            div_chart_placeholder = st.empty()
+        st.markdown('</div>', unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────────────────
 # COMPUTACOES GLOBAIS
