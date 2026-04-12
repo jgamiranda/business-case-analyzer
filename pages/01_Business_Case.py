@@ -1293,57 +1293,33 @@ with tab_res:
             key="wf_year_sel", label_visibility="collapsed")
         _y1 = annual.get(_wf_sel, {})
         if _y1 and _y1.get("receita", 0) > 0:
-            _wf_labels = [
-                T("dre_rec_bruta") if T("dre_rec_bruta") != "dre_rec_bruta" else ("Receita Bruta" if lang=="PT" else "Gross Revenue"),
+            # Pure cascade bridge: Revenue → deductions → NI (no intermediate totals)
+            _wf_labels = []
+            _wf_vals = []
+            _wf_meas = []
+
+            # Start: Revenue
+            _wf_labels.append("Receita Bruta" if lang=="PT" else "Gross Revenue")
+            _wf_vals.append(_y1["receita"] / umult)
+            _wf_meas.append("absolute")
+
+            # Deductions (only add if non-zero)
+            _deductions = [
+                ("(–) PIS/COFINS", _y1.get("pis_cofins", 0)),
+                ("(–) CPV" if lang=="PT" else "(–) COGS", _y1["cpv"]),
+                ("(–) OpEx", _y1["opex"]),
+                ("(–) G&A", _y1["ga"]),
+                ("(–) D&A", _y1["da"]),
+                ("(–) " + ("Juros" if lang=="PT" else "Interest"), _y1["juros"]),
+                ("(–) " + ("Imposto" if lang=="PT" else "Tax"), _y1["tax"]),
             ]
-            _wf_vals = [_y1["receita"] / umult]
-            _wf_meas = ["absolute"]
+            for _lbl, _val in _deductions:
+                if abs(_val) > 0.01:
+                    _wf_labels.append(_lbl)
+                    _wf_vals.append(-_val / umult)
+                    _wf_meas.append("relative")
 
-            if _y1.get("pis_cofins", 0) > 0:
-                _wf_labels.append("(–) PIS/COFINS")
-                _wf_vals.append(-_y1["pis_cofins"] / umult)
-                _wf_meas.append("relative")
-                _wf_labels.append(T("dre_rec_liq"))
-                _wf_vals.append(0)
-                _wf_meas.append("total")
-
-            _wf_labels.append("(–) " + ("CPV" if lang=="PT" else "COGS"))
-            _wf_vals.append(-_y1["cpv"] / umult)
-            _wf_meas.append("relative")
-
-            _wf_labels.append("Lucro Bruto" if lang=="PT" else "Gross Profit")
-            _wf_vals.append(0)
-            _wf_meas.append("total")
-
-            _wf_labels.append("(–) OpEx")
-            _wf_vals.append(-_y1["opex"] / umult)
-            _wf_meas.append("relative")
-
-            _wf_labels.append("(–) G&A")
-            _wf_vals.append(-_y1["ga"] / umult)
-            _wf_meas.append("relative")
-
-            _wf_labels.append("EBITDA")
-            _wf_vals.append(0)
-            _wf_meas.append("total")
-
-            _wf_labels.append("(–) D&A")
-            _wf_vals.append(-_y1["da"] / umult)
-            _wf_meas.append("relative")
-
-            _wf_labels.append("EBIT")
-            _wf_vals.append(0)
-            _wf_meas.append("total")
-
-            _wf_labels.append("(–) " + ("Juros" if lang=="PT" else "Interest"))
-            _wf_vals.append(-_y1["juros"] / umult)
-            _wf_meas.append("relative")
-
-            if abs(_y1["tax"]) > 0.01:
-                _wf_labels.append("(–) " + ("Imposto" if lang=="PT" else "Tax"))
-                _wf_vals.append(-_y1["tax"] / umult)
-                _wf_meas.append("relative")
-
+            # Final: Net Income (total = running sum)
             _wf_labels.append("Lucro Liquido" if lang=="PT" else "Net Income")
             _wf_vals.append(0)
             _wf_meas.append("total")
