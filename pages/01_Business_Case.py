@@ -1214,9 +1214,9 @@ with tab_res:
                     st.plotly_chart(fig_comp, use_container_width=True)
             st.divider()
 
-    st.markdown(f'<div style="font-size:1rem;font-weight:700;color:#1e3a8a;border-left:4px solid #1a56db;padding-left:10px;margin:14px 0 8px 0">M.   {T("res_visualizacoes")}</div>', unsafe_allow_html=True)
-    _g_titles = [T("g1_title"), T("g2_title"), T("g3_title"), T("g4_title"), T("g5_waterfall")]
-    g1, g2, g3, g4, g5 = st.tabs(_g_titles)
+    with st.expander(f"M.   {T('res_visualizacoes')}", expanded=True):
+     _g_titles = [T("g5_waterfall"), T("g1_title"), T("g2_title"), T("g3_title"), T("g4_title")]
+     g5, g1, g2, g3, g4 = st.tabs(_g_titles)
     meses=df_op["Mes"].tolist()
     def yu(s): return (s/umult).tolist()
 
@@ -1285,9 +1285,13 @@ with tab_res:
         fig4.update_yaxes(tickformat=",.1f"); st.plotly_chart(fig4,use_container_width=True)
 
     with g5:
-        # Waterfall chart: Receita Bruta → ... → Lucro Liquido (Year 1 totals)
+        # Waterfall P&L: selectable year
         st.caption(T("g5_waterfall_cap"))
-        _y1 = annual.get("Ano 1", {})
+        _wf_anos = list(annual.keys())
+        _wf_sel = st.selectbox(
+            "Ano" if lang=="PT" else "Year", _wf_anos,
+            key="wf_year_sel", label_visibility="collapsed")
+        _y1 = annual.get(_wf_sel, {})
         if _y1 and _y1.get("receita", 0) > 0:
             _wf_labels = [
                 T("dre_rec_bruta") if T("dre_rec_bruta") != "dre_rec_bruta" else ("Receita Bruta" if lang=="PT" else "Gross Revenue"),
@@ -1343,6 +1347,9 @@ with tab_res:
             _wf_vals.append(0)
             _wf_meas.append("total")
 
+            # Compute NI to set total color
+            _ni_val = _y1["ni"]
+            _total_color = "#16a34a" if _ni_val >= 0 else "#dc2626"
             fig_wf = go.Figure(go.Waterfall(
                 orientation="v",
                 measure=_wf_meas,
@@ -1353,10 +1360,10 @@ with tab_res:
                 connector={"line": {"color": "#94a3b8", "width": 1}},
                 increasing={"marker": {"color": "#16a34a"}},
                 decreasing={"marker": {"color": "#dc2626"}},
-                totals={"marker": {"color": "#1a56db"}},
+                totals={"marker": {"color": _total_color}},
             ))
             fig_wf.update_layout(
-                title=f"{T('g5_waterfall_title')} — {'Ano 1' if lang=='PT' else 'Year 1'} ({unit})",
+                title=f"{T('g5_waterfall_title')} — {_wf_sel} ({unit})",
                 height=480, showlegend=False,
                 yaxis=dict(tickformat=",.1f"),
                 xaxis=dict(tickangle=-30),
