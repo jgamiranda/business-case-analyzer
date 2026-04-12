@@ -1339,9 +1339,10 @@ with tab_res:
             _wf_vals.append(-_y1["juros"] / umult)
             _wf_meas.append("relative")
 
-            _wf_labels.append("(–) " + ("Imposto" if lang=="PT" else "Tax"))
-            _wf_vals.append(-_y1["tax"] / umult)
-            _wf_meas.append("relative")
+            if abs(_y1["tax"]) > 0.01:
+                _wf_labels.append("(–) " + ("Imposto" if lang=="PT" else "Tax"))
+                _wf_vals.append(-_y1["tax"] / umult)
+                _wf_meas.append("relative")
 
             _wf_labels.append("Lucro Liquido" if lang=="PT" else "Net Income")
             _wf_vals.append(0)
