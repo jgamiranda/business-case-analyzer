@@ -349,18 +349,26 @@ def calcular_irr(cash_flows):
     r = max(min((total_out / total_in - 1) / max(len(cash_flows), 1), 0.5), -0.5)
 
     for _ in range(200):
-        npv = sum(cf / (1 + r) ** t for t, cf in enumerate(cash_flows))
-        dnpv = sum(-t * cf / (1 + r) ** (t + 1) for t, cf in enumerate(cash_flows))
+        try:
+            npv = sum(cf / (1 + r) ** t for t, cf in enumerate(cash_flows))
+            dnpv = sum(-t * cf / (1 + r) ** (t + 1) for t, cf in enumerate(cash_flows))
+        except (OverflowError, ZeroDivisionError):
+            return None
         if abs(dnpv) < 1e-14:
             break
         r_new = r - npv / dnpv
+        # Clamp to prevent divergence
+        r_new = max(-0.99, min(r_new, 10.0))
         if abs(r_new - r) < 1e-9:
             r = r_new
             break
         r = r_new
 
     # Verify convergence
-    npv_check = sum(cf / (1 + r) ** t for t, cf in enumerate(cash_flows))
+    try:
+        npv_check = sum(cf / (1 + r) ** t for t, cf in enumerate(cash_flows))
+    except (OverflowError, ZeroDivisionError):
+        return None
     if abs(npv_check) > abs(cash_flows[0]) * 0.01:
         return None
 
