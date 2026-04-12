@@ -1029,78 +1029,31 @@ with tab_res:
         for tipo,msg in alertas: st.markdown(f'<div class="{css[tipo]}">{icn[tipo]}  {msg}</div>',unsafe_allow_html=True)
         st.divider()
 
-    st.markdown('<div style="font-size:1.1rem;font-weight:700;color:#1e3a8a;border-left:4px solid #1a56db;padding-left:10px;margin:14px 0 10px 0">Scorecard</div>', unsafe_allow_html=True)
+    # ── SCORECARD (styled metric cards) ──────────────────────────────────────
+    _irr_s = f"{irr_projeto:.1f}%" if irr_projeto is not None else "N/A"
+    _mirr_s = f"{mirr_projeto:.1f}%" if mirr_projeto is not None else "N/A"
+    _pi_s = f"{pi_projeto:.2f}x" if pi_projeto is not None else "N/A"
+    _pb_s = f"{payback} {'meses' if lang=='PT' else 'mo'}" if payback else "N/A"
+    eq_roi = (df_lev["FCF Levered"].sum()/equity_required*100) if equity_required>0 else 0
 
-    def _metric_card(label, value, positive=None):
-        cls = "metric-card"
-        if positive is True: cls += " metric-card-green"
-        elif positive is False: cls += " metric-card-red"
-        delta_html = ""
-        if positive is not None:
-            d_cls = "mc-pos" if positive else "mc-neg"
-            d_txt = T("res_positivo") if positive else T("res_negativo")
-            d_arrow = "\u2191" if positive else "\u2193"
-            delta_html = f'<div class="mc-delta {d_cls}">{d_arrow} {d_txt}</div>'
-        return f'<div class="{cls}"><div class="mc-label">{label}</div><div class="mc-value">{value}</div>{delta_html}</div>'
+    def _mc(label, value, color="neutral"):
+        cls = f"metric-card metric-card-{color}" if color != "neutral" else "metric-card"
+        return f'<div class="{cls}"><div class="mc-label">{label}</div><div class="mc-value">{value}</div></div>'
 
-    r1,r2=st.tabs([T("res_tab_proj"), T("res_tab_eq")])
-    with r1:
-        m1,m2,m3,m4=st.columns(4)
-        m1.markdown(ds.metric_card(T("res_roi_proj"), f"{roi:.0f}%",
-                                    "green" if roi > 0 else "red"), unsafe_allow_html=True)
-        _pb_status = ("green" if payback and payback < horizonte * 0.6
-                      else "amber" if payback and payback < horizonte
-                      else "red")
-        m2.markdown(ds.metric_card(T("res_pb_proj"),
-                                    f"{payback} {'meses' if lang=='PT' else 'mo'}" if payback else T("res_nao_atingido"),
-                                    _pb_status), unsafe_allow_html=True)
-        m3.markdown(ds.metric_card(T("res_npv_proj"), fv(npv,unit),
-                                    "green" if npv > 0 else "red"), unsafe_allow_html=True)
-        m4.markdown(ds.metric_card(T("res_mg_proj"), f"{mg_med:.0f}%", "neutral"), unsafe_allow_html=True)
-        # Row 2: IRR, MIRR, PI, WACC
-        m5,m6,m7,m8=st.columns(4)
-        _irr_str = f"{irr_projeto:.1f}%" if irr_projeto is not None else "N/A"
-        # Use design-system status thresholds (Section 4.3): IRR >25% green, 20-25% amber, <20% red
-        _irr_status = ds.status_for("irr", irr_projeto) if irr_projeto is not None else "neutral"
-        m5.markdown(ds.metric_card(T("res_irr_proj"), _irr_str, _irr_status,
-                                    sub=f"vs WACC {wacc:.1f}%" if irr_projeto is not None else ""),
-                    unsafe_allow_html=True)
-        _mirr_str = f"{mirr_projeto:.1f}%" if mirr_projeto is not None else "N/A"
-        _mirr_status = ds.status_for("irr", mirr_projeto) if mirr_projeto is not None else "neutral"
-        m6.markdown(ds.metric_card(T("res_mirr"), _mirr_str, _mirr_status), unsafe_allow_html=True)
-        _pi_str = f"{pi_projeto:.2f}x" if pi_projeto is not None else "N/A"
-        _pi_status = ("green" if pi_projeto > 1.5 else "amber" if pi_projeto > 1 else "red") if pi_projeto is not None else "neutral"
-        m7.markdown(ds.metric_card(T("res_pi"), _pi_str, _pi_status), unsafe_allow_html=True)
-        m8.markdown(ds.metric_card(T("res_wacc"), f"{wacc:.2f}%", "neutral"), unsafe_allow_html=True)
-    with r2:
-        e1,e2,e3,e4=st.columns(4)
-        eq_roi=(df_lev["FCF Levered"].sum()/equity_required*100) if equity_required>0 else 0
-        e1.markdown(ds.metric_card(T("res_roi_eq"), f"{eq_roi:.0f}%",
-                                    "green" if eq_roi > 0 else "red"), unsafe_allow_html=True)
-        _pb_eq_status = ("green" if payback_lev and payback_lev < horizonte * 0.6
-                         else "amber" if payback_lev and payback_lev < horizonte
-                         else "red")
-        e2.markdown(ds.metric_card(T("res_pb_eq"),
-                                    f"{payback_lev} {'meses' if lang=='PT' else 'mo'}" if payback_lev else T("res_nao_atingido"),
-                                    _pb_eq_status), unsafe_allow_html=True)
-        e3.markdown(ds.metric_card(T("res_npv_eq"), fv(npv_levered,unit),
-                                    "green" if npv_levered > 0 else "red"), unsafe_allow_html=True)
-        e4.markdown(ds.metric_card(T("res_eq_req"), fv(equity_required,unit), "neutral"), unsafe_allow_html=True)
-        # Row 2: IRR equity, DSCR min — design system status thresholds
-        e5,e6,e7,e8=st.columns(4)
-        _irr_eq_str = f"{irr_equity:.1f}%" if irr_equity is not None else "N/A"
-        _irr_eq_status = ds.status_for("irr", irr_equity) if irr_equity is not None else "neutral"
-        e5.markdown(ds.metric_card(T("res_irr_eq"), _irr_eq_str, _irr_eq_status), unsafe_allow_html=True)
-        _dscr_vals = [v for v in dscr_anual.values() if v != float('inf')]
-        _dscr_min = min(_dscr_vals) if _dscr_vals else None
-        _dscr_str = f"{_dscr_min:.2f}x" if _dscr_min is not None else "N/A"
-        _dscr_status = ds.status_for("dscr", _dscr_min) if _dscr_min is not None else "neutral"
-        e6.markdown(ds.metric_card(T("res_dscr_min"), _dscr_str, _dscr_status,
-                                    sub="min > 1.3x"), unsafe_allow_html=True)
-        _cd_str = f"{custo_divida:.2f}%" if total_debt > 0 else "N/A"
-        e7.markdown(ds.metric_card(T("res_custo_divida"), _cd_str, "neutral"), unsafe_allow_html=True)
-        e8.empty()
-    st.divider()
+    _r1, _r2, _r3, _r4 = st.columns(4)
+    _r1.markdown(_mc("ROI", f"{roi:.0f}%", "green" if roi > 0 else "red"), unsafe_allow_html=True)
+    _r2.markdown(_mc("NPV", fv(npv, unit), "green" if npv > 0 else "red"), unsafe_allow_html=True)
+    _r3.markdown(_mc("Payback", _pb_s, "green" if payback and payback < horizonte*0.6 else "amber" if payback else "red"), unsafe_allow_html=True)
+    _r4.markdown(_mc("IRR", _irr_s, "green" if irr_projeto and irr_projeto > taxa_desc else "red" if irr_projeto else "neutral"), unsafe_allow_html=True)
+
+    _r5, _r6, _r7, _r8 = st.columns(4)
+    _r5.markdown(_mc("WACC", f"{wacc:.2f}%"), unsafe_allow_html=True)
+    _r6.markdown(_mc("MIRR", _mirr_s, "green" if mirr_projeto and mirr_projeto > wacc else "neutral"), unsafe_allow_html=True)
+    _r7.markdown(_mc("PI", _pi_s, "green" if pi_projeto and pi_projeto > 1 else "red" if pi_projeto else "neutral"), unsafe_allow_html=True)
+    _r8.markdown(_mc("Margem Bruta" if lang=="PT" else "Gross Margin", f"{mg_med:.0f}%"), unsafe_allow_html=True)
+
+    # ── VEREDICTO ────────────────────────────────────────────────────────────
+
 
     lim=horizonte*(2/3)
     if payback and payback<=lim and npv>0:
