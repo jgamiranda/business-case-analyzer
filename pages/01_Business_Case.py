@@ -403,7 +403,7 @@ with tab_prem:
             else:
                 st.info(T("ncg_detail_only_dias"))
 
-    with st.expander(T("sec_revolver"), expanded=False):
+    with st.expander(f"G.   {T('sec_revolver')}", expanded=False):
         _rv1, _rv2 = st.columns([1, 3])
         _rv1.checkbox(T("rev_use_lbl"), value=bool(get("use_revolver", True)),
                       key="use_revolver", help=T("rev_use_help"))
@@ -421,8 +421,9 @@ with tab_prem:
                                format="%.0f", key="rev_max_cap_pct")
             _cdi_cur = float(get("cdi_ref", 13.65))
             _sp_cur  = float(get("rev_rate_spread", 3.0))
+            _tot_eff = ((1 + _cdi_cur/100) * (1 + _sp_cur/100) - 1) * 100
             st.info(T("rev_effective_rate").format(cdi=_cdi_cur, sp=_sp_cur,
-                                                   tot=_cdi_cur + _sp_cur))
+                                                   tot=_tot_eff))
     # ── Comparables (Valuation DCF) ─────────────────────────────────────────
     if st.session_state.get("model_type") == "valuation_dcf":
         with st.expander(T("comp_sec"), expanded=True):
@@ -759,7 +760,7 @@ _prev_nwc   = 0.0   # NWC balance at end of prior year
 # ── Revolver parameters ─────────────────────────────────────────────────────
 _use_rev         = bool(get("use_revolver", True))
 _rev_min_cash_r  = float(get("rev_min_cash_pct", 5.0)) / 100
-_rev_rate_r      = (float(get("cdi_ref", 13.65)) + float(get("rev_rate_spread", 3.0))) / 100
+_rev_rate_r      = (1 + float(get("cdi_ref", 13.65))/100) * (1 + float(get("rev_rate_spread", 3.0))/100) - 1
 _rev_max_cap     = total_capex * float(get("rev_max_cap_pct", 30.0)) / 100
 _rev_bal         = 0.0   # outstanding revolver balance
 _cash_pre_rev    = 0.0   # cumulative cash before revolver adjustments

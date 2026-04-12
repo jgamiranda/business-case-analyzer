@@ -9,7 +9,7 @@ W, H = 297, 210
 # --- TITLE ---
 pdf.set_font('Helvetica', 'B', 16)
 pdf.set_xy(0, 8)
-pdf.cell(W, 10, 'Business Case Analyzer - Team Org Chart', align='C')
+pdf.cell(W, 10, 'Corpet MVP | Team Org Chart', align='C')
 pdf.set_font('Helvetica', '', 9)
 pdf.set_xy(0, 17)
 pdf.cell(W, 5, 'April 2026 | Streamlit MVP | 3 Agents + Coordinator', align='C')
@@ -35,15 +35,8 @@ def arrow_down(x1, y1, x2, y2):
     pdf.set_draw_color(100, 100, 100)
     pdf.set_line_width(0.4)
     pdf.line(x1, y1, x2, y2)
-    # arrowhead
     pdf.line(x2 - 2, y2 - 3, x2, y2)
     pdf.line(x2 + 2, y2 - 3, x2, y2)
-
-
-def arrow_h(x1, y1, x2, y2):
-    pdf.set_draw_color(100, 100, 100)
-    pdf.set_line_width(0.4)
-    pdf.line(x1, y1, x2, y2)
 
 
 def dashed_line(x1, y1, x2, y2):
@@ -96,39 +89,70 @@ box(206, 80, 82, 45,
      '       _design_tokens.py',
      'Skills: Streamlit, Plotly, i18n,',
      '        dark mode, responsive layout',
-     'Follows design system (Section 4)'],
+     'Post-MVP: migration to React.js'],
     color=(254, 226, 226), border_color=(220, 38, 38))
 
 # ===== ARROWS from coordinator to agents =====
-arrow_down(130, 56, 51, 80)    # to boobinho
-arrow_down(148, 56, 148, 80)   # to backend
-arrow_down(166, 56, 247, 80)   # to frontend
+arrow_down(130, 56, 51, 80)
+arrow_down(148, 56, 148, 80)
+arrow_down(166, 56, 247, 80)
 
-# ===== SHARED DOCS (bottom) =====
-box(60, 150, 90, 40,
-    'Shared Documents (git)',
-    ['COORDINATION.md - async channel',
-     'CLAUDE.md - token efficiency rules',
-     'translations.py - i18n PT/EN',
-     'requirements.txt - dependencies',
-     'boobinho_knowledge_base.json - KB',
-     '.claude/commands/*.md - agent defs'],
-    color=(245, 245, 245), border_color=(120, 120, 120))
+# ===== SHARED ENVIRONMENT (bottom — single rounded box) =====
+pdf.set_fill_color(245, 245, 245)
+pdf.set_draw_color(120, 120, 120)
+pdf.set_line_width(0.6)
+pdf.rect(35, 145, 228, 48, style='DF')
 
-# ===== GIT REPO (bottom right) =====
-box(165, 150, 80, 40,
-    'Git Repo (master)',
-    ['github.com/jgamiranda/',
-     '  business-case-analyzer',
-     '7 pages: BC, M&A, PF, DCF,',
-     '  Startup, Hedging, LBO',
-     'Stack: Python + Streamlit + Plotly'],
-    color=(245, 245, 245), border_color=(120, 120, 120))
+pdf.set_font('Helvetica', 'B', 11)
+pdf.set_text_color(0, 0, 0)
+pdf.set_xy(35, 147)
+pdf.cell(228, 5, 'Git Repository (master)', align='C')
 
-# ===== ARROWS from agents to shared docs =====
-dashed_line(51, 125, 105, 150)   # boobinho -> shared
-dashed_line(148, 125, 120, 150)  # backend -> shared
-dashed_line(247, 125, 150, 150)  # frontend -> shared
+pdf.set_font('Helvetica', '', 7.5)
+pdf.set_text_color(60, 60, 60)
+
+# Left column — shared docs
+col1_x = 42
+col1_y = 155
+col1 = [
+    'Shared Documents:',
+    '  COORDINATION.md - async channel',
+    '  CLAUDE.md - token efficiency rules',
+    '  translations.py - i18n PT/EN',
+    '  requirements.txt - dependencies',
+    '  .claude/commands/*.md - agent defs',
+]
+for i, line in enumerate(col1):
+    if i == 0:
+        pdf.set_font('Helvetica', 'B', 7.5)
+    else:
+        pdf.set_font('Helvetica', '', 7.5)
+    pdf.set_xy(col1_x, col1_y + i * 4)
+    pdf.cell(100, 4, line, align='L')
+
+# Right column — app structure
+col2_x = 165
+col2_y = 155
+col2 = [
+    'Application (7 pages):',
+    '  01 Business Case  |  05 Startup',
+    '  02 M&A            |  06 Hedging',
+    '  03 Project Finance |  07 LBO',
+    '  04 Valuation DCF',
+    'Stack: Python + Streamlit + Plotly',
+]
+for i, line in enumerate(col2):
+    if i == 0:
+        pdf.set_font('Helvetica', 'B', 7.5)
+    else:
+        pdf.set_font('Helvetica', '', 7.5)
+    pdf.set_xy(col2_x, col2_y + i * 4)
+    pdf.cell(90, 4, line, align='L')
+
+# ===== ARROWS from agents to shared env =====
+dashed_line(51, 125, 80, 145)
+dashed_line(148, 125, 148, 145)
+dashed_line(247, 125, 215, 145)
 
 # ===== FLOW LABELS =====
 pdf.set_font('Helvetica', 'I', 7)
@@ -145,8 +169,8 @@ pdf.cell(60, 4, 'writes pages/*.py, CSS', align='C')
 pdf.set_draw_color(26, 86, 219)
 pdf.set_line_width(0.3)
 pdf.set_dash_pattern(dash=1.5, gap=1.5)
-pdf.line(92, 102, 108, 102)   # boobinho <-> backend
-pdf.line(190, 102, 206, 102)  # backend <-> frontend
+pdf.line(92, 102, 108, 102)
+pdf.line(190, 102, 206, 102)
 pdf.set_dash_pattern(dash=0, gap=0)
 
 pdf.set_font('Helvetica', 'I', 6)
