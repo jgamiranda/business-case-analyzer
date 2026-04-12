@@ -2338,4 +2338,24 @@ with tabs[9]:
     else:
         st.info("Ative ao menos uma rodada no Cap Table." if lang == "PT" else "Enable at least one round in the Cap Table.")
 
+
+# ─── Export to Excel ───────────────────────────────��──────────────────────────
+from backend import export_dataframes_to_xlsx as _xl
+try:
+    import numpy as _np2
+    _su_months = list(range(1, int(st.session_state.get("su_proj_months", 36)) + 1))
+    _su_mrr_init = float(st.session_state.get("su_mrr", 10000))
+    _su_growth = float(st.session_state.get("su_growth", 8.0)) / 100
+    _su_churn = float(st.session_state.get("su_churn", 3.0)) / 100
+    _su_net = _su_growth - _su_churn
+    _su_mrr_proj = [_su_mrr_init * (1 + _su_net) ** (m - 1) for m in _su_months]
+    _su_sheets = {"MRR Projection": pd.DataFrame({"Month": _su_months, "MRR": _su_mrr_proj, "ARR": [m*12 for m in _su_mrr_proj]})}
+    st.download_button(
+        label="⬇️  Download Startup (.xlsx)",
+        data=_xl(_su_sheets), file_name="Startup_Model.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+except Exception:
+    pass
+
 st.markdown('<div style="text-align:center;padding:24px 0 12px 0;margin-top:40px;border-top:1px solid #e5e7eb;color:#9ca3af;font-size:.72rem">Corpet · MVP — Powered by Streamlit + Plotly</div>', unsafe_allow_html=True)

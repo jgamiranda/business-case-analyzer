@@ -2664,6 +2664,19 @@ Ao fechar um LBO, o comprador aloca o preço de compra entre os ativos identific
 # =============================================================================
 # FOOTER
 # =============================================================================
+
+# ─── Export to Excel ─────────────────────────────────────────────────────���────
+from backend import export_dataframes_to_xlsx as _xl
+try:
+    _lbo_sheets = {"Debt Schedule": debt_df, "Operating": ops_df}
+    st.download_button(
+        label="⬇️  Download LBO (.xlsx)",
+        data=_xl(_lbo_sheets), file_name="LBO_Model.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+except Exception:
+    pass
+
 # ─── Sidebar — Key Metrics ────────────────────────────────────────────────────
 _is_pt_sb = (st.session_state.get("lbo_lang", "en") == "pt")
 with st.sidebar:

@@ -2669,6 +2669,24 @@ with tabs[6]:
     st.plotly_chart(fig_be, use_container_width=True)
 
 
+
+# ─── Export to Excel ─────────────────────��────────────────────────────────────
+from backend import export_dataframes_to_xlsx as _xl
+try:
+    _ma_sheets = {"Pro-Forma P&L": pd.DataFrame({
+        T("pf_year"): [r[T("pf_year")] for r in multi_year_rows],
+        T("pf_revenue"): [fmt(r["_rev"]) for r in multi_year_rows],
+        "EBITDA": [fmt(r["_ebitda"]) for r in multi_year_rows],
+        T("pf_net_income"): [fmt(r["_ni"]) for r in multi_year_rows],
+    })}
+    st.download_button(
+        label="⬇️  Download M&A (.xlsx)",
+        data=_xl(_ma_sheets), file_name="MA_ProForma.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+except Exception:
+    pass
+
 # ─── Sidebar — Key Metrics ────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown(f"### {'Métricas-chave' if lang=='PT' else 'Key Metrics'}")

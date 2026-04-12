@@ -1875,6 +1875,26 @@ if "pf_diagram" not in st.session_state:
         "nodes": [], "edges": [],
     }
 
+
+# ─── Export to Excel ──────────────────────────────────────────────────────────
+from backend import export_dataframes_to_xlsx as _xl
+try:
+    _pf_m = build_model()
+    _pf_sheets = {"Summary": pd.DataFrame({
+        "Year": list(range(1, len(_pf_m["revenue"])+1)),
+        "Revenue": _pf_m["revenue"].tolist(),
+        "EBITDA": _pf_m["ebitda"].tolist(),
+        "CFADS": _pf_m["cfads"].tolist(),
+        "DSCR": _pf_m["dscr"].tolist(),
+    })}
+    st.download_button(
+        label="⬇️  Download PF (.xlsx)",
+        data=_xl(_pf_sheets), file_name="ProjectFinance.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+except Exception:
+    pass
+
 with tabs[7]:
     st.markdown("### 🔒  SPE Diagram Builder")
     st.info("🚧  **Em breve / Coming soon** — funcionalidade em desenvolvimento, será liberada após o MVP.")
