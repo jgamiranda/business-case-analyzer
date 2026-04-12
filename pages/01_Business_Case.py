@@ -1634,6 +1634,42 @@ with tab_df:
             df_ratios = pd.DataFrame(_ratios_data, index=[_ratio_cols[yr] for yr in anos]).T
             st.dataframe(df_ratios, use_container_width=True)
 
+    # ── Export DFs to Excel ─────────────────────────────────────────────────
+    from backend import export_dataframes_to_xlsx
+    _export_sheets = {}
+    # Build DRE DataFrame
+    _dre_export = {}
+    for yr in anos:
+        d = annual[yr]
+        _dre_export[ano_lbl[yr]] = {
+            "Receita Bruta": mn(d["receita"]), "(–) CPV": mn(d["cpv"]),
+            "Lucro Bruto": mn(d["lb"]), "Margem Bruta (%)": round(d["mb_pct"], 1),
+            "(–) OpEx": mn(d["opex"]), "(–) G&A": mn(d["ga"]),
+            "EBITDA": mn(d["ebitda"]), "Margem EBITDA (%)": round(d["ebitda_pct"], 1),
+            "(–) D&A": mn(d["da"]), "EBIT": mn(d["ebit"]),
+            "(–) Despesas Financeiras": mn(d["juros"]), "LAIR": mn(d["lair"]),
+            "IR/CSLL": mn(d["tax"]), "Lucro Liquido": mn(d["ni"]),
+        }
+    _export_sheets["DRE"] = pd.DataFrame(_dre_export)
+    # Build BP DataFrame
+    _bp_export = {}
+    for yr in anos:
+        b = balanco[yr]
+        _bp_export[ano_lbl[yr]] = {
+            "Caixa": mn(b["Caixa"]), "Ativo Imobilizado": mn(b["Ativo Imobilizado Liquido"]),
+            "Total Ativo": mn(b["Total Ativo"]), "Divida Total": mn(b["Divida Total"]),
+            "Capital Social": mn(b["Capital Social"]), "Lucros Acumulados": mn(b["Lucros Acumulados"]),
+            "Total PL": mn(b["Total PL"]), "Total Passivo + PL": mn(b["Total Passivo + PL"]),
+        }
+    _export_sheets["BP"] = pd.DataFrame(_bp_export)
+    _xlsx_bytes = export_dataframes_to_xlsx(_export_sheets)
+    _dl_name = f"DFs_{nome_proj or 'projeto'}.xlsx".replace(" ", "_")
+    st.download_button(
+        label="⬇️  Download DFs (.xlsx)" if lang == "PT" else "⬇️  Download Statements (.xlsx)",
+        data=_xlsx_bytes, file_name=_dl_name,
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+
 # ─────────────────────────────────────────────────────────────────────────────
 # ABA 6 — ANALISE DE SENSIBILIDADE
 # ─────────────────────────────────────────────────────────────────────────────

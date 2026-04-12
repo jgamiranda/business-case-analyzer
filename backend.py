@@ -174,6 +174,25 @@ def render_3stmt_table(rows, columns, title=None):
     return "".join(parts)
 
 
+# ─── Excel export helper ─────────────────────────────────────────────────────
+
+def export_dataframes_to_xlsx(sheets: dict) -> bytes:
+    """Export multiple DataFrames as sheets in a single .xlsx file.
+
+    sheets: dict of {"Sheet Name": pd.DataFrame}
+    Returns bytes suitable for st.download_button.
+    """
+    import io
+    buf = io.BytesIO()
+    with pd.ExcelWriter(buf, engine="openpyxl") as writer:
+        for name, df in sheets.items():
+            # Sheet name max 31 chars
+            safe_name = name[:31]
+            df.to_excel(writer, sheet_name=safe_name)
+    buf.seek(0)
+    return buf.getvalue()
+
+
 # ─── Operational cash flow ───────────────────────────────────────────────────
 
 def calcular_operacional(receitas, cpvs, opexs, capex_lines, horizonte,

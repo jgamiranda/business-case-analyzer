@@ -1754,6 +1754,35 @@ with tabs[5]:
                else "Ajuste Caixa inicial, Divida, Capital Social ou premissas de capital de giro.")
         )
 
+    # ── Export to Excel ──
+    from backend import export_dataframes_to_xlsx
+    _dcf_sheets = {
+        "Income Statement": pd.DataFrame({
+            year_labels_fs[i]: {
+                T("fs_revenue"): fmt_mm(_rev[i]), "COGS": fmt_mm(is_cogs[i]),
+                "Gross": fmt_mm(is_gross[i]), "EBITDA": fmt_mm(is_ebitda[i]),
+                "EBIT": fmt_mm(is_ebit[i]), "Interest": fmt_mm(int_exp_list[i]),
+                "Pre-tax": fmt_mm(is_pretax[i]), "Tax": fmt_mm(is_tax[i]),
+                "Net Income": fmt_mm(is_ni[i]),
+            } for i in range(n_fs)
+        }),
+        "Balance Sheet": pd.DataFrame({
+            year_labels_fs[i]: {
+                "Cash": fmt_mm(bs_cash[i]), "AR": fmt_mm(bs_ar[i]),
+                "Inventory": fmt_mm(bs_inv[i]), "Total Assets": fmt_mm(bs_ta[i]),
+                "AP": fmt_mm(bs_ap[i]), "LT Debt": fmt_mm(bs_ltd[i]),
+                "Total Liab": fmt_mm(bs_tl[i]), "Equity": fmt_mm(bs_te[i]),
+                "Total L+E": fmt_mm(bs_tle[i]),
+            } for i in range(n_fs)
+        }),
+    }
+    st.download_button(
+        label="⬇️  Download Statements (.xlsx)",
+        data=export_dataframes_to_xlsx(_dcf_sheets),
+        file_name="DCF_Financial_Statements.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True)
+
 # ═════════════════════════════════════════════════════════════════════════════
 # TAB 7 — SENSITIVITY (Enhanced)
 # ═════════════════════════════════════════════════════════════════════════════
